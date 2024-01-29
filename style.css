@@ -2,11 +2,10 @@
     --main_color: #2A3647;
     --main_color_dark: #091931;
     --background_main: #F6F7F8;
-    --main_font: 
-    
 }
 
 body {
     margin: 0;
     padding: 0;
+    font-family: var(--main_font);
 }
