@@ -1,0 +1,139 @@
+.side_bar_test {
+    width: 232px;
+    height: 100vh;
+    background-color: black;
+}
+
+main {
+    display: flex;
+}
+
+.header {
+    background-color: grey;
+    width: 100%;
+    height: 96px;
+}
+
+h1 {
+    color: #000;
+    margin: 32px 0px;
+    /* Version 2/t1 */
+    font-family: Inter;
+    font-size: 61px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%; /* 73.2px */
+}
+
+.break_line {
+    width: 1px;
+    background-color: #D1D1D1;
+}
+
+.add_task_content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+}
+
+.prio_category {
+    display: flex;
+    gap: 16px;
+}
+
+.main_content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.input {
+    width: 440px;
+    display: flex;
+    padding: 12px 21px;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+    border-radius: 10px;
+    border: 1px solid #D1D1D1;
+    background: #FFF;
+    color: #D1D1D1;
+
+    /* Version 2/t6 */
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 24px */
+}
+
+.input:focus {
+    color: #000;
+}
+
+.select {
+    color: #000;
+    /* Version 2/t6 */
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 24px */
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid #D1D1D1;
+    background: #FFF;
+    padding: 12px 21px;
+}
+
+.required_char {
+    color: #FF8190;
+}
+
+.add_task_footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form_content {
+    display: flex;
+    gap: 8px;
+}
+
+.form_button_container {
+    display: flex;
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}
+
+.form_button_container button {
+    cursor: pointer;
+}
+
+.form_button_clear {
+    border-radius: 10px;
+    border: 1px solid #2A3647;
+    background: #F6F7F8;
+    /* Version 2/t6 */
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 24px */
+}
+
+.form_button_create {
+    border-radius: 10px;
+    background: #2A3647;
+    color: #FFF;
+
+    font-family: Inter;
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%; /* 25.2px */
+}

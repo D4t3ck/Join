@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./assets/fonts/fonts.css">
+    <link rel="stylesheet" href="./assets/css/add_task.css">
+</head>
+<body>
+
+    <main>
+        <section class="side_bar_test"></section>
+        <section class="header">
+            <nav class="header"></nav>
+            <section class="add_task_content">
+
+                <div class="main_content">
+                    <h1>Add Task</h1>
+                    <div class="form_content">
+                        <div>
+                            <label for="title_input">
+                                <h2>Title<span class="required_char">*</span></h2>
+                                <input type="text" id="title_input" class="input" placeholder="Enter a title">
+                            </label>
+                            <label for="description_textarea">
+                                <h2>Description</h2>
+                                <textarea name="" id="description_textarea" cols="30" rows="4" placeholder="Enter a Description" class="input"></textarea>
+                            </label>
+                            <label for="select_contact">
+                                <h2>Assigned to</h2>
+                                <select name="" id="select_contact" placeholder="test" class="select">
+                                    <option value="" disabled selected>Select contacts to assign</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div class="break_line"></div>
+                        <div>
+                            <label for="date_input">
+                                <h2>Due date<span class="required_char">*</span></h2>
+                                <input type="text" placeholder="dd/mm/yyyy" id="date_input" onfocus="(this.type='date')" class="input">
+                            </label>
+                            <label for="">
+                                <h2>Prio</h2>
+                                <div class="prio_category">
+                                    <span>
+                                        <h2>Urgent</h2>
+                                    </span><span>
+                                        <h2>Medium</h2>
+                                    </span><span>
+                                        <h2>Low</h2>
+                                    </span>
+                                </div>
+                            </label>
+                            <label for="select_category">
+                                <h2>Category<span class="required_char">*</span></h2>
+                                <select name="" id="select_category" class="select">
+                                    <option value="" disabled selected>Select task category</option>
+                                </select>
+                            </label>
+                            <label for="input_subtask">
+                                <h2>Subtasks</h2>
+                                <input type="text" id="input_subtask" placeholder="Add new subtask" class="input">
+                            </label>
+                        </div>
+                    </div>
+                    <section class="add_task_footer">
+                        <div>
+                            <p><span class="required_char">*</span>This field is required</p>
+                        </div>
+                        <div class="form_button_container">
+                            <button class="form_button_clear">Clear</button>
+                            <button class="form_button_create">Create Task</button>
+                        </div>
+                    </section>
+                </div>
+                
+            </section>
+        </section>
+    </main>
+    
+</body>
+</html

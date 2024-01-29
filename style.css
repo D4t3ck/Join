@@ -12,3 +12,7 @@ body {
     font-family: var(--main_font);
     background-color: var(--background_main);
 }
+
+.main_content {
+    display: flex;
+}
