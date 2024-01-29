@@ -3,6 +3,7 @@
     --main_color_dark: #091931;
     --background_main: #F6F7F8;
     --main_font: 'Inter', sans-serif;
+    --backup_font: system-ui, sans-serif;
 }
 
 body {
