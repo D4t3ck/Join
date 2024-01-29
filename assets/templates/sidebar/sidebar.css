@@ -34,6 +34,7 @@
 
 .sidebar_menu_1 {
   display: flex;
+  justify-content: center;
   align-items: center;
   width: 232px;
   height: 46px;
@@ -49,6 +50,7 @@
 
 .sidebar_menu_2 {
   display: flex;
+  justify-content: center;
   align-items: center;
   width: 232px;
   height: 46px;
@@ -58,6 +60,7 @@
 
 .sidebar_menu_3 {
   display: flex;
+  justify-content: center;
   align-items: center;
   width: 232px;
   height: 46px;
@@ -67,6 +70,7 @@
 
 .sidebar_menu_4 {
   display: flex;
+  justify-content: center;
   align-items: center;
   width: 232px;
   height: 46px;
