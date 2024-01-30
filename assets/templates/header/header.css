@@ -11,8 +11,7 @@
 
 .header_text {
   font-size: 28px;
-  font-weight: 400;
-  line-height: 24px;
+  font-weight: 500;
 }
 
 .header_login {
@@ -32,6 +31,8 @@
 .header_logo {
   display: none;
 }
+
+/********** MEDIA QUERY **********/
 
 @media (max-width: 1000px) {
   .header_container {
