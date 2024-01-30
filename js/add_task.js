@@ -25,7 +25,7 @@ function getTaskData() {
     const description = document.getElementById('description_textarea').value;
     const assignedTo = null;
     const dueDate = document.getElementById('date_input').value;
-    const prio = null;
+    const prio = getPrio();
     const category = document.getElementById('select_category').value;
     const subtasks = null;
     const task = new Task(title, description, assignedTo, dueDate, prio, category, subtasks);
@@ -47,4 +47,16 @@ function removeActiveClass(index, prio) {
     document.getElementById('prio_category_img0').src = './assets/img/add_task/urgent_color.png';
     document.getElementById('prio_category_img1').src = './assets/img/add_task/medium_color.png';
     document.getElementById('prio_category_img2').src = './assets/img/add_task/low_color.png';
+}
+
+function getPrio() {
+    let value;
+    for(let i = 0; i < prioSpans.length; i++) {
+        for(let j = 0; j < prioSpans[i].classList.length; j++) {
+            if(prioSpans[i].classList[j] == 'urgent' || prioSpans[i].classList[j] == 'medium' || prioSpans[i].classList[j] == 'low') {
+                value = document.getElementById(`prio_headline${i}`).innerText.toLowerCase()
+            } 
+        }
+    }
+    return value;
 }
