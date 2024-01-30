@@ -1,5 +1,6 @@
 let tasks = [];
 const prioSpans = document.querySelectorAll('.prio_category_span');
+document.getElementById('clear_button').addEventListener('click', clear);
 
 class Task {
     constructor(title, description, assignedTo, dueDate, prio, category, subtasks) {
@@ -16,6 +17,13 @@ class Task {
 function init() {
     includeHTML();
     setActivePrio(1, 'medium');
+}
+
+function clear() {
+    document.getElementById('title_input').value = '';
+    document.getElementById('description_textarea').value = '';
+    document.getElementById('date_input').value = '';
+    document.getElementById('select_category').value = '';
 }
 
 function checkForm(event) {
