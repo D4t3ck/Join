@@ -19,3 +19,11 @@
   align-items: center;
   gap: 16px;
 }
+
+.header_login :first-child:hover {
+  cursor: pointer;
+}
+
+.header_login:nth-child(2):hover {
+  cursor: pointer;
+}
