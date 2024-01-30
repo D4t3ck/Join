@@ -68,6 +68,30 @@ h1 {
     box-shadow: -2px 6px 2px 1px rgba(0, 0, 0, 0.10);
 }
 
+.urgent {
+    background-color: #FF3D00;
+}
+
+.urgent:hover {
+    box-shadow: none;
+}
+
+.medium {
+    background-color: #FFA800;
+}
+
+.medium:hover {
+    box-shadow: none;
+}
+
+.low {
+    background-color: #7AE229;
+}
+
+.low:hover {
+    box-shadow: none;
+}
+
 .prio_category_span span {
     display: flex;
     align-items: center;
