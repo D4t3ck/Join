@@ -8,13 +8,17 @@
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./assets/fonts/fonts.css">
     <link rel="stylesheet" href="./assets/css/add_task.css">
+    <link rel="stylesheet" href="./assets/templates/sidebar/sidebar.css">
+    <link rel="stylesheet" href="./assets/templates/header/header.css">
 </head>
-<body>
+<body onload="init()">
 
     <main>
-        <section class="side_bar_test"></section>
+        <!-- <section class="side_bar_test"></section> -->
+        <div w3-include-html="./assets/templates/sidebar/sidebar.html"></div>
         <section class="header">
-            <nav class="header"></nav>
+            <!-- <nav class="header"></nav> -->
+            <div w3-include-html="./assets/templates/header/header.html"></div>
             <section class="add_task_content">
 
                 <form onsubmit="checkForm(event)">
@@ -86,7 +90,7 @@
         </section>
     </main>
     
-
+    <script src="./script.js"></script>
     <script src="./js/add_task.js"></script>
 </body>
 </html

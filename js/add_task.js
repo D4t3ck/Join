@@ -13,6 +13,11 @@ class Task {
     }
 }
 
+function init() {
+    includeHTML();
+    setActivePrio(1, 'medium');
+}
+
 function checkForm(event) {
     event.preventDefault();
     console.log('Form Checked!');
