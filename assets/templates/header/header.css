@@ -3,15 +3,15 @@
   justify-content: space-between;
   align-items: center;
   width: auto;
-  height: auto;
-  padding: 20px 40px 20px 348px;
+  height: 96px;
+  padding: 0px 40px 0px 348px;
   background-color: #fff;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
 }
 
 .header_text {
   font-size: 28px;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .header_login {
