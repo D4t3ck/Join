@@ -6,9 +6,16 @@
     <title>Document</title>
     <link rel="stylesheet" href="./assets/css/summary.css">
     <link rel="stylesheet" href="./assets/fonts/fonts.css">
+    <link rel="stylesheet" href="./assets/templates/header/header.css" />
+    <link rel="stylesheet" href="./assets/templates/sidebar/sidebar.css" />
+    <script src="script.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body onload="init()">
+    <div w3-include-html="./assets/templates/header/header.html"></div>
+    <div w3-include-html="./assets/templates/sidebar/sidebar.html"></div>
+
+
     <div class="summary_container">
         <div class="summary_headline">
             <h1 class="join360">Join 360</h1>
@@ -80,5 +87,7 @@
             </div>
         </div>
     </div>
+
+
 </body>
 </html>
