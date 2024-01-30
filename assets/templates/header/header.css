@@ -25,7 +25,7 @@
   cursor: pointer;
 }
 
-.header_login:nth-child(2):hover {
+.header_login :nth-child(2):hover {
   cursor: pointer;
 }
 
