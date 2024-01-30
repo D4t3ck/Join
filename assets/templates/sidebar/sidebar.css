@@ -53,7 +53,7 @@
   background-color: var(--main_color_lighter);
 }
 
-.footer_link {
+.sidebar_footer_link {
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -61,7 +61,7 @@
   gap: 4px;
 }
 
-.footer_link a {
+.sidebar_footer_link a {
   padding: 8px;
   text-decoration: none;
   color: rgba(168, 168, 168, 1);
