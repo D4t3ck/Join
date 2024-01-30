@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Task</title>
+    <link rel="shortcut icon" href="./assets/img/favicon_light.png" type="image/x-icon">
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./assets/fonts/fonts.css">
     <link rel="stylesheet" href="./assets/css/add_task.css">
@@ -16,69 +17,75 @@
             <nav class="header"></nav>
             <section class="add_task_content">
 
-                <div class="main_content">
-                    <h1>Add Task</h1>
-                    <div class="form_content">
-                        <div>
-                            <label for="title_input">
-                                <h2>Title<span class="required_char">*</span></h2>
-                                <input type="text" id="title_input" class="input" placeholder="Enter a title">
-                            </label>
-                            <label for="description_textarea">
-                                <h2>Description</h2>
-                                <textarea name="" id="description_textarea" cols="30" rows="4" placeholder="Enter a Description" class="input"></textarea>
-                            </label>
-                            <label for="select_contact">
-                                <h2>Assigned to</h2>
-                                <select name="" id="select_contact" placeholder="test" class="select">
-                                    <option value="" disabled selected>Select contacts to assign</option>
-                                </select>
-                            </label>
+                <form onsubmit="checkForm(event)">
+                    <div class="main_content">
+                        <h1>Add Task</h1>
+                        <div class="form_content">
+                            <div>
+                                <label for="title_input">
+                                    <h2>Title<span class="required_char">*</span></h2>
+                                    <input required type="text" id="title_input" class="input" placeholder="Enter a title">
+                                </label>
+                                <label for="description_textarea">
+                                    <h2>Description</h2>
+                                    <textarea name="" id="description_textarea" cols="30" rows="4" placeholder="Enter a Description" class="input"></textarea>
+                                </label>
+                                <label for="select_contact">
+                                    <h2>Assigned to</h2>
+                                    <select name="" id="select_contact" placeholder="test" class="select">
+                                        <option value="" disabled selected>Select contacts to assign</option>
+                                    </select>
+                                </label>
+                            </div>
+                            <div class="break_line"></div>
+                            <div>
+                                <label for="date_input">
+                                    <h2>Due date<span class="required_char">*</span></h2>
+                                    <input required type="text" placeholder="dd/mm/yyyy" id="date_input" onfocus="(this.type='date')" class="input">
+                                </label>
+                                <label for="">
+                                    <h2>Prio</h2>
+                                    <div class="prio_category">
+                                        <span class="prio_category_span">
+                                            <h2>Urgent<span><img src="./assets/img/add_task/urgent_color.png"></span></h2>
+                                        </span>
+                                        <span class="prio_category_span">
+                                            <h2>Medium<span><img src="./assets/img/add_task/medium_color.png"></span></h2>
+                                        </span>
+                                        <span class="prio_category_span">
+                                            <h2>Low<span><img src="./assets/img/add_task/low_color.png"></span></h2>
+                                        </span>
+                                    </div>
+                                </label>
+                                <label for="select_category">
+                                    <h2>Category<span class="required_char">*</span></h2>
+                                    <select name="" id="select_category" class="select" required>
+                                        <option value="" disabled selected>Select task category</option>
+                                    </select>
+                                </label>
+                                <label for="input_subtask">
+                                    <h2>Subtasks</h2>
+                                    <input type="text" id="input_subtask" placeholder="Add new subtask" class="input">
+                                </label>
+                            </div>
                         </div>
-                        <div class="break_line"></div>
-                        <div>
-                            <label for="date_input">
-                                <h2>Due date<span class="required_char">*</span></h2>
-                                <input type="text" placeholder="dd/mm/yyyy" id="date_input" onfocus="(this.type='date')" class="input">
-                            </label>
-                            <label for="">
-                                <h2>Prio</h2>
-                                <div class="prio_category">
-                                    <span>
-                                        <h2>Urgent</h2>
-                                    </span><span>
-                                        <h2>Medium</h2>
-                                    </span><span>
-                                        <h2>Low</h2>
-                                    </span>
-                                </div>
-                            </label>
-                            <label for="select_category">
-                                <h2>Category<span class="required_char">*</span></h2>
-                                <select name="" id="select_category" class="select">
-                                    <option value="" disabled selected>Select task category</option>
-                                </select>
-                            </label>
-                            <label for="input_subtask">
-                                <h2>Subtasks</h2>
-                                <input type="text" id="input_subtask" placeholder="Add new subtask" class="input">
-                            </label>
-                        </div>
+                        <section class="add_task_footer">
+                            <div>
+                                <p><span class="required_char">*</span>This field is required</p>
+                            </div>
+                            <div class="form_button_container">
+                                <button class="form_button_clear">Clear</button>
+                                <button class="form_button_create" type="submit">Create Task</button>
+                            </div>
+                        </section>
                     </div>
-                    <section class="add_task_footer">
-                        <div>
-                            <p><span class="required_char">*</span>This field is required</p>
-                        </div>
-                        <div class="form_button_container">
-                            <button class="form_button_clear">Clear</button>
-                            <button class="form_button_create">Create Task</button>
-                        </div>
-                    </section>
-                </div>
+                </form>
                 
             </section>
         </section>
     </main>
     
+
+    <script src="./js/add_task.js"></script>
 </body>
 </html
