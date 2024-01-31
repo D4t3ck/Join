@@ -7,6 +7,90 @@
     <link rel="stylesheet" href="assets/css/overlay.css" />
   </head>
   <body>
+    // Overlay User Story Edit//
+    <section class="edit_overlay">
+      <span class="close"
+        ><img class="closeIcon" src="./assets/img/img_summary/close.png" alt=""
+      /></span>
+
+      <div class="edit_container">
+        <div class="edit_title_container">
+          <span class="edit_title_headline">Title</span>
+          <div class="edit_title">
+            <span class="edit_title_text"
+              >Kochwelt Page & Recipe Recommender</span
+            >
+          </div>
+        </div>
+        <div class="edit_title_container">
+          <span class="edit_title_headline">Description</span>
+          <div class="edit_description">
+            <span class="edit_description_text"
+              >Build start page with recipe recommendation.</span
+            >
+            <span class="edit_description_undertext"></span>
+          </div>
+        </div>
+        <div class="edit_title_container">
+          <span class="edit_title_headline">Due date</span>
+          <div class="edit_date_container">
+            <input type="date" name="" id="" class="edit_date_input" />
+          </div>
+        </div>
+      </div>
+      <div class="edit_priority_area">
+        <span class="priority_headline">Priority</span>
+        <div class="priority_urgent_container">
+          <div class="priority_urgent_field">
+            <span class="edit_priority_btn_text">Urgent</span>
+            <img src="./assets/img/img_summary/Prioalta.png" alt="" />
+          </div>
+          <div class="priority_urgent_field">
+            <span class="edit_priority_btn_text">Medium</span>
+            <img src="./assets/img/img_summary/Priomedia.png" alt="" />
+          </div>
+          <div class="priority_urgent_field">
+            <span class="edit_priority_btn_text">Low</span>
+            <img src="./assets/img/img_summary/Priolow.png" alt="" />
+          </div>
+        </div>
+      </div>
+
+      <div class="edit_assignedto_area">
+        <span class="edit_title_headline">Assigent to</span>
+        <select name="" id="" class="edit_assignedto_secltion">
+          <option value="1">Sofia Müller</option>
+          <option value="2">Benedikt Ziegler</option>
+        </select>
+        <div class="edit_assignedto_profil">
+          <img src="./assets/img/img_summary/profilImg.png" alt="">
+          <img src="./assets/img/img_summary/profilImg.png" alt="">
+          <img src="./assets/img/img_summary/profilImg.png" alt="">
+        </div>
+      </div>
+
+      <div class="edit_subtasks_area">
+        <span class="edit_title_headline">Subtasks</span>
+        <select name="" id="" class="edit_assignedto_secltion">
+          <option value="1">doing 1</option>
+          <option value="2">doing 2</option>
+          <input type="checkbox" name="" id="">
+          <input type="checkbox" name="" id="">
+
+        </select>
+
+        
+      </div>
+
+      <div class="edit_ok_btn">
+        <span class="edit_ok_text">OK</span>
+        <img src="./assets/img/img_summary/check.png" alt="">
+      </div>
+
+
+
+    </section>
+
     // Overlay User Story //
     <section class="overlay">
       <div class="overlay_header">
@@ -55,25 +139,39 @@
       <div class="stretch">
         <div class="overlay_subtasks">Subtasks</div>
         <div class="subtasks_check">
-            <div class="subtask">
-                <div class="subtasks_check_field"><img src="./assets/img/img_summary/Checkbuttonfill.png" alt=""></div>
-                <span class="subtasks_check_text">Implement Recipe Recommendation</span>
+          <div class="subtask">
+            <div class="subtasks_check_field">
+              <img src="./assets/img/img_summary/Checkbuttonfill.png" alt="" />
             </div>
-            <div class="subtask">
-                <div class="subtasks_check_field"><img src="./assets/img/img_summary/Checkbuttonempty.png" alt=""></div>
-                <span class="subtasks_check_text">Start Page Layout</span>
+            <span class="subtasks_check_text"
+              >Implement Recipe Recommendation</span
+            >
+          </div>
+          <div class="subtask">
+            <div class="subtasks_check_field">
+              <img src="./assets/img/img_summary/Checkbuttonempty.png" alt="" />
             </div>
+            <span class="subtasks_check_text">Start Page Layout</span>
+          </div>
         </div>
       </div>
       <div class="overlay_edit">
         <div class="edit_area">
-            <img class="edit_area_img" src="./assets/img/img_summary/delete.png" alt="">
-            <span class="edit_text">Delete</span>
+          <img
+            class="edit_area_img"
+            src="./assets/img/img_summary/delete.png"
+            alt=""
+          />
+          <span class="edit_text">Delete</span>
         </div>
-        <img src="./assets/img/img_summary/Vector.png" alt="">
+        <img src="./assets/img/img_summary/Vector.png" alt="" />
         <div class="edit_area">
-            <img class="edit_area_img" src="./assets/img/img_summary/edit.png" alt="">
-            <span class="edit_text">Edit</span>
+          <img
+            class="edit_area_img"
+            src="./assets/img/img_summary/edit.png"
+            alt=""
+          />
+          <span class="edit_text">Edit</span>
         </div>
       </div>
     </section>
