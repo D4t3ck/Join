@@ -1,4 +1,5 @@
 let tasks = [];
+let subTasks = [];
 const prioSpans = document.querySelectorAll('.prio_category_span');
 document.getElementById('clear_button').addEventListener('click', clear);
 
@@ -14,6 +15,13 @@ class Task {
     }
 }
 
+class subTask {
+    constructor(title, check) {
+        this.title = title;
+        this.check = check;
+    }
+}
+
 function init() {
     includeHTML();
     setActivePrio(1, 'medium');
@@ -24,6 +32,8 @@ function clear() {
     document.getElementById('description_textarea').value = '';
     document.getElementById('date_input').value = '';
     document.getElementById('select_category').value = '';
+    document.getElementById('subtask_content').innerHTML = '';
+    subTasks = [];
 }
 
 function checkForm(event) {
@@ -40,8 +50,7 @@ function getTaskData() {
     const dueDate = document.getElementById('date_input').value;
     const prio = getPrio();
     const category = document.getElementById('select_category').value;
-    const subtasks = null;
-    const task = new Task(title, description, assignedTo, dueDate, prio, category, subtasks);
+    const task = new Task(title, description, assignedTo, dueDate, prio, category, subTasks);
     tasks.push(task);
 }
 
@@ -72,4 +81,26 @@ function getPrio() {
         }
     }
     return value;
+}
+
+function setSubTask() {
+    const title = document.getElementById('input_subtask').value;
+    if(title != '') {
+        const task = new subTask(title, false);
+        subTasks.push(task);
+        document.getElementById('input_subtask').value = '';
+        printSubTask(); 
+    }
+}
+
+function printSubTask() {
+    subTasks.forEach(task => {
+        document.getElementById('subtask_content').innerHTML = generateSubTask(task);
+    });
+}
+
+function generateSubTask(task) {
+    return /*html*/`
+        <li>${task.title}</li>
+    `;
 }
