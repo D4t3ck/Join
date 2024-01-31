@@ -1,3 +1,10 @@
+/* body {
+    width: 1440px;
+    height: 1024px;
+    background: #F6F7F8;
+} */
+
+
 .summary_container {
     display: flex;
     flex-direction: column;
@@ -5,7 +12,8 @@
 
 .summary_main_container {
     display: flex;
-    justify-content: center;
+    justify-content: start;
+    margin-left: 328px;
 }
 
 .summary_overview {
@@ -19,10 +27,10 @@
 
 .summary_headline {
     display: inline-flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     gap: 30px;
-    margin-right: 400px;
+    margin-left: 328px;
 }
 
 .join360 {
@@ -79,6 +87,20 @@
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10);
 }
 
+.summary_todo:hover  {
+    cursor: pointer;
+    background-color: #2A3647;
+    transform: scale(1.05);
+}
+
+.summary_todo:hover .summary_number {
+    color: white;
+}
+
+.summary_todo:hover .summary_text_small {
+    color: white;
+}
+
 .summary_todo_nummberAndText {
     display: flex;
     flex-direction: column;
@@ -129,6 +151,35 @@
     margin-bottom: 28px;
 }
 
+.summary_urgent_text {
+    color: #2A3647;
+
+    /* Version 2/body */
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 19.2px */
+}
+
+.summary_urgent_container:hover {
+    cursor: pointer;
+    background-color: #2A3647;
+    transform: scale(1.05);  
+}
+
+.summary_urgent_container:hover .summary_number {
+    color: white;
+}
+
+.summary_urgent_container:hover .summary_urgent_text {
+    color: white;
+}
+
+.summary_urgent_container:hover .summary_date {
+    color: white;
+}
+
 .summary_urgent_field {
     display: flex;
     align-items: center;
@@ -153,6 +204,7 @@
     font-weight: 700;
     line-height: 120%; /* 25.2px */
     margin: 0;
+    padding-bottom: 13px;
 }
 
 .summary_tasks {
@@ -180,6 +232,32 @@
 
     /* nuevo */
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10);
+}
+
+.summary_tasks_text {
+    color: #2A3647;
+    text-align: center;
+    
+    /* Version 2/t6 */
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 24px */   
+}
+
+.summary_tasks_field:hover {
+    cursor: pointer;
+    background-color: #2A3647;
+    transform: scale(1.1);  
+}
+
+.summary_tasks_field:hover .summary_number {
+    color: white;
+}
+
+.summary_tasks_field:hover .summary_tasks_text {
+    color: white;
 }
 
 .summary_greeting {
