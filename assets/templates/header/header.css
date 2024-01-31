@@ -48,6 +48,8 @@
 .header_submenu {
   display: flex;
   justify-content: flex-end;
+  position: absolute;
+  right: 0;
 }
 
 .header_submenu_container {
