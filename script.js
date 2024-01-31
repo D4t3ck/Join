@@ -2,6 +2,11 @@ function init() {
   includeHTML();
 }
 
+function toggleSubMenu() {
+  const submenuContainer = document.querySelector('.header_submenu_container')
+  submenuContainer.classList.toggle('show');
+}
+
 ////////// W3 INCLUDE //////////
 
 async function includeHTML() {

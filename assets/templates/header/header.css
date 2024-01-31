@@ -1,3 +1,14 @@
+:root {
+  --main_color: #2a3647;
+  --main_color_lighter: #354458;
+  --main_color_dark: #091931;
+  --background_main: #f6f7f8;
+  --lightgray_font: #c0c0c0;
+  --lightblue_font: #29abe2;
+  --main_font: "Inter", sans-serif;
+  --backup_font: system-ui, sans-serif;
+}
+
 .header_container {
   display: flex;
   justify-content: space-between;
@@ -32,6 +43,44 @@
   display: none;
 }
 
+/********** SUBMENU **********/
+
+.header_submenu {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.header_submenu_container {
+  position: absolute;
+  display: none;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  width: 150px;
+  height: 160px;
+  margin-right: 16px;
+  border: 1px solid var(--main_color);
+  border-radius: 20px 0px 20px 20px;
+  background-color: var(--main_color);
+}
+
+.header_submenu_container.show {
+  display: flex;
+}
+
+.header_submenu_container a {
+  padding: 8px 16px;
+  font-family: var(--main_font);
+  text-decoration: none;
+  color: var(--lightgray_font);
+}
+
+.header_submenu_container a:hover {
+  cursor: pointer;
+  background-color: var(--main_color_lighter);
+}
+
 /********** MEDIA QUERY **********/
 
 @media (max-width: 1000px) {
@@ -39,9 +88,11 @@
     padding: 20px 16px;
     height: auto;
   }
+
   .header_text {
     display: none;
   }
+  
   .header_logo {
     display: block;
   }
