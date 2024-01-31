@@ -94,13 +94,14 @@ function setSubTask() {
 }
 
 function printSubTask() {
+    document.getElementById('subtask_content').innerHTML = '';
     subTasks.forEach(task => {
-        document.getElementById('subtask_content').innerHTML = generateSubTask(task);
+        document.getElementById('subtask_content').innerHTML += generateSubTask(task);
     });
 }
 
 function generateSubTask(task) {
     return /*html*/`
-        <li>${task.title}</li>
+        <p><span><span>•</span>${task.title}</span></p>
     `;
 }

@@ -238,3 +238,29 @@ h1 {
 .subtask_input span:hover button {
     background-color: lightgray;
 }
+
+#subtask_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 8px;
+    gap: 8px;
+}
+
+#subtask_content p {
+    width: 80%;
+    margin: 0;
+    display: flex;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 8px;
+}
+
+#subtask_content p span {
+    display: flex;
+    gap: 8px;
+}
+
+#subtask_content p:hover {
+    background-color: lightgray;
+}
