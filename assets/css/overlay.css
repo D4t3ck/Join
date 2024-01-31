@@ -1,0 +1,253 @@
+.overlay {
+    display: flex;
+    width: 525px;
+    padding: 48px 40px;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 24px;
+    border-radius: 30px;
+    background: #FFF;
+    
+    /* nuevo */
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.16);
+}
+
+.overlay_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;    
+}
+
+.overlay_user_task {
+    display: flex;
+    padding: 4px 24px;
+    align-items: flex-start;
+    gap: 10px;
+    border-radius: 8px;
+    background: #0038FF;
+    color: #FFF;
+
+    /* Version 2/t5 */
+    font-family: "Open Sans";
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 27.6px */
+}
+
+.close {
+    display: flex;
+    width: 32px;
+    height: 32px;
+    padding: 4px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 56px;
+}
+
+.closeIcon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+h1 {
+    align-self: stretch;
+    color: var(--black, #000);
+
+    /* Version 2/t1 */
+    font-family: Inter;
+    font-size: 61px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%; /* 73.2px */
+    margin: 0;
+}
+
+.overlay_text {
+    align-self: stretch;
+    color: var(--black, #000);
+
+    /* Version 2/t6 */
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 24px */
+}
+
+.overlay_flex_field {
+    display: flex;
+    align-items: flex-start;
+    gap: 25px;
+    align-self: stretch;
+}
+
+.due_date {
+    color: var(--Version-2-main-color, #2A3647);
+
+    /* Version 2/t6 */
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 24px */
+}
+
+.date {
+    color: var(--black, #000);
+
+    /* Version 2/t6 */
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 24px */
+}
+
+.overlay_priority {
+    display: flex;
+    padding: 4px 18px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 10px;
+}
+
+.priority {
+    display: flex;
+    padding: 4px 18px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; 
+}
+
+.stretch {
+    align-self: stretch;
+}
+
+.overlay_assigned_to {
+    align-self: stretch;
+    color: var(--Version-2-main-color, #2A3647);
+
+    /* Version 2/t6 */
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 24px */
+}
+
+.assigned_to_container {
+    display: flex;
+    padding: 7px 16px;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+    border-radius: 10px;
+}
+
+.assigned_to_field {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.user_img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.user_name{
+    color: #000;
+
+    /* Version 2/t6 */
+    font-family: "Open Sans";
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 22.8px */
+}
+
+.overlay_subtasks {
+    align-self: stretch;
+    color: var(--Version-2-main-color, #2A3647);
+
+    /* Version 2/t6 */
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 24px */
+}
+
+.subtasks_check {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    align-self: stretch;
+}
+
+.subtask {
+    display: flex;
+    height: 32px;
+    padding: 0px 16px;
+    align-items: center;
+    gap: 16px;
+}
+
+.subtasks_check_field {
+    display: flex;
+    width: 24px;
+    height: 24px;
+    padding: 4px;
+    justify-content: center;
+    align-items: center;
+}
+
+.subtasks_check_text {
+    color: #000;
+
+    /* Version 2/body */
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 19.2px */
+}
+
+.overlay_edit {
+    display: flex;
+    align-self: flex-end;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.edit_area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+   
+}
+
+.edit_area_img {
+    width: 24px;
+    height: 24px;
+}
+
+.edit_text {
+    color: var(--Version-2-main-color, #2A3647);
+
+    /* Version 2/body */
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 19.2px */
+}
+
