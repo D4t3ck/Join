@@ -10,13 +10,15 @@
     <link rel="stylesheet" href="./assets/css/add_task.css">
     <link rel="stylesheet" href="./assets/templates/sidebar/sidebar.css">
     <link rel="stylesheet" href="./assets/templates/header/header.css">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
 </head>
 <body onload="init()">
 
     <main>
         <!-- <section class="side_bar_test"></section> -->
-        <div w3-include-html="./assets/templates/sidebar/sidebar.html"></div>
+        <div class="side_bar_container">
+            <div w3-include-html="./assets/templates/sidebar/sidebar.html"></div>
+        </div>
         <section class="header">
             <!-- <nav class="header"></nav> -->
             <div w3-include-html="./assets/templates/header/header.html"></div>
