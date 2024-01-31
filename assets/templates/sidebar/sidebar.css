@@ -3,6 +3,8 @@
   --main_color_lighter: #354458;
   --main_color_dark: #091931;
   --background_main: #f6f7f8;
+  --lightgray_font: #c0c0c0;
+  --lightblue_font: #29abe2;
   --main_font: "Inter", sans-serif;
   --backup_font: system-ui, sans-serif;
 }
@@ -17,12 +19,11 @@
   align-items: center;
   flex-shrink: 0;
   flex-direction: column;
-  max-width: 232px;
+  max-width: 232px; /* auf 200px? */
   width: 100%;
   height: 100vh;
   background-color: var(--main_color);
-  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
-  color: rgba(168, 168, 168, 1);
+  color: var(--lightgray_font);
 }
 
 .sidebar_menu_container {
@@ -32,6 +33,7 @@
   align-items: flex-start;
   width: 100%;
   gap: 15px;
+  font-family: var(--main_font);
 }
 
 .sidebar_menu {
@@ -44,12 +46,18 @@
   gap: 8px;
 }
 
-.sidebar_3 img {
-  margin-right: 24px;
+.sidebar_menu :first-child {
+  width: auto;
+}
+
+.sidebar_menu :nth-child(2) {
+  width: 100px;
 }
 
 .sidebar_menu:hover {
   cursor: pointer;
+  border-radius: 10px;
+  border-width: 10px;
   background-color: var(--main_color_lighter);
 }
 
@@ -59,10 +67,61 @@
   align-items: flex-start;
   flex-direction: column;
   gap: 4px;
+  font-family: var(--main_font);
 }
 
 .sidebar_footer_link a {
   padding: 8px;
   text-decoration: none;
-  color: rgba(168, 168, 168, 1);
+  font-size: 16px;
+  color: var(--lightgray_font);
+}
+
+.sidebar_footer_link a:hover {
+  cursor: pointer;
+  color: var(--lightblue_font);
+}
+
+/********** MEDIA QUERY **********/
+
+@media (max-width: 1000px) {
+  .sidebar {
+    position: fixed;
+    bottom: 0;
+    top: unset;
+    justify-content: space-between;
+    max-width: 100%;
+    height: auto;
+    padding: 0 16px;
+    box-sizing: border-box;
+  }
+
+  .sidebar img,
+  .sidebar_footer_link {
+    display: none;
+  }
+
+  .sidebar_menu_container {
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 0;
+  }
+
+  .sidebar_menu {
+    flex-direction: column;
+    width: auto;
+    height: auto;
+    padding: 15px 0;
+    text-align: center;
+  }
+
+  .sidebar_menu :nth-child(2) {
+    width: auto;
+  }
+  .sidebar_menu img {
+    display: block;
+  }
+  .sidebar_menu p {
+    margin: 4px;
+  }
 }

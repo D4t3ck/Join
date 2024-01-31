@@ -3,7 +3,8 @@
   justify-content: space-between;
   align-items: center;
   width: auto;
-  padding: 20px 40px 20px 348px;
+  height: 96px;
+  padding: 0px 40px 0px 348px;
   background-color: #fff;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
 }
@@ -11,7 +12,6 @@
 .header_text {
   font-size: 28px;
   font-weight: 400;
-  line-height: 24px;
 }
 
 .header_login {
@@ -24,6 +24,25 @@
   cursor: pointer;
 }
 
-.header_login:nth-child(2):hover {
+.header_login :nth-child(2):hover {
   cursor: pointer;
+}
+
+.header_logo {
+  display: none;
+}
+
+/********** MEDIA QUERY **********/
+
+@media (max-width: 1000px) {
+  .header_container {
+    padding: 20px 16px;
+    height: auto;
+  }
+  .header_text {
+    display: none;
+  }
+  .header_logo {
+    display: block;
+  }
 }

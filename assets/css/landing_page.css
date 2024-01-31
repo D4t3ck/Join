@@ -1,10 +1,43 @@
+:root {
+  --main_color: #2a3647;
+  --main_color_lighter: #354458;
+  --main_color_dark: #091931;
+  --background_main: #f6f7f8;
+  --lightgray_font: #c0c0c0;
+  --lightblue_font: #29abe2;
+  --main_font: "Inter", sans-serif;
+  --backup_font: system-ui, sans-serif;
+}
 body {
-    margin: 0;
-    background-color: #f6f7f8;
+  margin: 0;
+  padding: 0;
+  font-family: var(--main_font);
+  background-color: var(--background_main);
+}
+
+.landing_page_desktop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.landing_page_mobile {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/********** MEDIA QUERY *********/
+
+@media (max-width: 1000px) {
+  .landing_page_desktop {
+    display: none;
   }
-  .landing_page_logo {
+
+  .landing_page_mobile {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    background-color: var(--main_color);
   }
+}
