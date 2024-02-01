@@ -22,10 +22,17 @@ body {
 
 /********** HEAD **********/
 
+.login_page_container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  height: 100vh;
+}
+
 .login_page_head {
   display: flex;
   justify-content: space-between;
-  padding: 80px 122px 0 77px;
+  padding: 60px 122px 0 77px;
 }
 
 .sign_up_container {
@@ -73,12 +80,13 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 652px;
-  height: 493px;
+  width: auto;
+  height: auto;
+  padding: 40px;
   border-radius: 30px;
   background-color: var(--card_color);
 }
-
+/* loginHead */
 .login_card_head {
   display: flex;
   justify-content: center;
@@ -89,10 +97,11 @@ body {
 
 .login_card_head h1 {
   font-size: 61px;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
+/* loginCenter */
 .login_card_center {
   display: flex;
   justify-content: center;
@@ -116,7 +125,7 @@ body {
   align-items: center;
   width: 422px;
   height: 48px;
-  padding: 12px 21px;
+  padding: 0px 21px;
   border-radius: 10px;
   border: 1px solid var(--Style, #d1d1d1);
   background: #fff;
@@ -150,19 +159,23 @@ body {
   color: var(--placeholder_color);
 }
 
-.login_input button {
+.login_input div {
   height: 24px;
   background-color: var(--card_color);
   border: none;
 }
 
 .false_password {
-  width: 422px;
-  height: 24px;
-  margin-top: 8px;
+  width: auto;
+  height: auto;
+  margin-top: -16px;
   color: red;
   font-size: 12px;
   opacity: 50%;
+}
+
+.false_password p {
+  margin: 0;
 }
 
 .login_check {
@@ -170,32 +183,19 @@ body {
   justify-content: center;
   align-items: center;
   gap: 8px;
-  margin-left: 70px; /* links oder rechtsbündig? */
+  margin-top: 12px;
+  margin-left: 60px; /* links oder rechtsbündig? */
 }
 
 .login_check img {
   transform: translateY(-2px);
 }
 
-/* input[type="checkbox"] {
-  outline: none;
-  border: none;
-}
-
-input[type="checkbox"] {
-  box-shadow: 1px -1px 1px rgba(0, 0, 0, 1);
-}
-
-input[type="checkbox"]:hover {
-  box-shadow: -1px 1px 1px rgba(0, 0, 0, 1);
-}
-
-.login_check input:hover {
+.login_check img:hover {
   cursor: pointer;
-} */
+}
 
-
-
+/* loginFoot */
 .login_card_foot {
   display: flex;
   width: 322px;
@@ -250,12 +250,198 @@ input[type="checkbox"]:hover {
   box-shadow: -1px 5px 5px 0px #c2c2c2;
 }
 
+/********** SIGN UP **********/
+
+.signup_page_main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin-top: 30px; */
+}
+
+.signup_card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: auto;
+  height: auto;
+  padding: 40px;
+  border-radius: 30px;
+  background-color: var(--card_color);
+}
+
+/* signupHead */
+
+.signup_card_head {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: auto;
+}
+
+.back_arrow {
+  position: relative;
+  left: -120px;
+  flex: 1;
+}
+
+.back_arrow:hover {
+  cursor: pointer;
+}
+
+.signup_header {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.signup_header h1 {
+  font-size: 61px;
+  margin: 0;
+  padding: 0;
+}
+
+/* signupCenter */
+.signup_card_center {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 32px;
+  margin-bottom: 20px;
+  gap: 16px;
+}
+
+.signup_input_container {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  height: auto;
+  gap: 32px;
+}
+
+.signup_input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 422px;
+  height: 48px;
+  padding: 0px 21px;
+  border-radius: 10px;
+  border: 1px solid var(--Style, #d1d1d1);
+  background: #fff;
+}
+
+.signup_input input {
+  flex: 1;
+  height: 24px;
+  border: none;
+}
+
+.signup_input input::placeholder {
+  transform: translateY(5px);
+}
+
+.signup_input input:hover,
+.signup_input button:hover {
+  cursor: pointer;
+}
+
+.signup_input input:focus {
+  outline: none;
+}
+
+.signup_input input:focus::placeholder {
+  color: transparent;
+}
+
+.signup_input input::placeholder {
+  font-size: 20px;
+  color: var(--placeholder_color);
+}
+
+.signup_input div {
+  height: 24px;
+  background-color: var(--card_color);
+  border: none;
+}
+
+.match_password {
+  display: flex;
+  justify-content: flex-start;
+  width: auto;
+  height: auto;
+  margin-top: -14px;
+  color: red;
+  font-size: 12px;
+  opacity: 50%;
+}
+
+.match_password p {
+  margin: 0;
+}
+
+.signup_check {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--lightgray_font);
+  gap: 4px;
+}
+
+.signup_check img {
+  transform: translateY(-2px);
+}
+
+.signup_check img:hover {
+  cursor: pointer;
+}
+
+.signup_check a {
+  text-decoration: none;
+  color: var(--lightblue_font);
+}
+
+/* loginFoot */
+.signup_card_foot {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 322px;
+  height: 48px;
+  gap: 35px;
+}
+
+.foot_signup_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 110px;
+  height: 48px;
+  padding: 15px, 24px, 15px, 24px;
+  border-radius: 8px;
+  font-size: 21px;
+  font-weight: 700;
+  box-sizing: border-box;
+  background-color: var(--main_color);
+  color: var(--card_color);
+}
+
+.foot_signup_btn:hover {
+  cursor: pointer;
+  background-color: var(--lightblue_font);
+  border-color: var(--lightblue_font);
+  box-shadow: none;
+  box-shadow: -1px 5px 5px 0px #c2c2c2;
+}
+
 /********** FOOTER **********/
 
 .login_page_bottom {
   display: flex;
   justify-content: center;
-  margin-top: 120px;
+  margin: 60px 0px;
   gap: 16px;
   box-sizing: border-box;
 }
@@ -272,5 +458,3 @@ input[type="checkbox"]:hover {
   color: var(--lightblue_font);
   font-weight: bold;
 }
-
-

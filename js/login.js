@@ -1,14 +1,27 @@
-let isImage1 = true;
+let isImageLog = true;
 
-function toggleCheckboxImage() {
-    let image = document.getElementById('checkbox');
+function toggleCheckboxLogin() {
+  let image = document.getElementById("checkLogin");
 
-    if(isImage1) {
-        image.src = "./assets/img/login/checked.png";
-    } else {
-        image.src = "./assets/img/login/unchecked.png";
-    }
+  if (isImageLog) {
+    image.src = "./assets/img/login/checked.png";
+  } else {
+    image.src = "./assets/img/login/unchecked.png";
+  }
 
-    isImage1 = !isImage1;
+  isImageLog = !isImageLog;
 }
 
+let isImageSign = true;
+
+function toggleCheckboxSignup() {
+  let image = document.getElementById("checkSignup");
+
+  if (isImageSign) {
+    image.src = "./assets/img/login/checked.png";
+  } else {
+    image.src = "./assets/img/login/unchecked.png";
+  }
+
+  isImageSign = !isImageSign;
+}

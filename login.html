@@ -3,17 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
+    <title>Join</title>
     <link
       rel="shortcut icon"
       href="./assets/img/favicon_light.png"
       type="image/x-icon"
     />
     <link rel="stylesheet" href="./assets/css/login.css" />
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style.css" />
     <script src="./js/login.js"></script>
   </head>
   <body>
+    <!-- --- HEAD --- -->
     <section class="login_page_container">
       <header class="login_page_head">
         <img src="./assets/img/logIn/logo_desktop.png" alt="Join Logo" />
@@ -23,63 +24,159 @@
         </div>
       </header>
 
+      <!-- --- MAIN --- -->
       <main class="login_page_main">
         <section class="login_card">
           <div class="login_card_head">
             <h1>Log in</h1>
             <img src="./assets/img/logIn/seperator.png" alt="Seperation line" />
           </div>
-          <!-- ----- -->
+
+          <!-- --- Input Felder --- -->
           <div class="login_card_center">
             <div class="login_input_container">
               <form class="login_input">
-                <input type="text" id="email" placeholder="E-Mail" required/>
-                <button>
+                <input type="text" id="email" placeholder="E-Mail" required />
+                <div>
                   <img src="./assets/img/logIn/mail.png" alt="E-mail Button" />
-                </button>
+                </div>
               </form>
 
               <form class="login_input">
-                <input type="password" id="password" placeholder="Password" required/>
-                <button>
+                <input
+                  type="password"
+                  id="password"
+                  placeholder="Password"
+                  required
+                />
+                <div>
                   <img src="./assets/img/logIn/lock.png" alt="E-mail Button" />
-                </button>
+                </div>
               </form>
             </div>
 
-            <div class="false_password"><!-- Wrong password Ups! Try again. --></div>
+            <div class="false_password">
+              <p>Wrong password Ups! Try again.</p>
+            </div>
 
             <form class="login_check">
-              <!-- <input type="checkbox" id="checkbox">
-              <label for="checkbox">Remember me</label> -->
-              <img id="checkbox" onclick="toggleCheckboxImage()" src="./assets/img/logIn/unchecked.png" alt="Checkbox"> Remember me
+              <img
+                id="checkLogin"
+                onclick="toggleCheckboxLogin()"
+                src="./assets/img/logIn/unchecked.png"
+                alt="Checkbox"
+              />
+              Remember me
             </form>
-
           </div>
 
-          <!-- ----- -->
+          <!-- ----- Login Button ----- -->
           <div class="login_card_foot">
             <span class="foot_login_btn">Log in</span>
             <span class="foot_guestlog_btn">Guest Log in</span>
           </div>
-
         </section>
-
-            <!-- <div style="display: none" class="login_card">
-              <div class="login_card_head">
-                <h1>Log in</h1>
-                <img src="" alt="" />
-              </div>
-
-              <div class="login_card_center"></div>
-
-              <div class="login_card_foot"></div>
-            </div> -->
       </main>
 
+      <!-- --- SIGN UP --- -->
+      <main class="signup_page_main" style="display: none">
+        <section class="signup_card">
+          <!-- -- signupHead--- -->
+          <div class="signup_card_head">
+            <img
+              class="back_arrow"
+              src="./assets/img/signUp/arrow_left.png"
+              alt="Pfeil zurück"
+            />
+            <div class="signup_header">
+              <h1>Sign up</h1>
+              <img
+                src="./assets/img/logIn/seperator.png"
+                alt="Seperation line"
+              />
+            </div>
+          </div>
+
+          <!-- -- Input Felder--- -->
+          <div class="signup_card_center">
+            <div class="signup_input_container">
+              <form class="signup_input">
+                <input
+                  type="text"
+                  id="nameSignup"
+                  placeholder="Name"
+                  required
+                />
+                <div>
+                  <img src="./assets/img/logIn/person.png" alt="Name" />
+                </div>
+              </form>
+
+              <form class="signup_input">
+                <input
+                  type="password"
+                  id="emailSignup"
+                  placeholder="Email"
+                  required
+                />
+                <div>
+                  <img src="./assets/img/logIn/mail.png" alt="E-mail" />
+                </div>
+              </form>
+
+              <form class="signup_input">
+                <input
+                  type="password"
+                  id="passwordSignup"
+                  placeholder="Password"
+                  required
+                />
+                <div>
+                  <img src="./assets/img/logIn/lock.png" alt="Passwort" />
+                </div>
+              </form>
+
+              <form class="signup_input">
+                <input
+                  type="password"
+                  id="passwordConfirm"
+                  placeholder="Confirm Password"
+                  required
+                />
+                <div>
+                  <img src="./assets/img/logIn/lock.png" alt="Confirm Button" />
+                </div>
+              </form>
+            </div>
+
+            <div class="match_password">
+              <p>Ups! your password don't match.</p>
+            </div>
+
+            <form class="signup_check">
+              <img
+                id="checkSignup"
+                onclick="toggleCheckboxSignup()"
+                src="./assets/img/logIn/unchecked.png"
+                alt="Checkbox"
+              />
+              I accept the <a href="#">Privacy policy</a>
+            </form>
+          </div>
+
+          <!-- --- Sign up Button --- -->
+          <div class="signup_card_foot">
+            <span class="foot_signup_btn">Sign up</span>
+          </div>
+        </section>
+      </main>
+
+      <!-- --- FOOTER --- -->
       <footer class="login_page_bottom">
-        <a href="#">Privacy Policy</a>  <!-- Link fehlt noch -->
-        <a href="#">Legal notice</a>    <!-- Link fehlt noch -->
+        <a href="#">Privacy Policy</a>
+        <!-- Link fehlt noch -->
+        <a href="#">Legal notice</a>
+        <!-- Link fehlt noch -->
       </footer>
     </section>
   </body>
