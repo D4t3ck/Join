@@ -2,6 +2,7 @@ let tasks = [];
 let subTasks = [];
 const prioSpans = document.querySelectorAll('.prio_category_span');
 document.getElementById('clear_button').addEventListener('click', clear);
+document.getElementById('date_input').min = new Date().toISOString().split("T")[0];
 
 class Task {
     constructor(title, description, assignedTo, dueDate, prio, category, subtasks) {
@@ -52,6 +53,7 @@ function getTaskData() {
     const category = document.getElementById('select_category').value;
     const task = new Task(title, description, assignedTo, dueDate, prio, category, subTasks);
     tasks.push(task);
+    clear();
 }
 
 function setActivePrio(index, prio) {
