@@ -275,11 +275,15 @@ h1 {
     transition: scale 80ms ease-in-out;
 }
 
-.subtask_icon:hover {
+.edit_icon {
+    width: 20px;
+}
+
+.icon:hover {
     scale: 1.1;
 }
 
-#subtask_content p:hover .subtask_icon {
+#subtask_content p:hover .icon {
     display: flex;
 }
 
