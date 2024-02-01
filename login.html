@@ -4,23 +4,79 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
+    <link
+      rel="shortcut icon"
+      href="./assets/img/favicon_light.png"
+      type="image/x-icon"
+    />
     <link rel="stylesheet" href="./assets/css/login.css" />
   </head>
   <body>
     <section class="login_page_container">
-
-      <div class="login_page_head">
-        <img src="./assets/img/Capa 2.png" alt="Join Logo">
-        <div>
-            <p>Not a Join user?</p>
-            <img src="./assets/img/logIn/Button wo icon.png" alt="">
+      <header class="login_page_head">
+        <img src="./assets/img/logIn/logo_desktop.png" alt="Join Logo" />
+        <div class="sign_up_container">
+          <p>Not a Join user?</p>
+          <img src="./assets/img/logIn/sign_up.png" alt="Sign up Button" />
         </div>
-      </div>
+      </header>
 
-      <div class="login_page_main"></div>
+      <main class="login_page_main">
+        <div class="login_card">
+          <div class="login_card_head">
+            <h1>Log in</h1>
+            <img src="./assets/img/logIn/seperator.png" alt="Seperation line" />
+          </div>
+          <!-- ----- -->
+          <div class="login_card_center">
+            <div class="login_input_container">
+              <form class="login_input">
+                <input type="text" placeholder="E-Mail" />
+                <button>
+                  <img src="./assets/img/logIn/mail.png" alt="E-mail Button" />
+                </button>
+              </form>
 
-      <div class="login_page_bottom"></div>
-      
+              <form class="login_input">
+                <input type="text" placeholder="Password" />
+                <button>
+                  <img src="./assets/img/logIn/lock.png" alt="E-mail Button" />
+                </button>
+              </form>
+            </div>
+
+            <div class="login_check">
+              <img
+                src="./assets/img/logIn/check_button.png"
+                alt="Check Button"
+              />
+              <p>Remember me</p>
+            </div>
+          </div>
+
+          <!-- ----- -->
+          <div class="login_card_foot">
+            <button class="foot_login_btn">Log in</button>
+            <button class="foot_guestlog_btn">Guest Log in</button>
+          </div>
+        </div>
+
+        <div style="display: none" class="login_card">
+          <div class="login_card_head">
+            <h1>Log in</h1>
+            <img src="" alt="" />
+          </div>
+
+          <div class="login_card_center"></div>
+
+          <div class="login_card_foot"></div>
+        </div>
+      </main>
+
+      <footer class="login_page_bottom">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Legal notice</a>
+      </footer>
     </section>
   </body>
 </html>

@@ -3,7 +3,7 @@
   --main_color_lighter: #354458;
   --main_color_dark: #091931;
   --background_main: #f6f7f8;
-  --lightgray_font: #c0c0c0;
+  --lightgray_font: #A8A8A8;
   --lightblue_font: #29abe2;
   --main_font: "Inter", sans-serif;
   --backup_font: system-ui, sans-serif;
@@ -53,6 +53,8 @@
 
 .sidebar_menu :nth-child(2) {
   width: 100px;
+  text-decoration: none;
+  color: var(--lightgray_font);
 }
 
 .sidebar_menu:hover {
