@@ -97,13 +97,18 @@ function setSubTask() {
 
 function printSubTask() {
     document.getElementById('subtask_content').innerHTML = '';
-    subTasks.forEach(task => {
-        document.getElementById('subtask_content').innerHTML += generateSubTask(task);
+    subTasks.forEach((task, index) => {
+        document.getElementById('subtask_content').innerHTML += generateSubTask(task, index);
     });
 }
 
-function generateSubTask(task) {
+function deleteSubTask(index) {
+    subTasks.splice(index, 1);
+    printSubTask();
+}
+
+function generateSubTask(task, index) {
     return /*html*/`
-        <p><span><span>•</span>${task.title}</span></p>
+        <p><span><span>•</span>${task.title}</span> <span><img src="./assets/img/add_task/pen.png" alt="Edit subtask" class="subtask_icon"> <img src="./assets/img/add_task/trash.png" alt="" class="subtask_icon" onclick="deleteSubTask(${index})"></span></p>
     `;
 }
