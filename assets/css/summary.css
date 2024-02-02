@@ -433,19 +433,19 @@
 
   .summary_todo {
     width: 130px;
-    height: 100px;
+    height: 110px;
     gap: 10px;
 }
 
 .summary_urgent_container {
   width: 290px;
-  height: 100px;
+  height: 110px;
   margin-left: 134px;
 }
 
 .summary_tasks_field {
   width: 90px;
-  height: 90px;
+  height: 100px;
 }
 
 .summary_tasks {
@@ -485,6 +485,10 @@
 
 .summary_doings {
   height: 124px;
+}
+
+.summary_urgent_field {
+  gap: 2px;
 }
 
 
