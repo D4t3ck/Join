@@ -20,6 +20,10 @@ body {
   background-color: var(--background_main);
 }
 
+.d-none {
+  display: none;
+}
+
 /********** HEAD **********/
 
 .login_page_container {
@@ -253,7 +257,7 @@ body {
 /********** SIGN UP **********/
 
 .signup_page_main {
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   /* margin-top: 30px; */
@@ -281,6 +285,7 @@ body {
 }
 
 .back_arrow {
+  display: flex;
   position: relative;
   left: -120px;
   flex: 1;

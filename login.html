@@ -18,14 +18,14 @@
     <section class="login_page_container">
       <header class="login_page_head">
         <img src="./assets/img/logIn/logo_desktop.png" alt="Join Logo" />
-        <div class="sign_up_container">
+        <div id="signUpContainer" class="sign_up_container">
           <p>Not a Join user?</p>
-          <span class="sign_up_container_btn">Sign up</span>
+          <span class="sign_up_container_btn" onclick="toggleLogin()">Sign up</span>
         </div>
       </header>
 
       <!-- --- MAIN --- -->
-      <main class="login_page_main">
+      <main id="loginCard" class="login_page_main">
         <section class="login_card">
           <div class="login_card_head">
             <h1>Log in</h1>
@@ -79,12 +79,12 @@
       </main>
 
       <!-- --- SIGN UP --- -->
-      <main class="signup_page_main" style="display: none">
+      <main id="signupCard" class="signup_page_main">
         <section class="signup_card">
           <!-- -- signupHead--- -->
           <div class="signup_card_head">
             <img
-              class="back_arrow"
+              id="backArrow" class="back_arrow" onclick="toggleSignupBack()"
               src="./assets/img/signUp/arrow_left.png"
               alt="Pfeil zurück"
             />
