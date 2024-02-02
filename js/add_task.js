@@ -43,6 +43,7 @@ function clear() {
   document.getElementById("description_textarea").value = "";
   document.getElementById("date_input").value = "";
   document.getElementById("select_category").value = "";
+  document.getElementById("input_subtask").value = "";
   document.getElementById("subtask_content").innerHTML = "";
   subTasks = [];
 }
