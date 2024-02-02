@@ -1,5 +1,7 @@
 let tasks = [];
 let subTasks = [];
+let contacts = ['Florian', 'Daniel', 'Roman', 'Frederic', 'Albert', 'Gustav'];
+let checkedContacts = [];
 const prioSpans = document.querySelectorAll(".prio_category_span");
 document.getElementById("clear_button").addEventListener("click", clear);
 document.getElementById("date_input").min = new Date()
@@ -162,6 +164,44 @@ function saveSubTask(index) {
 function showSubTaskIcon(index) {
   document.getElementById(`subtask_icon_container${index}`).innerHTML =
     generateSubTaskIconEdit(index);
+}
+
+function renderInputAssigned() {
+  document.getElementById('assigned_container').innerHTML = generateInputAssigned();
+  renderAssignedContent();
+  document.getElementById('assigned_input').focus();
+}
+
+function renderAssignedContent() {
+  document.getElementById('input_assigned_content').innerHTML = '';
+  contacts.forEach((contact, index) => {
+    document.getElementById('input_assigned_content').innerHTML += generateContact(contact, index);
+    setContactValue(contact, index);
+  });
+}
+
+function setContactValue(contact, index) {
+  document.getElementById(`contact${index}`).value = contact;
+}
+
+function generateInputAssigned() {
+  return /*html*/`
+    <div class="assign_input_container">
+      <input type="text" class="input" id="assigned_input">
+      <span>X</span>
+    </div>
+    <div id="input_assigned_content">
+    </div>
+  `;
+}
+
+function generateContact(contact, index) {
+  return /*html*/`
+    <div>
+      <input type="checkbox" id="contact${index}" class="contact">
+      <label for="contact${index}"> ${contact}</label>
+    </div>
+  `;
 }
 
 function generateSubTask(task, index) {
