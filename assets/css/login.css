@@ -20,10 +20,6 @@ body {
   background-color: var(--background_main);
 }
 
-.d-none {
-  display: none;
-}
-
 /********** HEAD **********/
 
 .login_page_container {
