@@ -211,6 +211,7 @@ body {
   height: 48px;
   padding: 15px, 24px, 15px, 24px;
   border-radius: 8px;
+  text-decoration: none;
   font-size: 21px;
   font-weight: 700;
   box-sizing: border-box;
@@ -234,6 +235,7 @@ body {
   height: 48px;
   padding: 15px, 24px, 15px, 24px;
   border-radius: 8px;
+  text-decoration: none;
   font-size: 21px;
   font-weight: 700;
   box-sizing: border-box;
