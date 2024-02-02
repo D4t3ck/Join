@@ -440,7 +440,7 @@
 .summary_urgent_container {
   width: 290px;
   height: 110px;
-  margin-left: 134px;
+  margin-left: 130px;
 }
 
 .summary_tasks_field {
@@ -485,6 +485,7 @@
 
 .summary_doings {
   height: 124px;
+  width: auto;
 }
 
 .summary_urgent_field {
