@@ -1,0 +1,175 @@
+:root {
+    --main_color: #2a3647;
+    --main_color_lighter: #354458;
+    --main_color_dark: #091931;
+    --background_main: #f6f7f8;
+    --lightgray_font: #c0c0c0;
+    --lightblue_font: #29abe2;
+    --main_font: "Inter", sans-serif;
+    --backup_font: system-ui, sans-serif;
+}
+
+.contacts_body {
+    display: flex;
+    margin-left: 202px;
+    height: 928px;
+}
+
+.add_contact_scroll_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFFFFF;
+    width: 456px;
+    height: 928px;
+}
+
+.add_new_contact_btn_caontainer {
+    display: flex;
+    position: absolute;
+    height: 101px;
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 96px;
+
+}
+
+.add_new_contact_btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2A3647;
+    width: 352px;
+    height: 56px;
+    border-radius: 10px;
+    /* padding: 12px 0px 12px 0px; */
+    gap: 16px;
+}
+
+.add_new_contact_btn_text{
+    color: #FFFFFF;
+    width: 175px;
+    height: 25px;
+    /* font-family: inter; */
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 25.2px;
+}
+
+.add_new_contact_btn_img {
+    width: 32px;
+    height: 23px;
+}
+
+.contact_scrolls_div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    width: 400px;
+    height: 1188px;
+    background-color: #FFFFFF;
+    /* padding: 32px 24px 32px 24px; */
+    margin-top: 101px;
+}
+
+.contacts_scroll_abc {
+    display: flex;
+    align-items: center;
+    width: 352px;
+    height: 58px;
+    gap: 8px;
+}
+
+.contacts_scroll_abc_text {
+    font-weight: 400;
+    font-size: 20px;
+    margin-left: 36px;
+    margin-top: 12px;
+
+}
+
+.contact_scrolls_stroke {
+    width: 352px;
+}
+
+.contact_scrolls_card_small_onclick {
+    display: flex;
+    align-items: center;
+    width: 352px;
+    height: 78px;
+    background-color: #2A3647;
+    border-radius: 10px;
+    /* gap: 35px; */
+}
+
+.contact_scrolls_card_small {
+    display: flex;
+    align-items: center;
+    width: 352px;
+    height: 78px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+
+}
+
+.contact_scrolls_card_small_img {
+    width: 42px;
+    height: 42px;
+    margin: 20px;
+}
+
+.contact_scrolls_card_small_contact {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-left: 8px;
+}
+
+.contact_scrolls_card_small_onclick_name {
+    color: #FFFFFF;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.contact_scrolls_card_small_onclick_email {
+    color: #007CEE;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+
+@media (max-width: 950px) {
+    .contacts_body {
+        margin-left: 0px;
+    }
+}
+
+
+/*Right side */
+
+.contacts_headline {
+    display: flex;
+    align-items: center;
+    height: 73px; 
+    gap: 30px;
+    margin-left: 60px;
+    margin-top: 100px; 
+}
+
+.contacts_headline_h1 {
+    /* font-family: inter; */
+    font-weight: 700;
+    font-size: 61px;
+
+}
+
+.contacts_headline_text {
+    /* font-family: inter; */
+    font-weight: 400;
+    font-size: 27px;
+    color: #2A3647;
+}

@@ -11,12 +11,56 @@
       type="image/x-icon"
     />
     <script src="./script.js"></script>
+    <link rel="stylesheet" href="assets/css/contacts.css" />
     <link rel="stylesheet" href="./style.css" />
-    <link rel="stylesheet" href="./assets/templates/header/header.css">
-    <link rel="stylesheet" href="./assets/templates/sidebar/sidebar.css">
+    <link rel="stylesheet" href="./assets/templates/header/header.css" />
+    <link rel="stylesheet" href="./assets/templates/sidebar/sidebar.css" />
   </head>
   <body onload="init()">
     <div w3-include-html="./assets/templates/header/header.html"></div>
     <div w3-include-html="./assets/templates/sidebar/sidebar.html"></div>
+    <div class="contacts_body">
+      <section class="add_contact_scroll_container">
+        <div class="add_new_contact_btn_caontainer">
+          <div class="add_new_contact_btn" onclick="addOverlayAddContact()">
+            <span class="add_new_contact_btn_text">Add new contact</span>
+            <img
+              class="add_new_contact_btn_img"
+              src="./assets/img/contacts/person_add.png"
+              alt=""
+            />
+          </div>
+        </div>
+        <div class="contact_scrolls_div">
+          <div class="contacts_scroll_abc">
+            <span class="contacts_scroll_abc_text">A</span>
+          </div>
+
+          <div class="contact_scrolls_stroke">
+            <img src="./assets/img/contacts/strokeGray.png" alt="">
+          </div>
+          <div class="contact_scrolls_card_small_onclick">
+            <img class="contact_scrolls_card_small_img" src="./assets/img/contacts/ProfilebadgeAM.png" alt="">
+            <div class="contact_scrolls_card_small_contact">
+              <span class="contact_scrolls_card_small_onclick_name">Anton Mayer</span>
+              <span class="contact_scrolls_card_small_onclick_email">antom@gemail.com</span>
+            </div>
+          </div>
+          <div class="contact_scrolls_card_small">
+            <img class="contact_scrolls_card_small_img" src="./assets/img/contacts/ProfilebadgeAM.png" alt="">
+            <div class="contact_scrolls_card_small_contact">
+              <span class="contact_scrolls_card_small_onclick_name">Anton Mayer</span>
+              <span class="contact_scrolls_card_small_onclick_email">antom@gemail.com</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="contacts_headline">
+        <h1 class="contacts_headline_h1">Contacts</h1>
+        <img src="./assets/img/contacts/strokeBlue.png" alt="">
+        <span class="contacts_headline_text">Better with a team</span>
+      </section>
+    </div>
   </body>
 </html>
