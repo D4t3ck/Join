@@ -274,3 +274,143 @@
     font-size: 16px;
     font-weight: 400;
 }
+
+
+/* Contact Overlay add contact*/
+
+.contact_overlay_add_contact_card {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 30px;
+    background-color: #FFFFFF;
+}
+
+.contact_overlay_add_contact_card_left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #2A3647;
+    width: 467px;
+    height: 594px;
+    gap: 12px;
+    border-bottom-left-radius: 30px;
+    border-top-left-radius: 30px;
+}
+
+.contact_overlay_add_contact_card_left_logo {
+    display: flex;
+    margin-left: -300px;
+}
+
+.contact_overlay_add_contact_card_left_text_area {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.contact_overlay_add_contact_card_left_text_area_heandline {
+    color: #FFFFFF;
+    font-size: 61px;
+    font-weight: 700;
+}
+
+.contact_overlay_add_contact_card_left_text {
+    color: #FFFFFF;
+    font-size: 27px;
+    font-weight: 400;
+}
+
+.contact_overlay_add_contact_card_left_stroke {
+    width: 90px;
+}
+
+.contact_overlay_add_contact_card_right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    margin: 36px;
+    gap: 24px;
+}
+
+.contact_overlay_add_contact_card_right_close_div {
+    margin-bottom: 60px;
+}
+
+.contact_overlay_add_contact_card_right_center {
+    display: flex;
+    align-items: center;
+    gap: 64px;
+}
+
+.contact_overlay_add_contact_card_right_input_area {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.contact_overlay_add_contact_card_right_inputfield {
+    display: flex;
+    border-color: #D1D1D1;
+    color: #D1D1D1;
+    font-size: 20px;
+    font-weight: 400;
+    border-radius: 10px;
+    width: 442px;
+    height: 50px;
+}
+
+.person_img {
+    background-image: url(../img/contacts/person.png);
+    background-repeat: no-repeat;
+    background-position: 400px 12px;
+}
+
+.mail_img {
+    background-image: url(../img/contacts/mail.png);
+    background-repeat: no-repeat;
+    background-position: 400px 12px;
+}
+
+.phone_img {
+    background-image: url(../img/contacts/call.png);
+    background-repeat: no-repeat;
+    background-position: 400px 12px;
+}
+
+.contact_overlay_add_contact_card_right_btn_area {
+    display: flex;
+    gap: 24px;
+}
+
+.contact_overlay_add_contact_card_right_btn_cancel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    gap: 4px;
+    padding: 16px;
+    background-color: #FFFFFF;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.contact_overlay_add_contact_card_right_btn {
+    width: 11px;
+    height: 11px;
+}
+
+.contact_overlay_add_contact_card_right_btn_create {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    gap: 4px;
+    padding: 16px;
+    background-color: #2A3647;
+    font-size: 21px;
+    font-weight: 700;
+    color: #FFFFFF;
+}
