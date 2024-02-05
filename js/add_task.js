@@ -51,6 +51,10 @@ function clear() {
   subTasks = [];
 }
 
+function stopEvent(event) {
+  event.stopPropagation();
+}
+
 function checkForm(event) {
   event.preventDefault();
   console.log("Form Checked!");
@@ -61,7 +65,7 @@ function checkForm(event) {
 function getTaskData() {
   const title = document.getElementById("title_input").value;
   const description = document.getElementById("description_textarea").value;
-  const assignedTo = null;
+  const assignedTo = checkedContacts;
   const dueDate = document.getElementById("date_input").value;
   const prio = getPrio();
   const category = document.getElementById("select_category").value;
@@ -190,9 +194,21 @@ function setContactValue(contact, index) {
 
 function closeDropdown() {
   if(assignRdy) {
+    getCheckedContacts();
     document.getElementById('assigned_container').innerHTML = generateAssignSelection();
     assignRdy = false;
   }
+}
+
+function getCheckedContacts() {
+  const contacts = document.querySelectorAll('.contact');
+  for(let i = 0; i < contacts.length; i++) {
+    if(contacts[i].checked) checkedContacts.push(contacts[i].value);
+  }
+}
+
+function searchContact() {
+
 }
 
 function generateAssignSelection() {

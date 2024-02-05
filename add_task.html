@@ -39,7 +39,7 @@
                                 </label>
                                 <label for="select_contact">
                                     <h2>Assigned to</h2>
-                                    <div id="assigned_container">
+                                    <div id="assigned_container" onclick="stopEvent(event)">
                                         <select name="" id="select_contact" placeholder="test" class="select" onclick="renderInputAssigned()">
                                             <option value="" disabled selected>Select contacts to assign</option>
                                         </select>
