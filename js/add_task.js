@@ -201,14 +201,22 @@ function closeDropdown() {
 }
 
 function getCheckedContacts() {
-  const contacts = document.querySelectorAll('.contact');
-  for(let i = 0; i < contacts.length; i++) {
-    if(contacts[i].checked) checkedContacts.push(contacts[i].value);
+  const contactList = document.querySelectorAll('.contact');
+  for(let i = 0; i < contactList.length; i++) {
+    if(contactList[i].checked) checkedContacts.push(contactList[i].value);
   }
 }
 
 function searchContact() {
-
+  const filteredContacts = [];
+  const inputValue = document.getElementById('assigned_input').value.toLocaleLowerCase();
+  document.getElementById('input_assigned_content').innerHTML = '';
+  contacts.forEach(contact => {
+    if(contact.toLocaleLowerCase().includes(inputValue)) filteredContacts.push(contact); 
+  });
+  filteredContacts.forEach((contact, index) => {
+    document.getElementById('input_assigned_content').innerHTML += generateContact(contact, index);
+  });
 }
 
 function generateAssignSelection() {
@@ -222,7 +230,7 @@ function generateAssignSelection() {
 function generateInputAssigned() {
   return /*html*/`
     <div class="assign_input_container">
-      <input type="text" class="input" id="assigned_input">
+      <input type="text" class="input" id="assigned_input" onkeyup="searchContact()">
       <span><img src="./assets/img/add_task/arrow_drop_up.png" alt="close dropdown"></span>
     </div>
     <div id="input_assigned_content">
