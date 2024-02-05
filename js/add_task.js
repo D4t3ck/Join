@@ -2,6 +2,7 @@ let tasks = [];
 let subTasks = [];
 let contacts = ['Florian', 'Daniel', 'Roman', 'Frederic', 'Albert', 'Gustav'];
 let checkedContacts = [];
+let assignRdy = false;
 const prioSpans = document.querySelectorAll(".prio_category_span");
 document.getElementById("clear_button").addEventListener("click", clear);
 document.getElementById("date_input").min = new Date()
@@ -178,17 +179,35 @@ function renderAssignedContent() {
     document.getElementById('input_assigned_content').innerHTML += generateContact(contact, index);
     setContactValue(contact, index);
   });
+  setTimeout(() => {
+    assignRdy = true;
+  }, 500);
 }
 
 function setContactValue(contact, index) {
   document.getElementById(`contact${index}`).value = contact;
 }
 
+function closeDropdown() {
+  if(assignRdy) {
+    document.getElementById('assigned_container').innerHTML = generateAssignSelection();
+    assignRdy = false;
+  }
+}
+
+function generateAssignSelection() {
+  return /*html*/`
+    <select name="" id="select_contact" placeholder="test" class="select" onclick="renderInputAssigned()">
+        <option value="" disabled selected>Select contacts to assign</option>
+    </select>
+  `;
+}
+
 function generateInputAssigned() {
   return /*html*/`
     <div class="assign_input_container">
       <input type="text" class="input" id="assigned_input">
-      <span>X</span>
+      <span><img src="./assets/img/add_task/arrow_drop_up.png" alt="close dropdown"></span>
     </div>
     <div id="input_assigned_content">
     </div>
