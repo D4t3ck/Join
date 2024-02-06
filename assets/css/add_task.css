@@ -181,6 +181,9 @@ h1 {
     font-style: normal;
     font-weight: 400;
     line-height: 120%; /* 24px */
+    display: flex;
+    align-items: center;
+    gap: 4px;
 }
 
 .form_button_create {
@@ -191,6 +194,9 @@ h1 {
     font-style: normal;
     font-weight: 700;
     line-height: 120%; /* 25.2px */
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .subtask_input {
