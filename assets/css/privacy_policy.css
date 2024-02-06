@@ -1,0 +1,24 @@
+.container {
+    display: flex;
+    
+}
+
+.container2 {
+    margin: 12px;
+    margin-bottom: 100px;
+}
+
+.side_bar_container {
+    position: relative;
+    max-width: 200px;
+    min-width: 200px;
+    width: 200px;
+    height: 100vh;
+}
+
+@media (max-width: 1000px) {
+    .side_bar_container {
+       min-width: 0;
+       width: 0;
+    }
+}

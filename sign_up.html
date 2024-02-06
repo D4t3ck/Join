@@ -24,7 +24,7 @@
 
       <!-- --- SIGN UP --- -->
       <main id="signupCard" class="signup_page_main">
-        <form class="signup_card">
+        <form onsubmit="inputValue(); return false" class="signup_card">
           <!-- -- signupHead--- -->
           <div class="signup_card_head">
             <a href="./login.html">
@@ -62,7 +62,7 @@
 
               <div class="signup_input">
                 <input
-                  type="password"
+                  type="email"
                   id="emailSignup"
                   placeholder="Email"
                   required

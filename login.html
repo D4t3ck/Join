@@ -11,6 +11,7 @@
     />
     <link rel="stylesheet" href="./assets/css/login.css" />
     <link rel="stylesheet" href="./style.css" />
+    <script src="./script.js"></script>
     <script src="./js/login.js"></script>
   </head>
   <body>
@@ -28,7 +29,7 @@
 
       <!-- --- LOG IN --- -->
       <main id="loginCard" class="login_page_main">
-        <form class="login_card">
+        <form onsubmit="checkUser(); return false" class="login_card">
           <div class="login_card_head">
             <h1>Log in</h1>
             <img src="./assets/img/logIn/seperator.png" alt="Seperation line" />
@@ -38,7 +39,7 @@
           <div class="login_card_center">
             <div class="login_input_container">
               <div class="login_input">
-                <input type="text" id="email" placeholder="E-Mail" required />
+                <input type="email" id="email" placeholder="E-Mail" required />
                 <div>
                   <img src="./assets/img/logIn/mail.png" alt="E-mail Button" />
                 </div>

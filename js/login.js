@@ -12,4 +12,20 @@ function toggleCheckboxLogin() {
   isImageLog = !isImageLog;
 }
 
+async function checkUser() {
+  let responseUser = await getItem("users");
+  let responseUserAsJson = JSON.parse(responseUser);
+  let loginEmail = document.getElementById("email").value;
+  let loginPwd = document.getElementById("password").value;
 
+  if (
+    loginEmail == responseUserAsJson.mail &&
+    loginPwd == responseUserAsJson.password
+  ) {
+    alert("Eingabe sind gleich");
+    USER.push(responseUserAsJson);
+    console.log(USER);
+  } else {
+    alert("Eingabe sind !=");
+  }
+}
