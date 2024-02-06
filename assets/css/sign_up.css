@@ -1,6 +1,6 @@
 /********** HEAD **********/
 
-.login_page_container {
+.signup_page_container {
   display: flex;
   justify-content: space-evenly;
   flex-direction: column;
@@ -13,8 +13,7 @@
   padding: 60px 122px 0 77px;
 }
 
-.sign_up_container,
-.sign_up_container_mobile {
+.sign_up_container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,13 +21,7 @@
   gap: 35px;
 }
 
-.sign_up_container a,
-.sign_up_container_mobile a {
-  text-decoration: none;
-}
-
-.sign_up_container_btn,
-.sign_up_container_btn_mobile {
+.sign_up_container_btn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,37 +31,29 @@
   box-sizing: border-box;
   border-radius: 8px;
   border: solid 1px var(--main_color);
-  background-color: var(--main_color);
   color: var(--card_color);
+  background-color: var(--main_color);
   font-size: 21px;
   font-weight: 700;
 }
 
-.sign_up_container_btn:hover,
-.sign_up_container_btn_mobile:hover {
+.sign_up_container_btn:hover {
   cursor: pointer;
   border: var(--lightblue_font);
   background-color: var(--lightblue_font);
   box-shadow: -1px 5px 5px 0px #c2c2c2;
 }
 
-/********** SIGNUP MOBILE **********/
+/********** SIGN UP **********/
 
-.sign_up_mobile {
-  display: none;
-  margin-top: 120px;
-}
-
-/********** MAIN **********/
-
-.login_page_main {
+.signup_page_main {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 30px;
+  /* margin-top: 30px; */
 }
 
-.login_card {
+.signup_card {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -79,41 +64,59 @@
   border-radius: 30px;
   background-color: var(--card_color);
 }
-/* loginHead */
-.login_card_head {
+
+/* signupHead */
+
+.signup_card_head {
+  position: relative;
   display: flex;
-  justify-content: center;
+  align-items: center;
+  width: auto;
+}
+
+.back_arrow {
+  display: flex;
+  position: relative;
+  left: -120px;
+  flex: 1;
+}
+
+.back_arrow:hover {
+  cursor: pointer;
+}
+
+.signup_header {
+  display: flex;
   align-items: center;
   flex-direction: column;
   gap: 16px;
 }
 
-.login_card_head h1 {
+.signup_header h1 {
   font-size: 61px;
   margin: 0;
   padding: 0;
 }
 
-/* loginCenter */
-.login_card_center {
+/* signupCenter */
+.signup_card_center {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
   flex-direction: column;
   margin-top: 32px;
   margin-bottom: 20px;
+  gap: 16px;
 }
 
-.login_input_container {
+.signup_input_container {
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-  width: 100%;
-  height: 152px;
+  height: auto;
   gap: 32px;
 }
 
-.login_input {
+.signup_input {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -125,83 +128,94 @@
   background: #fff;
 }
 
-.login_input input {
+.signup_input input {
   flex: 1;
   height: 24px;
   border: none;
 }
 
-.login_input input::placeholder {
-  font-size: 20px;
-  color: var(--placeholder_color);
+.signup_input input::placeholder {
   transform: translateY(5px);
 }
 
-.login_input input:hover,
-.login_input button:hover {
+.signup_input input:hover,
+.signup_input button:hover {
   cursor: pointer;
 }
 
-.login_input input:focus {
+.signup_input input:focus {
   outline: none;
 }
 
-.login_input input:focus::placeholder {
+.signup_input input:focus::placeholder {
   color: transparent;
 }
 
-.login_input div {
+.signup_input input::placeholder {
+  font-size: 20px;
+  color: var(--placeholder_color);
+}
+
+.signup_input div {
   height: 24px;
   background-color: var(--card_color);
   border: none;
 }
 
-.false_password {
+.match_password {
+  display: flex;
+  justify-content: flex-start;
   width: auto;
   height: auto;
-  margin-top: -16px;
+  margin-top: -14px;
   color: red;
   font-size: 12px;
   opacity: 50%;
 }
 
-.false_password p {
+.match_password p {
   margin: 0;
 }
 
-.login_check {
+.signup_check {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 8px;
-  margin-top: 12px;
-  margin-left: 60px; /* links oder rechtsbündig? */
+  color: var(--lightgray_font);
+  gap: 4px;
 }
 
-.login_check img {
+.signup_check img {
   transform: translateY(-2px);
 }
 
-.login_check img:hover {
+.signup_check img:hover {
   cursor: pointer;
 }
 
+.signup_check a {
+  text-decoration: none;
+  color: var(--lightblue_font);
+}
+
 /* loginFoot */
-.login_card_foot {
+.signup_card_foot {
   display: flex;
-  width: 300px;
+  justify-content: center;
+  align-items: center;
+  width: 322px;
   height: 48px;
   gap: 35px;
 }
 
-.foot_login_btn {
+.foot_signup_btn {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 110px;
   height: 48px;
+  padding: 15px, 24px, 15px, 24px;
   border-radius: 8px;
-  text-decoration: none;
   font-size: 21px;
   font-weight: 700;
   box-sizing: border-box;
@@ -209,39 +223,13 @@
   color: var(--card_color);
 }
 
-.foot_login_btn:hover {
+.foot_signup_btn:hover {
   cursor: pointer;
   background-color: var(--lightblue_font);
   border-color: var(--lightblue_font);
   box-shadow: none;
   box-shadow: -1px 5px 5px 0px #c2c2c2;
 }
-
-.foot_guestlog_btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 177px;
-  height: 48px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-size: 21px;
-  font-weight: 700;
-  box-sizing: border-box;
-  border: 1px solid var(--main_color);
-  background-color: var(--card_color);
-  color: var(--main_color);
-}
-
-.foot_guestlog_btn:hover {
-  cursor: pointer;
-  color: var(--lightblue_font);
-  border-color: var(--lightblue_font);
-  box-shadow: none;
-  box-shadow: -1px 5px 5px 0px #c2c2c2;
-}
-
-
 
 /********** FOOTER **********/
 
@@ -265,40 +253,3 @@
   color: var(--lightblue_font);
   font-weight: bold;
 }
-
-/********** MEDIA QUERY **********/
-
-@media (max-width: 600px) {
-  .login_page_main {
-    margin: 0;
-  }
-  .login_page_head {
-    padding: 0;
-  }
-  .sign_up_container {
-    display: none;
-  }
-  .login_input {
-    width: auto;
-  }
-  .sign_up_mobile {
-    display: block;
-  }
-  .login_card {
-    min-height: 600px;
-    padding: 0;
-  }
-  .login_card_foot {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-  .foot_login_btn, 
-  .foot_guestlog_btn {
-    min-width: 180px;
-    min-height: 51px;
-  }
-  .login_page_bottom {
-    margin: 0;
-  }
-}  

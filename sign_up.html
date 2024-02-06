@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Join</title>
+
+    <link
+      rel="shortcut icon"
+      href="./assets/img/favicon_light.png"
+      type="image/x-icon"
+    />
+    <script src="./script.js"></script>
+    <script src="./js/signup.js"></script>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./assets/css/sign_up.css" />
+  </head>
+  <body>
+    <section class="signup_page_container">
+      <!-- -- HEADER--- -->
+      <header class="login_page_head">
+        <img src="./assets/img/logIn/logo_desktop.png" alt="Join Logo" />
+      </header>
+
+      <!-- --- SIGN UP --- -->
+      <main id="signupCard" class="signup_page_main">
+        <form class="signup_card">
+          <!-- -- signupHead--- -->
+          <div class="signup_card_head">
+            <a href="./login.html">
+              <img
+                id="backArrow"
+                class="back_arrow"
+                src="./assets/img/signUp/arrow_left.png"
+                alt="Pfeil zurück"
+              />
+            </a>
+
+            <div class="signup_header">
+              <h1>Sign up</h1>
+              <img
+                src="./assets/img/logIn/seperator.png"
+                alt="Seperation line"
+              />
+            </div>
+          </div>
+
+          <!-- -- Input Felder--- -->
+          <div class="signup_card_center">
+            <div class="signup_input_container">
+              <div class="signup_input">
+                <input
+                  type="text"
+                  id="nameSignup"
+                  placeholder="Name"
+                  required
+                />
+                <div>
+                  <img src="./assets/img/logIn/person.png" alt="Name" />
+                </div>
+              </div>
+
+              <div class="signup_input">
+                <input
+                  type="password"
+                  id="emailSignup"
+                  placeholder="Email"
+                  required
+                />
+                <div>
+                  <img src="./assets/img/logIn/mail.png" alt="E-mail" />
+                </div>
+              </div>
+
+              <div class="signup_input">
+                <input
+                  type="password"
+                  id="passwordSignup"
+                  placeholder="Password"
+                  required
+                />
+                <div>
+                  <img src="./assets/img/logIn/lock.png" alt="Passwort" />
+                </div>
+              </div>
+
+              <div class="signup_input">
+                <input
+                  type="password"
+                  id="passwordConfirm"
+                  placeholder="Confirm Password"
+                  required
+                />
+                <div>
+                  <img src="./assets/img/logIn/lock.png" alt="Confirm Button" />
+                </div>
+              </div>
+            </div>
+
+            <div class="match_password">
+              <p>Ups! your password don't match.</p>
+            </div>
+
+            <div class="signup_check">
+              <img
+                id="checkSignup"
+                onclick="toggleCheckboxSignup()"
+                src="./assets/img/logIn/unchecked.png"
+                alt="Checkbox"
+              />
+              I accept the <a href="#">Privacy policy</a>
+            </div>
+          </div>
+
+          <!-- --- Sign up Button --- -->
+          <div class="signup_card_foot">
+            <button class="foot_signup_btn">Sign up</button>
+          </div>
+        </form>
+      </main>
+
+      <footer class="login_page_bottom">
+        <a href="./privacy_policy.html">Privacy Policy</a>
+        <a href="./legal_notice.html">Legal notice</a>
+      </footer>
+    </section>
+  </body>
+</html>

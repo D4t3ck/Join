@@ -20,15 +20,15 @@
         <img src="./assets/img/logIn/logo_desktop.png" alt="Join Logo" />
         <div id="signUpContainer" class="sign_up_container">
           <p>Not a Join user?</p>
-          <span class="sign_up_container_btn" onclick="toggleLogin()"
-            >Sign up</span
+          <a href="./sign_up.html"
+            ><span class="sign_up_container_btn">Sign up</span></a
           >
         </div>
       </header>
 
       <!-- --- LOG IN --- -->
       <main id="loginCard" class="login_page_main">
-        <section class="login_card">
+        <form class="login_card">
           <div class="login_card_head">
             <h1>Log in</h1>
             <img src="./assets/img/logIn/seperator.png" alt="Seperation line" />
@@ -37,14 +37,14 @@
           <!-- --- Input Felder --- -->
           <div class="login_card_center">
             <div class="login_input_container">
-              <form class="login_input">
+              <div class="login_input">
                 <input type="text" id="email" placeholder="E-Mail" required />
                 <div>
                   <img src="./assets/img/logIn/mail.png" alt="E-mail Button" />
                 </div>
-              </form>
+              </div>
 
-              <form class="login_input">
+              <div class="login_input">
                 <input
                   type="password"
                   id="password"
@@ -54,14 +54,14 @@
                 <div>
                   <img src="./assets/img/logIn/lock.png" alt="E-mail Button" />
                 </div>
-              </form>
+              </div>
             </div>
 
             <div class="false_password">
               <p>Wrong password Ups! Try again.</p>
             </div>
 
-            <form class="login_check">
+            <div class="login_check">
               <img
                 id="checkLogin"
                 onclick="toggleCheckboxLogin()"
@@ -69,118 +69,23 @@
                 alt="Checkbox"
               />
               Remember me
-            </form>
+            </div>
           </div>
 
           <!-- ----- Login Button ----- -->
           <div class="login_card_foot">
-            <a href="#" class="foot_login_btn">Log in</a>
+            <button class="foot_login_btn">Log in</button>
             <a href="./summary.html" class="foot_guestlog_btn">Guest Log in</a>
           </div>
-        </section>
-      </main>
-
-      <!-- --- SIGN UP --- -->
-      <main id="signupCard" class="signup_page_main">
-        <section class="signup_card">
-          <!-- -- signupHead--- -->
-          <div class="signup_card_head">
-            <img
-              id="backArrow"
-              class="back_arrow"
-              onclick="toggleSignupBack()"
-              src="./assets/img/signUp/arrow_left.png"
-              alt="Pfeil zurück"
-            />
-            <div class="signup_header">
-              <h1>Sign up</h1>
-              <img
-                src="./assets/img/logIn/seperator.png"
-                alt="Seperation line"
-              />
-            </div>
-          </div>
-
-          <!-- -- Input Felder--- -->
-          <div class="signup_card_center">
-            <div class="signup_input_container">
-              <form class="signup_input">
-                <input
-                  type="text"
-                  id="nameSignup"
-                  placeholder="Name"
-                  required
-                />
-                <div>
-                  <img src="./assets/img/logIn/person.png" alt="Name" />
-                </div>
-              </form>
-
-              <form class="signup_input">
-                <input
-                  type="password"
-                  id="emailSignup"
-                  placeholder="Email"
-                  required
-                />
-                <div>
-                  <img src="./assets/img/logIn/mail.png" alt="E-mail" />
-                </div>
-              </form>
-
-              <form class="signup_input">
-                <input
-                  type="password"
-                  id="passwordSignup"
-                  placeholder="Password"
-                  required
-                />
-                <div>
-                  <img src="./assets/img/logIn/lock.png" alt="Passwort" />
-                </div>
-              </form>
-
-              <form class="signup_input">
-                <input
-                  type="password"
-                  id="passwordConfirm"
-                  placeholder="Confirm Password"
-                  required
-                />
-                <div>
-                  <img src="./assets/img/logIn/lock.png" alt="Confirm Button" />
-                </div>
-              </form>
-            </div>
-
-            <div class="match_password">
-              <p>Ups! your password don't match.</p>
-            </div>
-
-            <form class="signup_check">
-              <img
-                id="checkSignup"
-                onclick="toggleCheckboxSignup()"
-                src="./assets/img/logIn/unchecked.png"
-                alt="Checkbox"
-              />
-              I accept the <a href="#">Privacy policy</a>
-            </form>
-          </div>
-
-          <!-- --- Sign up Button --- -->
-          <div class="signup_card_foot">
-            <span class="foot_signup_btn">Sign up</span>
-          </div>
-        </section>
+        </form>
       </main>
 
       <!--  --- Hidden Sign up --- -->
-      <div class="sign_up_mobile" >
+      <div class="sign_up_mobile">
         <div id="signUpContainer" class="sign_up_container_mobile">
           <p>Not a Join user?</p>
-          <span class="sign_up_container_btn_mobile" onclick="toggleLogin()"
-            >Sign up</span
+          <a href="./sign_up.html"
+            ><span class="sign_up_container_btn_mobile">Sign up</span></a
           >
         </div>
       </div>
