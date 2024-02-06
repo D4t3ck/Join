@@ -414,3 +414,8 @@
     font-weight: 700;
     color: #FFFFFF;
 }
+
+.contact_overlay_add_contact_card_right_btn_check {
+    width: 24px;
+    height: 24px;
+}

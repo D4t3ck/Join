@@ -15,8 +15,10 @@
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="./assets/templates/header/header.css" />
     <link rel="stylesheet" href="./assets/templates/sidebar/sidebar.css" />
+    <script src="./js/contacts.js"></script>
+
   </head>
-  <body onload="init()">
+  <body onload="initContact()">
     <div w3-include-html="./assets/templates/header/header.html"></div>
     <div w3-include-html="./assets/templates/sidebar/sidebar.html"></div>
     <div class="contacts_body">
@@ -32,11 +34,9 @@
           </div>
         </div>
         <div class="contact_scrolls_div">
-          <div class="contacts_scroll_abc">
-            <span class="contacts_scroll_abc_text">A</span>
-          </div>
+          
 
-          <div class="contact_scrolls_stroke">
+          <!-- <div class="contact_scrolls_stroke">
             <img src="./assets/img/contacts/strokeGray.png" alt="" />
           </div>
           <div class="contact_scrolls_card_small_onclick">
@@ -53,20 +53,9 @@
                 >antom@gemail.com</span
               >
             </div>
-          </div>
-          <div class="contact_scrolls_card_small">
-            <img
-              class="contact_scrolls_card_small_img"
-              src="./assets/img/contacts/ProfilebadgeAM.png"
-              alt=""
-            />
-            <div class="contact_scrolls_card_small_contact">
-              <span class="contact_scrolls_card_small_name">Anton Mayer</span>
-              <span class="contact_scrolls_card_small_onclick_email"
-                >antom@gemail.com</span
-              >
-            </div>
-          </div>
+          </div> -->
+          <div id="contactScroll"></div>
+          
         </div>
       </section>
 
@@ -127,30 +116,72 @@
 
         <section class="contact_overlay_add_contact_card">
           <div class="contact_overlay_add_contact_card_left">
-            <img class="contact_overlay_add_contact_card_left_logo" src="./assets/img/contacts/joinLogo.png" alt="">
+            <img
+              class="contact_overlay_add_contact_card_left_logo"
+              src="./assets/img/contacts/joinLogo.png"
+              alt=""
+            />
             <div class="contact_overlay_add_contact_card_left_text_area">
-              <span class="contact_overlay_add_contact_card_left_text_area_heandline">Add contact</span>
-              <span class="contact_overlay_add_contact_card_left_text">Tasks are better with a team</span>
-              <img class="contact_overlay_add_contact_card_left_stroke" src="./assets/img/contacts/strokeBlueAddOverlay.png" alt="">
+              <span
+                class="contact_overlay_add_contact_card_left_text_area_heandline"
+                >Add contact</span
+              >
+              <span class="contact_overlay_add_contact_card_left_text"
+                >Tasks are better with a team</span
+              >
+              <img
+                class="contact_overlay_add_contact_card_left_stroke"
+                src="./assets/img/contacts/strokeBlueAddOverlay.png"
+                alt=""
+              />
             </div>
           </div>
           <div class="contact_overlay_add_contact_card_right">
             <div class="contact_overlay_add_contact_card_right_close_div">
-              <img src="./assets/img/contacts/close.png" alt="">
+              <img src="./assets/img/contacts/close.png" alt="" />
             </div>
             <div class="contact_overlay_add_contact_card_right_center">
-              <img src="./assets/img/contacts/personEllipse.png" alt="">
+              <img src="./assets/img/contacts/personEllipse.png" alt="" />
               <div class="contact_overlay_add_contact_card_right_input_area">
-                <input class="contact_overlay_add_contact_card_right_inputfield person_img" type="text" placeholder="    Name">
-                <input class="contact_overlay_add_contact_card_right_inputfield mail_img" type="email" placeholder="    Email">
-                <input class="contact_overlay_add_contact_card_right_inputfield phone_img" type="number" placeholder="    Phone">
+                <input
+                  class="contact_overlay_add_contact_card_right_inputfield person_img"
+                  type="text"
+                  placeholder="    Name"
+                />
+                <input
+                  class="contact_overlay_add_contact_card_right_inputfield mail_img"
+                  type="email"
+                  placeholder="    Email"
+                />
+                <input
+                  class="contact_overlay_add_contact_card_right_inputfield phone_img"
+                  type="number"
+                  placeholder="    Phone"
+                />
                 <div class="contact_overlay_add_contact_card_right_btn_area">
-                  <button class="contact_overlay_add_contact_card_right_btn_cancel">Cancel <img class="contact_overlay_add_contact_card_right_btn" src="./assets/img/contacts/cancel.png" alt=""></button>
-                  <button class="contact_overlay_add_contact_card_right_btn_create">Create contact <img src="./assets/img/contacts/check.png" alt=""></button>
+                  <button
+                    class="contact_overlay_add_contact_card_right_btn_cancel"
+                  >
+                    Cancel
+                    <img
+                      class="contact_overlay_add_contact_card_right_btn"
+                      src="./assets/img/contacts/cancel.png"
+                      alt=""
+                    />
+                  </button>
+                  <button
+                    class="contact_overlay_add_contact_card_right_btn_create"
+                  >
+                    Create contact
+                    <img
+                      class="contact_overlay_add_contact_card_right_btn_check"
+                      src="./assets/img/contacts/check.png"
+                      alt=""
+                    />
+                  </button>
                 </div>
               </div>
             </div>
-            
           </div>
         </section>
       </div>
