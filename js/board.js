@@ -41,7 +41,7 @@ let tasks = [
                 check: false
             }
         ],
-        title: 'Pumpem gehen'
+        title: 'Pumpen gehen'
     }
 ];
 
@@ -86,7 +86,7 @@ function allowDrop(ev) {
 }
 
 function moveTo(category) {
-    const filtedTaskIndex = tasks.find((task, index) => {
+    tasks.forEach((task, index) => {
         if(task.title == currentDraggedName) {
             currentIndex = index;
         }
