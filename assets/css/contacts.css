@@ -27,7 +27,7 @@
 
 .add_new_contact_btn_caontainer {
     display: flex;
-    position: absolute;
+    position: fixed;
     height: 101px;
     background-color: #FFFFFF;
     display: flex;
@@ -80,7 +80,7 @@
     display: flex;
     align-items: center;
     width: 352px;
-    height: 58px;
+    /* height: 58px; */
     gap: 8px;
 }
 
