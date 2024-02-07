@@ -11,6 +11,8 @@
 
 main {
     flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 h1 {
@@ -30,7 +32,7 @@ h1 {
 .headline_input_container {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 24px;
 }
 
 .headline_input {
@@ -52,4 +54,77 @@ h1 {
     min-width: 1px;
     height: 20px;
     background-color: rgba(0, 0, 0, 0.4);
+}
+
+.add_task_button {
+    color: white;
+    background-color: rgb(42, 54, 71);
+    height: 32px;
+    border: none;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    padding: 8px;
+}
+
+.add_task_button img {
+    width: 32px;
+}
+
+.category_section {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+}
+
+.category {
+    width: 240px;
+}
+
+.category_headline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 24px;
+    color: #42526E;
+    margin-bottom: 16px;
+}
+
+.card {
+    background-color: white;
+    padding: 16px;
+    border-radius: 16px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.card h2 {
+    font-size: 24px;
+    margin: 0;
+}
+
+.card_headline {
+    padding-top: 8px;
+}
+
+.card_headline span {
+    background-color: rgb(0, 56, 255);
+    color: white;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.card_description {
+    color: rgb(168, 168, 168);
+}
+
+.card_subtasks progress{
+    width: 50%;
+}
+
+.card_subtasks label {
+    font-size: 14px;
 }
