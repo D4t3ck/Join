@@ -26,11 +26,13 @@ let contacts = [
     },
 ]
 
+// let letters = ['A','B','C','D','E','F','G','H','I','J','','','','','','','',];
 let letters = [];
 
 function initContact() {
     renderContacts();
     init();
+    renderletters();
 }
 
 function renderContacts(filter) {
@@ -49,7 +51,10 @@ function renderContacts(filter) {
         
         `
         <div class="contacts_scroll_abc">
-            <span class="contacts_scroll_abc_text">${firstletter}</span>
+        <div id="letterbox"></div>
+        </div>
+        <div class="contact_scrolls_stroke">
+        <img src="./assets/img/contacts/strokeGray.png" alt="" />
           </div>
         <div class="contact_scrolls_card_small">
         <img
@@ -64,6 +69,7 @@ function renderContacts(filter) {
           >
         </div>
       </div>`;
+
         }
 
         if (!letters.includes(firstletter)) {
@@ -72,6 +78,11 @@ function renderContacts(filter) {
     }
 }
 
+// function setFilter(letter) {
+//     renderContacts(letter)
+// }
+
+
 function renderletters() {
     let letterbox = document.getElementById('letterbox')
     letterbox.innerHTML = '';
@@ -79,6 +90,21 @@ function renderletters() {
     for (let i = 0; i < letters.length; i++) {
         const letter = letters[i];
 
-        letterbox.innerHTML += ``;
+        letterbox.innerHTML += `<span class="contacts_scroll_abc_text">${letter}</span>`;
+        // renderContacts(letter);
+        // setFilter(letter);
+    }  
+}
+
+function test() {
+    let name = 'florian';
+    let number = 123;
+    let email = 'blabla@tests.com'
+    let contact = {
+            "name": name,
+            "mail": email,
+            "phone": number,
     }
+
+    console.log(contact)
 }
