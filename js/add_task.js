@@ -17,7 +17,8 @@ class Task {
     dueDate,
     prio,
     category,
-    subtasks
+    subtasks,
+    categoryBoard
   ) {
     this.title = title;
     this.description = description;
@@ -26,6 +27,7 @@ class Task {
     this.prio = prio;
     this.category = category;
     this.subtasks = subtasks;
+    this.categoryBoard = categoryBoard
   }
 }
 
@@ -76,7 +78,8 @@ function getTaskData() {
     dueDate,
     prio,
     category,
-    subTasks
+    subTasks,
+    'toDo'
   );
   tasks.push(task);
   clear();

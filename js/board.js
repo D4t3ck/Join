@@ -1,5 +1,6 @@
 let tasks = [
     {
+        categoryBoard: 'toDo',
         assignedTo: [
             'Florian',
             'Roman'
