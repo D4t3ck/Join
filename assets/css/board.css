@@ -6,6 +6,7 @@
     position: relative;
     min-height: 100vh;
     width: 200px;
+    min-width: 200px;
 
 }
 
@@ -27,6 +28,9 @@ h1 {
 
 .board_content {
     padding: 0px 40px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .headline_input_container {
@@ -76,10 +80,13 @@ h1 {
     display: flex;
     justify-content: center;
     gap: 24px;
+    flex: 1;
 }
 
 .category {
     width: 240px;
+    display: flex;
+    flex-direction: column;
 }
 
 .category_headline {
@@ -91,6 +98,11 @@ h1 {
     margin-bottom: 16px;
 }
 
+.category_content {
+    display: flex;
+    flex: 1;
+}
+
 .card {
     background-color: white;
     padding: 16px;
@@ -99,6 +111,7 @@ h1 {
     display: flex;
     flex-direction: column;
     gap: 16px;
+    height: fit-content;
 }
 
 .card h2 {

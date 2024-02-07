@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="./assets/css/board.css">
 </head>
 
-<body onload="init()">
+<body onload="init(); initBoard()">
   <div class="container">
     <div class="side_bar_position_container">
       <div w3-include-html="./assets/templates/sidebar/sidebar.html"></div>
@@ -37,7 +37,7 @@
             <div class="category_headline">
               <b>To do</b> <img src="./assets/img/board/plus.png" alt="create Task">
             </div>
-            <div>
+            <div class="category_content" id="toDo">
               
             </div>
           </div>
@@ -45,7 +45,7 @@
             <div class="category_headline">
               <b>In progress</b><img src="./assets/img/board/plus.png" alt="create Task">
             </div>
-            <div>
+            <div class="category_content" id="inProgress">
               <div class="card">
                 <section class="card_headline">
                   <span>User Story</span>
@@ -75,7 +75,7 @@
             <div class="category_headline">
               <b>Await feedback</b> <img src="./assets/img/board/plus.png" alt="create Task">
             </div>
-            <div>
+            <div class="category_content" id="awaitFeedback">
 
             </div>
           </div>
@@ -83,7 +83,7 @@
             <div class="category_headline">
               <b>Done</b> <img src="./assets/img/board/plus.png" alt="create Task">
             </div>
-            <div>
+            <div class="category_content" id="done">
 
             </div>
           </div>
