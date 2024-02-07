@@ -3,7 +3,9 @@
   --main_color_lighter: #354458;
   --main_color_dark: #091931;
   --background_main: #f6f7f8;
-  --lightgray_font: #A8A8A8;
+  --card_color: #ffffff;
+  --lightgray_font: #a8a8a8;
+  --placeholder_color: #d1d1d1;
   --lightblue_font: #29abe2;
   --main_font: "Inter", sans-serif;
   --backup_font: system-ui, sans-serif;
@@ -43,12 +45,16 @@
   align-items: center;
   width: 100%;
   height: 100%;
+  margin-inline: auto;
   padding: 8px 0px;
   gap: 8px;
+  text-decoration: none;
+  box-sizing: border-box;
 }
 
 .sidebar_menu :first-child {
   width: auto;
+  text-decoration: none;
 }
 
 .sidebar_menu :nth-child(2) {

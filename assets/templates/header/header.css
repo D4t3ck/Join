@@ -3,7 +3,9 @@
   --main_color_lighter: #354458;
   --main_color_dark: #091931;
   --background_main: #f6f7f8;
-  --lightgray_font: #c0c0c0;
+  --card_color: #ffffff;
+  --lightgray_font: #a8a8a8;
+  --placeholder_color: #d1d1d1;
   --lightblue_font: #29abe2;
   --main_font: "Inter", sans-serif;
   --backup_font: system-ui, sans-serif;
@@ -31,12 +33,31 @@
   gap: 16px;
 }
 
+.header_login :nth-child(2) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  color: var(--lightblue_font);
+  font-weight: bold;
+  font-size: 18px;
+  border: 2px solid black;
+  border-radius: 50%;
+}
+
 .header_login :first-child:hover {
+  transform: scale(1.1);
   cursor: pointer;
 }
 
 .header_login :nth-child(2):hover {
   cursor: pointer;
+  background-color: #e2e6ec;
+}
+
+.back_color {
+  background-color: #e2e6ec;
 }
 
 .header_logo {
@@ -83,6 +104,10 @@
   background-color: var(--main_color_lighter);
 }
 
+.log_out:hover {
+  color: var(--lightblue_font);
+}
+
 /********** MEDIA QUERY **********/
 
 @media (max-width: 1000px) {
@@ -94,7 +119,7 @@
   .header_text {
     display: none;
   }
-  
+
   .header_logo {
     display: block;
   }
