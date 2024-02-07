@@ -41,6 +41,7 @@ function renderletters() {
             const element = contacts[j];
             const name = element['name'];
             const mail = element['mail'];
+            const phone = element['phone']
             const firstletter = element['name'].charAt(0);
             if (letter == firstletter) {
                 contactArea.innerHTML += 
@@ -48,7 +49,7 @@ function renderletters() {
                 <div class="contacts_scroll_abc">
                     <div id="letterbox${i}"></div>
                 </div>
-                <div class="contact_scrolls_card_small">
+                <div class="contact_scrolls_card_small" onclick="showContactInformation('${name}', '${mail}', '${phone}')">
                     <img
                         class="contact_scrolls_card_small_img"
                         src="./assets/img/contacts/ProfilebadgeAM.png"
@@ -99,4 +100,61 @@ function openOverlayAddContact() {
 
 function closeOverlayAddContact() {
     document.getElementById('addContactOverlay').classList.add('d_none')
+}
+
+function showContactInformation(name, mail, phone) {
+    document.getElementById('contactInformation').classList.remove('d_none')
+
+    let contactInformation = document.getElementById('contactInformation');
+
+    contactInformation.innerHTML = 
+   /*html*/` 
+   <section class="contacts_bigcard_container">
+    <div class="contacts_bigcard_contact_area">
+      <img
+        class="contacts_bigcard_img"
+        src="./assets/img/contacts/ProfilebadgeAM.png"
+        alt=""
+      />
+      <div class="contacts_bigcard_name_area">
+        <span class="contacts_bigcard_name">${name}</span>
+        <div class="contacts_bigcard_edit">
+          <div class="edit_area">
+            <img
+              class="edit_area_img"
+              src="./assets/img/contacts/edit.png"
+              alt=""
+            />
+            <span class="edit_text">Edit</span>
+          </div>
+          <div class="edit_area">
+            <img
+              class="edit_area_img"
+              src="./assets/img/contacts/delete.png"
+              alt=""
+            />
+            <span class="edit_text">Delete</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <span class="contacts_bigcard_Information_text"
+      >Contact Information</span
+    >
+    <div class="contacts_bigcard_Information_email_phone">
+      <span class="contacts_bigcard_Information_email_phone_span"
+        >Email</span
+      >
+      <span class="contacts_bigcard_Information_email"
+        >${mail}</span
+      >
+      <span class="contacts_bigcard_Information_email_phone_span"
+        >Phone</span
+      >
+      <span class="contacts_bigcard_Information_phone"
+        >${phone}</span
+      >
+    </div>
+  </section>
+`;
 }

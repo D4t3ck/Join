@@ -16,7 +16,6 @@
     <link rel="stylesheet" href="./assets/templates/header/header.css" />
     <link rel="stylesheet" href="./assets/templates/sidebar/sidebar.css" />
     <script src="./js/contacts.js"></script>
-
   </head>
   <body onload="initContact()">
     <div w3-include-html="./assets/templates/header/header.html"></div>
@@ -34,8 +33,6 @@
           </div>
         </div>
         <div class="contact_scrolls_div">
-         
-
           <!-- 
             
           <div class="contact_scrolls_card_small_onclick">
@@ -54,7 +51,6 @@
             </div>
           </div> -->
           <div id="contactScroll"></div>
-          
         </div>
       </section>
 
@@ -64,125 +60,141 @@
           <img src="./assets/img/contacts/strokeBlue.png" alt="" />
           <span class="contacts_headline_text">Better with a team</span>
         </section>
-
-        <section class="contacts_bigcard_container">
-          <div class="contacts_bigcard_contact_area">
-            <img
-              class="contacts_bigcard_img"
-              src="./assets/img/contacts/ProfilebadgeAM.png"
-              alt=""
-            />
-            <div class="contacts_bigcard_name_area">
-              <span class="contacts_bigcard_name">Anton Mayer</span>
-              <div class="contacts_bigcard_edit">
-                <div class="edit_area">
-                  <img
-                    class="edit_area_img"
-                    src="./assets/img/contacts/edit.png"
-                    alt=""
-                  />
-                  <span class="edit_text">Edit</span>
-                </div>
-                <div class="edit_area">
-                  <img
-                    class="edit_area_img"
-                    src="./assets/img/contacts/delete.png"
-                    alt=""
-                  />
-                  <span class="edit_text">Delete</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <span class="contacts_bigcard_Information_text"
-            >Contact Information</span
-          >
-          <div class="contacts_bigcard_Information_email_phone">
-            <span class="contacts_bigcard_Information_email_phone_span"
-              >Email</span
-            >
-            <span class="contacts_bigcard_Information_email"
-              >anton@gmail.com</span
-            >
-            <span class="contacts_bigcard_Information_email_phone_span"
-              >Phone</span
-            >
-            <span class="contacts_bigcard_Information_phone"
-              >+49 1111 111 11 1</span
-            >
-          </div>
-        </section>
-        <div class="add_contact_overlay_bg">
-        <div id="addContactOverlay" class="add_contact_overlay d_none">
-        <section  class="contact_overlay_add_contact_card ">
-          <div class="contact_overlay_add_contact_card_left">
-            <img
-              class="contact_overlay_add_contact_card_left_logo"
-              src="./assets/img/contacts/joinLogo.png"
-              alt=""
-            />
-            <div class="contact_overlay_add_contact_card_left_text_area">
-              <span
-                class="contact_overlay_add_contact_card_left_text_area_heandline"
-                >Add contact</span
-              >
-              <span class="contact_overlay_add_contact_card_left_text"
-                >Tasks are better with a team</span
-              >
+        <div id="contactInformation" class="d_none">
+          <!-- <section class="contacts_bigcard_container">
+            <div class="contacts_bigcard_contact_area">
               <img
-                class="contact_overlay_add_contact_card_left_stroke"
-                src="./assets/img/contacts/strokeBlueAddOverlay.png"
+                class="contacts_bigcard_img"
+                src="./assets/img/contacts/ProfilebadgeAM.png"
                 alt=""
               />
-            </div>
-          </div>
-          <div class="contact_overlay_add_contact_card_right">
-            <div onclick="closeOverlayAddContact()" class="contact_overlay_add_contact_card_right_close_div">
-              <div class="contact_overlay_add_contact_card_right_close_x">X</div>
-            </div>
-            <div class="contact_overlay_add_contact_card_right_center">
-              <img src="./assets/img/contacts/personEllipse.png" alt="" />
-              <div class="contact_overlay_add_contact_card_right_input_area">
-                <input id="inputName"
-                  class="contact_overlay_add_contact_card_right_inputfield person_img"
-                  type="text"
-                  placeholder="    Name"
-                />
-                <input id="inputEmail"
-                  class="contact_overlay_add_contact_card_right_inputfield mail_img"
-                  type="email"
-                  placeholder="    Email"
-                />
-                <input id="inputPhone"
-                  class="contact_overlay_add_contact_card_right_inputfield phone_img"
-                  type="number"
-                  placeholder="    Phone"
-                />
-                <div class="contact_overlay_add_contact_card_right_btn_area">
-                  <button onclick="clearInputField()"
-                    class="contact_overlay_add_contact_card_right_btn_cancel"
-                  >
-                    Cancel
-                    <span
-                      class="contact_overlay_add_contact_card_right_btn">x</span>
-                  </button>
-                  <button onclick="addContact()"
-                    class="contact_overlay_add_contact_card_right_btn_create"
-                  >
-                    Create contact
+              <div class="contacts_bigcard_name_area">
+                <span class="contacts_bigcard_name">Anton Mayer</span>
+                <div class="contacts_bigcard_edit">
+                  <div class="edit_area">
                     <img
-                      class="contact_overlay_add_contact_card_right_btn_check"
-                      src="./assets/img/contacts/check.png"
+                      class="edit_area_img"
+                      src="./assets/img/contacts/edit.png"
                       alt=""
                     />
-                  </button>
+                    <span class="edit_text">Edit</span>
+                  </div>
+                  <div class="edit_area">
+                    <img
+                      class="edit_area_img"
+                      src="./assets/img/contacts/delete.png"
+                      alt=""
+                    />
+                    <span class="edit_text">Delete</span>
+                  </div>
                 </div>
               </div>
             </div>
+            <span class="contacts_bigcard_Information_text"
+              >Contact Information</span
+            >
+            <div class="contacts_bigcard_Information_email_phone">
+              <span class="contacts_bigcard_Information_email_phone_span"
+                >Email</span
+              >
+              <span class="contacts_bigcard_Information_email"
+                >anton@gmail.com</span
+              >
+              <span class="contacts_bigcard_Information_email_phone_span"
+                >Phone</span
+              >
+              <span class="contacts_bigcard_Information_phone"
+                >+49 1111 111 11 1</span
+              >
+            </div>
+          </section> -->
+        </div>
+        <div class="add_contact_overlay_bg">
+          <div id="addContactOverlay" class="add_contact_overlay d_none">
+            <section class="contact_overlay_add_contact_card">
+              <div class="contact_overlay_add_contact_card_left">
+                <img
+                  class="contact_overlay_add_contact_card_left_logo"
+                  src="./assets/img/contacts/joinLogo.png"
+                  alt=""
+                />
+                <div class="contact_overlay_add_contact_card_left_text_area">
+                  <span
+                    class="contact_overlay_add_contact_card_left_text_area_heandline"
+                    >Add contact</span
+                  >
+                  <span class="contact_overlay_add_contact_card_left_text"
+                    >Tasks are better with a team</span
+                  >
+                  <img
+                    class="contact_overlay_add_contact_card_left_stroke"
+                    src="./assets/img/contacts/strokeBlueAddOverlay.png"
+                    alt=""
+                  />
+                </div>
+              </div>
+              <div class="contact_overlay_add_contact_card_right">
+                <div
+                  onclick="closeOverlayAddContact()"
+                  class="contact_overlay_add_contact_card_right_close_div"
+                >
+                  <div class="contact_overlay_add_contact_card_right_close_x">
+                    X
+                  </div>
+                </div>
+                <div class="contact_overlay_add_contact_card_right_center">
+                  <img src="./assets/img/contacts/personEllipse.png" alt="" />
+                  <div
+                    class="contact_overlay_add_contact_card_right_input_area"
+                  >
+                    <input
+                      id="inputName"
+                      class="contact_overlay_add_contact_card_right_inputfield person_img"
+                      type="text"
+                      placeholder="    Name"
+                    />
+                    <input
+                      id="inputEmail"
+                      class="contact_overlay_add_contact_card_right_inputfield mail_img"
+                      type="email"
+                      placeholder="    Email"
+                    />
+                    <input
+                      id="inputPhone"
+                      class="contact_overlay_add_contact_card_right_inputfield phone_img"
+                      type="number"
+                      placeholder="    Phone"
+                    />
+                    <div
+                      class="contact_overlay_add_contact_card_right_btn_area"
+                    >
+                      <button
+                        onclick="clearInputField()"
+                        class="contact_overlay_add_contact_card_right_btn_cancel"
+                      >
+                        Cancel
+                        <span class="contact_overlay_add_contact_card_right_btn"
+                          >x</span
+                        >
+                      </button>
+                      <button
+                        onclick="addContact()"
+                        class="contact_overlay_add_contact_card_right_btn_create"
+                      >
+                        Create contact
+                        <img
+                          class="contact_overlay_add_contact_card_right_btn_check"
+                          src="./assets/img/contacts/check.png"
+                          alt=""
+                        />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
           </div>
-        </section>
-      </div>
-      </div>
+        </div>
       </div>
     </div>
   </body>
