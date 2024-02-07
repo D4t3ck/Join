@@ -24,7 +24,7 @@
     <div class="contacts_body">
       <section class="add_contact_scroll_container">
         <div class="add_new_contact_btn_caontainer">
-          <div class="add_new_contact_btn" onclick="addOverlayAddContact()">
+          <div class="add_new_contact_btn" onclick="openOverlayAddContact()">
             <span class="add_new_contact_btn_text">Add new contact</span>
             <img
               class="add_new_contact_btn_img"
@@ -112,8 +112,9 @@
             >
           </div>
         </section>
-
-        <!-- <section class="contact_overlay_add_contact_card">
+        <div class="add_contact_overlay_bg">
+        <div id="addContactOverlay" class="add_contact_overlay d_none">
+        <section  class="contact_overlay_add_contact_card ">
           <div class="contact_overlay_add_contact_card_left">
             <img
               class="contact_overlay_add_contact_card_left_logo"
@@ -136,39 +137,36 @@
             </div>
           </div>
           <div class="contact_overlay_add_contact_card_right">
-            <div class="contact_overlay_add_contact_card_right_close_div">
-              <img src="./assets/img/contacts/close.png" alt="" />
+            <div onclick="closeOverlayAddContact()" class="contact_overlay_add_contact_card_right_close_div">
+              <div class="contact_overlay_add_contact_card_right_close_x">X</div>
             </div>
             <div class="contact_overlay_add_contact_card_right_center">
               <img src="./assets/img/contacts/personEllipse.png" alt="" />
               <div class="contact_overlay_add_contact_card_right_input_area">
-                <input
+                <input id="inputName"
                   class="contact_overlay_add_contact_card_right_inputfield person_img"
                   type="text"
                   placeholder="    Name"
                 />
-                <input
+                <input id="inputEmail"
                   class="contact_overlay_add_contact_card_right_inputfield mail_img"
                   type="email"
                   placeholder="    Email"
                 />
-                <input
+                <input id="inputPhone"
                   class="contact_overlay_add_contact_card_right_inputfield phone_img"
                   type="number"
                   placeholder="    Phone"
                 />
                 <div class="contact_overlay_add_contact_card_right_btn_area">
-                  <button
+                  <button onclick="clearInputField()"
                     class="contact_overlay_add_contact_card_right_btn_cancel"
                   >
                     Cancel
-                    <img
-                      class="contact_overlay_add_contact_card_right_btn"
-                      src="./assets/img/contacts/cancel.png"
-                      alt=""
-                    />
+                    <span
+                      class="contact_overlay_add_contact_card_right_btn">x</span>
                   </button>
-                  <button
+                  <button onclick="addContact()"
                     class="contact_overlay_add_contact_card_right_btn_create"
                   >
                     Create contact
@@ -182,7 +180,9 @@
               </div>
             </div>
           </div>
-        </section> -->
+        </section>
+      </div>
+      </div>
       </div>
     </div>
   </body>

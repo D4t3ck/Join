@@ -47,6 +47,11 @@
     border-radius: 10px;
     /* padding: 12px 0px 12px 0px; */
     gap: 16px;
+    cursor: pointer;
+}
+
+.add_new_contact_btn:hover {
+    background-color: #29ABE2;
 }
 
 .add_new_contact_btn_text{
@@ -113,7 +118,11 @@
     height: 78px;
     background-color: #FFFFFF;
     border-radius: 10px;
+    cursor: pointer;
+}
 
+.contact_scrolls_card_small:hover {
+    background-color: #f0efef;
 }
 
 .contact_scrolls_card_small_img {
@@ -278,12 +287,37 @@
 
 /* Contact Overlay add contact*/
 
+.d_none {
+    display: none !important;
+}
+
+/* .add_contact_overlay_bg {
+    display: flex;
+    background-color: gray;
+    width: 100%;
+    height: 100%;
+} */
+
+.add_contact_overlay {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+}
+
 .contact_overlay_add_contact_card {
     display: flex;
     align-items: center;
     justify-content: flex-start;
     border-radius: 30px;
-    background-color: #FFFFFF;
+    /* background-color: #FFFFFF; */
 }
 
 .contact_overlay_add_contact_card_left {
@@ -331,12 +365,33 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-end;
-    margin: 36px;
+    margin: 0;
+    padding-right: 36px;
     gap: 24px;
+    background: #FFFFFF;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    width: 700px;
+    height: 594px 
 }
 
 .contact_overlay_add_contact_card_right_close_div {
-    margin-bottom: 60px;
+    padding-bottom: 60px;
+}
+
+.contact_overlay_add_contact_card_right_close_x {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    border-radius: 30px;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+}
+
+.contact_overlay_add_contact_card_right_close_x:hover {
+    background-color: #f0efef;
 }
 
 .contact_overlay_add_contact_card_right_center {
@@ -395,11 +450,22 @@
     background-color: #FFFFFF;
     font-size: 20px;
     font-weight: 400;
+    cursor: pointer;
+}
+
+.contact_overlay_add_contact_card_right_btn_cancel:hover {
+    color: #29ABE2;
+    border-color: #29ABE2;
+}
+
+.contact_overlay_add_contact_card_right_btn_cancel:hover .contact_overlay_add_contact_card_right_close_div {
+    color: #29ABE2;
 }
 
 .contact_overlay_add_contact_card_right_btn {
-    width: 11px;
-    height: 11px;
+    display: flex;
+    font-size: 22px;
+    align-items: center;
 }
 
 .contact_overlay_add_contact_card_right_btn_create {
@@ -413,9 +479,15 @@
     font-size: 21px;
     font-weight: 700;
     color: #FFFFFF;
+    cursor: pointer;
+}
+
+.contact_overlay_add_contact_card_right_btn_create:hover {
+    background-color: #29ABE2;
 }
 
 .contact_overlay_add_contact_card_right_btn_check {
     width: 24px;
     height: 24px;
 }
+
