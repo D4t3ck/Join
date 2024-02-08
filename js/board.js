@@ -131,7 +131,6 @@ function closeAddTask() {
 
 function renderAddTask() {
   document.getElementById('add_task_popup_content').innerHTML = generateAddTask();
-  addDateMin();
 }
 
 function setAddTasksInTasks() {
