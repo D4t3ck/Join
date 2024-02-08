@@ -149,7 +149,7 @@
     font-size: 20px;
 }
 
-.contact_scrolls_card_small_onclick_email {
+.contact_scrolls_card_small_email {
     color: #007CEE;
     font-weight: 400;
     font-size: 16px;
@@ -417,12 +417,13 @@
 .contact_overlay_add_contact_card_right_inputfield {
     display: flex;
     border-color: #D1D1D1;
-    color: #D1D1D1;
     font-size: 20px;
     font-weight: 400;
     border-radius: 10px;
     width: 442px;
     height: 50px;
+    color: #2A3647;
+    padding-left: 24px;
 }
 
 .person_img {

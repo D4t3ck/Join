@@ -145,26 +145,29 @@
                 </div>
                 <div class="contact_overlay_add_contact_card_right_center">
                   <img src="./assets/img/contacts/personEllipse.png" alt="" />
-                  <div
+                  <form
                     class="contact_overlay_add_contact_card_right_input_area"
                   >
                     <input
                       id="inputName"
+                      required
                       class="contact_overlay_add_contact_card_right_inputfield person_img"
                       type="text"
-                      placeholder="    Name"
+                      placeholder="Name"
                     />
                     <input
                       id="inputEmail"
+                      required
                       class="contact_overlay_add_contact_card_right_inputfield mail_img"
                       type="email"
-                      placeholder="    Email"
+                      placeholder="Email"
                     />
                     <input
                       id="inputPhone"
+                      required
                       class="contact_overlay_add_contact_card_right_inputfield phone_img"
                       type="number"
-                      placeholder="    Phone"
+                      placeholder="Phone"
                     />
                     <div
                       class="contact_overlay_add_contact_card_right_btn_area"
@@ -179,6 +182,7 @@
                         >
                       </button>
                       <button
+                      type="submit"
                         onclick="addContact()"
                         class="contact_overlay_add_contact_card_right_btn_create"
                       >
@@ -189,12 +193,15 @@
                           alt=""
                         />
                       </button>
-                    </div>
+                    </form>
                   </div>
                 </div>
               </div>
             </section>
           </div>
+        </div>
+        <div class="add_contact_overlay_bg">
+          <div id="editContactOverlay" class="add_contact_overlay d_none"></div>
         </div>
       </div>
     </div>

@@ -49,15 +49,15 @@ function renderletters() {
                 <div class="contacts_scroll_abc">
                     <div id="letterbox${i}"></div>
                 </div>
-                <div class="contact_scrolls_card_small" onclick="showContactInformation('${name}', '${mail}', '${phone}')" id="contact_card${j}">
+                <div class="contact_scrolls_card_small" onclick="showContactInformation('${name}', '${mail}', '${phone}','${j}')" id="contact_card${j}">
                     <img
                         class="contact_scrolls_card_small_img"
                         src="./assets/img/contacts/ProfilebadgeAM.png"
                         alt=""
                     />
                     <div class="contact_scrolls_card_small_contact">
-                        <span class="contact_scrolls_card_small_name">${name}</span>
-                        <span class="contact_scrolls_card_small_onclick_email">${mail}</span>
+                        <span id="contact_card_name${j}" class="contact_scrolls_card_small_name">${name}</span>
+                        <span class="contact_scrolls_card_small_email">${mail}</span>
                     </div>
                 </div>`; 
             }
@@ -84,8 +84,10 @@ function addContact() {
             "phone": number,
     }
     contacts.push(contact);
-    clearInputField();
+    
     initContact();
+    closeOverlayAddContact();
+    // clearInputField();
 }
 
 function clearInputField() {
@@ -100,13 +102,17 @@ function openOverlayAddContact() {
 
 function closeOverlayAddContact() {
     document.getElementById('addContactOverlay').classList.add('d_none')
+    clearInputField();
 }
 
-function showContactInformation(name, mail, phone) {
-    document.getElementById('contactInformation').classList.remove('d_none')
-
+function showContactInformation(name, mail, phone, j) {
+  renderletters();
+  document.getElementById(`contact_card${j}`).classList.remove('contact_scrolls_card_small');
+  document.getElementById(`contact_card${j}`).classList.add('contact_scrolls_card_small_onclick');
+  document.getElementById(`contact_card_name${j}`).classList.remove('contact_scrolls_card_small_name');
+  document.getElementById(`contact_card_name${j}`).classList.add('contact_scrolls_card_small_onclick_name');
+    document.getElementById('contactInformation').classList.remove('d_none');
     let contactInformation = document.getElementById('contactInformation');
-
     contactInformation.innerHTML = 
    /*html*/` 
    <section class="contacts_bigcard_container">
@@ -119,7 +125,7 @@ function showContactInformation(name, mail, phone) {
       <div class="contacts_bigcard_name_area">
         <span class="contacts_bigcard_name">${name}</span>
         <div class="contacts_bigcard_edit">
-          <div class="edit_area">
+          <div class="edit_area" onclick="editContact('${name}', '${mail}', '${phone}')">
             <img
               class="edit_area_img"
               src="./assets/img/contacts/edit.png"
@@ -133,7 +139,7 @@ function showContactInformation(name, mail, phone) {
               src="./assets/img/contacts/delete.png"
               alt=""
             />
-            <span class="edit_text">Delete</span>
+            <span class="edit_text" onclick="deleteContact()">Delete</span>
           </div>
         </div>
       </div>
@@ -157,4 +163,95 @@ function showContactInformation(name, mail, phone) {
     </div>
   </section>
 `;
+}
+
+function editContact(name, mail, phone) {
+  document.getElementById('editContactOverlay').classList.remove('d_none');
+
+  let editContact = document.getElementById('editContactOverlay');
+
+  editContact.innerHTML = /*html*/`
+  <section class="contact_overlay_add_contact_card">
+              <div class="contact_overlay_add_contact_card_left">
+                <img
+                  class="contact_overlay_add_contact_card_left_logo"
+                  src="./assets/img/contacts/joinLogo.png"
+                  alt=""
+                />
+                <div class="contact_overlay_add_contact_card_left_text_area">
+                  <span
+                    class="contact_overlay_add_contact_card_left_text_area_heandline"
+                    >Edit contact</span
+                  >
+                  <img
+                    class="contact_overlay_add_contact_card_left_stroke"
+                    src="./assets/img/contacts/strokeBlueAddOverlay.png"
+                    alt=""
+                  />
+                </div>
+              </div>
+              <div class="contact_overlay_add_contact_card_right">
+                <div
+                  onclick="closeOverlayEditContact()"
+                  class="contact_overlay_add_contact_card_right_close_div"
+                >
+                  <div class="contact_overlay_add_contact_card_right_close_x">
+                    X
+                  </div>
+                </div>
+                <div class="contact_overlay_add_contact_card_right_center">
+                  <img src="./assets/img/contacts/ProfilebadgeAM.png" alt="" />
+                  <div
+                    class="contact_overlay_add_contact_card_right_input_area"
+                  >
+                    <input
+                      id="inputName"
+                      required
+                      class="contact_overlay_add_contact_card_right_inputfield person_img"
+                      type="text"
+                      value="${name}"
+                    />
+                    <input
+                      id="inputEmail"
+                      required
+                      class="contact_overlay_add_contact_card_right_inputfield mail_img"
+                      type="email"
+                      value="${mail}"
+                    />
+                    <input
+                      id="inputPhone"
+                      required
+                      class="contact_overlay_add_contact_card_right_inputfield phone_img"
+                      value="${phone}"
+                    />
+                    <div
+                      class="contact_overlay_add_contact_card_right_btn_area"
+                    >
+                      <button
+                        onclick="()"
+                        class="contact_overlay_add_contact_card_right_btn_cancel"
+                      >
+                        Delete
+                      </button>
+                      <button
+                        onclick="addContact()"
+                        class="contact_overlay_add_contact_card_right_btn_create"
+                      >
+                        Save
+                        <img
+                          class="contact_overlay_add_contact_card_right_btn_check"
+                          src="./assets/img/contacts/check.png"
+                          alt=""
+                        />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+  `;
+}
+
+function closeOverlayEditContact() {
+  document.getElementById('editContactOverlay').classList.add('d_none');
 }
