@@ -131,12 +131,17 @@ function closeAddTask() {
 
 function renderAddTask() {
   document.getElementById('add_task_popup_content').innerHTML = generateAddTask();
+  addDateMin();
 }
 
 function setAddTasksInTasks() {
-    tasks.push(tasksInAddTask[0]);
-    tasksInAddTask = [];
-    initBoard();
+    setTimeout(() => {
+        tasks.push(tasksInAddTask[0]);
+        tasksInAddTask = [];
+        initBoard();
+        initAddTask();
+        closeAddTask();
+    }, 1250);
 }
 
 function generateCategorys() {
@@ -261,7 +266,12 @@ function generateAddTask() {
                 <div class="mobile_sidebar_container"></div>
             </div>
         </form>
-
+        <div id="create_popup">
+            <div class="create_card">
+                <span>Task added to board</span>
+                <img src="./assets/img/add_task/create_popup.png">
+            </div>
+        </div>
     </section>
 </section>
   `;

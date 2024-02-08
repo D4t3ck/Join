@@ -72,9 +72,11 @@ function stopEvent(event) {
 
 function checkForm(event) {
   event.preventDefault();
-  console.log("Form Checked!");
   getTaskData();
-  console.log(tasksInAddTask);
+  showCreateTaskPopup();
+  setTimeout(() => {
+    closeCreateTaskPopup();
+  }, 1250);
 }
 
 function getTaskData() {
@@ -233,6 +235,14 @@ function searchContact() {
   filteredContacts.forEach((contact, index) => {
     document.getElementById('input_assigned_content').innerHTML += generateContact(contact, index);
   });
+}
+
+function showCreateTaskPopup() {
+  document.getElementById('create_popup').style.display = 'flex';
+}
+
+function closeCreateTaskPopup() {
+  document.getElementById('create_popup').style.display = 'none';
 }
 
 function generateAssignSelection() {
