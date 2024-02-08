@@ -21,7 +21,7 @@ let contacts = [
     },
 ]
 
-let letters = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+let letters = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','Ü','Ä','Ö'];
 // let letters = [];
 
 function initContact() {
@@ -42,14 +42,14 @@ function renderletters() {
             const name = element['name'];
             const mail = element['mail'];
             const phone = element['phone']
-            const firstletter = element['name'].charAt(0);
+            const firstletter = element['name'].charAt(0).toUpperCase();
             if (letter == firstletter) {
                 contactArea.innerHTML += 
                 /*html*/`              
                 <div class="contacts_scroll_abc">
                     <div id="letterbox${i}"></div>
                 </div>
-                <div class="contact_scrolls_card_small" onclick="showContactInformation('${name}', '${mail}', '${phone}')">
+                <div class="contact_scrolls_card_small" onclick="showContactInformation('${name}', '${mail}', '${phone}')" id="contact_card${j}">
                     <img
                         class="contact_scrolls_card_small_img"
                         src="./assets/img/contacts/ProfilebadgeAM.png"
