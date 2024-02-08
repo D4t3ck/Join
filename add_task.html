@@ -12,15 +12,13 @@
     <link rel="stylesheet" href="./assets/templates/sidebar/sidebar.css">
     <link rel="stylesheet" href="./assets/templates/header/header.css">
 </head>
-<body onload="init()">
+<body onload="init(); initAddTask()">
 
     <main>
-        <!-- <section class="side_bar_test"></section> -->
         <div class="side_bar_container">
             <div w3-include-html="./assets/templates/sidebar/sidebar.html"></div>
         </div>
         <section class="header">
-            <!-- <nav class="header"></nav> -->
             <div w3-include-html="./assets/templates/header/header.html"></div>
             <section class="add_task_content" onclick="closeDropdown()">
 

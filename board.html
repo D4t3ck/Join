@@ -11,9 +11,10 @@
   <link rel="stylesheet" href="./assets/templates/header/header.css">
   <link rel="stylesheet" href="./assets/templates/sidebar/sidebar.css">
   <link rel="stylesheet" href="./assets/css/board.css">
+  <link rel="stylesheet" href="./assets/templates/add_task/add_task_template.css">
 </head>
 
-<body onload="init(); initBoard()">
+<body onload="init(); initBoard(); initAddTask()">
   <div class="container">
     <div class="side_bar_position_container">
       <div w3-include-html="./assets/templates/sidebar/sidebar.html"></div>
@@ -29,7 +30,7 @@
               <div class="br"></div>
               <img src="./assets/img/board/magnifiying_glass.png" alt="search task input">
             </div>
-            <button class="add_task_button">Add task <img src="./assets/img/board/add.png"></button>
+            <button onclick="showAddTask()" class="add_task_button">Add task <img src="./assets/img/board/add.png"></button>
           </div>
         </section>
         <section class="category_section" id="category_section">
@@ -37,10 +38,17 @@
       </div>
     </main>
   </div>
+  <div id="add_task_popup" onclick="closeAddTask()">
+    <div id="add_task_popup_content">
+      
+    </div>
+  </div>
+  
 
   <script src="./script.js"></script>
   <script src="./js/board.js"></script>
   <script src="./js/header.js"></script>
+  <script src="./js/add_task.js"></script>
 </body>
 
 </html>

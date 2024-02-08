@@ -1,13 +1,9 @@
-let tasks = [];
+let tasksInAddTask = [];
 let subTasks = [];
 let contacts = ['Florian', 'Daniel', 'Roman', 'Frederic', 'Albert', 'Gustav'];
 let checkedContacts = [];
 let assignRdy = false;
-const prioSpans = document.querySelectorAll(".prio_category_span");
-document.getElementById("clear_button").addEventListener("click", clear);
-document.getElementById("date_input").min = new Date()
-  .toISOString()
-  .split("T")[0];
+let prioSpans;
 
 class Task {
   constructor(
@@ -38,9 +34,26 @@ class subTask {
   }
 }
 
-function init() {
+function initAddTask() {
   includeHTML();
+  getPrioSpans();
   setActivePrio(1, "medium");
+  addClearFunction();
+  addDateMin();
+}
+
+function getPrioSpans() {
+  prioSpans = document.querySelectorAll(".prio_category_span");
+}
+
+function addClearFunction() {
+  document.getElementById("clear_button").addEventListener("click", clear);
+}
+
+function addDateMin() {
+  document.getElementById("date_input").min = new Date()
+  .toISOString()
+  .split("T")[0];
 }
 
 function clear() {
@@ -61,7 +74,7 @@ function checkForm(event) {
   event.preventDefault();
   console.log("Form Checked!");
   getTaskData();
-  console.log(tasks);
+  console.log(tasksInAddTask);
 }
 
 function getTaskData() {
@@ -81,7 +94,7 @@ function getTaskData() {
     subTasks,
     'toDo'
   );
-  tasks.push(task);
+  tasksInAddTask.push(task);
   clear();
 }
 
