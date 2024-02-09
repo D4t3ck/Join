@@ -139,7 +139,7 @@ function showContactInformation(name, mail, phone, j) {
               src="./assets/img/contacts/delete.png"
               alt=""
             />
-            <span class="edit_text" onclick="deleteContact()">Delete</span>
+            <span class="edit_text" onclick="deleteContact(${j})">Delete</span>
           </div>
         </div>
       </div>
@@ -228,7 +228,7 @@ function editContact(name, mail, phone, j) {
                       class="contact_overlay_add_contact_card_right_btn_area"
                     >
                       <button
-                        onclick="()"
+                        onclick="deleteContact(${j})"
                         class="contact_overlay_add_contact_card_right_btn_cancel"
                       >
                         Delete
@@ -263,4 +263,11 @@ function editContactTest(j) {
   renderletters();
   showContactInformation();
   closeOverlayEditContact();
+}
+
+function deleteContact(j) {
+  contacts.splice(j , 1)
+  renderletters();
+  closeOverlayEditContact();
+
 }
