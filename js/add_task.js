@@ -79,6 +79,16 @@ function checkForm(event) {
   }, 1250);
 }
 
+function checkFormFullPage(event) {
+  event.preventDefault();
+  getTaskData();
+  showCreateTaskPopup();
+  setTimeout(() => {
+    closeCreateTaskPopup();
+    changePage();
+  }, 1250);
+}
+
 function getTaskData() {
   const title = document.getElementById("title_input").value;
   const description = document.getElementById("description_textarea").value;
@@ -98,6 +108,10 @@ function getTaskData() {
   );
   tasksInAddTask.push(task);
   clear();
+}
+
+function changePage() {
+  window.location.href = "http://127.0.0.1:5500/join/board.html";
 }
 
 function setActivePrio(index, prio) {
