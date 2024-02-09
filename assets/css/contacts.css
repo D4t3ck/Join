@@ -109,7 +109,7 @@
     height: 78px;
     background-color: #2A3647;
     border-radius: 10px;
-    /* gap: 35px; */
+    gap: 35px;
 }
 
 .contact_scrolls_card_small {
@@ -119,11 +119,26 @@
     height: 78px;
     background-color: #FFFFFF;
     border-radius: 10px;
+    gap: 35px;
     cursor: pointer;
 }
 
 .contact_scrolls_card_small:hover {
     background-color: #f0efef;
+}
+
+.profil_ellipse {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 42px;
+    height: 42px;
+    background-color: #FF7A00;
+    border: 2px solid #f0efef;
+    border-radius: 45px;
+    gap: 10px;
+    color: #FFFFFF;
+    margin-left: 20px;
 }
 
 .contact_scrolls_card_small_img {
@@ -208,6 +223,27 @@
     display: flex;
     align-items: center;
     gap: 54px;
+    width: max-content;
+}
+
+.profil_ellipse_info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 120px;
+    background-color: #FF7A00;
+    border: 3px solid #FFFFFF;
+    border-radius: 70px;
+    gap: 10px;
+    color: #FFFFFF;
+    margin-left: 20px;
+    
+}
+
+.profil_ellipse_info_text {
+    font-size: 47px;
+    font-weight: 500;
 }
 
 .contacts_bigcard_img {
