@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="./assets/templates/sidebar/sidebar.css">
   <link rel="stylesheet" href="./assets/css/board.css">
   <link rel="stylesheet" href="./assets/templates/add_task/add_task_template.css">
+  <link rel="stylesheet" href="./assets/css/overlay.css">
 </head>
 
 <body onload="init(); initBoard(); initAddTask()">
@@ -42,6 +43,12 @@
     <div id="add_task_popup_content">
       
     </div>
+  </div>
+
+  <div id="card_popup" onclick="closePopUpCard()">
+      <div id="card_popup_content" onclick="stopEvent(event)">
+
+      </div>
   </div>
   
 

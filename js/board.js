@@ -29,7 +29,7 @@ let tasks = [
         ],
         category: "User Story",
         description: 'Vorher aufwärmen',
-        dueDate: '2024-02-08',
+        dueDate: '2024-02-10',
         prio: 'medium',
         subtasks: [
             {
@@ -73,7 +73,7 @@ function filterTasks(id) {
 }
 
 function renderList(list, id) {
-    list.forEach((task, index) => {
+    list.forEach((task) => {
         document.getElementById(`${id}`).innerHTML += generateCard(task);
     });
 }
@@ -105,31 +105,6 @@ function moveTo(category) {
     renderTasks();
 }
 
-function generateCard(task) {
-    return /*html*/`
-        <div class="card" draggable="true" ondragstart="startDragging('${task.title}', this)">
-          <section class="card_headline">
-            <span>${task.category}</span>
-          </section>
-          <section>
-            <h2>${task.title}</h2>
-          </section>
-          <section class="card_description">${task.description}</section>
-          <section class="card_subtasks">
-            <progress id="subtask_progress" value="1" max="${task.subtasks.length}"></progress>
-            <label for="subtask_progress">1/2 Subtasks</label>
-          </section>
-          <section>
-            <div>
-            </div>
-            <div>
-              <img src="./assets/img/add_task/medium_color.png">
-            </div>
-          </section>
-        </div>
-    `;
-}
-
 function showAddTask() {
     document.getElementById('add_task_popup').style.display = 'flex';
 }
@@ -150,6 +125,47 @@ function setAddTasksInTasks() {
         initAddTask();
         closeAddTask();
     }, 1250);
+}
+
+function renderPopUpCard(taskName) {
+    const currentTask = tasks.filter(todo => todo.title == `${taskName}`);
+    const currentFormatDate = formatDate(currentTask[0].dueDate);
+    document.getElementById('card_popup').style.display = 'flex';
+    document.getElementById('card_popup_content').innerHTML = generatePopUpCard(currentTask[0], currentFormatDate);
+}
+
+function closePopUpCard() {
+    document.getElementById('card_popup').style.display = 'none';
+}
+
+function formatDate(date) {
+    const dateData = date.split("-");
+    return `${dateData[2]}/${dateData[1]}/${dateData[0]}`;
+}
+
+function generateCard(task) {
+    return /*html*/`
+        <div class="card" draggable="true" ondragstart="startDragging('${task.title}', this)" onclick="renderPopUpCard('${task.title}')">
+          <section class="card_headline">
+            <span>${task.category}</span>
+          </section>
+          <section>
+            <h2>${task.title}</h2>
+          </section>
+          <section class="card_description">${task.description}</section>
+          <section class="card_subtasks">
+            <progress id="subtask_progress" value="1" max="${task.subtasks.length}"></progress>
+            <label for="subtask_progress">1/2 Subtasks</label>
+          </section>
+          <section>
+            <div>
+            </div>
+            <div>
+              <img src="./assets/img/add_task/medium_color.png">
+            </div>
+          </section>
+        </div>
+    `;
 }
 
 function generateCategorys() {
@@ -283,4 +299,92 @@ function generateAddTask() {
     </section>
 </section>
   `;
+}
+
+function generatePopUpCard(task, date) {
+    return /*html*/`
+        <section class="overlay">
+      <div class="overlay_header">
+        <span class="overlay_user_task">${task.category}</span>
+        <span class="close"
+          ><img
+            class="closeIcon"
+            src="./assets/img/img_summary/close.png"
+            alt=""
+        /></span>
+      </div>
+      <h1>${task.title}</h1>
+      <span class="overlay_text"
+        >${task.description}</span
+      >
+      <div class="overlay_flex_field">
+        <div class="due_date">Due date:</div>
+        <div class="date">${date}</div>
+      </div>
+      <div class="overlay_flex_field">
+        <div class="due_date">Priority:</div>
+        <div class="overlay_priority">
+          <div class="Priority">${task.category}</div>
+          <div>=</div>
+        </div>
+      </div>
+      <div class="stretch">
+        <div class="overlay_assigned_to">Assigned To:</div>
+        <div class="assigned_to_container">
+          <div class="assigned_to_field">
+            <div class="user_img">
+              <img src="./assets/img/img_summary/profilImg.png" alt="" />
+            </div>
+            <div class="user_name">Emmanuel Mauer</div>
+          </div>
+        </div>
+        <div class="assigned_to_container">
+          <div class="assigned_to_field">
+            <div class="user_img">
+              <img src="./assets/img/img_summary/profilImg.png" alt="" />
+            </div>
+            <div class="user_name">Emmanuel Mauer</div>
+          </div>
+        </div>
+      </div>
+      <div class="stretch">
+        <div class="overlay_subtasks">Subtasks</div>
+        <div class="subtasks_check">
+          <div class="subtask">
+            <div class="subtasks_check_field">
+              <img src="./assets/img/img_summary/Checkbuttonfill.png" alt="" />
+            </div>
+            <span class="subtasks_check_text"
+              >Implement Recipe Recommendation</span
+            >
+          </div>
+          <div class="subtask">
+            <div class="subtasks_check_field">
+              <img src="./assets/img/img_summary/Checkbuttonempty.png" alt="" />
+            </div>
+            <span class="subtasks_check_text">Start Page Layout</span>
+          </div>
+        </div>
+      </div>
+      <div class="overlay_edit">
+        <div class="edit_area">
+          <img
+            class="edit_area_img"
+            src="./assets/img/img_summary/delete.png"
+            alt=""
+          />
+          <span class="edit_text">Delete</span>
+        </div>
+        <img src="./assets/img/img_summary/Vector.png" alt="" />
+        <div class="edit_area">
+          <img
+            class="edit_area_img"
+            src="./assets/img/img_summary/edit.png"
+            alt=""
+          />
+          <span class="edit_text">Edit</span>
+        </div>
+      </div>
+    </section>
+    `;
 }
