@@ -17,7 +17,8 @@ main {
 }
 
 .container a {
-  word-wrap: break-word;
+  word-break: break-all;
+  font-size: smaller;
 }
 
 .container_head {

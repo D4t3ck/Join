@@ -68,6 +68,10 @@
   background-color: var(--main_color_lighter);
 }
 
+.sidebar_menu span:hover {
+  color: var(--card_color);
+}
+
 .sidebar_footer_link {
   display: flex;
   justify-content: center;

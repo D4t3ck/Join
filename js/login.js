@@ -1,5 +1,20 @@
 let isImageLog = true;
 
+document.addEventListener("DOMContentLoaded", function () {
+  setTimeout(function () {
+    fadeOutModal();
+  }, 1000);
+
+  function fadeOutModal() {
+    let modal = document.getElementById("landing_page");
+    modal.classList.add("fade-out");
+
+    setTimeout(function () {
+      modal.style.display = "none";
+    }, 300);
+  }
+});
+
 function toggleCheckboxLogin() {
   let image = document.getElementById("checkLogin");
 
@@ -22,7 +37,7 @@ async function checkUser() {
     loginEmail == responseUserAsJson.mail &&
     loginPwd == responseUserAsJson.password
   ) {
-    alert("Eingabe sind gleich");
+    alert("Eingabe sind =");
     USER.push(responseUserAsJson);
     console.log(USER);
   } else {

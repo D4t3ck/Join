@@ -1,3 +1,45 @@
+/********** ANIMATION **********/
+
+.modal {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #f6f7f8;
+  z-index: 900;
+  opacity: 1;
+  transition: opacity 0.5s ease; /* Übergangseigenschaft für Opazität */
+}
+
+.modal.fade-out {
+  opacity: 0;
+}
+
+@keyframes moveDiagonal {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-40vw, -32vh); /* Bewegung in die obere linke Ecke */
+  }
+}
+
+@keyframes resizeImage {
+  0% {
+    width: 500px;
+    height: 520px;
+  }
+  100% {
+    width: 100px;
+    height: 120px;
+  }
+}
+
+.landing_page_desktop img {
+  animation: moveDiagonal 2s forwards, resizeImage 2s forwards;
+}
+
 /********** HEAD **********/
 
 .login_page_container {
@@ -11,6 +53,7 @@
   display: flex;
   justify-content: space-between;
   padding: 60px 122px 0 77px;
+  margin-left: 12px;
 }
 
 .sign_up_container,
@@ -18,7 +61,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: -66px;
+  margin-top: -90px;
   gap: 35px;
 }
 
@@ -241,8 +284,6 @@
   box-shadow: -1px 5px 5px 0px #c2c2c2;
 }
 
-
-
 /********** FOOTER **********/
 
 .login_page_bottom {
@@ -275,25 +316,29 @@
   .login_page_head {
     padding: 0;
   }
+  .login_page_head img {
+    width: 64px;
+  }
   .sign_up_container {
     display: none;
   }
   .login_input {
-    width: auto;
+    width: 240px;
   }
   .sign_up_mobile {
     display: block;
   }
   .login_card {
-    min-height: 600px;
-    padding: 0;
+    min-height: 500px;
+    padding: 12px 8px 12px 8px;
   }
   .login_card_foot {
     flex-direction: column;
     align-items: center;
+    width: auto;
     gap: 10px;
   }
-  .foot_login_btn, 
+  .foot_login_btn,
   .foot_guestlog_btn {
     min-width: 180px;
     min-height: 51px;
@@ -301,4 +346,4 @@
   .login_page_bottom {
     margin: 0;
   }
-}  
+}
