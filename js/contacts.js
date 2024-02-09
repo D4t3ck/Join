@@ -51,8 +51,8 @@ function renderletters() {
                 <div class="contacts_scroll_abc">
                     <div id="letterbox${i}"></div>
                 </div>
-                <div class="contact_scrolls_card_small" onclick="showContactInformation('${name}', '${mail}', '${phone}','${j}')" id="contact_card${j}">
-                    <div>${profil}</div>
+                <div class="contact_scrolls_card_small" onclick="showContactInformation('${name}', '${mail}', '${phone}','${j}','${profil}')" id="contact_card${j}">
+                    <div class="profil_ellipse">${profil}</div>
                     <div class="contact_scrolls_card_small_contact">
                         <span id="contact_card_name${j}" class="contact_scrolls_card_small_name">${name}</span>
                         <span class="contact_scrolls_card_small_email">${mail}</span>
@@ -103,7 +103,7 @@ function closeOverlayAddContact() {
     clearInputField();
 }
 
-function showContactInformation(name, mail, phone, j) {
+function showContactInformation(name, mail, phone, j, profil) {
   renderletters();
   document.getElementById(`contact_card${j}`).classList.remove('contact_scrolls_card_small');
   document.getElementById(`contact_card${j}`).classList.add('contact_scrolls_card_small_onclick');
@@ -115,11 +115,7 @@ function showContactInformation(name, mail, phone, j) {
    /*html*/` 
    <section class="contacts_bigcard_container">
     <div class="contacts_bigcard_contact_area">
-      <img
-        class="contacts_bigcard_img"
-        src="./assets/img/contacts/ProfilebadgeAM.png"
-        alt=""
-      />
+      <div class="profil_ellipse_info"> <span class="profil_ellipse_info_text">${profil}</span> </div>
       <div class="contacts_bigcard_name_area">
         <span class="contacts_bigcard_name">${name}</span>
         <div class="contacts_bigcard_edit">
