@@ -136,7 +136,7 @@
               </div>
               <div class="contact_overlay_add_contact_card_right">
                 <div
-                  onclick="closeOverlayAddContact()"
+                  onclick="closeOverlayAddContact(); "
                   class="contact_overlay_add_contact_card_right_close_div"
                 >
                   <div class="contact_overlay_add_contact_card_right_close_x">
@@ -145,7 +145,7 @@
                 </div>
                 <div class="contact_overlay_add_contact_card_right_center">
                   <img src="./assets/img/contacts/personEllipse.png" alt="" />
-                  <form
+                  <form onsubmit="addContact(); return false"
                     class="contact_overlay_add_contact_card_right_input_area"
                   >
                     <input
@@ -166,14 +166,14 @@
                       id="inputPhone"
                       required
                       class="contact_overlay_add_contact_card_right_inputfield phone_img"
-                      type="number"
+                      type="text"
                       placeholder="Phone"
                     />
                     <div
                       class="contact_overlay_add_contact_card_right_btn_area"
                     >
                       <button
-                        onclick="clearInputField()"
+                      onclick="clearInputField()"
                         class="contact_overlay_add_contact_card_right_btn_cancel"
                       >
                         Cancel
@@ -183,7 +183,7 @@
                       </button>
                       <button
                       type="submit"
-                        onclick="addContact()"
+                        
                         class="contact_overlay_add_contact_card_right_btn_create"
                       >
                         Create contact
@@ -193,6 +193,7 @@
                           alt=""
                         />
                       </button>
+                    </div>
                     </form>
                   </div>
                 </div>

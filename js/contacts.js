@@ -125,7 +125,7 @@ function showContactInformation(name, mail, phone, j) {
       <div class="contacts_bigcard_name_area">
         <span class="contacts_bigcard_name">${name}</span>
         <div class="contacts_bigcard_edit">
-          <div class="edit_area" onclick="editContact('${name}', '${mail}', '${phone}')">
+          <div class="edit_area" onclick="editContact('${name}', '${mail}', '${phone}', '${j}')">
             <img
               class="edit_area_img"
               src="./assets/img/contacts/edit.png"
@@ -151,21 +151,21 @@ function showContactInformation(name, mail, phone, j) {
       <span class="contacts_bigcard_Information_email_phone_span"
         >Email</span
       >
-      <span class="contacts_bigcard_Information_email"
-        >${mail}</span
+      <a href="mailto:${mail}" class="contacts_bigcard_Information_email"
+        >${mail}</a
       >
       <span class="contacts_bigcard_Information_email_phone_span"
         >Phone</span
       >
-      <span class="contacts_bigcard_Information_phone"
-        >${phone}</span
+      <a href="tel:${phone}" class="contacts_bigcard_Information_phone"
+        >${phone}</a
       >
     </div>
   </section>
 `;
 }
 
-function editContact(name, mail, phone) {
+function editContact(name, mail, phone, j) {
   document.getElementById('editContactOverlay').classList.remove('d_none');
 
   let editContact = document.getElementById('editContactOverlay');
@@ -205,21 +205,21 @@ function editContact(name, mail, phone) {
                     class="contact_overlay_add_contact_card_right_input_area"
                   >
                     <input
-                      id="inputName"
+                      id="inputEditName"
                       required
                       class="contact_overlay_add_contact_card_right_inputfield person_img"
                       type="text"
                       value="${name}"
                     />
                     <input
-                      id="inputEmail"
+                      id="inputEditEmail"
                       required
                       class="contact_overlay_add_contact_card_right_inputfield mail_img"
                       type="email"
                       value="${mail}"
                     />
                     <input
-                      id="inputPhone"
+                      id="inputEditPhone"
                       required
                       class="contact_overlay_add_contact_card_right_inputfield phone_img"
                       value="${phone}"
@@ -234,7 +234,7 @@ function editContact(name, mail, phone) {
                         Delete
                       </button>
                       <button
-                        onclick="addContact()"
+                        onclick="editContactTest(${j})"
                         class="contact_overlay_add_contact_card_right_btn_create"
                       >
                         Save
@@ -254,4 +254,13 @@ function editContact(name, mail, phone) {
 
 function closeOverlayEditContact() {
   document.getElementById('editContactOverlay').classList.add('d_none');
+}
+
+function editContactTest(j) {
+  contacts[j].name = document.getElementById('inputEditName').value;
+  contacts[j].mail = document.getElementById('inputEditEmail').value;
+  contacts[j].phone = document.getElementById('inputEditPhone').value;
+  renderletters();
+  showContactInformation();
+  closeOverlayEditContact();
 }
