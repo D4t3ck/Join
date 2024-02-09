@@ -43,18 +43,16 @@ function renderletters() {
             const mail = element['mail'];
             const phone = element['phone']
             const firstletter = element['name'].charAt(0).toUpperCase();
+            
             if (letter == firstletter) {
+              const profil = getFirstChars(name);
                 contactArea.innerHTML += 
                 /*html*/`              
                 <div class="contacts_scroll_abc">
                     <div id="letterbox${i}"></div>
                 </div>
                 <div class="contact_scrolls_card_small" onclick="showContactInformation('${name}', '${mail}', '${phone}','${j}')" id="contact_card${j}">
-                    <img
-                        class="contact_scrolls_card_small_img"
-                        src="./assets/img/contacts/ProfilebadgeAM.png"
-                        alt=""
-                    />
+                    <div>${profil}</div>
                     <div class="contact_scrolls_card_small_contact">
                         <span id="contact_card_name${j}" class="contact_scrolls_card_small_name">${name}</span>
                         <span class="contact_scrolls_card_small_email">${mail}</span>
@@ -267,7 +265,26 @@ function editContactTest(j) {
 
 function deleteContact(j) {
   contacts.splice(j , 1)
-  renderletters();
   closeOverlayEditContact();
+  clearContactInformation();
+  renderletters();
 
+}
+
+function clearContactInformation() {
+  let contactInformation = document.getElementById('contactInformation');
+  contactInformation.innerHTML = "";
+}
+
+function getFirstChars(name) {
+  const names = name.split(' ');
+
+  const first1letter = names[0].charAt(0).toUpperCase();
+  const lastIndex = names.length - 1 
+  const secondLetter = names[lastIndex].charAt(0).toUpperCase();
+  const profilLetter = first1letter +secondLetter;
+
+  return profilLetter;
+  console.log(profilLetter)
+  
 }
