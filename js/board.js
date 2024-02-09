@@ -78,12 +78,21 @@ function renderList(list, id) {
     });
 }
 
-function startDragging(name) {
+function startDragging(name, element) {
     currentDraggedName = name;
+    element.classList.add('drag_transform');
 }
 
 function allowDrop(ev) {
     ev.preventDefault();
+}
+
+function highlight(id) {
+    document.getElementById(id).classList.add('drag_hover');
+}
+
+function removeHighlight(id) {
+    document.getElementById(id).classList.remove('drag_hover');
 }
 
 function moveTo(category) {
@@ -98,7 +107,7 @@ function moveTo(category) {
 
 function generateCard(task) {
     return /*html*/`
-        <div class="card" draggable="true" ondragstart="startDragging('${task.title}')">
+        <div class="card" draggable="true" ondragstart="startDragging('${task.title}', this)">
           <section class="card_headline">
             <span>${task.category}</span>
           </section>
@@ -149,7 +158,7 @@ function generateCategorys() {
           <div class="category_headline">
             <b>To do</b> <img src="./assets/img/board/plus.png" alt="create Task">
           </div>
-          <div class="category_content" id="toDo" ondrop="moveTo('toDo')" ondragover="allowDrop(event)">
+          <div class="category_content" id="toDo" ondragleave="removeHighlight('toDo')" ondrop="moveTo('toDo')" ondragover="allowDrop(event); highlight('toDo')">
             
           </div>
         </div>
@@ -157,7 +166,7 @@ function generateCategorys() {
           <div class="category_headline">
             <b>In progress</b><img src="./assets/img/board/plus.png" alt="create Task">
           </div>
-          <div class="category_content" id="inProgress" ondrop="moveTo('inProgress')" ondragover="allowDrop(event)">
+          <div class="category_content" id="inProgress" ondragleave="removeHighlight('inProgress')" ondrop="moveTo('inProgress')" ondragover="allowDrop(event); highlight('inProgress')">
             
           </div>
         </div>
@@ -165,14 +174,14 @@ function generateCategorys() {
           <div class="category_headline">
             <b>Await feedback</b> <img src="./assets/img/board/plus.png" alt="create Task">
           </div>
-          <div class="category_content" id="awaitFeedback" ondrop="moveTo('awaitFeedback')" ondragover="allowDrop(event)">
+          <div class="category_content" id="awaitFeedback" ondragleave="removeHighlight('awaitFeedback')" ondrop="moveTo('awaitFeedback')" ondragover="allowDrop(event); highlight('awaitFeedback')">
           </div>
         </div>
         <div class="category">
           <div class="category_headline">
             <b>Done</b> <img src="./assets/img/board/plus.png" alt="create Task">
           </div>
-          <div class="category_content" id="done" ondrop="moveTo('done')" ondragover="allowDrop(event)">
+          <div class="category_content" id="done" ondragleave="removeHighlight('done')" ondrop="moveTo('done')" ondragover="allowDrop(event); highlight('done')">
           </div>
         </div>
     `;

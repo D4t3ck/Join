@@ -80,6 +80,14 @@ h1 {
     background-color: rgba(0, 0, 0, 0.4);
 }
 
+.drag_hover {
+    background-color: lightgray;
+}
+
+.drag_transform {
+    transform: rotate(356deg);
+}
+
 .add_task_button {
     color: white;
     background-color: rgb(42, 54, 71);
