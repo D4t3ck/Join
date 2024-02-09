@@ -306,7 +306,7 @@ function generatePopUpCard(task, date) {
         <section class="overlay">
       <div class="overlay_header">
         <span class="overlay_user_task">${task.category}</span>
-        <span class="close"
+        <span onclick="closePopUpCard()" class="close"
           ><img
             class="closeIcon"
             src="./assets/img/img_summary/close.png"
