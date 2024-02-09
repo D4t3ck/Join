@@ -111,7 +111,7 @@ function getTaskData() {
 }
 
 function changePage() {
-  window.location.href = "http://127.0.0.1:5500/join/board.html";
+  window.location.href = "./board.html";
 }
 
 function setActivePrio(index, prio) {
