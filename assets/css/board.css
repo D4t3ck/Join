@@ -48,6 +48,7 @@
     border-radius: 30px;
     justify-content: center;
     align-items: center;
+    height: fit-content;
 }
 
 .side_bar_position_container {

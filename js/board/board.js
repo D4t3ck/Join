@@ -9,7 +9,7 @@ let tasks = [
     subtasks: [
       {
         title: "Brot kaufen",
-        check: false,
+        check: true,
       },
       {
         title: "Tanken fahren",
@@ -162,6 +162,14 @@ function renderPopUpCard(taskId) {
   );
   renderPrio(currentTask[0].prio);
   printBackgroundCategory(currentTask[0].category);
+  renderPopUpSubtasks(currentTask[0].subtasks);
+}
+
+function renderPopUpSubtasks(subTasks) {
+  const subTaskContainer = document.getElementById('popup_subtask_container');
+  subTasks.forEach(subTask => {
+    subTaskContainer.innerHTML += generatePopUpSubtasks(subTask);
+  });
 }
 
 function closePopUpCard() {

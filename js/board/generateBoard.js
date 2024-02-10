@@ -204,21 +204,8 @@ function generatePopUpCard(task, date, prio) {
       </div>
       <div class="stretch">
         <div class="overlay_subtasks">Subtasks</div>
-        <div class="subtasks_check">
-          <div class="subtask">
-            <div class="subtasks_check_field">
-              <img src="./assets/img/img_summary/Checkbuttonfill.png" alt="" />
-            </div>
-            <span class="subtasks_check_text"
-              >Implement Recipe Recommendation</span
-            >
-          </div>
-          <div class="subtask">
-            <div class="subtasks_check_field">
-              <img src="./assets/img/img_summary/Checkbuttonempty.png" alt="" />
-            </div>
-            <span class="subtasks_check_text">Start Page Layout</span>
-          </div>
+        <div class="subtasks_check" id="popup_subtask_container">
+    
         </div>
       </div>
       <div class="overlay_edit">
@@ -241,5 +228,14 @@ function generatePopUpCard(task, date, prio) {
         </div>
       </div>
     </section>
+    `;
+}
+
+function generatePopUpSubtasks(subTask) {
+    return /*html*/`
+        <div class="assigned_to_container">
+            <input type="checkbox" id="">
+            <span>${subTask.title}</span>
+        </div>
     `;
 }
