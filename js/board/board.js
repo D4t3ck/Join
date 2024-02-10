@@ -162,13 +162,38 @@ function renderPopUpCard(taskId) {
   );
   renderPrio(currentTask[0].prio);
   printBackgroundCategory(currentTask[0].category);
-  renderPopUpSubtasks(currentTask[0].subtasks);
+  renderPopUpSubtasks(currentTask[0]);
 }
 
-function renderPopUpSubtasks(subTasks) {
+function renderPopUpSubtasks(task) {
   const subTaskContainer = document.getElementById('popup_subtask_container');
-  subTasks.forEach(subTask => {
-    subTaskContainer.innerHTML += generatePopUpSubtasks(subTask);
+  task.subtasks.forEach((subTask, index) => {
+    subTaskContainer.innerHTML += generatePopUpSubtasks(subTask, index, task);
+  });
+  checkPopUpCheckbox(task.subtasks);
+}
+
+function setPopUpCheck(id, index, title) {
+  const checkBox = document.getElementById(`popup_checkbox${index}`);
+  const currentTask = tasks.filter(task => task.id == id);
+  const currentSubtask = currentTask[0].subtasks.filter(task => task.title == title);
+  if(checkBox.checked == true) {
+    checkBox.checked = false;
+    currentSubtask[0].check = false;
+  } else {
+    checkBox.checked = true;
+    currentSubtask[0].check = true;
+  }
+}
+
+function checkPopUpCheckbox(subTasks) {
+  subTasks.forEach((subTask, index) => {
+    const checkbox = document.getElementById(`popup_checkbox${index}`);
+    if(subTask.check == true) {
+      checkbox.checked = true;
+    } else {
+      checkbox.checked = false;
+    }
   });
 }
 
