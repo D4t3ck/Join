@@ -126,6 +126,7 @@ h1 {
     align-items: center;
     font-size: 24px;
     padding: 8px;
+    cursor: pointer;
 }
 
 .add_task_button img {
@@ -170,6 +171,7 @@ h1 {
     flex-direction: column;
     gap: 16px;
     height: fit-content;
+    cursor: pointer;
 }
 
 .card h2 {

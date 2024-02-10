@@ -40,7 +40,11 @@ let tasks = [
             {
                 title: 'Aufwärmen',
                 check: false
-            }
+            },
+            {
+              title: 'Protein Shake nachdem training',
+              check: false
+          }
         ],
         title: 'Pumpen gehen',
         id: null
@@ -139,8 +143,10 @@ function setAddTasksInTasks() {
 function renderPopUpCard(taskId) {
     const currentTask = tasks.filter(todo => todo.id == `${taskId}`);
     const currentFormatDate = formatDate(currentTask[0].dueDate);
+    const prio = currentTask[0].prio.charAt(0).toUpperCase() + currentTask[0].prio.slice(1);
     document.getElementById('card_popup').style.display = 'flex';
-    document.getElementById('card_popup_content').innerHTML = generatePopUpCard(currentTask[0], currentFormatDate);
+    document.getElementById('card_popup_content').innerHTML = generatePopUpCard(currentTask[0], currentFormatDate, prio);
+    renderPrio(currentTask[0].prio);
 }
 
 function closePopUpCard() {
@@ -152,3 +158,17 @@ function formatDate(date) {
     return `${dateData[2]}/${dateData[1]}/${dateData[0]}`;
 }
 
+function renderPrio(prio) {
+  const prioImg = document.getElementById('popup_prio_img');
+  const prioContainer = document.getElementById('popup_prio_container');
+  if(prio == 'urgent') {
+    prioImg.src = "./assets/img/add_task/urgent_white.png";
+    prioContainer.classList.add('urgent');
+  } else if(prio == 'medium') {
+    prioImg.src = "./assets/img/add_task/medium_white.png";
+    prioContainer.classList.add('medium');
+  } else if(prio == 'low') {
+    prioImg.src = "./assets/img/add_task/low_white.png";
+    prioContainer.classList.add('low');
+  }
+}

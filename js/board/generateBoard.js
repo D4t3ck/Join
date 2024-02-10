@@ -9,8 +9,8 @@ function generateCard(task) {
           </section>
           <section class="card_description">${task.description}</section>
           <section class="card_subtasks">
-            <progress id="subtask_progress" value="1" max="${task.subtasks.length}"></progress>
-            <label for="subtask_progress">1/2 Subtasks</label>
+            <progress id="subtask_progress" value="0" max="${task.subtasks.length}"></progress>
+            <label for="subtask_progress">1/${task.subtasks.length} Subtasks</label>
           </section>
           <section>
             <div>
@@ -156,7 +156,7 @@ function generateAddTask() {
   `;
 }
 
-function generatePopUpCard(task, date) {
+function generatePopUpCard(task, date, prio) {
     return /*html*/`
         <section class="overlay">
       <div class="overlay_header">
@@ -178,9 +178,9 @@ function generatePopUpCard(task, date) {
       </div>
       <div class="overlay_flex_field">
         <div class="due_date">Priority:</div>
-        <div class="overlay_priority">
-          <div class="Priority">${task.category}</div>
-          <div>=</div>
+        <div class="overlay_priority" id="popup_prio_container">
+          <div class="Priority">${prio}</div>
+          <img src="" id="popup_prio_img">
         </div>
       </div>
       <div class="stretch">
