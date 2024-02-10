@@ -1,8 +1,8 @@
-function generateCard(task) {
+function generateCard(task, index) {
     return /*html*/`
         <div class="card" draggable="true" ondragstart="startDragging('${task.id}', this)" onclick="renderPopUpCard('${task.id}')">
           <section class="card_headline">
-            <span>${task.category}</span>
+            <span id="card_category_${task.categoryBoard}${index}">${task.category}</span>
           </section>
           <section>
             <h2>${task.title}</h2>
@@ -16,7 +16,7 @@ function generateCard(task) {
             <div>
             </div>
             <div>
-              <img src="./assets/img/add_task/medium_color.png">
+              <img id="card_prio_${task.categoryBoard}${index}" src="./assets/img/add_task/medium_color.png">
             </div>
           </section>
         </div>
@@ -160,7 +160,7 @@ function generatePopUpCard(task, date, prio) {
     return /*html*/`
         <section class="overlay">
       <div class="overlay_header">
-        <span class="overlay_user_task">${task.category}</span>
+        <span class="overlay_user_task" id="popup_category_headline">${task.category}</span>
         <span onclick="closePopUpCard()" class="close"
           ><img
             class="closeIcon"
