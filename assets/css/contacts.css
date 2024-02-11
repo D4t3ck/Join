@@ -127,19 +127,7 @@
     background-color: #f0efef;
 }
 
-.profil_ellipse {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 42px;
-    height: 42px;
-    background-color: #FF7A00;
-    border: 2px solid #f0efef;
-    border-radius: 45px;
-    gap: 10px;
-    color: #FFFFFF;
-    margin-left: 20px;
-}
+
 
 .contact_scrolls_card_small_img {
     width: 42px;
