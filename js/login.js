@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", function () {
   function fadeOutModal() {
     let modal = document.getElementById("landing_page");
     modal.classList.add("fade-out");
-
     setTimeout(function () {
       modal.style.display = "none";
     }, 300);
@@ -32,11 +31,8 @@ async function checkUser() {
   let responseAsJson = JSON.parse(response);
   let loginEmail = document.getElementById("email").value;
   let loginPwd = document.getElementById("password").value;
-
   const filteredUser = responseAsJson.users.filter(user => user.userMail == loginEmail);
-
   console.log(filteredUser);
-
   if (
     loginEmail == filteredUser[0].userMail &&
     loginPwd == filteredUser[0].userPwd
