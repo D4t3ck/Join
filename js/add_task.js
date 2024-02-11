@@ -40,17 +40,16 @@ class subTask {
 function initAddTask() {
   includeHTML();
   getData();
-  getPrioSpans();
-  setActivePrio(1, "medium");
-  addClearFunction();
-  addDateMin();
 }
 
 async function getData() {
   const response = await getItem('users'); 
   data = JSON.parse(response);
   tasksInAddTask = data.tasks;
-  console.log(tasksInAddTask);
+  getPrioSpans();
+  setActivePrio(1, "medium");
+  addClearFunction();
+  addDateMin();
 }
 
 function getPrioSpans() {
@@ -135,7 +134,7 @@ function setActivePrio(index, prio) {
   ).src = `./assets/img/add_task/${prio}_white.png`;
 }
 
-function removeActiveClass(index, prio) {
+function removeActiveClass() {
   prioSpans.forEach((prioSpan) => {
     prioSpan.classList.remove("urgent");
     prioSpan.classList.remove("medium");
