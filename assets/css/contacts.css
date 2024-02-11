@@ -238,6 +238,8 @@
     gap: 10px;
     color: #FFFFFF;
     margin-left: 20px;
+    font-size: 47px;
+    margin-bottom: 45px;
     
 }
 
@@ -421,9 +423,9 @@
     height: 594px 
 }
 
-.contact_overlay_add_contact_card_right_close_div {
-    padding-bottom: 60px;
-}
+/* .contact_overlay_add_contact_card_right_close_div {
+    
+} */
 
 .contact_overlay_add_contact_card_right_close_x {
     display: flex;

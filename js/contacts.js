@@ -119,7 +119,7 @@ function showContactInformation(name, mail, phone, j, profil) {
       <div class="contacts_bigcard_name_area">
         <span class="contacts_bigcard_name">${name}</span>
         <div class="contacts_bigcard_edit">
-          <div class="edit_area" onclick="editContact('${name}', '${mail}', '${phone}', '${j}')">
+          <div class="edit_area" onclick="editContact('${name}', '${mail}', '${phone}', '${j}','${profil}')">
             <img
               class="edit_area_img"
               src="./assets/img/contacts/edit.png"
@@ -159,7 +159,7 @@ function showContactInformation(name, mail, phone, j, profil) {
 `;
 }
 
-function editContact(name, mail, phone, j) {
+function editContact(name, mail, phone, j, profil) {
   document.getElementById('editContactOverlay').classList.remove('d_none');
 
   let editContact = document.getElementById('editContactOverlay');
@@ -194,7 +194,7 @@ function editContact(name, mail, phone, j) {
                   </div>
                 </div>
                 <div class="contact_overlay_add_contact_card_right_center">
-                  <img src="./assets/img/contacts/ProfilebadgeAM.png" alt="" />
+                  <div class="profil_ellipse_info">${profil}</div>
                   <div
                     class="contact_overlay_add_contact_card_right_input_area"
                   >
