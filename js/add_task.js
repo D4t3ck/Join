@@ -37,19 +37,19 @@ class subTask {
   }
 }
 
-function initAddTask() {
+async function initAddTask() {
   includeHTML();
-  getData();
+  await getData();
+  getPrioSpans();
+  setActivePrio(1, "medium");
+  addClearFunction();
+  addDateMin();
 }
 
 async function getData() {
   const response = await getItem('users'); 
   data = JSON.parse(response);
   tasksInAddTask = data.tasks;
-  getPrioSpans();
-  setActivePrio(1, "medium");
-  addClearFunction();
-  addDateMin();
 }
 
 function getPrioSpans() {
