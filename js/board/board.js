@@ -1,54 +1,62 @@
+let boardData;
 let tasks = [
-  {
-    categoryBoard: "toDo",
-    assignedTo: ["Florian", "Roman"],
-    category: "Technical Task",
-    description: "Die Milch nicht vergessen!",
-    dueDate: "2024-02-08",
-    prio: "medium",
-    subtasks: [
-      {
-        title: "Brot kaufen",
-        check: true,
-      },
-      {
-        title: "Tanken fahren",
-        check: false,
-      },
-    ],
-    title: "Einkaufen gehen",
-    id: null,
-  },
-  {
-    categoryBoard: "toDo",
-    assignedTo: ["Kevin", "Roman"],
-    category: "User Story",
-    description: "Vorher aufwärmen",
-    dueDate: "2024-02-10",
-    prio: "medium",
-    subtasks: [
-      {
-        title: "Creativ vorher nehmen",
-        check: false,
-      },
-      {
-        title: "Aufwärmen",
-        check: false,
-      },
-      {
-        title: "Protein Shake nachdem training",
-        check: false,
-      },
-    ],
-    title: "Pumpen gehen",
-    id: null,
-  },
+  // {
+  //   categoryBoard: "toDo",
+  //   assignedTo: ["Florian", "Roman"],
+  //   category: "Technical Task",
+  //   description: "Die Milch nicht vergessen!",
+  //   dueDate: "2024-02-08",
+  //   prio: "medium",
+  //   subtasks: [
+  //     {
+  //       title: "Brot kaufen",
+  //       check: true,
+  //     },
+  //     {
+  //       title: "Tanken fahren",
+  //       check: false,
+  //     },
+  //   ],
+  //   title: "Einkaufen gehen",
+  //   id: null,
+  // },
+  // {
+  //   categoryBoard: "toDo",
+  //   assignedTo: ["Kevin", "Roman"],
+  //   category: "User Story",
+  //   description: "Vorher aufwärmen",
+  //   dueDate: "2024-02-10",
+  //   prio: "medium",
+  //   subtasks: [
+  //     {
+  //       title: "Creativ vorher nehmen",
+  //       check: false,
+  //     },
+  //     {
+  //       title: "Aufwärmen",
+  //       check: false,
+  //     },
+  //     {
+  //       title: "Protein Shake nachdem training",
+  //       check: false,
+  //     },
+  //   ],
+  //   title: "Pumpen gehen",
+  //   id: null,
+  // },
 ];
 
 let currentDraggedId;
 let currentIndex;
 
 function initBoard() {
+  getBoardData();
+}
+
+async function getBoardData() {
+  const response = await getItem('users');
+  boardData = JSON.parse(response);
+  tasks = boardData.tasks;
   setId();
   renderTasks();
   renderAddTask();

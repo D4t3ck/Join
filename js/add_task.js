@@ -1,4 +1,5 @@
-let tasksInAddTask = [];
+let data;
+let tasksInAddTask;
 let subTasks = [];
 let contacts = ['Florian', 'Daniel', 'Roman', 'Frederic', 'Albert', 'Gustav'];
 let checkedContacts = [];
@@ -38,10 +39,18 @@ class subTask {
 
 function initAddTask() {
   includeHTML();
+  getData();
   getPrioSpans();
   setActivePrio(1, "medium");
   addClearFunction();
   addDateMin();
+}
+
+async function getData() {
+  const response = await getItem('users'); 
+  data = JSON.parse(response);
+  tasksInAddTask = data.tasks;
+  console.log(tasksInAddTask);
 }
 
 function getPrioSpans() {
@@ -110,6 +119,7 @@ function getTaskData() {
     null
   );
   tasksInAddTask.push(task);
+  setItem('users', data);
   clear();
 }
 
