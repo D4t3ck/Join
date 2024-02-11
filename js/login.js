@@ -28,18 +28,20 @@ function toggleCheckboxLogin() {
 }
 
 async function checkUser() {
-  let responseUser = await getItem("users");
-  let responseUserAsJson = JSON.parse(responseUser);
+  let response = await getItem("users");
+  let responseAsJson = JSON.parse(response);
   let loginEmail = document.getElementById("email").value;
   let loginPwd = document.getElementById("password").value;
 
+  const filteredUser = responseAsJson.users.filter(user => user.userMail == loginEmail);
+
+  console.log(filteredUser);
+
   if (
-    loginEmail == responseUserAsJson.mail &&
-    loginPwd == responseUserAsJson.password
+    loginEmail == filteredUser[0].userMail &&
+    loginPwd == filteredUser[0].userPwd
   ) {
     alert("Eingabe sind =");
-    USER.push(responseUserAsJson);
-    console.log(USER);
   } else {
     alert("Eingabe sind !=");
   }
