@@ -38,6 +38,7 @@ async function checkUser() {
     loginPwd == filteredUser[0].userPwd
   ) {
     alert("Eingabe sind =");
+    window.location.href = `./summary.html?name=${filteredUser[0].userName}`;
   } else {
     alert("Eingabe sind !=");
   }
