@@ -111,6 +111,7 @@ function showContactInformation(name, mail, phone, j, profil) {
   document.getElementById(`contact_card_name${j}`).classList.add('contact_scrolls_card_small_onclick_name');
     document.getElementById('contactInformation').classList.remove('d_none');
     let contactInformation = document.getElementById('contactInformation');
+    contactInformation.innerHTML = '';
     contactInformation.innerHTML = 
    /*html*/` 
    <section class="contacts_bigcard_container">
@@ -255,7 +256,6 @@ function editContactTest(j) {
   contacts[j].mail = document.getElementById('inputEditEmail').value;
   contacts[j].phone = document.getElementById('inputEditPhone').value;
   renderletters();
-  showContactInformation();
   closeOverlayEditContact();
 }
 
