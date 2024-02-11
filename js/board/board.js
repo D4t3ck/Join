@@ -131,6 +131,7 @@ function moveTo(category) {
     }
   });
   tasks[currentIndex].categoryBoard = category;
+  setItem('users', boardData);
   renderTasks();
 }
 
