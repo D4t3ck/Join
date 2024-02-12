@@ -308,6 +308,7 @@ function editContactTest(j) {
   contacts[j].mail = document.getElementById('inputEditEmail').value;
   contacts[j].phone = document.getElementById('inputEditPhone').value;
   renderletters();
+  document.getElementById('contactInformation').classList.add('d_none');
   closeOverlayEditContact();
 }
 
