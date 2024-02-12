@@ -31,15 +31,17 @@ async function checkUser() {
   let responseAsJson = JSON.parse(response);
   let loginEmail = document.getElementById("email").value;
   let loginPwd = document.getElementById("password").value;
-  const filteredUser = responseAsJson.users.filter(user => user.userMail == loginEmail);
+  const filteredUser = responseAsJson.users.find(user => user.userMail == loginEmail && user.userPwd == loginPwd);
   console.log(filteredUser);
-  if (
-    loginEmail == filteredUser[0].userMail &&
-    loginPwd == filteredUser[0].userPwd
-  ) {
-    alert("Eingabe sind =");
-    window.location.href = `./summary.html?name=${filteredUser[0].userName}`;
-  } else {
-    alert("Eingabe sind !=");
+  if(filteredUser) {
+    if (
+      loginEmail == filteredUser.userMail &&
+      loginPwd == filteredUser.userPwd
+    ) {
+      alert("Eingabe sind =");
+      window.location.href = `./summary.html?mail=${filteredUser.userMail}`;
+    } else {
+      alert("Eingabe sind !=");
+    }
   }
 }
