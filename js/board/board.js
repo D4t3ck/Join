@@ -13,16 +13,16 @@ async function getBoardData() {
   boardData = JSON.parse(response);
   tasks = boardData.tasks;
   setId();
-  renderTasks();
+  renderTasks(tasks);
   renderAddTask();
 }
 
-function renderTasks() {
+function renderTasks(taskList) {
   renderCategory();
-  filterTasks("toDo");
-  filterTasks("inProgress");
-  filterTasks("awaitFeedback");
-  filterTasks("done");
+  filterTasks("toDo", taskList);
+  filterTasks("inProgress", taskList);
+  filterTasks("awaitFeedback", taskList);
+  filterTasks("done", taskList);
 }
 
 function setId() {
@@ -35,8 +35,8 @@ function renderCategory() {
   document.getElementById("category_section").innerHTML = generateCategorys();
 }
 
-function filterTasks(id) {
-  const taskList = tasks.filter((todo) => todo.categoryBoard == `${id}`);
+function filterTasks(id, taskArr) {
+  const taskList = taskArr.filter((todo) => todo.categoryBoard == `${id}`);
   if (taskList.length != 0) {
     renderList(taskList, id);
   } else {
@@ -98,7 +98,7 @@ function moveTo(category) {
   });
   tasks[currentIndex].categoryBoard = category;
   setItem("users", boardData);
-  renderTasks();
+  renderTasks(tasks);
 }
 
 function showAddTask() {
@@ -223,7 +223,7 @@ function checkPopUpCheckbox(subTasks) {
 
 function closePopUpCard() {
   document.getElementById("card_popup").style.display = "none";
-  renderTasks();
+  renderTasks(tasks);
 }
 
 function formatDate(date) {
@@ -269,4 +269,12 @@ function deleteTask(id) {
   tasks.splice(id, 1);
   setItem('users', boardData);
   closePopUpCard();
+}
+
+function searchTask() {
+  const inputValue = document.getElementById('search_task_input').value.toLowerCase();
+  if(inputValue != '') {
+    const filteredTasks = tasks.filter(task => task.title.toLowerCase().includes(inputValue));
+    renderTasks(filteredTasks);
+  } else renderTasks(tasks);
 }
