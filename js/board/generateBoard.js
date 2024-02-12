@@ -251,10 +251,13 @@ function generateAssignContact(contact) {
 function generatePopUpCardEdit(task) {
   return /*html*/`
     <div class="edit_content">
+      <div class="button_container_edit">
+        <button onclick="renderPopUpCard('${task.id}')">X</button>
+      </div>
       <div>
           <label for="title_input">
               <h2>Title<span class="required_char">*</span></h2>
-              <input required type="text" id="title_input" class="input" placeholder="Enter a title">
+              <input required type="text" id="title_input" class="input" placeholder="Enter a title" value="${task.title}">
           </label>
           <label for="description_textarea">
               <h2>Description</h2>
@@ -262,7 +265,7 @@ function generatePopUpCardEdit(task) {
           </label>
           <label for="select_contact">
               <h2>Assigned to</h2>
-              <div id="assigned_container" onclick="stopEvent(event)">
+              <div id="assigned_container">
                   <select name="" id="select_contact" placeholder="test" class="select" onclick="renderInputAssigned()">
                       <option value="" disabled selected>Select contacts to assign</option>
                   </select>
@@ -273,7 +276,7 @@ function generatePopUpCardEdit(task) {
       <div>
           <label for="date_input">
               <h2>Due date<span class="required_char">*</span></h2>
-              <input required type="text" placeholder="dd/mm/yyyy" id="date_input_edit" onfocus="(this.type='date')" class="input">
+              <input required type="date" id="date_input_edit" class="input" value="${task.dueDate}">
           </label>
           <label for="">
               <h2>Prio</h2>
@@ -306,6 +309,9 @@ function generatePopUpCardEdit(task) {
           </label>
           <div id="">
 
+          </div>
+          <div class="button_container_edit">
+            <button>Save</button>
           </div>
       </div>
     </div>
