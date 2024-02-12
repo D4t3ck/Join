@@ -12,7 +12,7 @@
 .contacts_body {
     display: flex;
     margin-left: 202px;
-    height: 100vh;
+    /* height: 100vh; */
 }
 
 .add_contact_scroll_container {
@@ -21,7 +21,6 @@
     align-items: center;
     background-color: #FFFFFF;
     width: 456px;
-    height: 100vh;
 }
 
 .add_new_contact_btn_caontainer {
@@ -80,6 +79,36 @@
     margin-top: 101px;
     max-height: 928px;
     overflow-y: auto;
+}
+
+.contact_scrolls_div::-webkit-scrollbar {
+    width: 8px; /* Breite der Scrollleiste */
+  }
+  
+  .contact_scrolls_div::-webkit-scrollbar-track {
+    border-radius: 10px;
+  }
+  
+  .contact_scrolls_div::-webkit-scrollbar-thumb {
+    background-image: url('../img/contacts/scrollbar.png');
+    background-repeat: no-repeat;
+  }
+
+  .contact_scrolls_div::-webkit-scrollbar-button:start:decrement,
+.contact_scrolls_div::-webkit-scrollbar-button:end:increment {
+  display: block;
+}
+
+.contact_scrolls_div::-webkit-scrollbar-button:start:decrement {
+  background-image: url('../img/contacts/scrollbarhead.png');
+  background-repeat: no-repeat;
+  width: 12px;
+  height: 12px;
+}
+
+.contact_scrolls_div::-webkit-scrollbar-button:end:increment {
+background-image: url('../img/contacts/scrollbarBottom.png');
+background-repeat: no-repeat;
 }
 
 .contacts_scroll_abc {
@@ -271,6 +300,32 @@
 .edit_area_img {
     width: 24px;
     height: 24px;
+    background-image: url('../img/contacts/edit.png');
+    background-repeat: no-repeat;
+}
+
+.edit_area_delete_img {
+    width: 24px;
+    height: 24px;
+    background-image: url('../img/contacts/delete.png');
+}
+
+.edit_area:hover .edit_area_img {
+    background-image: url('../img/contacts/editBlue.png');
+    background-repeat: no-repeat;
+    width: 24px;
+    height: 24px;
+}
+
+.edit_area:hover .edit_area_delete_img {
+    background-image: url('../img/contacts/deleteBlue.png');
+    background-repeat: no-repeat;
+    width: 24px;
+    height: 24px;
+}
+
+.edit_area:hover .edit_text{
+    color: #29ABE2;
 }
 
 .edit_text {
@@ -284,9 +339,7 @@
     line-height: 120%; /* 19.2px */
 }
 
-.edit_text:hover {
-    color: #29ABE2;
-}
+
 
 .contacts_bigcard_Information_text {
     margin-top: 32px;

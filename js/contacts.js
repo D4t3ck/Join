@@ -19,10 +19,68 @@ let contacts = [
         "mail": "fantom@test.de",
         "phone": "+49 1111 1111 1111"
     },
+    {
+      "name": "Anton Mayer",
+      "mail": "antom@test.de",
+      "phone": "+49 1111 1111 1111"
+  },
+  {
+      "name": "Ben Bayer",
+      "mail": "BenBayer@test.de",
+      "phone": "+49 1121 1111 1111"
+  },
+  {
+      "name": "Claus Cayer",
+      "mail": "ClausCayer@test.de",
+      "phone": "+49 1131 1111 1111"
+  },
+  {
+      "name": "Hanton Mayer",
+      "mail": "fantom@test.de",
+      "phone": "+49 1111 1111 1111"
+  },{
+    "name": "Anton Mayer",
+    "mail": "antom@test.de",
+    "phone": "+49 1111 1111 1111"
+},
+{
+    "name": "Ben Bayer",
+    "mail": "BenBayer@test.de",
+    "phone": "+49 1121 1111 1111"
+},
+{
+    "name": "Claus Cayer",
+    "mail": "ClausCayer@test.de",
+    "phone": "+49 1131 1111 1111"
+},
+{
+    "name": "Hanton Mayer",
+    "mail": "fantom@test.de",
+    "phone": "+49 1111 1111 1111"
+},{
+  "name": "Anton Mayer",
+  "mail": "antom@test.de",
+  "phone": "+49 1111 1111 1111"
+},
+{
+  "name": "Ben Bayer",
+  "mail": "BenBayer@test.de",
+  "phone": "+49 1121 1111 1111"
+},
+{
+  "name": "Claus Cayer",
+  "mail": "ClausCayer@test.de",
+  "phone": "+49 1131 1111 1111"
+},
+{
+  "name": "Hanton Mayer",
+  "mail": "fantom@test.de",
+  "phone": "+49 1111 1111 1111"
+},
 ]
 
 let letters = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','Ü','Ä','Ö'];
-// let letters = [];
+let colors = ['#FF7A00','#FF5EB3','#6E52FF','#9327FF','#00BEE8','#1FD7C1','#FF745E','#FFA35E','#FC71FF','#FFC701','#0038FF','#C3FF2B','#FFE62B','#FF4646','#FFBB2B']
 
 function initContact() {
     init();
@@ -52,7 +110,7 @@ function renderletters() {
                     <div id="letterbox${i}"></div>
                 </div>
                 <div class="contact_scrolls_card_small" onclick="showContactInformation('${name}', '${mail}', '${phone}','${j}','${profil}')" id="contact_card${j}">
-                    <div class="profil_ellipse">${profil}</div>
+                    <div class="profil_ellipse" style="background-color: ${colors[j % colors.length]};">${profil}</div>
                     <div class="contact_scrolls_card_small_contact">
                         <span id="contact_card_name${j}" class="contact_scrolls_card_small_name">${name}</span>
                         <span class="contact_scrolls_card_small_email">${mail}</span>
@@ -116,24 +174,18 @@ function showContactInformation(name, mail, phone, j, profil) {
    /*html*/` 
    <section class="contacts_bigcard_container">
     <div class="contacts_bigcard_contact_area">
-      <div class="profil_ellipse_info"> <span class="profil_ellipse_info_text">${profil}</span> </div>
+      <div class="profil_ellipse_info" style="background-color: ${colors[j % colors.length]};"> <span class="profil_ellipse_info_text">${profil}</span> </div>
       <div class="contacts_bigcard_name_area">
         <span class="contacts_bigcard_name">${name}</span>
         <div class="contacts_bigcard_edit">
           <div class="edit_area" onclick="editContact('${name}', '${mail}', '${phone}', '${j}','${profil}')">
-            <img
-              class="edit_area_img"
-              src="./assets/img/contacts/edit.png"
-              alt=""
-            />
+            <div class="edit_area_img"></div>
             <span class="edit_text">Edit</span>
           </div>
           <div class="edit_area">
-            <img
-              class="edit_area_img"
-              src="./assets/img/contacts/delete.png"
-              alt=""
-            />
+            <div class="edit_area_delete_img"></div>
+              
+            
             <span class="edit_text" onclick="deleteContact(${j})">Delete</span>
           </div>
         </div>
@@ -195,7 +247,7 @@ function editContact(name, mail, phone, j, profil) {
                   </div>
                 </div>
                 <div class="contact_overlay_add_contact_card_right_center">
-                  <div class="profil_ellipse_info">${profil}</div>
+                  <div class="profil_ellipse_info" style="background-color: ${colors[j % colors.length]};">${profil}</div>
                   <div
                     class="contact_overlay_add_contact_card_right_input_area"
                   >
