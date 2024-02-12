@@ -239,3 +239,11 @@ function generatePopUpSubtasks(subTask, index, task) {
         </div>
     `;
 }
+
+function generateEmpyCard() {
+  return /*html*/`
+      <div class="empty_card">
+         <span>No tasks</span>
+      </div>
+  `;
+}

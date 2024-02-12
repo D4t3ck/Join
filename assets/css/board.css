@@ -202,3 +202,15 @@ h1 {
 .card_subtasks label {
     font-size: 14px;
 }
+
+.empty_card {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    background-color: lightgray;
+    border-radius: 16px;
+    border: 1px dashed rgb(128, 128, 128);
+    color: gray;
+}

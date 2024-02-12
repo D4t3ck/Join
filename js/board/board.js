@@ -40,6 +40,8 @@ function filterTasks(id) {
   const taskList = tasks.filter((todo) => todo.categoryBoard == `${id}`);
   if (taskList.length != 0) {
     renderList(taskList, id);
+  } else {
+    document.getElementById(`${id}`).innerHTML = generateEmpyCard();
   }
 }
 
