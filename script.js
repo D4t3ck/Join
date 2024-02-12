@@ -9,12 +9,12 @@ function init() {
 
 async function getCurrentUser() {
   const urlParams = new URLSearchParams(window.location.search);
-  const userName = urlParams.get('mail')
+  const userMail = urlParams.get('mail')
   const response = await getItem('users');
   const responseAsJson = JSON.parse(response);
   const users = responseAsJson.users;
-  const usersFiltered = users.filter(user => user.userName == userName);
-  currentUser = usersFiltered[0];
+  const usersFiltered = users.filter(user => user.userMail == userMail);
+  currentUser = usersFiltered;
   console.log(currentUser);
 }
 
