@@ -225,3 +225,9 @@ function printBackgroundCategory(category) {
       "#1FD7C1";
   }
 }
+
+function deleteTask(id) {
+  tasks.splice(id, 1);
+  setItem('users', boardData);
+  closePopUpCard();
+}

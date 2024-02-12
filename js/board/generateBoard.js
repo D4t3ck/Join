@@ -195,7 +195,7 @@ function generatePopUpCard(task, date, prio) {
         </div>
       </div>
       <div class="overlay_edit">
-        <div class="edit_area">
+        <div class="edit_area" onclick="deleteTask(${task.id})">
           <img
             class="edit_area_img"
             src="./assets/img/img_summary/delete.png"
