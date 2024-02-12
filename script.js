@@ -6,8 +6,6 @@ function init() {
   includeHTML();
 }
 
-
-
 ////////// BACKEND //////////
 
 const STORAGE_TOKEN = "V3GBL599LI0VXDK4HJXHD632WIB3WOBMWS6ENT06";
@@ -34,14 +32,13 @@ async function getItem(key) {
     });
 }
 
-
 ////////// W3 INCLUDE //////////
 
 async function includeHTML() {
   let includeElements = document.querySelectorAll("[w3-include-html]");
   for (let i = 0; i < includeElements.length; i++) {
     const element = includeElements[i];
-    file = element.getAttribute("w3-include-html"); // 'includes/header.html'
+    file = element.getAttribute("w3-include-html"); 
     let resp = await fetch(file);
     if (resp.ok) {
       element.innerHTML = await resp.text();

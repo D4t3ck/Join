@@ -52,6 +52,10 @@
   box-sizing: border-box;
 }
 
+.sidebar_menu:focus {
+  background-color: var(--main_color_dark);
+}
+
 .sidebar_menu :first-child {
   width: auto;
   text-decoration: none;

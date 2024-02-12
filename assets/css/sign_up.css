@@ -163,6 +163,13 @@
   gap: 4px;
 }
 
+.signup_check input {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  border: solid 1px black;
+}
+
 .signup_check img {
   transform: translateY(-2px);
 }

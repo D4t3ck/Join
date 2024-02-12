@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
     modal.classList.add("fade-out");
     setTimeout(function () {
       modal.style.display = "none";
-    }, 300);
+    }, 500);
   }
 });
 
