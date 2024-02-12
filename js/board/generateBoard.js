@@ -1,4 +1,4 @@
-function generateCard(task, index) {
+function generateCard(task, index, subTaskCheckLength) {
     return /*html*/`
         <div class="card" draggable="true" ondragstart="startDragging('${task.id}', this)" onclick="renderPopUpCard('${task.id}')">
           <section class="card_headline">
@@ -9,8 +9,8 @@ function generateCard(task, index) {
           </section>
           <section class="card_description">${task.description}</section>
           <section class="card_subtasks">
-            <progress id="subtask_progress" value="0" max="${task.subtasks.length}"></progress>
-            <label for="subtask_progress">1/${task.subtasks.length} Subtasks</label>
+            <progress id="subtask_progress" value="${subTaskCheckLength}" max="${task.subtasks.length}"></progress>
+            <label for="subtask_progress">${subTaskCheckLength}/${task.subtasks.length} Subtasks</label>
           </section>
           <section>
             <div>

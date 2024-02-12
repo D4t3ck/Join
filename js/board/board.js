@@ -47,7 +47,8 @@ function filterTasks(id) {
 
 function renderList(list, id) {
   list.forEach((task, index) => {
-    document.getElementById(`${id}`).innerHTML += generateCard(task, index);
+    const checkSubTasks = task.subtasks.filter(subTask => subTask.check == true);
+    document.getElementById(`${id}`).innerHTML += generateCard(task, index, checkSubTasks.length);
     printCardBackgroundCategory(task, index);
     printCardPrio(task, index);
   });
@@ -167,6 +168,7 @@ function checkPopUpCheckbox(subTasks) {
 
 function closePopUpCard() {
   document.getElementById("card_popup").style.display = "none";
+  renderTasks();
 }
 
 function formatDate(date) {
