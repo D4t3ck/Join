@@ -1,23 +1,23 @@
 ////////// ALLGEMEINE FUNKTIONEN //////////
 
-const USER = [];
-let currentUser;
-
 /**
  * presents the includeHTML function
  */
 async function init() {
   await includeHTML();
-  highlightCurrentPage()
+  highlightCurrentPage();
 }
+
+const USER = [];
+let currentUser;
 
 async function getCurrentUser() {
   const urlParams = new URLSearchParams(window.location.search);
-  const userMail = urlParams.get('mail')
-  const response = await getItem('users');
+  const userMail = urlParams.get("mail");
+  const response = await getItem("users");
   const responseAsJson = JSON.parse(response);
   const users = responseAsJson.users;
-  const usersFiltered = users.filter(user => user.userMail == userMail);
+  const usersFiltered = users.filter((user) => user.userMail == userMail);
   currentUser = usersFiltered;
   console.log(currentUser);
 }
@@ -25,7 +25,7 @@ async function getCurrentUser() {
 ////////// BACKEND //////////
 
 /**
- * 
+ *
  */
 const STORAGE_TOKEN = "V3GBL599LI0VXDK4HJXHD632WIB3WOBMWS6ENT06";
 const STORAGE_URL = "https://remote-storage.developerakademie.org/item";
@@ -60,7 +60,7 @@ async function includeHTML() {
   let includeElements = document.querySelectorAll("[w3-include-html]");
   for (let i = 0; i < includeElements.length; i++) {
     const element = includeElements[i];
-    file = element.getAttribute("w3-include-html"); 
+    file = element.getAttribute("w3-include-html");
     let resp = await fetch(file);
     if (resp.ok) {
       element.innerHTML = await resp.text();
@@ -75,7 +75,7 @@ async function includeHTML() {
  */
 function highlightCurrentPage() {
   let currentPage = window.location.pathname;
-  console.log(currentPage)
+  console.log(currentPage);
   if (currentPage === "/summary.html") {
     document.getElementById("sidebar_0").style.backgroundColor = "#091931";
   } else if (currentPage === "/add_task.html") {

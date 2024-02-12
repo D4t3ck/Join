@@ -1,102 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Join</title>
-    <link rel="shortcut icon" href="./assets/img/favicon_light.png" type="image/x-icon">
-    <link rel="stylesheet" href="./assets/css/summary.css">
-    <link rel="stylesheet" href="./assets/fonts/fonts.css">
+    <link
+      rel="shortcut icon"
+      href="./assets/img/favicon_light.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="./assets/css/summary.css" />
+    <link rel="stylesheet" href="./assets/fonts/fonts.css" />
     <link rel="stylesheet" href="./assets/templates/header/header.css" />
     <link rel="stylesheet" href="./assets/templates/sidebar/sidebar.css" />
     <script src="script.js"></script>
     <script src="./js/summary.js"></script>
     <script src="./js/header.js"></script>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body onload="init(); initSummary()">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body onload="init(); initSummary()">
     <div w3-include-html="./assets/templates/header/header.html"></div>
     <div w3-include-html="./assets/templates/sidebar/sidebar.html"></div>
 
-
     <div class="summary_container">
-        <div class="summary_headline">
-            <h1 class="join360">Join 360</h1>
-            <div class="summary_headline_stroke">
-                <img src="./assets/img/img_summary/strokeSummaryhead.png" alt="">
-            </div>
-            <!-- <svg xmlns="http://www.w3.org/2000/svg" width="4" height="63" viewBox="0 0 4 63" fill="none">
+      <div class="summary_headline">
+        <h1 class="join360">Join 360</h1>
+        <div class="summary_headline_stroke">
+          <img src="./assets/img/img_summary/strokeSummaryhead.png" alt="" />
+        </div>
+        <!-- <svg xmlns="http://www.w3.org/2000/svg" width="4" height="63" viewBox="0 0 4 63" fill="none">
                 <path d="M2 2V61" stroke="#29ABE2" stroke-width="3" stroke-linecap="round"/>
                 </svg> -->
-            <span class="summary_headline_text">Key Metrics at a Glance</span>
-            <div class="summary_headline_stroke_mobile">
-                <img src="./assets/img/img_summary/strokeSummaryhead.png" alt="">
-            </div>
+        <span class="summary_headline_text">Key Metrics at a Glance</span>
+        <div class="summary_headline_stroke_mobile">
+          <img src="./assets/img/img_summary/strokeSummaryhead.png" alt="" />
         </div>
-        <div class="summary_main_container">
-            <div class="summary_overview">
-                <div>
-                    <div class="summary_doings">
-                        <div class="summary_todo" onclick="goToBoard()">
-                            <div class="summary_img"></div>
-                            <div class="summary_todo_nummberAndText">
-                                <span class="summary_number" id="summary_todo_number"></span>
-                                <span class="summary_text_small">To-do</span>
-                            </div>
-                        </div>
-                        <div class="summary_todo" onclick="goToBoard()">
-                            <div class="summary_img_hook"></div>
-                            <div class="summary_todo_nummberAndText">
-                                <span class="summary_number" id="summary_done_number"></span>
-                                <span class="summary_text_small">Done</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div >
-                        <div class="summary_urgent_container" onclick="goToBoard()">
-                            <div class="summary_urgent_field">
-                                <img class="arrow_icon" src="./assets/img/img_summary/arrowsPointingUpRed.png" alt="">
-                                <div>
-                                    <h2 class="summary_number" id="summary_urgent_number">1</h2>
-                                    <span class="summary_urgent_text">Urgent</span>
-                                </div>
-                                <div class="summary_stroke">
-                                    <img src="./assets/img/img_summary/strokeSummaryUrgent.png" alt="">
-                                    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="2" height="106" viewBox="0 0 2 106" fill="none">
+      </div>
+      <div class="summary_main_container">
+        <div class="summary_overview">
+          <div>
+            <div class="summary_doings">
+              <div class="summary_todo" onclick="goToBoard()">
+                <div class="summary_img"></div>
+                <div class="summary_todo_nummberAndText">
+                  <span class="summary_number" id="summary_todo_number"></span>
+                  <span class="summary_text_small">To-do</span>
+                </div>
+              </div>
+              <div class="summary_todo" onclick="goToBoard()">
+                <div class="summary_img_hook"></div>
+                <div class="summary_todo_nummberAndText">
+                  <span class="summary_number" id="summary_done_number"></span>
+                  <span class="summary_text_small">Done</span>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="summary_urgent_container" onclick="goToBoard()">
+                <div class="summary_urgent_field">
+                  <img
+                    class="arrow_icon"
+                    src="./assets/img/img_summary/arrowsPointingUpRed.png"
+                    alt=""
+                  />
+                  <div>
+                    <h2 class="summary_number" id="summary_urgent_number">1</h2>
+                    <span class="summary_urgent_text">Urgent</span>
+                  </div>
+                  <div class="summary_stroke">
+                    <img
+                      src="./assets/img/img_summary/strokeSummaryUrgent.png"
+                      alt=""
+                    />
+                    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="2" height="106" viewBox="0 0 2 106" fill="none">
                                         <path d="M1 1.98828V104.011" stroke="#D1D1D1" stroke-width="2" stroke-linecap="round"/>
                                     </svg> -->
-                                </div>
-                                <div>
-                                    <h4 class="summary_date">October 16, 2022</h4>
-                                    <span class="summary_urgent_text">Upcoming Deadline</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="summary_tasks">
-                        <div class="summary_tasks_field" onclick="goToBoard()">
-                            <h2 class="summary_number" id="summary_tasks_number">5</h2>
-                            <span class="summary_tasks_text">Tasks in <br> Board</span>
-                        </div>
-                        <div class="summary_tasks_field" onclick="goToBoard()">
-                            <h2 class="summary_number" id="summary_progress_number">2</h2>
-                            <span class="summary_tasks_text">Tasks in <br> Progress</span>
-                        </div>
-                        <div class="summary_tasks_field" onclick="goToBoard()">
-                            <h2 class="summary_number" id="summary_feedback_number">2</h2>
-                            <span class="summary_tasks_text">Awaiting <br> Feeback</span>
-                        </div>
-                    </div>
+                  </div>
+                  <div>
+                    <h4 class="summary_date">October 16, 2022</h4>
+                    <span class="summary_urgent_text">Upcoming Deadline</span>
+                  </div>
                 </div>
+              </div>
             </div>
-            
-            <div class="summary_greeting">
-                <span class="summary_greeting_text" id="greeting">Good morning,</span>
-                <div class="user_name" id="user_name_greeting">Sofia Müller</div>
+            <div class="summary_tasks">
+              <div class="summary_tasks_field" onclick="goToBoard()">
+                <h2 class="summary_number" id="summary_tasks_number">5</h2>
+                <span class="summary_tasks_text"
+                  >Tasks in <br />
+                  Board</span
+                >
+              </div>
+              <div class="summary_tasks_field" onclick="goToBoard()">
+                <h2 class="summary_number" id="summary_progress_number">2</h2>
+                <span class="summary_tasks_text"
+                  >Tasks in <br />
+                  Progress</span
+                >
+              </div>
+              <div class="summary_tasks_field" onclick="goToBoard()">
+                <h2 class="summary_number" id="summary_feedback_number">2</h2>
+                <span class="summary_tasks_text"
+                  >Awaiting <br />
+                  Feeback</span
+                >
+              </div>
             </div>
+          </div>
         </div>
+
+        <div class="summary_greeting">
+          <span class="summary_greeting_text" id="greeting">Good morning,</span>
+          <div class="user_name" id="user_name_greeting">Sofia Müller</div>
+        </div>
+      </div>
     </div>
-
-
-</body>
+  </body>
 </html>

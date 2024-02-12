@@ -1,5 +1,8 @@
 ////////// SUBMENU HEADER //////////
 
+/**
+ * function to toggle switch the headers submenu
+ */
 function toggleSubMenu() {
     const submenuContainer = document.querySelector(".header_submenu_container");
     const submenuToggle = document.querySelector(".submenu_toggle");
