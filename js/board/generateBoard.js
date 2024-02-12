@@ -204,7 +204,7 @@ function generatePopUpCard(task, date, prio) {
           <span class="edit_text">Delete</span>
         </div>
         <img src="./assets/img/img_summary/Vector.png" alt="" />
-        <div class="edit_area">
+        <div class="edit_area" onclick="renderPopUpCardEdit(${task.id})">
           <img
             class="edit_area_img"
             src="./assets/img/img_summary/edit.png"
@@ -245,4 +245,69 @@ function generateAssignContact(contact) {
           </div>
         </div>
   `;
+}
+
+
+function generatePopUpCardEdit(task) {
+  return /*html*/`
+    <div class="edit_content">
+      <div>
+          <label for="title_input">
+              <h2>Title<span class="required_char">*</span></h2>
+              <input required type="text" id="title_input" class="input" placeholder="Enter a title">
+          </label>
+          <label for="description_textarea">
+              <h2>Description</h2>
+              <textarea name="" id="description_textarea" cols="30" rows="2" placeholder="Enter a Description" class="input"></textarea>
+          </label>
+          <label for="select_contact">
+              <h2>Assigned to</h2>
+              <div id="assigned_container" onclick="stopEvent(event)">
+                  <select name="" id="select_contact" placeholder="test" class="select" onclick="renderInputAssigned()">
+                      <option value="" disabled selected>Select contacts to assign</option>
+                  </select>
+              </div>
+          </label>
+      </div>
+      <div class="break_line"></div>
+      <div>
+          <label for="date_input">
+              <h2>Due date<span class="required_char">*</span></h2>
+              <input required type="text" placeholder="dd/mm/yyyy" id="date_input_edit" onfocus="(this.type='date')" class="input">
+          </label>
+          <label for="">
+              <h2>Prio</h2>
+              <div class="prio_category">
+                  <span class="prio_category_span" onclick="setActivePrio(0, 'urgent')">
+                      <h2 id="prio_headline0">Urgent<span><img id="prio_category_img0" src="./assets/img/add_task/urgent_color.png"></span></h2>
+                  </span>
+                  <span class="prio_category_span" onclick="setActivePrio(1, 'medium')">
+                      <h2 id="prio_headline1">Medium<span><img id="prio_category_img1" src="./assets/img/add_task/medium_color.png"></span></h2>
+                  </span>
+                  <span class="prio_category_span"onclick="setActivePrio(2, 'low')">
+                      <h2 id="prio_headline2">Low<span><img id="prio_category_img2" src="./assets/img/add_task/low_color.png"></span></h2>
+                  </span>
+              </div>
+          </label>
+          <label for="select_category">
+              <h2>Category<span class="required_char">*</span></h2>
+              <select name="" id="select_category" class="select" required>
+                  <option value="" disabled selected>Select task category</option>
+                  <option value="User Story">User Story</option>
+                  <option value="Technical Task">Technical Task</option>
+              </select>
+          </label>
+          <label for="input_subtask">
+              <h2>Subtasks</h2>
+              <div class="subtask_input">
+                  <input type="text" id="input_subtask" placeholder="Add new subtask" class="input">
+                  <span onclick="setSubTask()"><button type="button">+</button></span>
+              </div>
+          </label>
+          <div id="">
+
+          </div>
+      </div>
+    </div>
+  `
 }

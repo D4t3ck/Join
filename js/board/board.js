@@ -141,6 +141,15 @@ function renderPopUpCard(taskId) {
   renderAssignedContacts(currentTask);
 }
 
+function renderPopUpCardEdit(taskId) {
+  const currentTask = tasks.find(task => task.id == taskId);
+  document.getElementById("card_popup_content").innerHTML = generatePopUpCardEdit(currentTask);
+  getPrioSpans();
+  setActivePrio(1, "medium");
+  // addClearFunction();
+  addDateMin('date_input_edit');
+}
+
 function renderAssignedContacts(task) {
   task.assignedTo.forEach(contact => {
     document.getElementById('popup_assigned_to').innerHTML += generateAssignContact(contact);
