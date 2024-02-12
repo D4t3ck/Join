@@ -1,5 +1,5 @@
 function generateCard(task, index, subTaskCheckLength) {
-    return /*html*/`
+  return /*html*/ `
         <div class="card" draggable="true" ondragstart="startDragging('${task.id}', this)" onclick="renderPopUpCard('${task.id}')">
           <section class="card_headline">
             <span id="card_category_${task.categoryBoard}${index}">${task.category}</span>
@@ -24,7 +24,7 @@ function generateCard(task, index, subTaskCheckLength) {
 }
 
 function generateCategorys() {
-    return /*html*/`
+  return /*html*/ `
         <div class="category">
           <div class="category_headline">
             <b>To do</b> <img src="./assets/img/board/plus.png" alt="create Task">
@@ -59,7 +59,7 @@ function generateCategorys() {
 }
 
 function generateAddTask() {
-  return /*html*/`
+  return /*html*/ `
     <section class="header template" onclick="stopEvent(event)">
     <section class="add_task_content" onclick="closeDropdown()">
 
@@ -157,7 +157,7 @@ function generateAddTask() {
 }
 
 function generatePopUpCard(task, date, prio) {
-    return /*html*/`
+  return /*html*/ `
         <section class="overlay">
       <div class="overlay_header">
         <span class="overlay_user_task" id="popup_category_headline">${task.category}</span>
@@ -184,22 +184,8 @@ function generatePopUpCard(task, date, prio) {
         </div>
       </div>
       <div class="stretch">
-        <div class="overlay_assigned_to">Assigned To:</div>
-        <div class="assigned_to_container">
-          <div class="assigned_to_field">
-            <div class="user_img">
-              <img src="./assets/img/img_summary/profilImg.png" alt="" />
-            </div>
-            <div class="user_name">Emmanuel Mauer</div>
-          </div>
-        </div>
-        <div class="assigned_to_container">
-          <div class="assigned_to_field">
-            <div class="user_img">
-              <img src="./assets/img/img_summary/profilImg.png" alt="" />
-            </div>
-            <div class="user_name">Emmanuel Mauer</div>
-          </div>
+        <div class="overlay_assigned_to" id="popup_assigned_to">Assigned To:</div>
+        
         </div>
       </div>
       <div class="stretch">
@@ -232,7 +218,7 @@ function generatePopUpCard(task, date, prio) {
 }
 
 function generatePopUpSubtasks(subTask, index, task) {
-    return /*html*/`
+  return /*html*/ `
         <div class="assigned_to_container" onclick="setPopUpCheck(${task.id}, ${index}, '${subTask.title}')">
             <input type="checkbox" id="popup_checkbox${index}">
             <label for="popup_checkbox${index}">${subTask.title}</label>
@@ -241,9 +227,22 @@ function generatePopUpSubtasks(subTask, index, task) {
 }
 
 function generateEmpyCard() {
-  return /*html*/`
+  return /*html*/ `
       <div class="empty_card">
          <span>No tasks</span>
       </div>
+  `;
+}
+
+function generateAssignContact(contact) {
+  return /*html*/ `
+      <div class="assigned_to_container">
+          <div class="assigned_to_field">
+            <div class="user_img">
+              <img src="./assets/img/img_summary/profilImg.png" alt="" />
+            </div>
+            <div class="user_name">${contact}</div>
+          </div>
+        </div>
   `;
 }

@@ -1,6 +1,5 @@
 let boardData;
-let tasks = [
-];
+let tasks = [];
 
 let currentDraggedId;
 let currentIndex;
@@ -10,7 +9,7 @@ function initBoard() {
 }
 
 async function getBoardData() {
-  const response = await getItem('users');
+  const response = await getItem("users");
   boardData = JSON.parse(response);
   tasks = boardData.tasks;
   setId();
@@ -47,15 +46,23 @@ function filterTasks(id) {
 
 function renderList(list, id) {
   list.forEach((task, index) => {
-    const checkSubTasks = task.subtasks.filter(subTask => subTask.check == true);
-    document.getElementById(`${id}`).innerHTML += generateCard(task, index, checkSubTasks.length);
+    const checkSubTasks = task.subtasks.filter(
+      (subTask) => subTask.check == true
+    );
+    document.getElementById(`${id}`).innerHTML += generateCard(
+      task,
+      index,
+      checkSubTasks.length
+    );
     printCardBackgroundCategory(task, index);
     printCardPrio(task, index);
   });
 }
 
 function printCardPrio(task, index) {
-  const prioImg = document.getElementById(`card_prio_${task.categoryBoard}${index}`);
+  const prioImg = document.getElementById(
+    `card_prio_${task.categoryBoard}${index}`
+  );
   const prio = task.prio;
   if (prio == "urgent") {
     prioImg.src = "./assets/img/add_task/urgent_color.png";
@@ -90,7 +97,7 @@ function moveTo(category) {
     }
   });
   tasks[currentIndex].categoryBoard = category;
-  setItem('users', boardData);
+  setItem("users", boardData);
   renderTasks();
 }
 
@@ -118,23 +125,30 @@ function setAddTasksInTasks() {
 }
 
 function renderPopUpCard(taskId) {
-  const currentTask = tasks.filter((todo) => todo.id == `${taskId}`);
-  const currentFormatDate = formatDate(currentTask[0].dueDate);
+  const currentTask = tasks.find((todo) => todo.id == `${taskId}`);
+  const currentFormatDate = formatDate(currentTask.dueDate);
   const prio =
-    currentTask[0].prio.charAt(0).toUpperCase() + currentTask[0].prio.slice(1);
+    currentTask.prio.charAt(0).toUpperCase() + currentTask.prio.slice(1);
   document.getElementById("card_popup").style.display = "flex";
   document.getElementById("card_popup_content").innerHTML = generatePopUpCard(
-    currentTask[0],
+    currentTask,
     currentFormatDate,
     prio
   );
-  renderPrio(currentTask[0].prio);
-  printBackgroundCategory(currentTask[0].category);
-  renderPopUpSubtasks(currentTask[0]);
+  renderPrio(currentTask.prio);
+  printBackgroundCategory(currentTask.category);
+  renderPopUpSubtasks(currentTask);
+  renderAssignedContacts(currentTask);
+}
+
+function renderAssignedContacts(task) {
+  task.assignedTo.forEach(contact => {
+    document.getElementById('popup_assigned_to').innerHTML += generateAssignContact(contact);
+  });
 }
 
 function renderPopUpSubtasks(task) {
-  const subTaskContainer = document.getElementById('popup_subtask_container');
+  const subTaskContainer = document.getElementById("popup_subtask_container");
   task.subtasks.forEach((subTask, index) => {
     subTaskContainer.innerHTML += generatePopUpSubtasks(subTask, index, task);
   });
@@ -143,22 +157,24 @@ function renderPopUpSubtasks(task) {
 
 function setPopUpCheck(id, index, title) {
   const checkBox = document.getElementById(`popup_checkbox${index}`);
-  const currentTask = tasks.filter(task => task.id == id);
-  const currentSubtask = currentTask[0].subtasks.filter(task => task.title == title);
-  if(checkBox.checked == true) {
+  const currentTask = tasks.filter((task) => task.id == id);
+  const currentSubtask = currentTask[0].subtasks.filter(
+    (task) => task.title == title
+  );
+  if (checkBox.checked == true) {
     checkBox.checked = false;
     currentSubtask[0].check = false;
   } else {
     checkBox.checked = true;
     currentSubtask[0].check = true;
   }
-  setItem('users', boardData);
+  setItem("users", boardData);
 }
 
 function checkPopUpCheckbox(subTasks) {
   subTasks.forEach((subTask, index) => {
     const checkbox = document.getElementById(`popup_checkbox${index}`);
-    if(subTask.check == true) {
+    if (subTask.check == true) {
       checkbox.checked = true;
     } else {
       checkbox.checked = false;
