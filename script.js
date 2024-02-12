@@ -3,8 +3,12 @@
 const USER = [];
 let currentUser;
 
-function init() {
-  includeHTML();
+/**
+ * presents the includeHTML function
+ */
+async function init() {
+  await includeHTML();
+  highlightCurrentPage()
 }
 
 async function getCurrentUser() {
@@ -20,6 +24,9 @@ async function getCurrentUser() {
 
 ////////// BACKEND //////////
 
+/**
+ * 
+ */
 const STORAGE_TOKEN = "V3GBL599LI0VXDK4HJXHD632WIB3WOBMWS6ENT06";
 const STORAGE_URL = "https://remote-storage.developerakademie.org/item";
 
@@ -46,6 +53,9 @@ async function getItem(key) {
 
 ////////// W3 INCLUDE //////////
 
+/**
+ * Function to include HTML Templates
+ */
 async function includeHTML() {
   let includeElements = document.querySelectorAll("[w3-include-html]");
   for (let i = 0; i < includeElements.length; i++) {
@@ -59,3 +69,43 @@ async function includeHTML() {
     }
   }
 }
+
+/**
+ * This function highlights the current selected page in the sidebar menu
+ */
+function highlightCurrentPage() {
+  let currentPage = window.location.pathname;
+  console.log(currentPage)
+  if (currentPage === "/summary.html") {
+    document.getElementById("sidebar_0").style.backgroundColor = "#091931";
+  } else if (currentPage === "/add_task.html") {
+    document.getElementById("sidebar_1").style.backgroundColor = "#091931";
+  } else if (currentPage === "/board.html") {
+    document.getElementById("sidebar_2").style.backgroundColor = "#091931";
+  } else if (currentPage === "/contacts.html") {
+    document.getElementById("sidebar_3").style.backgroundColor = "#091931";
+  } else if (currentPage === "/privacy_policy.html") {
+    document.getElementById("sidebar_4").style.backgroundColor = "#091931";
+  } else if (currentPage === "/legal_notice.html") {
+    document.getElementById("sidebar_5").style.backgroundColor = "#091931";
+  }
+}
+
+/* Selbe Function, küzerer Code. Team fragen welche Version. */
+
+/* function highlightCurrentPage() {
+  const currentPage = window.location.pathname;
+  const sidebarMappings = {
+    "/summary.html": "sidebar_0",
+    "/add_task.html": "sidebar_1",
+    "/board.html": "sidebar_2",
+    "/contacts.html": "sidebar_3",
+    "/privacy_policy.html": "sidebar_4",
+    "/legal_notice.html": "sidebar_5"
+  };
+  
+  const sidebarId = sidebarMappings[currentPage];
+  if (sidebarId) {
+    document.getElementById(sidebarId).style.backgroundColor = "#091931";
+  }
+} */
