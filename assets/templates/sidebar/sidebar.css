@@ -11,13 +11,17 @@
   --backup_font: system-ui, sans-serif;
 }
 
+.current_page {
+  background-color: var(--main_color_dark);
+}
+
 .sidebar {
   position: fixed;
   top: 0;
   left: 0;
   z-index: 2;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   text-align: center;
   flex-shrink: 0;
@@ -27,6 +31,10 @@
   height: 100vh;
   background-color: var(--main_color);
   color: var(--lightgray_font);
+}
+
+.sidebar_logo {
+  margin-top: 50px;
 }
 
 .sidebar_menu_container {
@@ -81,12 +89,16 @@
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
+  width: 100%;
+  margin-bottom: 50px;
   gap: 4px;
   font-family: var(--main_font);
 }
 
 .sidebar_footer_link a {
-  padding: 8px;
+  width: 100%;
+  padding-top: 8px;
+  padding-bottom: 8px;
   text-decoration: none;
   font-size: 16px;
   color: var(--lightgray_font);
@@ -102,6 +114,8 @@
 @media (max-width: 1000px) {
   .sidebar {
     position: fixed;
+    left: 0;
+    right: 0;
     bottom: 0;
     top: unset;
     justify-content: space-between;

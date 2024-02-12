@@ -1,29 +1,42 @@
-<section class="sidebar">
-  <img src="./assets/img/sidebar/join_logo_white.png" alt="Logo" />
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <section class="sidebar">
+      <img class="sidebar_logo" src="./assets/img/sidebar/join_logo_white.png" alt="Logo" />
 
-  <div class="sidebar_menu_container">
-    <a href="./summary.html" class="sidebar_menu">
-      <img src="./assets/img/sidebar/summary.png" alt="Summary" />
-      <span>Summary</span>
-    </a>
-    <a href="./add_task.html" class="sidebar_menu">
-      <img src="./assets/img/sidebar/addTask.png" alt="Add Task" />
-      <span>Add Task</span>
-    </a>
-    <a href="./board.html" class="sidebar_menu">
-      <img src="./assets/img/sidebar/board.png" alt="Board" />
-      <span>Board</span>
-    </a>
-    <a href="./contacts.html" class="sidebar_menu">
-      <img src="./assets/img/sidebar/contacts.png" alt="Contacts" />
-      <span>Contacts</span>
-    </a>
-  </div>
+      <div class="sidebar_menu_container">
+        <a href="./summary.html" id="sidebar_0" class="sidebar_menu">
+          <img src="./assets/img/sidebar/summary.png" alt="Summary" />
+          <span>Summary</span>
+        </a>
+        <a href="./add_task.html" id="sidebar_1" class="sidebar_menu">
+          <img src="./assets/img/sidebar/addTask.png" alt="Add Task" />
+          <span>Add Task</span>
+        </a>
+        <a href="./board.html" id="sidebar_2" class="sidebar_menu">
+          <img src="./assets/img/sidebar/board.png" alt="Board" />
+          <span>Board</span>
+        </a>
+        <a href="./contacts.html" id="sidebar_3" class="sidebar_menu">
+          <img src="./assets/img/sidebar/contacts.png" alt="Contacts" />
+          <span>Contacts</span>
+        </a>
+      </div>
 
-  <div class="sidebar_footer_link">
-    <a href="./privacy_policy.html" onclick="hideSidebar()"
-      >Privacy Policy</a
-    >
-    <a href="./legal_notice.html">Legal notice</a>
-  </div>
-</section>
+      <div class="sidebar_footer_link">
+        <a id="sidebar_4" href="./privacy_policy.html" onclick="hideSidebar()"
+          >Privacy Policy</a
+        >
+        <a id="sidebar_5" href="./legal_notice.html">Legal notice</a>
+      </div>
+    </section>
+
+    <script src="./js/sidebar.js"
+    ></script>
+  </body>
+</html>
