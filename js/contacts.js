@@ -20,60 +20,60 @@ let contacts = [
         "phone": "+49 1111 1111 1111"
     },
     {
-      "name": "Anton Mayer",
+      "name": "Lnton Mayer",
       "mail": "antom@test.de",
       "phone": "+49 1111 1111 1111"
   },
   {
-      "name": "Ben Bayer",
+      "name": "Pen Bayer",
       "mail": "BenBayer@test.de",
       "phone": "+49 1121 1111 1111"
   },
   {
-      "name": "Claus Cayer",
+      "name": "Laus Wayer",
       "mail": "ClausCayer@test.de",
       "phone": "+49 1131 1111 1111"
   },
   {
-      "name": "Hanton Mayer",
+      "name": "Kanton Fayer",
       "mail": "fantom@test.de",
       "phone": "+49 1111 1111 1111"
   },{
-    "name": "Anton Mayer",
+    "name": "Enton Kayer",
     "mail": "antom@test.de",
     "phone": "+49 1111 1111 1111"
 },
 {
-    "name": "Ben Bayer",
+    "name": "Jen Bayer",
     "mail": "BenBayer@test.de",
     "phone": "+49 1121 1111 1111"
 },
 {
-    "name": "Claus Cayer",
+    "name": "Klaus Cayer",
     "mail": "ClausCayer@test.de",
     "phone": "+49 1131 1111 1111"
 },
 {
-    "name": "Hanton Mayer",
+    "name": "Zanton Mayer",
     "mail": "fantom@test.de",
     "phone": "+49 1111 1111 1111"
 },{
-  "name": "Anton Mayer",
+  "name": "Wanton Layer",
   "mail": "antom@test.de",
   "phone": "+49 1111 1111 1111"
 },
 {
-  "name": "Ben Bayer",
+  "name": "Quen Wayer",
   "mail": "BenBayer@test.de",
   "phone": "+49 1121 1111 1111"
 },
 {
-  "name": "Claus Cayer",
+  "name": "Tlaus Cayer",
   "mail": "ClausCayer@test.de",
   "phone": "+49 1131 1111 1111"
 },
 {
-  "name": "Hanton Mayer",
+  "name": "Manton Rayer",
   "mail": "fantom@test.de",
   "phone": "+49 1111 1111 1111"
 },
