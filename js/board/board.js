@@ -145,9 +145,39 @@ function renderPopUpCardEdit(taskId) {
   const currentTask = tasks.find(task => task.id == taskId);
   document.getElementById("card_popup_content").innerHTML = generatePopUpCardEdit(currentTask);
   getPrioSpans();
-  setActivePrio(1, "medium");
-  // addClearFunction();
+  setActivePrioEdit(1, "medium");
   addDateMin('date_input_edit');
+  setCategoryEdit(currentTask);
+  setDescriptionEditValue(currentTask);
+  renderSubtasksEdit(currentTask);
+}
+
+function setActivePrioEdit(index, prio) {
+  removeActiveClass();
+  prioSpans[index].classList.add(prio);
+  document.getElementById(
+    `prio_category_img${index}_edit`
+  ).src = `./assets/img/add_task/${prio}_white.png`;
+}
+
+function renderSubtasksEdit(task) {
+  const subTaskContent = document.getElementById('subtask_content_edit');
+  task.subtasks.forEach((subTask, index) => {
+    subTaskContent.innerHTML += generateSubTask(subTask, index);
+  });
+}
+
+function setDescriptionEditValue(task) {
+  const textarea = document.getElementById('description_textarea_edit');
+  textarea.value = task.description;
+}
+
+function setCategoryEdit(task) {
+  const selectCategory = document.getElementById('select_category_edit');
+  selectCategory.disabled = true;
+  if(task.category == 'User Story') {
+    selectCategory.selectedIndex = 1;
+  } else selectCategory.selectedIndex = 2;
 }
 
 function renderAssignedContacts(task) {

@@ -257,11 +257,11 @@ function generatePopUpCardEdit(task) {
       <div>
           <label for="title_input">
               <h2>Title<span class="required_char">*</span></h2>
-              <input required type="text" id="title_input" class="input" placeholder="Enter a title" value="${task.title}">
+              <input required type="text" id="title_input" class="input_edit" placeholder="Enter a title" value="${task.title}">
           </label>
           <label for="description_textarea">
               <h2>Description</h2>
-              <textarea name="" id="description_textarea" cols="30" rows="2" placeholder="Enter a Description" class="input"></textarea>
+              <textarea id="description_textarea_edit" cols="30" rows="2" placeholder="Enter a Description" class="input_edit"></textarea>
           </label>
           <label for="select_contact">
               <h2>Assigned to</h2>
@@ -276,25 +276,25 @@ function generatePopUpCardEdit(task) {
       <div>
           <label for="date_input">
               <h2>Due date<span class="required_char">*</span></h2>
-              <input required type="date" id="date_input_edit" class="input" value="${task.dueDate}">
+              <input required type="date" id="date_input_edit" class="input_edit" value="${task.dueDate}">
           </label>
           <label for="">
               <h2>Prio</h2>
               <div class="prio_category">
-                  <span class="prio_category_span" onclick="setActivePrio(0, 'urgent')">
-                      <h2 id="prio_headline0">Urgent<span><img id="prio_category_img0" src="./assets/img/add_task/urgent_color.png"></span></h2>
+                  <span class="prio_category_span_edit" onclick="setActivePrio(0, 'urgent')">
+                      <h2 id="prio_headline0">Urgent<span><img id="prio_category_img0_edit" src="./assets/img/add_task/urgent_color.png"></span></h2>
                   </span>
-                  <span class="prio_category_span" onclick="setActivePrio(1, 'medium')">
-                      <h2 id="prio_headline1">Medium<span><img id="prio_category_img1" src="./assets/img/add_task/medium_color.png"></span></h2>
+                  <span class="prio_category_span_edit" onclick="setActivePrio(1, 'medium')">
+                      <h2 id="prio_headline1">Medium<span><img id="prio_category_img1_edit" src="./assets/img/add_task/medium_color.png"></span></h2>
                   </span>
-                  <span class="prio_category_span"onclick="setActivePrio(2, 'low')">
-                      <h2 id="prio_headline2">Low<span><img id="prio_category_img2" src="./assets/img/add_task/low_color.png"></span></h2>
+                  <span class="prio_category_span_edit"onclick="setActivePrio(2, 'low')">
+                      <h2 id="prio_headline2">Low<span><img id="prio_category_img2_edit" src="./assets/img/add_task/low_color.png"></span></h2>
                   </span>
               </div>
           </label>
           <label for="select_category">
               <h2>Category<span class="required_char">*</span></h2>
-              <select name="" id="select_category" class="select" required>
+              <select name="" id="select_category_edit" class="select" required>
                   <option value="" disabled selected>Select task category</option>
                   <option value="User Story">User Story</option>
                   <option value="Technical Task">Technical Task</option>
@@ -303,11 +303,11 @@ function generatePopUpCardEdit(task) {
           <label for="input_subtask">
               <h2>Subtasks</h2>
               <div class="subtask_input">
-                  <input type="text" id="input_subtask" placeholder="Add new subtask" class="input">
+                  <input type="text" id="input_subtask" placeholder="Add new subtask" class="input_edit">
                   <span onclick="setSubTask()"><button type="button">+</button></span>
               </div>
           </label>
-          <div id="">
+          <div id="subtask_content_edit">
 
           </div>
           <div class="button_container_edit">

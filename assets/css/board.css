@@ -231,3 +231,71 @@ h1 {
     justify-content: flex-end;
     margin-top: 16px;
 }
+
+.prio_category_span_edit {
+    display: flex;
+    padding: 4px 8px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex: 1 0 0;
+    border-radius: 10px;
+    background: #FFF;
+    cursor: pointer;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10);
+}
+
+.prio_category_span_edit h2 {
+    margin: 0;
+}
+
+.input_edit {
+    width: 440px;
+    display: flex;
+    padding: 8px 21px;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+    border-radius: 10px;
+    border: 1px solid #D1D1D1;
+    background: #FFF;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+}
+
+#subtask_content_edit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 8px;
+    gap: 8px;
+    max-height: 100px;
+    overflow-y: auto;
+}
+
+#subtask_content_edit p {
+    width: 80%;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 8px;
+}
+
+#subtask_content_edit p span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#subtask_content_edit p:hover {
+    background-color: lightgray;
+}
+
+#subtask_content_edit p:hover .icon {
+    display: flex;
+}
