@@ -32,6 +32,7 @@ async function initSummary() {
 
     console.log(dones)
     getUserName();
+    getCurrentUser();
 }
 
 function checkTodos(todo) {

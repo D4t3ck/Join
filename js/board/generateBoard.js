@@ -1,5 +1,5 @@
-function generateCard(task, index) {
-    return /*html*/`
+function generateCard(task, index, subTaskCheckLength) {
+  return /*html*/ `
         <div class="card" draggable="true" ondragstart="startDragging('${task.id}', this)" onclick="renderPopUpCard('${task.id}')">
           <section class="card_headline">
             <span id="card_category_${task.categoryBoard}${index}">${task.category}</span>
@@ -9,8 +9,8 @@ function generateCard(task, index) {
           </section>
           <section class="card_description">${task.description}</section>
           <section class="card_subtasks">
-            <progress id="subtask_progress" value="0" max="${task.subtasks.length}"></progress>
-            <label for="subtask_progress">1/${task.subtasks.length} Subtasks</label>
+            <progress id="subtask_progress" value="${subTaskCheckLength}" max="${task.subtasks.length}"></progress>
+            <label for="subtask_progress">${subTaskCheckLength}/${task.subtasks.length} Subtasks</label>
           </section>
           <section>
             <div>
@@ -24,7 +24,7 @@ function generateCard(task, index) {
 }
 
 function generateCategorys() {
-    return /*html*/`
+  return /*html*/ `
         <div class="category">
           <div class="category_headline">
             <b>To do</b> <img src="./assets/img/board/plus.png" alt="create Task">
@@ -59,7 +59,7 @@ function generateCategorys() {
 }
 
 function generateAddTask() {
-  return /*html*/`
+  return /*html*/ `
     <section class="header template" onclick="stopEvent(event)">
     <section class="add_task_content" onclick="closeDropdown()">
 
@@ -157,7 +157,7 @@ function generateAddTask() {
 }
 
 function generatePopUpCard(task, date, prio) {
-    return /*html*/`
+  return /*html*/ `
         <section class="overlay">
       <div class="overlay_header">
         <span class="overlay_user_task" id="popup_category_headline">${task.category}</span>
@@ -184,22 +184,8 @@ function generatePopUpCard(task, date, prio) {
         </div>
       </div>
       <div class="stretch">
-        <div class="overlay_assigned_to">Assigned To:</div>
-        <div class="assigned_to_container">
-          <div class="assigned_to_field">
-            <div class="user_img">
-              <img src="./assets/img/img_summary/profilImg.png" alt="" />
-            </div>
-            <div class="user_name">Emmanuel Mauer</div>
-          </div>
-        </div>
-        <div class="assigned_to_container">
-          <div class="assigned_to_field">
-            <div class="user_img">
-              <img src="./assets/img/img_summary/profilImg.png" alt="" />
-            </div>
-            <div class="user_name">Emmanuel Mauer</div>
-          </div>
+        <div class="overlay_assigned_to" id="popup_assigned_to">Assigned To:</div>
+        
         </div>
       </div>
       <div class="stretch">
@@ -209,7 +195,7 @@ function generatePopUpCard(task, date, prio) {
         </div>
       </div>
       <div class="overlay_edit">
-        <div class="edit_area">
+        <div class="edit_area" onclick="deleteTask(${task.id})">
           <img
             class="edit_area_img"
             src="./assets/img/img_summary/delete.png"
@@ -218,7 +204,7 @@ function generatePopUpCard(task, date, prio) {
           <span class="edit_text">Delete</span>
         </div>
         <img src="./assets/img/img_summary/Vector.png" alt="" />
-        <div class="edit_area">
+        <div class="edit_area" onclick="renderPopUpCardEdit(${task.id})">
           <img
             class="edit_area_img"
             src="./assets/img/img_summary/edit.png"
@@ -232,10 +218,102 @@ function generatePopUpCard(task, date, prio) {
 }
 
 function generatePopUpSubtasks(subTask, index, task) {
-    return /*html*/`
+  return /*html*/ `
         <div class="assigned_to_container" onclick="setPopUpCheck(${task.id}, ${index}, '${subTask.title}')">
             <input type="checkbox" id="popup_checkbox${index}">
             <label for="popup_checkbox${index}">${subTask.title}</label>
         </div>
     `;
+}
+
+function generateEmpyCard() {
+  return /*html*/ `
+      <div class="empty_card">
+         <span>No tasks</span>
+      </div>
+  `;
+}
+
+function generateAssignContact(contact) {
+  return /*html*/ `
+      <div class="assigned_to_container">
+          <div class="assigned_to_field">
+            <div class="user_img">
+              <img src="./assets/img/img_summary/profilImg.png" alt="" />
+            </div>
+            <div class="user_name">${contact}</div>
+          </div>
+        </div>
+  `;
+}
+
+
+function generatePopUpCardEdit(task) {
+  return /*html*/`
+    <div class="edit_content">
+      <div class="button_container_edit">
+        <button onclick="renderPopUpCard('${task.id}')">X</button>
+      </div>
+      <div>
+          <label for="title_input">
+              <h2>Title<span class="required_char">*</span></h2>
+              <input required type="text" id="title_input" class="input" placeholder="Enter a title" value="${task.title}">
+          </label>
+          <label for="description_textarea">
+              <h2>Description</h2>
+              <textarea name="" id="description_textarea" cols="30" rows="2" placeholder="Enter a Description" class="input"></textarea>
+          </label>
+          <label for="select_contact">
+              <h2>Assigned to</h2>
+              <div id="assigned_container">
+                  <select name="" id="select_contact" placeholder="test" class="select" onclick="renderInputAssigned()">
+                      <option value="" disabled selected>Select contacts to assign</option>
+                  </select>
+              </div>
+          </label>
+      </div>
+      <div class="break_line"></div>
+      <div>
+          <label for="date_input">
+              <h2>Due date<span class="required_char">*</span></h2>
+              <input required type="date" id="date_input_edit" class="input" value="${task.dueDate}">
+          </label>
+          <label for="">
+              <h2>Prio</h2>
+              <div class="prio_category">
+                  <span class="prio_category_span" onclick="setActivePrio(0, 'urgent')">
+                      <h2 id="prio_headline0">Urgent<span><img id="prio_category_img0" src="./assets/img/add_task/urgent_color.png"></span></h2>
+                  </span>
+                  <span class="prio_category_span" onclick="setActivePrio(1, 'medium')">
+                      <h2 id="prio_headline1">Medium<span><img id="prio_category_img1" src="./assets/img/add_task/medium_color.png"></span></h2>
+                  </span>
+                  <span class="prio_category_span"onclick="setActivePrio(2, 'low')">
+                      <h2 id="prio_headline2">Low<span><img id="prio_category_img2" src="./assets/img/add_task/low_color.png"></span></h2>
+                  </span>
+              </div>
+          </label>
+          <label for="select_category">
+              <h2>Category<span class="required_char">*</span></h2>
+              <select name="" id="select_category" class="select" required>
+                  <option value="" disabled selected>Select task category</option>
+                  <option value="User Story">User Story</option>
+                  <option value="Technical Task">Technical Task</option>
+              </select>
+          </label>
+          <label for="input_subtask">
+              <h2>Subtasks</h2>
+              <div class="subtask_input">
+                  <input type="text" id="input_subtask" placeholder="Add new subtask" class="input">
+                  <span onclick="setSubTask()"><button type="button">+</button></span>
+              </div>
+          </label>
+          <div id="">
+
+          </div>
+          <div class="button_container_edit">
+            <button>Save</button>
+          </div>
+      </div>
+    </div>
+  `
 }

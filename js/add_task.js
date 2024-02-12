@@ -43,7 +43,7 @@ async function initAddTask() {
   getPrioSpans();
   setActivePrio(1, "medium");
   addClearFunction();
-  addDateMin();
+  addDateMin('date_input');
 }
 
 async function getData() {
@@ -60,8 +60,8 @@ function addClearFunction() {
   document.getElementById("clear_button").addEventListener("click", clear);
 }
 
-function addDateMin() {
-  document.getElementById("date_input").min = new Date()
+function addDateMin(id) {
+  document.getElementById(`${id}`).min = new Date()
   .toISOString()
   .split("T")[0];
 }
