@@ -145,7 +145,7 @@ function renderPopUpCardEdit(taskId) {
   const currentTask = tasks.find(task => task.id == taskId);
   document.getElementById("card_popup_content").innerHTML = generatePopUpCardEdit(currentTask);
   getPrioSpans();
-  setActivePrioEdit(1, "medium");
+  // setActivePrioEdit(1, "medium");
   addDateMin('date_input_edit');
   setCategoryEdit(currentTask);
   setDescriptionEditValue(currentTask);
