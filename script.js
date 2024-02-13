@@ -90,23 +90,3 @@ function highlightCurrentPage() {
     document.getElementById("sidebar_5").style.backgroundColor = "#091931";
   }
 }
-
-/* Selbe Function, küzerer Code. Team fragen welche Version. */
-
-/* function highlightCurrentPage() {
-  const currentPage = window.location.pathname;
-  const sidebarMappings = {
-    "/summary.html": "sidebar_0",
-    "/add_task.html": "sidebar_1",
-    "/board.html": "sidebar_2",
-    "/contacts.html": "sidebar_3",
-    "/privacy_policy.html": "sidebar_4",
-    "/legal_notice.html": "sidebar_5"
-  };
-  
-  const sidebarId = sidebarMappings[currentPage];
-  if (sidebarId) {
-    document.getElementById(sidebarId).style.backgroundColor = "#091931";
-  }
-}
- */

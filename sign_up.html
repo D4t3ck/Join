@@ -30,7 +30,6 @@
             <a class="back_arrow" href="./login.html">
               <img
                 id="backArrow"
-                
                 src="./assets/img/signUp/arrow_left.png"
                 alt="Pfeil zurück"
               />
@@ -72,7 +71,7 @@
                 </div>
               </div>
 
-              <div class="signup_input">
+              <div id="passwordContainer" class="signup_input">
                 <input
                   type="password"
                   id="passwordSignup"
@@ -84,8 +83,9 @@
                 </div>
               </div>
 
-              <div class="signup_input">
+              <div id="passwordConfirmContainer" class="signup_input">
                 <input
+                  onchange="checkPasswords()"
                   type="password"
                   id="passwordConfirm"
                   placeholder="Confirm Password"
@@ -97,14 +97,11 @@
               </div>
             </div>
 
-            <div class="match_password">
-              <p>Ups! your password don't match.</p>
-            </div>
+            <div id="errorTxt" class="match_password"></div>
 
             <div class="signup_check">
-              <input type="checkbox" required>
               <img
-                id="checkSignup"
+                id="unchecked"
                 onclick="toggleCheckboxSignup()"
                 src="./assets/img/logIn/unchecked.png"
                 alt="Checkbox"
@@ -115,7 +112,9 @@
 
           <!-- --- Sign up Button --- -->
           <div class="signup_card_foot">
-            <button class="foot_signup_btn">Sign up</button>
+            <button id="signUpBtn" class="foot_signup_btn" disabled>
+              Sign up
+            </button>
           </div>
         </form>
       </main>

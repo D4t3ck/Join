@@ -104,6 +104,7 @@
   border-radius: 10px;
   border: 1px solid var(--Style, #d1d1d1);
   background: #fff;
+  
 }
 
 .signup_input input {
@@ -151,8 +152,8 @@
   opacity: 50%;
 }
 
-.match_password p {
-  margin: 0;
+.outline_red {
+  border-color: red;
 }
 
 .signup_check {
