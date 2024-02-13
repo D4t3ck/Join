@@ -36,6 +36,7 @@ async function inputValue() {
   
     userList.push(user);
     console.log(dataAsJson);
+    alert('user registriert')
     /* setItem("users", dataAsJson); */
   }
 
