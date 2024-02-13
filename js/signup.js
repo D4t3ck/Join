@@ -20,25 +20,27 @@ async function inputValue() {
   let signupMail = document.getElementById("emailSignup").value;
   let signupPwd = document.getElementById("passwordSignup").value;
   let signupConfirm = document.getElementById("passwordConfirm").value;
-  let checkBox = document.getElementById('unchecked');
+  let checkBoxUnchecked = document.getElementById('unchecked');
+  let checkBoxChecked = document.getElementById('checked');
   const data = await getItem('users');
   const dataAsJson = JSON.parse(data);
   const userList = dataAsJson.users;
 
-  if (checkBox.id === 'unchecked') {
-    alert("Du kommst nicht vorbei!");
-  } else {
-    let user = {
-      userName: signupName,
-      userMail: signupMail,
-      userPwd: signupPwd
-    }
+ if (checkBoxUnchecked) {
+  alert("Du kommst nicht vorbei!");
   
-    userList.push(user);
-    console.log(dataAsJson);
-    alert('user registriert')
-    /* setItem("users", dataAsJson); */
+ }
+ else if (checkBoxChecked) {
+  let user = {
+    userName: signupName,
+    userMail: signupMail,
+    userPwd: signupPwd
   }
+
+  userList.push(user);
+  console.log(dataAsJson);
+  /* setItem("users", dataAsJson);*/
+ }
 
   
 }
