@@ -586,6 +586,7 @@ background-repeat: no-repeat;
     .contacts_bigcard_container {
         /* margin-left: 50px; */
         align-items: flex-start;
+        width: fit-content;
     }
     .contacts_bigcard_contact_area {
         gap: 0;
