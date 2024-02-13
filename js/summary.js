@@ -1,16 +1,12 @@
 async function initSummary() {
-    let response = await getItem('users');
+    let response = await getItem('users'); // pull data from server
     let responseAsJson = JSON.parse(response);
     let tasks = responseAsJson.tasks;
-
 
     let tasksNumber = document.getElementById('summary_tasks_number');
     tasksNumber.innerHTML = `${tasks.length}`;
 
     let todos = tasks.filter(checkTodos);
-
-    
-
     let todoNumber = document.getElementById('summary_todo_number');
     todoNumber.innerHTML = `${todos.length}`;
 
@@ -30,7 +26,7 @@ async function initSummary() {
     let urgentNumber = document.getElementById('summary_urgent_number');
     urgentNumber.innerHTML = `${urgent.length}`;
 
-    console.log(dones)
+    // console.log(dones)
     getUserName();
     getCurrentUser();
 }
@@ -59,25 +55,41 @@ function goToBoard() {
     window.location.href = './board.html'; 
 }
 
-
 async function getUserName() {
     let response = await getItem('users');
     let responseAsJson = JSON.parse(response);
     let users = responseAsJson.users;
 
-const urlParams = new URLSearchParams(window.location.search);
-let userMail = urlParams.get('mail');
-let user = users.find(task => task.userMail == userMail); 
-let userName = user.userName;
-let userNameDiv = document.getElementById('user_name_greeting');
-if(userMail == null ) {
-    userName = '';
+    const urlParams = new URLSearchParams(window.location.search);
+    let userMail = urlParams.get('mail');
+    let user = users.find(task => task.userMail == userMail); 
+
+    let currentTime = new Date();
+    let currentHour = currentTime.getHours();
+
     let greetingText = document.getElementById('greeting');
+    let greetingMessage = '';
 
-    let formatedGreeting = greetingText.innerText.replace(',','');
-    greetingText.innerHTML = formatedGreeting;
+    if (currentHour < 12) {
+        greetingMessage = 'Good morning,';
+    } else if (currentHour < 18) {
+        greetingMessage = 'Hello,';
+    } else {
+        greetingMessage = 'Good evening,';
+    }
 
+    greetingText.innerHTML = greetingMessage;
+
+    if(userMail == null ) {
+        userName = '';
+       
+        let formatedGreeting = greetingText.innerText.replace(',','');
+        greetingText.innerHTML = formatedGreeting;
+    } else {
+
+    let userName = user.userName;
+    let userNameDiv = document.getElementById('user_name_greeting'); 
+    userNameDiv.innerHTML = `${userName}`;
+    }
 }
-userNameDiv.innerHTML = `${userName}`;
 
-}

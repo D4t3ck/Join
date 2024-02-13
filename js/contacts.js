@@ -19,7 +19,6 @@ async function getDataForContacts() {
   contacts = responseAsJson.contacts;
   backendData = responseAsJson;
 
-
 }
 
 
@@ -271,7 +270,7 @@ function getFirstChars(name) {
   const profilLetter = first1letter +secondLetter;
 
   return profilLetter;
-  console.log(profilLetter)
+  // console.log(profilLetter)
   
 }
 
@@ -279,25 +278,32 @@ async function getUserAccount() {
   let response = await getItem('users');
   let responseAsJson = JSON.parse(response);
   let users = responseAsJson.users;
-const urlParams = new URLSearchParams(window.location.search);
-let userMail = urlParams.get('mail');
-let user = users.find(task => task.userMail == userMail); 
-let userName = user.userName;
 
-// console.log(user);
+  const urlParams = new URLSearchParams(window.location.search);
+
+  let userMail = urlParams.get('mail');
+  let user = users.find(task => task.userMail == userMail); 
+
+  console.log(user)
+
+  if (user == null) {
+    document.getElementById('userAccount').innerHTML = '';
+  } else {
+  // let userName = user.userName;
+  // console.log(response);
+
+  // document.getElementById('userAccount').innerHTML =
+  // /*html*/`
+  // <div class="contact_scrolls_card_small" onclick="showContactInformation('${name}', '${mail}', '${phone}','${j}','${profil}')" id="contact_card${j}">
+  //   <div class="profil_ellipse" style="background-color: ${element.color};">${profil}</div>
+  //   <div class="contact_scrolls_card_small_contact">
+  //       <span id="contact_card_name${j}" class="contact_scrolls_card_small_name">${name}</span>
+  //       <span class="contact_scrolls_card_small_email">${mail}</span>
+  //   </div>
+  // </div>`;
+
+  }
+
+  // console.log(users);
 }
 
-
-
-// function pushDataBackend() { // einmal alle Contacte ins Backend gepushed
-//   let BackendContacts = backendData.contacts;
-
-//   for (let i = 0; i < contacts.length; i++) {
-//     const element = contacts[i];
-
-//     BackendContacts.push(element);
-    
-//   }
-//   // setItem('users', backendData)
-//   console.log(backendData)
-// }
