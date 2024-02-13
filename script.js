@@ -108,4 +108,5 @@ function highlightCurrentPage() {
   if (sidebarId) {
     document.getElementById(sidebarId).style.backgroundColor = "#091931";
   }
-} */
+}
+ */
