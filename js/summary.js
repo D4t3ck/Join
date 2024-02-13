@@ -60,12 +60,17 @@ function goToBoard() {
 }
 
 
-function getUserName() {
-const urlParams = new URLSearchParams(window.location.search);
-let userName = urlParams.get('name');
+async function getUserName() {
+    let response = await getItem('users');
+    let responseAsJson = JSON.parse(response);
+    let users = responseAsJson.users;
 
+const urlParams = new URLSearchParams(window.location.search);
+let userMail = urlParams.get('mail');
+let user = users.find(task => task.userMail == userMail); 
+let userName = user.userName;
 let userNameDiv = document.getElementById('user_name_greeting');
-if(userName == null ) {
+if(userMail == null ) {
     userName = '';
     let greetingText = document.getElementById('greeting');
 

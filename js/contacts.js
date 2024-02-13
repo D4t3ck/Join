@@ -2,80 +2,99 @@ let contacts = [
     {
         "name": "Anton Mayer",
         "mail": "antom@test.de",
-        "phone": "+49 1111 1111 1111"
+        "phone": "+49 1111 1111 1111",
+        "color": null,
     },
     {
         "name": "Ben Bayer",
         "mail": "BenBayer@test.de",
-        "phone": "+49 1121 1111 1111"
+        "phone": "+49 1121 1111 1111",
+        "color": null,
+
     },
     {
         "name": "Claus Cayer",
         "mail": "ClausCayer@test.de",
-        "phone": "+49 1131 1111 1111"
+        "phone": "+49 1131 1111 1111",
+        "color": null,
     },
     {
         "name": "Hanton Mayer",
         "mail": "fantom@test.de",
-        "phone": "+49 1111 1111 1111"
+        "phone": "+49 1111 1111 1111",
+        "color": null,
     },
     {
       "name": "Lnton Mayer",
       "mail": "antom@test.de",
-      "phone": "+49 1111 1111 1111"
+      "phone": "+49 1111 1111 1111",
+      "color": null,
   },
   {
       "name": "Pen Bayer",
       "mail": "BenBayer@test.de",
-      "phone": "+49 1121 1111 1111"
+      "phone": "+49 1121 1111 1111",
+      "color": null,
   },
   {
       "name": "Laus Wayer",
       "mail": "ClausCayer@test.de",
-      "phone": "+49 1131 1111 1111"
+      "phone": "+49 1131 1111 1111",
+      "color": null,
   },
   {
       "name": "Kanton Fayer",
       "mail": "fantom@test.de",
-      "phone": "+49 1111 1111 1111"
-  },{
+      "phone": "+49 1111 1111 1111",
+      "color": null,
+  },
+  {
     "name": "Enton Kayer",
     "mail": "antom@test.de",
-    "phone": "+49 1111 1111 1111"
+    "phone": "+49 1111 1111 1111",
+    "color": null,
 },
 {
     "name": "Jen Bayer",
     "mail": "BenBayer@test.de",
-    "phone": "+49 1121 1111 1111"
+    "phone": "+49 1121 1111 1111",
+    "color": null,
 },
 {
     "name": "Klaus Cayer",
     "mail": "ClausCayer@test.de",
-    "phone": "+49 1131 1111 1111"
+    "phone": "+49 1131 1111 1111",
+    "color": null,
 },
 {
     "name": "Zanton Mayer",
     "mail": "fantom@test.de",
-    "phone": "+49 1111 1111 1111"
-},{
+    "phone": "+49 1111 1111 1111",
+    "color": null,
+},
+{
   "name": "Wanton Layer",
   "mail": "antom@test.de",
-  "phone": "+49 1111 1111 1111"
+  "phone": "+49 1111 1111 1111",
+  "color": null,
 },
 {
   "name": "Quen Wayer",
   "mail": "BenBayer@test.de",
-  "phone": "+49 1121 1111 1111"
+  "phone": "+49 1121 1111 1111",
+  "color": null,
 },
 {
   "name": "Tlaus Cayer",
   "mail": "ClausCayer@test.de",
-  "phone": "+49 1131 1111 1111"
+  "phone": "+49 1131 1111 1111",
+  "color": null,
 },
 {
   "name": "Manton Rayer",
   "mail": "fantom@test.de",
-  "phone": "+49 1111 1111 1111"
+  "phone": "+49 1111 1111 1111",
+  "color": null,
 },
 ]
 
@@ -101,7 +120,7 @@ function renderletters() {
             const mail = element['mail'];
             const phone = element['phone']
             const firstletter = element['name'].charAt(0).toUpperCase();
-            
+            element.color = colors[j % colors.length]
             if (letter == firstletter) {
               const profil = getFirstChars(name);
                 contactArea.innerHTML += 
@@ -110,7 +129,7 @@ function renderletters() {
                     <div id="letterbox${i}"></div>
                 </div>
                 <div class="contact_scrolls_card_small" onclick="showContactInformation('${name}', '${mail}', '${phone}','${j}','${profil}')" id="contact_card${j}">
-                    <div class="profil_ellipse" style="background-color: ${colors[j % colors.length]};">${profil}</div>
+                    <div class="profil_ellipse" style="background-color: ${element.color};">${profil}</div>
                     <div class="contact_scrolls_card_small_contact">
                         <span id="contact_card_name${j}" class="contact_scrolls_card_small_name">${name}</span>
                         <span class="contact_scrolls_card_small_email">${mail}</span>
@@ -138,6 +157,7 @@ function addContact() {
             "name": name,
             "mail": email,
             "phone": number,
+            "color": null,
     }
     contacts.push(contact);
     
