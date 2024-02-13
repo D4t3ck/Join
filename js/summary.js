@@ -26,10 +26,24 @@ async function initSummary() {
     let urgentNumber = document.getElementById('summary_urgent_number');
     urgentNumber.innerHTML = `${urgent.length}`;
 
-    // console.log(dones)
+    console.log(tasks)
+
+   
+
+
     getUserName();
     getCurrentUser();
+
+    let upcomingTask = tasks.find(task => new Date(task.dueDate) > new Date());
+    if (upcomingTask) {
+        let upcomingDeadline = document.getElementById('upcoming_deadline');
+        
+        // Verwende direkt das `dueDate` des gefundenen Tasks
+        upcomingDeadline.innerHTML = upcomingTask.dueDate;
+    }
 }
+
+
 
 function checkTodos(todo) {
     return todo.categoryBoard == "toDo"
