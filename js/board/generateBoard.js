@@ -317,3 +317,30 @@ function generatePopUpCardEdit(task) {
     </div>
   `
 }
+
+function generateSubTaskEditForEditPopUp(task, index) {
+  return /*html*/ `
+        <span id="subtask_information_span${index}">
+            <span id="subtask_title${index}">${task.title}</span>
+        </span>
+        <span class="subtask_hover_icons" id="subtask_icon_container${index}">
+            <img src="./assets/img/add_task/pen.png" alt="Edit subtask" class="subtask_icon icon" id="edit_subtask_img${index}" onclick="editSubTaskForEditPopUp(${index})">
+            <img src="./assets/img/add_task/trash.png" alt="delete icon" class="subtask_icon icon" id="delete_subtask_img${index}" onclick="deleteSubTask(${index})">
+        </span>
+    `;
+}
+
+function generateSubTaskForEditPopUp(task, index, id) {
+  return /*html*/ `
+        <p id="subtask_paragraph${index}_edit">
+        <span id="subtask_information_span${index}_edit">
+            <span>•</span>
+            <span>${task.title}</span>
+        </span>
+            <span class="subtask_hover_icons" id="subtask_icon_container${index}_edit">
+                <img src="./assets/img/add_task/pen.png" alt="Edit subtask" class="subtask_icon icon" id="edit_subtask_img${index}_edit" onclick="editSubTaskForEditPopUp(${index}, ${id})">
+                <img src="./assets/img/add_task/trash.png" alt="delete icon" class="subtask_icon icon" id="delete_subtask_img${index}_edit" onclick="deleteSubTaskForEdit(${index}, ${id})">
+            </span>
+        </p>
+    `;
+}

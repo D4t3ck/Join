@@ -3,6 +3,7 @@ let tasks = [];
 
 let currentDraggedId;
 let currentIndex;
+let currentEditTask;
 
 function initBoard() {
   getBoardData();
@@ -162,9 +163,26 @@ function setActivePrioEdit(index, prio) {
 
 function renderSubtasksEdit(task) {
   const subTaskContent = document.getElementById('subtask_content_edit');
+  subTaskContent.innerHTML = '';
   task.subtasks.forEach((subTask, index) => {
-    subTaskContent.innerHTML += generateSubTask(subTask, index);
+    subTaskContent.innerHTML += generateSubTaskForEditPopUp(subTask, index, task.id);
   });
+}
+
+function editSubTaskForEditPopUp(index, id) {
+  currentEditTask = tasks.find(task => task.id == id);
+  document.getElementById(`subtask_paragraph${index}_edit`).innerHTML =
+    generateSubTaskEditForEditPopUp(currentEditTask, index);
+  let paragraph = document.getElementById(`subtask_paragraph${index}_edit`);
+  paragraph.contentEditable = true;
+  paragraph.focus();
+  showSubTaskIcon(index);
+}
+
+function deleteSubTaskForEdit(index, id) {
+  currentEditTask = tasks.find(task => task.id == id);
+  currentEditTask.subtasks.splice(index, 1);
+  renderSubtasksEdit(currentEditTask);;
 }
 
 function setDescriptionEditValue(task) {
@@ -278,3 +296,4 @@ function searchTask() {
     renderTasks(filteredTasks);
   } else renderTasks(tasks);
 }
+
