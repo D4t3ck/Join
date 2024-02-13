@@ -1,112 +1,26 @@
-let contacts = [
-    {
-        "name": "Anton Mayer",
-        "mail": "antom@test.de",
-        "phone": "+49 1111 1111 1111",
-        "color": null,
-    },
-    {
-        "name": "Ben Bayer",
-        "mail": "BenBayer@test.de",
-        "phone": "+49 1121 1111 1111",
-        "color": null,
-
-    },
-    {
-        "name": "Claus Cayer",
-        "mail": "ClausCayer@test.de",
-        "phone": "+49 1131 1111 1111",
-        "color": null,
-    },
-    {
-        "name": "Hanton Mayer",
-        "mail": "fantom@test.de",
-        "phone": "+49 1111 1111 1111",
-        "color": null,
-    },
-    {
-      "name": "Lnton Mayer",
-      "mail": "antom@test.de",
-      "phone": "+49 1111 1111 1111",
-      "color": null,
-  },
-  {
-      "name": "Pen Bayer",
-      "mail": "BenBayer@test.de",
-      "phone": "+49 1121 1111 1111",
-      "color": null,
-  },
-  {
-      "name": "Laus Wayer",
-      "mail": "ClausCayer@test.de",
-      "phone": "+49 1131 1111 1111",
-      "color": null,
-  },
-  {
-      "name": "Kanton Fayer",
-      "mail": "fantom@test.de",
-      "phone": "+49 1111 1111 1111",
-      "color": null,
-  },
-  {
-    "name": "Enton Kayer",
-    "mail": "antom@test.de",
-    "phone": "+49 1111 1111 1111",
-    "color": null,
-},
-{
-    "name": "Jen Bayer",
-    "mail": "BenBayer@test.de",
-    "phone": "+49 1121 1111 1111",
-    "color": null,
-},
-{
-    "name": "Klaus Cayer",
-    "mail": "ClausCayer@test.de",
-    "phone": "+49 1131 1111 1111",
-    "color": null,
-},
-{
-    "name": "Zanton Mayer",
-    "mail": "fantom@test.de",
-    "phone": "+49 1111 1111 1111",
-    "color": null,
-},
-{
-  "name": "Wanton Layer",
-  "mail": "antom@test.de",
-  "phone": "+49 1111 1111 1111",
-  "color": null,
-},
-{
-  "name": "Quen Wayer",
-  "mail": "BenBayer@test.de",
-  "phone": "+49 1121 1111 1111",
-  "color": null,
-},
-{
-  "name": "Tlaus Cayer",
-  "mail": "ClausCayer@test.de",
-  "phone": "+49 1131 1111 1111",
-  "color": null,
-},
-{
-  "name": "Manton Rayer",
-  "mail": "fantom@test.de",
-  "phone": "+49 1111 1111 1111",
-  "color": null,
-},
-]
+let contacts; 
 
 let letters = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','Ü','Ä','Ö'];
 let colors = ['#FF7A00','#FF5EB3','#6E52FF','#9327FF','#00BEE8','#1FD7C1','#FF745E','#FFA35E','#FC71FF','#FFC701','#0038FF','#C3FF2B','#FFE62B','#FF4646','#FFBB2B']
 
-function initContact() {
+let backendData; 
+
+
+async function initContact() {
     init();
+    await getDataForContacts();
     renderletters();
+    getUserAccount();
 }
 
+async function getDataForContacts() {
+  let response = await getItem('users');
+  let responseAsJson = JSON.parse(response);
+  contacts = responseAsJson.contacts;
+  backendData = responseAsJson;
 
+
+}
 
 
 function renderletters() {
@@ -159,8 +73,8 @@ function addContact() {
             "phone": number,
             "color": null,
     }
-    contacts.push(contact);
-    
+    backendData.contacts.push(contact);
+    setItem('users', backendData);
     initContact();
     closeOverlayAddContact();
     // clearInputField();
@@ -324,16 +238,19 @@ function closeOverlayEditContact() {
 }
 
 function editContactTest(j) {
-  contacts[j].name = document.getElementById('inputEditName').value;
-  contacts[j].mail = document.getElementById('inputEditEmail').value;
-  contacts[j].phone = document.getElementById('inputEditPhone').value;
+  backendData.contacts[j].name = document.getElementById('inputEditName').value;
+  backendData.contacts[j].mail = document.getElementById('inputEditEmail').value;
+  backendData.contacts[j].phone = document.getElementById('inputEditPhone').value;
+  setItem('users', backendData);
+
   renderletters();
   document.getElementById('contactInformation').classList.add('d_none');
   closeOverlayEditContact();
 }
 
 function deleteContact(j) {
-  contacts.splice(j , 1)
+  backendData.contacts.splice(j , 1)
+  setItem('users', backendData);
   closeOverlayEditContact();
   clearContactInformation();
   renderletters();
@@ -357,3 +274,30 @@ function getFirstChars(name) {
   console.log(profilLetter)
   
 }
+
+async function getUserAccount() {
+  let response = await getItem('users');
+  let responseAsJson = JSON.parse(response);
+  let users = responseAsJson.users;
+const urlParams = new URLSearchParams(window.location.search);
+let userMail = urlParams.get('mail');
+let user = users.find(task => task.userMail == userMail); 
+let userName = user.userName;
+
+// console.log(user);
+}
+
+
+
+// function pushDataBackend() { // einmal alle Contacte ins Backend gepushed
+//   let BackendContacts = backendData.contacts;
+
+//   for (let i = 0; i < contacts.length; i++) {
+//     const element = contacts[i];
+
+//     BackendContacts.push(element);
+    
+//   }
+//   // setItem('users', backendData)
+//   console.log(backendData)
+// }

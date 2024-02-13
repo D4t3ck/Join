@@ -66,6 +66,10 @@
 
 /********** SUBMENU **********/
 
+.submenu_toggle {
+  padding: 0;
+}
+
 .header_submenu {
   display: flex;
   justify-content: flex-end;

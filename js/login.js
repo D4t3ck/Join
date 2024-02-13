@@ -14,16 +14,20 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+/**
+ * function toggles remember me checkbox
+ */
 function toggleCheckboxLogin() {
-  let image = document.getElementById("checkLogin");
+  let uncheckedBox = document.getElementById('unchecked');
+  let checkedBox = document.getElementById('checked');
 
-  if (isImageLog) {
-    image.src = "./assets/img/login/checked.png";
-  } else {
-    image.src = "./assets/img/login/unchecked.png";
+  if (uncheckedBox) {
+    uncheckedBox.src = 'assets/img/signUp/checked.png';
+    uncheckedBox.id = 'checked';
+  } else if (checkedBox) {
+    checkedBox.src = 'assets/img/signUp/unchecked.png';
+    checkedBox.id = 'unchecked';
   }
-
-  isImageLog = !isImageLog;
 }
 
 async function checkUser() {

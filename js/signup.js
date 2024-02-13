@@ -1,15 +1,18 @@
-let isImageSign = true;
 
+/**
+ * Function toggles acceptance of Privacy Policys checkbox
+ */
 function toggleCheckboxSignup() {
-  let image = document.getElementById("checkSignup");
+  let uncheckedBox = document.getElementById('unchecked');
+  let checkedBox = document.getElementById('checked');
 
-  if (isImageSign) {
-    image.src = "./assets/img/login/checked.png";
-  } else {
-    image.src = "./assets/img/login/unchecked.png";
+  if (uncheckedBox) {
+    uncheckedBox.src = 'assets/img/signUp/checked.png';
+    uncheckedBox.id = 'checked';
+  } else if (checkedBox) {
+    checkedBox.src = 'assets/img/signUp/unchecked.png';
+    checkedBox.id = 'unchecked';
   }
-
-  isImageSign = !isImageSign;
 }
 
 async function inputValue() {
@@ -17,10 +20,17 @@ async function inputValue() {
   let signupMail = document.getElementById("emailSignup").value;
   let signupPwd = document.getElementById("passwordSignup").value;
   let signupConfirm = document.getElementById("passwordConfirm").value;
+  let checkBoxUnchecked = document.getElementById('unchecked');
+  let checkBoxChecked = document.getElementById('checked');
   const data = await getItem('users');
   const dataAsJson = JSON.parse(data);
   const userList = dataAsJson.users;
 
+ if (checkBoxUnchecked) {
+  alert("Du kommst nicht vorbei!");
+  
+ }
+ else if (checkBoxChecked) {
   let user = {
     userName: signupName,
     userMail: signupMail,
@@ -29,7 +39,10 @@ async function inputValue() {
 
   userList.push(user);
   console.log(dataAsJson);
-  setItem("users", dataAsJson);
+  /* setItem("users", dataAsJson);*/
+ }
+
+  
 }
 
 
@@ -64,3 +77,30 @@ async function inputValue() {
 
   //   contacts: []
   // };
+
+  function checkPasswords() {
+    let password1 = document.getElementById('passwordSignup').value;
+    let password2 = document.getElementById('passwordConfirm').value;
+    let errorMessage = document.getElementById('errorTxt');
+    let password1Container = document.getElementById('passwordContainer');
+    let password2Container = document.getElementById('passwordConfirmContainer');
+  
+    if (password1 === password2) {
+      errorMessage.innerHTML = "";
+      document.getElementById('signUpBtn').disabled = false;
+      password1Container.classList.remove('outline_red');
+      password2Container.classList.remove('outline_red');
+    } else {
+      errorMessage.innerHTML = "The passwords do not match.";
+      document.getElementById('signUpBtn').disabled = true;
+      errorRedOutline();
+    }
+  }
+  
+
+function errorRedOutline() {
+  let password1 = document.getElementById('passwordContainer');
+  let password2 = document.getElementById('passwordConfirmContainer');
+  password1.classList.add('outline_red');
+  password2.classList.add('outline_red');
+}
