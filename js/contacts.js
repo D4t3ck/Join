@@ -9,8 +9,8 @@ let backendData;
 async function initContact() {
     init();
     await getDataForContacts();
-    renderletters();
     logUserAccount();
+    renderletters();
 }
 
 async function getDataForContacts() {
@@ -74,7 +74,7 @@ function addContact() {
     }
     backendData.contacts.push(contact);
     setItem('users', backendData);
-    initContact();
+    renderletters();
     closeOverlayAddContact();
     // clearInputField();
 }
@@ -300,7 +300,7 @@ async function logUserAccount() {
   backendData.contacts.push(contact);
   }
   
-  if (user == null) {
+  if (user == null || user == 'null') {
     document.getElementById('userAccount').innerHTML = '';
   } else {
 
@@ -320,4 +320,3 @@ async function logUserAccount() {
 renderletters();
   // console.log(users);
 }
-
