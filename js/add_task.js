@@ -1,7 +1,7 @@
 let data;
 let tasksInAddTask;
 let subTasks = [];
-let contacts = ['Florian', 'Daniel', 'Roman', 'Frederic', 'Albert', 'Gustav'];
+let contacts = ["Florian", "Daniel", "Roman", "Frederic", "Albert", "Gustav"];
 let checkedContacts = [];
 let assignRdy = false;
 let prioSpans;
@@ -25,8 +25,7 @@ class Task {
     this.prio = prio;
     this.category = category;
     this.subtasks = subtasks;
-    this.categoryBoard = categoryBoard,
-    this.id = id
+    (this.categoryBoard = categoryBoard), (this.id = id);
   }
 }
 
@@ -43,11 +42,11 @@ async function initAddTask() {
   getPrioSpans();
   setActivePrio(1, "medium");
   addClearFunction();
-  addDateMin('date_input');
+  addDateMin("date_input");
 }
 
 async function getData() {
-  const response = await getItem('users'); 
+  const response = await getItem("users");
   data = JSON.parse(response);
   tasksInAddTask = data.tasks;
 }
@@ -61,9 +60,7 @@ function addClearFunction() {
 }
 
 function addDateMin(id) {
-  document.getElementById(`${id}`).min = new Date()
-  .toISOString()
-  .split("T")[0];
+  document.getElementById(`${id}`).min = new Date().toISOString().split("T")[0];
 }
 
 function clear() {
@@ -114,11 +111,11 @@ function getTaskData() {
     prio,
     category,
     subTasks,
-    'toDo',
+    "toDo",
     null
   );
   tasksInAddTask.push(task);
-  setItem('users', data);
+  setItem("users", data);
   clear();
 }
 
@@ -206,8 +203,10 @@ function editSubTask(index) {
 }
 
 function saveSubTask(index) {
-    subTasks[index].title = document.getElementById(`subtask_information_span${index}`).innerText;
-    printSubTask();
+  subTasks[index].title = document.getElementById(
+    `subtask_information_span${index}`
+  ).innerText;
+  printSubTask();
 }
 
 function showSubTaskIcon(index) {
@@ -216,16 +215,18 @@ function showSubTaskIcon(index) {
 }
 
 function renderInputAssigned() {
-  document.getElementById('assigned_container').innerHTML = generateInputAssigned();
+  document.getElementById("assigned_container").innerHTML =
+    generateInputAssigned();
   renderAssignedContent();
-  document.getElementById('assigned_input').focus();
+  document.getElementById("assigned_input").focus();
 }
 
 function renderAssignedContent() {
-  document.getElementById('input_assigned_content').innerHTML = '';
-  contacts.forEach((contact, index) => {
-    document.getElementById('input_assigned_content').innerHTML += generateContact(contact, index);
-    setContactValue(contact, index);
+  document.getElementById("input_assigned_content").innerHTML = "";
+  data.contacts.forEach((contact, index) => {
+    document.getElementById("input_assigned_content").innerHTML +=
+      generateContact(contact.name, index);
+    setContactValue(contact.name, index);
   });
   setTimeout(() => {
     assignRdy = true;
@@ -237,42 +238,47 @@ function setContactValue(contact, index) {
 }
 
 function closeDropdown() {
-  if(assignRdy) {
+  if (assignRdy) {
     getCheckedContacts();
-    document.getElementById('assigned_container').innerHTML = generateAssignSelection();
+    document.getElementById("assigned_container").innerHTML =
+      generateAssignSelection();
     assignRdy = false;
   }
 }
 
 function getCheckedContacts() {
-  const contactList = document.querySelectorAll('.contact');
-  for(let i = 0; i < contactList.length; i++) {
-    if(contactList[i].checked) checkedContacts.push(contactList[i].value);
+  const contactList = document.querySelectorAll(".contact");
+  for (let i = 0; i < contactList.length; i++) {
+    if (contactList[i].checked) checkedContacts.push(contactList[i].value);
   }
 }
 
 function searchContact() {
   const filteredContacts = [];
-  const inputValue = document.getElementById('assigned_input').value.toLocaleLowerCase();
-  document.getElementById('input_assigned_content').innerHTML = '';
-  contacts.forEach(contact => {
-    if(contact.toLocaleLowerCase().includes(inputValue)) filteredContacts.push(contact); 
+  const inputValue = document
+    .getElementById("assigned_input")
+    .value.toLocaleLowerCase();
+  document.getElementById("input_assigned_content").innerHTML = "";
+  contacts.forEach((contact) => {
+    if (contact.toLocaleLowerCase().includes(inputValue))
+      filteredContacts.push(contact);
   });
   filteredContacts.forEach((contact, index) => {
-    document.getElementById('input_assigned_content').innerHTML += generateContact(contact, index);
+    document.getElementById("input_assigned_content").innerHTML +=
+      generateContact(contact, index);
   });
 }
 
 function showCreateTaskPopup() {
-  document.getElementById('create_popup').style.display = 'flex';
+  document.getElementById("create_popup").style.display = "flex";
 }
 
 function closeCreateTaskPopup() {
-  document.getElementById('create_popup').style.display = 'none';
+  document.getElementById("create_popup").style.display = "none";
 }
 
 function generateAssignSelection() {
-  return /*html*/`
+  return /*html*/ `
     <select name="" id="select_contact" placeholder="test" class="select" onclick="renderInputAssigned()">
         <option value="" disabled selected>Select contacts to assign</option>
     </select>
@@ -280,7 +286,7 @@ function generateAssignSelection() {
 }
 
 function generateInputAssigned() {
-  return /*html*/`
+  return /*html*/ `
     <div class="assign_input_container">
       <input type="text" class="input" id="assigned_input" onkeyup="searchContact()">
       <span><img src="./assets/img/add_task/arrow_drop_up.png" alt="close dropdown"></span>
@@ -291,7 +297,7 @@ function generateInputAssigned() {
 }
 
 function generateContact(contact, index) {
-  return /*html*/`
+  return /*html*/ `
     <div>
       <input type="checkbox" id="contact${index}" class="contact">
       <label for="contact${index}"> ${contact}</label>

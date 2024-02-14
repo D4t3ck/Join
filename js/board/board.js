@@ -1,9 +1,11 @@
 let boardData;
+let boardPrioSpans;
 let tasks = [];
 
 let currentDraggedId;
 let currentIndex;
 let currentEditTask;
+let currentSubtasks;
 
 function initBoard() {
   getBoardData();
@@ -143,64 +145,104 @@ function renderPopUpCard(taskId) {
 }
 
 function renderPopUpCardEdit(taskId) {
-  const currentTask = tasks.find(task => task.id == taskId);
-  document.getElementById("card_popup_content").innerHTML = generatePopUpCardEdit(currentTask);
-  getPrioSpans();
-  // setActivePrioEdit(1, "medium");
-  addDateMin('date_input_edit');
+  const currentTask = tasks.find((task) => task.id == taskId);
+  document.getElementById("card_popup_content").innerHTML =
+    generatePopUpCardEdit(currentTask);
+  getPrioSpansEdit();
+  checkPrio(currentTask.prio);
+  addDateMin("date_input_edit");
   setCategoryEdit(currentTask);
   setDescriptionEditValue(currentTask);
   renderSubtasksEdit(currentTask);
 }
 
+function checkPrio(prio) {
+  if (prio == "urgent") {
+    setActivePrioEdit(0, "urgent");
+  } else if (prio == "medium") {
+    setActivePrioEdit(1, "medium");
+  } else if (prio == "low") {
+    setActivePrioEdit(2, "low");
+  }
+}
+
+function getPrioSpansEdit() {
+  boardPrioSpans = document.querySelectorAll(".edit_category");
+}
+
 function setActivePrioEdit(index, prio) {
-  removeActiveClass();
-  prioSpans[index].classList.add(prio);
+  removeActiveClassEdit();
+  boardPrioSpans[index].classList.add(prio);
   document.getElementById(
     `prio_category_img${index}_edit`
   ).src = `./assets/img/add_task/${prio}_white.png`;
 }
 
+function removeActiveClassEdit() {
+  boardPrioSpans.forEach((prioSpan) => {
+    prioSpan.classList.remove("urgent");
+    prioSpan.classList.remove("medium");
+    prioSpan.classList.remove("low");
+  });
+  document.getElementById("prio_category_img0_edit").src =
+    "./assets/img/add_task/urgent_color.png";
+  document.getElementById("prio_category_img1_edit").src =
+    "./assets/img/add_task/medium_color.png";
+  document.getElementById("prio_category_img2_edit").src =
+    "./assets/img/add_task/low_color.png";
+}
+
 function renderSubtasksEdit(task) {
-  const subTaskContent = document.getElementById('subtask_content_edit');
-  subTaskContent.innerHTML = '';
-  task.subtasks.forEach((subTask, index) => {
-    subTaskContent.innerHTML += generateSubTaskForEditPopUp(subTask, index, task.id);
+  const subTaskContent = document.getElementById("subtask_content_edit");
+  subTaskContent.innerHTML = "";
+  currentSubtasks = task.subtasks;
+  currentSubtasks.forEach((subTask, index) => {
+    subTaskContent.innerHTML += generateSubTaskForEditPopUp(
+      subTask,
+      index,
+      task.id
+    );
   });
 }
 
 function editSubTaskForEditPopUp(index, id) {
-  currentEditTask = tasks.find(task => task.id == id);
+  currentEditTask = tasks.find((task) => task.id == id);
   document.getElementById(`subtask_paragraph${index}_edit`).innerHTML =
     generateSubTaskEditForEditPopUp(currentEditTask, index);
   let paragraph = document.getElementById(`subtask_paragraph${index}_edit`);
   paragraph.contentEditable = true;
   paragraph.focus();
-  showSubTaskIcon(index);
+  showSubTaskIconForEditPopUp(index, currentEditTask);
+}
+
+function showSubTaskIconForEditPopUp(index, task) {
+  document.getElementById(`subtask_icon_container${index}_edit`).innerHTML =
+    generateSubTaskIconEditForEditPopUp(index, task);
 }
 
 function deleteSubTaskForEdit(index, id) {
-  currentEditTask = tasks.find(task => task.id == id);
+  currentEditTask = tasks.find((task) => task.id == id);
   currentEditTask.subtasks.splice(index, 1);
-  renderSubtasksEdit(currentEditTask);;
+  renderSubtasksEdit(currentEditTask);
 }
 
 function setDescriptionEditValue(task) {
-  const textarea = document.getElementById('description_textarea_edit');
+  const textarea = document.getElementById("description_textarea_edit");
   textarea.value = task.description;
 }
 
 function setCategoryEdit(task) {
-  const selectCategory = document.getElementById('select_category_edit');
+  const selectCategory = document.getElementById("select_category_edit");
   selectCategory.disabled = true;
-  if(task.category == 'User Story') {
+  if (task.category == "User Story") {
     selectCategory.selectedIndex = 1;
   } else selectCategory.selectedIndex = 2;
 }
 
 function renderAssignedContacts(task) {
-  task.assignedTo.forEach(contact => {
-    document.getElementById('popup_assigned_to').innerHTML += generateAssignContact(contact);
+  task.assignedTo.forEach((contact) => {
+    document.getElementById("popup_assigned_to").innerHTML +=
+      generateAssignContact(contact);
   });
 }
 
@@ -285,15 +327,66 @@ function printBackgroundCategory(category) {
 
 function deleteTask(id) {
   tasks.splice(id, 1);
-  setItem('users', boardData);
+  setItem("users", boardData);
   closePopUpCard();
 }
 
 function searchTask() {
-  const inputValue = document.getElementById('search_task_input').value.toLowerCase();
-  if(inputValue != '') {
-    const filteredTasks = tasks.filter(task => task.title.toLowerCase().includes(inputValue));
+  const inputValue = document
+    .getElementById("search_task_input")
+    .value.toLowerCase();
+  if (inputValue != "") {
+    const filteredTasks = tasks.filter((task) =>
+      task.title.toLowerCase().includes(inputValue)
+    );
     renderTasks(filteredTasks);
   } else renderTasks(tasks);
 }
 
+function saveSubTaskForEdit(index) {
+  currentSubtasks[index].title = document.getElementById(
+    `subtask_information_span${index}_edit`
+  ).innerText;
+  printSubTaskForEdit();
+}
+
+function printSubTaskForEdit() {
+  document.getElementById("subtask_content_edit").innerHTML = "";
+  currentSubtasks.forEach((task, index) => {
+    renderSubTaskContentForEdit(task, index);
+  });
+}
+
+function renderSubTaskContentForEdit(task, index) {
+  document.getElementById("subtask_content_edit").innerHTML +=
+    generateSubTaskForEditPopUp(task, index, currentEditTask.id);
+}
+
+function editPopUpSave(id) {
+  const task = tasks.find((task) => task.id == id);
+  task.title = document.getElementById("title_input_edit").value;
+  task.description = document.getElementById("description_textarea_edit").value;
+  task.dueDate = document.getElementById("date_input_edit").value;
+  task.prio = getPrioEdit();
+
+  setItem("users", boardData);
+  renderPopUpCard(id);
+}
+
+function getPrioEdit() {
+  let value;
+  for (let i = 0; i < boardPrioSpans.length; i++) {
+    for (let j = 0; j < boardPrioSpans[i].classList.length; j++) {
+      if (
+        boardPrioSpans[i].classList[j] == "urgent" ||
+        boardPrioSpans[i].classList[j] == "medium" ||
+        boardPrioSpans[i].classList[j] == "low"
+      ) {
+        value = document
+          .getElementById(`prio_headline${i}_edit`)
+          .innerText.toLowerCase();
+      }
+    }
+  }
+  return value;
+}

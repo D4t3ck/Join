@@ -255,9 +255,9 @@ function generatePopUpCardEdit(task) {
         <button onclick="renderPopUpCard('${task.id}')">X</button>
       </div>
       <div>
-          <label for="title_input">
+          <label for="title_input_edit">
               <h2>Title<span class="required_char">*</span></h2>
-              <input required type="text" id="title_input" class="input_edit" placeholder="Enter a title" value="${task.title}">
+              <input required type="text" id="title_input_edit" class="input_edit" placeholder="Enter a title" value="${task.title}">
           </label>
           <label for="description_textarea">
               <h2>Description</h2>
@@ -281,14 +281,14 @@ function generatePopUpCardEdit(task) {
           <label for="">
               <h2>Prio</h2>
               <div class="prio_category">
-                  <span class="prio_category_span_edit" onclick="setActivePrio(0, 'urgent')">
-                      <h2 id="prio_headline0">Urgent<span><img id="prio_category_img0_edit" src="./assets/img/add_task/urgent_color.png"></span></h2>
+                  <span class="prio_category_span_edit edit_category" onclick="setActivePrioEdit(0, 'urgent')">
+                      <h2 id="prio_headline0_edit">Urgent<span><img id="prio_category_img0_edit" src="./assets/img/add_task/urgent_color.png"></span></h2>
                   </span>
-                  <span class="prio_category_span_edit" onclick="setActivePrio(1, 'medium')">
-                      <h2 id="prio_headline1">Medium<span><img id="prio_category_img1_edit" src="./assets/img/add_task/medium_color.png"></span></h2>
+                  <span class="prio_category_span_edit edit_category" onclick="setActivePrioEdit(1, 'medium')">
+                      <h2 id="prio_headline1_edit">Medium<span><img id="prio_category_img1_edit" src="./assets/img/add_task/medium_color.png"></span></h2>
                   </span>
-                  <span class="prio_category_span_edit"onclick="setActivePrio(2, 'low')">
-                      <h2 id="prio_headline2">Low<span><img id="prio_category_img2_edit" src="./assets/img/add_task/low_color.png"></span></h2>
+                  <span class="prio_category_span_edit edit_category"onclick="setActivePrioEdit(2, 'low')">
+                      <h2 id="prio_headline2_edit">Low<span><img id="prio_category_img2_edit" src="./assets/img/add_task/low_color.png"></span></h2>
                   </span>
               </div>
           </label>
@@ -311,7 +311,7 @@ function generatePopUpCardEdit(task) {
 
           </div>
           <div class="button_container_edit">
-            <button>Save</button>
+            <button onclick="editPopUpSave(${task.id})">Save</button>
           </div>
       </div>
     </div>
@@ -320,10 +320,10 @@ function generatePopUpCardEdit(task) {
 
 function generateSubTaskEditForEditPopUp(task, index) {
   return /*html*/ `
-        <span id="subtask_information_span${index}">
+        <span id="subtask_information_span${index}_edit">
             <span id="subtask_title${index}">${task.title}</span>
         </span>
-        <span class="subtask_hover_icons" id="subtask_icon_container${index}">
+        <span class="subtask_hover_icons" id="subtask_icon_container${index}_edit">
             <img src="./assets/img/add_task/pen.png" alt="Edit subtask" class="subtask_icon icon" id="edit_subtask_img${index}" onclick="editSubTaskForEditPopUp(${index})">
             <img src="./assets/img/add_task/trash.png" alt="delete icon" class="subtask_icon icon" id="delete_subtask_img${index}" onclick="deleteSubTask(${index})">
         </span>
@@ -342,5 +342,12 @@ function generateSubTaskForEditPopUp(task, index, id) {
                 <img src="./assets/img/add_task/trash.png" alt="delete icon" class="subtask_icon icon" id="delete_subtask_img${index}_edit" onclick="deleteSubTaskForEdit(${index}, ${id})">
             </span>
         </p>
+    `;
+}
+
+function generateSubTaskIconEditForEditPopUp(index, task) {
+  return /*html*/ `
+        <img src="./assets/img/add_task/trash.png" alt="delete subtask" class="edit_icon icon" id="edit_subtask_img${index}_edit" onclick="deleteSubTaskForEdit(${index}, ${task.id})">
+        <img src="./assets/img/add_task/done.png" alt="delete icon" class="edit_icon icon" id="delete_subtask_img${index}_edit" onclick="saveSubTaskForEdit(${index})">
     `;
 }

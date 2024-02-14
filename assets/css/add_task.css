@@ -338,10 +338,11 @@ h1 {
 }
 
 #input_assigned_content div {
-    width: 16%;
+    width: 250px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     margin-left: 16px;
+    gap: 8px;
 }
 
 .assign_input_container {
