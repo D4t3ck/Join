@@ -106,10 +106,15 @@
 .header_submenu_container a:hover {
   cursor: pointer;
   background-color: var(--main_color_lighter);
+  color: var(--card_color);
+}
+
+.help_mobile {
+  display: none;
 }
 
 .log_out:hover {
-  color: var(--lightblue_font);
+  color: var(--lightblue_font) !important;
 }
 
 /********** MEDIA QUERY **********/
@@ -125,6 +130,14 @@
   }
 
   .header_logo {
+    display: block;
+  }
+
+  .help_desktop {
+    display: none;
+  }
+
+  .help_mobile {
     display: block;
   }
 }
