@@ -282,13 +282,13 @@ function generatePopUpCardEdit(task) {
               <h2>Prio</h2>
               <div class="prio_category">
                   <span class="prio_category_span_edit edit_category" onclick="setActivePrioEdit(0, 'urgent')">
-                      <h2 id="prio_headline0">Urgent<span><img id="prio_category_img0_edit" src="./assets/img/add_task/urgent_color.png"></span></h2>
+                      <h2 id="prio_headline0_edit">Urgent<span><img id="prio_category_img0_edit" src="./assets/img/add_task/urgent_color.png"></span></h2>
                   </span>
                   <span class="prio_category_span_edit edit_category" onclick="setActivePrioEdit(1, 'medium')">
-                      <h2 id="prio_headline1">Medium<span><img id="prio_category_img1_edit" src="./assets/img/add_task/medium_color.png"></span></h2>
+                      <h2 id="prio_headline1_edit">Medium<span><img id="prio_category_img1_edit" src="./assets/img/add_task/medium_color.png"></span></h2>
                   </span>
                   <span class="prio_category_span_edit edit_category"onclick="setActivePrioEdit(2, 'low')">
-                      <h2 id="prio_headline2">Low<span><img id="prio_category_img2_edit" src="./assets/img/add_task/low_color.png"></span></h2>
+                      <h2 id="prio_headline2_edit">Low<span><img id="prio_category_img2_edit" src="./assets/img/add_task/low_color.png"></span></h2>
                   </span>
               </div>
           </label>

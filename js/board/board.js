@@ -354,6 +354,26 @@ function editPopUpSave(id) {
   task.title = document.getElementById('title_input_edit').value;
   task.description = document.getElementById('description_textarea_edit').value;
   task.dueDate = document.getElementById('date_input_edit').value;
+  task.prio = getPrioEdit();
 
+  setItem('users', boardData);
   renderPopUpCard(id);
+}
+
+function getPrioEdit() {
+  let value;
+  for (let i = 0; i < boardPrioSpans.length; i++) {
+    for (let j = 0; j < boardPrioSpans[i].classList.length; j++) {
+      if (
+        boardPrioSpans[i].classList[j] == "urgent" ||
+        boardPrioSpans[i].classList[j] == "medium" ||
+        boardPrioSpans[i].classList[j] == "low"
+      ) {
+        value = document
+          .getElementById(`prio_headline${i}_edit`)
+          .innerText.toLowerCase();
+      }
+    }
+  }
+  return value;
 }
