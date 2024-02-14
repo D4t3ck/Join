@@ -10,7 +10,7 @@ async function initContact() {
     init();
     await getDataForContacts();
     renderletters();
-    getUserAccount();
+    logUserAccount();
 }
 
 async function getDataForContacts() {
@@ -274,7 +274,7 @@ function getFirstChars(name) {
   
 }
 
-async function getUserAccount() {
+async function logUserAccount() {
   let response = await getItem('users');
   let responseAsJson = JSON.parse(response);
   let users = responseAsJson.users;
@@ -283,22 +283,26 @@ async function getUserAccount() {
 
   let userMail = urlParams.get('mail');
   let user = users.find(task => task.userMail == userMail); 
-
+  let userInContacts = backendData.contacts.find(contact => contact.mail == user.userMail)
   console.log(user)
 
+  let userName = user.userName;
+
+  if (!userInContacts){
+    
+  
+    let contact = {
+      "name": userName,
+      "mail": userMail,
+      "phone": '',
+      "color": null,
+  }
+  backendData.contacts.push(contact);
+  }
+  
   if (user == null) {
     document.getElementById('userAccount').innerHTML = '';
   } else {
-  let userName = user.userName;
-  
-  let contact = {
-    "name": userName,
-    "mail": userMail,
-    "phone": '',
-    "color": null,
-}
-backendData.contacts.push(contact);
-
 
   console.log(userName);
   const profil = getFirstChars(userName);

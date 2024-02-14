@@ -100,7 +100,7 @@ function checkUrgent(todo) {
 }
 
 function goToBoard() {
-    window.location.href = './board.html'; 
+   changeCurrentPage("board");
 }
 
 async function getUserName() {
