@@ -28,21 +28,55 @@ async function initSummary() {
 
     console.log(tasks)
 
+
    
 
 
     getUserName();
     getCurrentUser();
-
-    let upcomingTask = tasks.find(task => new Date(task.dueDate) > new Date());
-    if (upcomingTask) {
-        let upcomingDeadline = document.getElementById('upcoming_deadline');
-        
-        // Verwende direkt das `dueDate` des gefundenen Tasks
-        upcomingDeadline.innerHTML = upcomingTask.dueDate;
-    }
+// Rufe die Funktion `updateUpcomingDeadline` auf und übergebe das `tasks` Array.
+updateUpcomingDeadline(tasks);
+   
 }
 
+// Finde die nächste fällige Aufgabe und aktualisiere das HTML-Element mit der fälligen Aufgabe.
+function updateUpcomingDeadline(tasks) {
+    // Initialisiere eine Variable, um die nächste fällige Aufgabe zu speichern.
+    let upcomingTask = null;
+
+    // Durchlaufe jede Aufgabe im Array `tasks`.
+    for (let i = 0; i < tasks.length; i++) {
+        // Hole das fällige Datum der aktuellen Aufgabe.
+        let dueDate = new Date(tasks[i].dueDate);
+
+        // Vergleiche das fällige Datum der aktuellen Aufgabe mit dem aktuellen Datum.
+        if (dueDate > new Date()) {
+            // Wenn das fällige Datum der aktuellen Aufgabe später als das aktuelle Datum ist
+            // und `upcomingTask` noch nicht gesetzt wurde, setze die aktuelle Aufgabe als die nächste fällige Aufgabe.
+            if (!upcomingTask || dueDate < new Date(upcomingTask.dueDate)) {
+                upcomingTask = tasks[i];
+            }
+        }
+    }
+
+    // Überprüfe, ob eine fällige Aufgabe gefunden wurde.
+    if (upcomingTask) {
+        // Wenn eine fällige Aufgabe gefunden wurde, aktualisiere das HTML-Element mit der ID 'upcoming_deadline'.
+        let upcomingDeadlineElement = document.getElementById('upcoming_deadline');
+        
+        // Extrahiere den Monatsnamen aus dem Datum.
+        let monthNames = ["January", "February", "March", "April", "May", "June",
+                          "July", "August", "September", "October", "November", "December"];
+        let monthIndex = upcomingTask.dueDate.split("-")[1] - 1; // Monatsindex beginnt bei 0
+        let monthName = monthNames[monthIndex];
+        
+        // Extrahiere den Tag aus dem Datum.
+        let day = upcomingTask.dueDate.split("-")[2];
+        
+        // Setze das formatierte Datum als Inhalt des HTML-Elements.
+        upcomingDeadlineElement.innerHTML = `${monthName} ${day}, ${new Date(upcomingTask.dueDate).getFullYear()}`;
+    }
+}
 
 
 function checkTodos(todo) {
