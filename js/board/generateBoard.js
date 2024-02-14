@@ -323,7 +323,7 @@ function generateSubTaskEditForEditPopUp(task, index) {
         <span id="subtask_information_span${index}">
             <span id="subtask_title${index}">${task.title}</span>
         </span>
-        <span class="subtask_hover_icons" id="subtask_icon_container${index}">
+        <span class="subtask_hover_icons" id="subtask_icon_container${index}_edit">
             <img src="./assets/img/add_task/pen.png" alt="Edit subtask" class="subtask_icon icon" id="edit_subtask_img${index}" onclick="editSubTaskForEditPopUp(${index})">
             <img src="./assets/img/add_task/trash.png" alt="delete icon" class="subtask_icon icon" id="delete_subtask_img${index}" onclick="deleteSubTask(${index})">
         </span>
@@ -342,5 +342,12 @@ function generateSubTaskForEditPopUp(task, index, id) {
                 <img src="./assets/img/add_task/trash.png" alt="delete icon" class="subtask_icon icon" id="delete_subtask_img${index}_edit" onclick="deleteSubTaskForEdit(${index}, ${id})">
             </span>
         </p>
+    `;
+}
+
+function generateSubTaskIconEditForEditPopUp(index, task) {
+  return /*html*/ `
+        <img src="./assets/img/add_task/trash.png" alt="delete subtask" class="edit_icon icon" id="edit_subtask_img${index}_edit" onclick="deleteSubTaskForEdit(${index}, ${task.id})">
+        <img src="./assets/img/add_task/done.png" alt="delete icon" class="edit_icon icon" id="delete_subtask_img${index}_edit" onclick="saveSubTask(${index})">
     `;
 }

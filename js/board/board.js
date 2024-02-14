@@ -176,7 +176,12 @@ function editSubTaskForEditPopUp(index, id) {
   let paragraph = document.getElementById(`subtask_paragraph${index}_edit`);
   paragraph.contentEditable = true;
   paragraph.focus();
-  showSubTaskIcon(index);
+  showSubTaskIconForEditPopUp(index, currentEditTask);
+}
+
+function showSubTaskIconForEditPopUp(index, task) {
+  document.getElementById(`subtask_icon_container${index}_edit`).innerHTML =
+    generateSubTaskIconEditForEditPopUp(index, task);
 }
 
 function deleteSubTaskForEdit(index, id) {
