@@ -1,7 +1,8 @@
 ////////// ALLGEMEINE FUNKTIONEN //////////
 
 /**
- * presents the includeHTML function
+ * Initializes the application by including HTML files
+ * and highlighting the current page.
  */
 async function init() {
   await includeHTML();
@@ -11,6 +12,9 @@ async function init() {
 const USER = [];
 let currentUser;
 
+/**
+ * Retrieves the current user based on the email provided in the URL parameters.
+ */
 async function getCurrentUser() {
   const urlParams = new URLSearchParams(window.location.search);
   const userMail = urlParams.get("mail");
@@ -22,14 +26,23 @@ async function getCurrentUser() {
   console.log(currentUser);
 }
 
-////////// BACKEND //////////
-
 /**
- *
+ * Token used for authorization when interacting with the remote storage service.
  */
 const STORAGE_TOKEN = "V3GBL599LI0VXDK4HJXHD632WIB3WOBMWS6ENT06";
+
+/**
+ * Base URL for the remote storage service.
+ */
 const STORAGE_URL = "https://remote-storage.developerakademie.org/item";
 
+/**
+ * Stores the given key-value pair in the remote storage.
+ *
+ * @param {string} key - The key under which to store the value.
+ * @param {any} value - The value to store.
+ * @returns {Promise<any>} A Promise that resolves to the response from the server.
+ */
 async function setItem(key, value) {
   const payload = { key, value, token: STORAGE_TOKEN };
   return fetch(STORAGE_URL, {
@@ -38,6 +51,13 @@ async function setItem(key, value) {
   }).then((res) => res.json());
 }
 
+/**
+ * Retrieves the value associated with the given key from the remote storage.
+ *
+ * @param {string} key - The key of the value to retrieve.
+ * @returns {Promise<any>} A Promise that resolves to the retrieved value.
+ * @throws {string} If the requested key is not found in the storage.
+ */
 async function getItem(key) {
   const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
   return fetch(url)
@@ -50,8 +70,6 @@ async function getItem(key) {
       throw `Could not find data with key "${key}".`;
     });
 }
-
-////////// W3 INCLUDE //////////
 
 /**
  * Function to include HTML Templates

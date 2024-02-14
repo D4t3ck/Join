@@ -1,10 +1,21 @@
 let isImageLog = true;
 
+
+/**
+ * Executes code when the DOM content is fully loaded.
+ * Initiates a fade-out animation on the landing page modal after 1 second,
+ * and hides it after the animation completes.
+ */
 document.addEventListener("DOMContentLoaded", function () {
   setTimeout(function () {
     fadeOutModal();
   }, 1000);
 
+
+  /**
+   * Initiates a fade-out animation on the landing page modal
+   * and hides it after the animation completes.
+   */
   function fadeOutModal() {
     let modal = document.getElementById("landing_page");
     modal.classList.add("fade-out");
@@ -15,25 +26,27 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 /**
- * toggles the img and visibility of the password
+ * Toggles the visibility of the password input field between hidden and visible, 
+ * and changes the password visibility icon accordingly.
  */
 function togglePwIcon() {
   let passwordInput = document.getElementById("password");
   let passwordImg = document.getElementById("passwordImg");
   let currentSrc = passwordImg.src;
-  
+
   if (currentSrc.includes("visibility_off.png")) {
-      passwordImg.src = "./assets/img/logIn/visibility.png";
-      passwordInput.type = "text"; 
+    passwordImg.src = "./assets/img/logIn/visibility.png";
+    passwordInput.type = "text";
   } else {
-      passwordImg.src = "./assets/img/logIn/visibility_off.png";
-      passwordInput.type = "password"; 
+    passwordImg.src = "./assets/img/logIn/visibility_off.png";
+    passwordInput.type = "password";
   }
 }
 
-
 /**
- * function toggles remember me checkbox
+ * Toggles the state of the login checkbox between checked and unchecked.
+ * If checked, saves input values to localStorage; if unchecked, 
+ * clears saved input values from localStorage.
  */
 function toggleCheckboxLogin() {
   let uncheckedBox = document.getElementById("unchecked");
@@ -52,6 +65,9 @@ function toggleCheckboxLogin() {
   }
 }
 
+/**
+ * Saves the email and password input values to localStorage.
+ */
 function rememberInput() {
   let email = document.getElementById("email").value;
   let password = document.getElementById("password").value;
@@ -60,11 +76,19 @@ function rememberInput() {
   localStorage.setItem("password", password);
 }
 
+/**
+ * Clears saved email and password from localStorage.
+ */
+
 function clearInput() {
   localStorage.removeItem("email");
   localStorage.removeItem("password");
 }
 
+/**
+ * Loads input values from localStorage, if available, and updates 
+ * corresponding input fields.
+ */
 function loadInput() {
   let emailInput = document.getElementById("email");
   let passwordInput = document.getElementById("password");
@@ -84,31 +108,13 @@ function loadInput() {
 
 window.onload = loadInput;
 
-/* async function checkUser() {
-  let response = await getItem("users");
-  let responseAsJson = JSON.parse(response);
-  let loginEmail = document.getElementById("email").value;
-  let loginPwd = document.getElementById("password").value;
-  const filteredUser = responseAsJson.users.find(user => user.userMail == loginEmail && user.userPwd == loginPwd);
-  console.log(filteredUser);
-  if(filteredUser) {
-    if (
-      loginEmail == filteredUser.userMail &&
-      loginPwd == filteredUser.userPwd
-    ) {
-      alert("Eingabe sind =");
-      window.location.href = `./summary.html?mail=${filteredUser.userMail}`;
-    } else {
-      alert("Eingabe sind !=");
-    }
-  }
-}
-*/
 
+/**
+ * Performs login authentication.
+ */
 async function loginCheck() {
   let userEmail = document.getElementById("email").value;
   let userPassword = document.getElementById("password").value;
-  let errorMessage = document.getElementById("errorTxt");
 
   try {
     let response = await getItem("users");
@@ -119,15 +125,46 @@ async function loginCheck() {
 
     if (filteredUser) {
       alert("Eingabe sind ="); // Kann final weg
-      errorMessage.textContent = "";
+      displayErrorMessage("");
       window.location.href = `./summary.html?mail=${filteredUser.userMail}`;
       document.getElementById("email").value = "";
       document.getElementById("password").value = "";
+      removeRedOutline();
     } else {
-      errorMessage.textContent = "The email or password provided is incorrect.";
+      displayErrorMessage("The email or password provided is incorrect.");
+      errorRedOutline();
     }
   } catch (error) {
     console.error("Error retrieving user data:", error);
-    errorMessage.textContent = "An error has occurred. Please try again later.";
+    displayErrorMessage("An error has occurred. Please try again later.");
   }
+}
+
+/**
+ * Displays an error message on the web page.
+ * @param {string} message - The error message to display.
+ */
+function displayErrorMessage(message) {
+  let errorMessage = document.getElementById("errorTxt");
+  errorMessage.textContent = message;
+}
+
+/**
+ * Applies a red outline to the input div containers to indicate an error.
+ */
+function errorRedOutline() {
+  let password1Outline = document.getElementById("emailContainer");
+  let password2Outline = document.getElementById("passwordContainer");
+  password1Outline.classList.add("outline_red");
+  password2Outline.classList.add("outline_red");
+}
+
+/**
+ * Removes the red outline from input div containers.
+ */
+function removeRedOutline() {
+  let password1Outline = document.getElementById("emailContainer");
+  let password2Outline = document.getElementById("passwordContainer");
+  password1Outline.classList.remove("outline_red");
+  password2Outline.classList.remove("outline_red");
 }
