@@ -18,19 +18,55 @@ document.addEventListener("DOMContentLoaded", function () {
  * function toggles remember me checkbox
  */
 function toggleCheckboxLogin() {
-  let uncheckedBox = document.getElementById('unchecked');
-  let checkedBox = document.getElementById('checked');
+  let uncheckedBox = document.getElementById("unchecked");
+  let checkedBox = document.getElementById("checked");
 
   if (uncheckedBox) {
-    uncheckedBox.src = 'assets/img/signUp/checked.png';
-    uncheckedBox.id = 'checked';
+    uncheckedBox.src = "assets/img/signUp/checked.png";
+    uncheckedBox.id = "checked";
+    rememberInput();
   } else if (checkedBox) {
-    checkedBox.src = 'assets/img/signUp/unchecked.png';
-    checkedBox.id = 'unchecked';
+    checkedBox.src = "assets/img/signUp/unchecked.png";
+    checkedBox.id = "unchecked";
+    clearInput();
+    document.getElementById("email").value = "";
+    document.getElementById("password").value = "";
   }
 }
 
-async function checkUser() {
+function rememberInput() {
+  let email = document.getElementById("email").value;
+  let password = document.getElementById("password").value;
+
+  localStorage.setItem("email", email);
+  localStorage.setItem("password", password);
+}
+
+function clearInput() {
+  localStorage.removeItem("email");
+  localStorage.removeItem("password");
+}
+
+function loadInput() {
+  let emailInput = document.getElementById("email");
+  let passwordInput = document.getElementById("password");
+  let rememberedEmail = localStorage.getItem("email");
+  let rememberedPassword = localStorage.getItem("password");
+  let checkedBox = document.getElementById("unchecked");
+
+  if (rememberedEmail && rememberedPassword) {
+    emailInput.value = rememberedEmail;
+    passwordInput.value = rememberedPassword;
+    if (checkedBox) {
+      checkedBox.src = "assets/img/signUp/checked.png";
+      checkedBox.id = "checked";
+    }
+  }
+}
+
+window.onload = loadInput;
+
+/* async function checkUser() {
   let response = await getItem("users");
   let responseAsJson = JSON.parse(response);
   let loginEmail = document.getElementById("email").value;
@@ -47,5 +83,33 @@ async function checkUser() {
     } else {
       alert("Eingabe sind !=");
     }
+  }
+}
+*/
+
+async function loginCheck() {
+  let userEmail = document.getElementById("email").value;
+  let userPassword = document.getElementById("password").value;
+  let errorMessage = document.getElementById("errorTxt");
+
+  try {
+    let response = await getItem("users");
+    let responseAsJson = JSON.parse(response);
+    const filteredUser = responseAsJson.users.find(
+      (user) => user.userMail === userEmail && user.userPwd === userPassword
+    );
+
+    if (filteredUser) {
+      alert("Eingabe sind ="); // Kann final weg
+      errorMessage.textContent = "";
+      window.location.href = `./summary.html?mail=${filteredUser.userMail}`;
+      document.getElementById("email").value = "";
+      document.getElementById("password").value = "";
+    } else {
+      errorMessage.textContent = "The email or password provided is incorrect.";
+    }
+  } catch (error) {
+    console.error("Error retrieving user data:", error);
+    errorMessage.textContent = "An error has occurred. Please try again later.";
   }
 }

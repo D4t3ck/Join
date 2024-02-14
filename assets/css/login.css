@@ -1,3 +1,17 @@
+:root {
+  --main_color: #2a3647;
+  --main_color_lighter: #354458;
+  --main_color_dark: #091931;
+  --background_main: #f6f7f8;
+  --card_color: #ffffff;
+  --lightgray_font: #a8a8a8;
+  --placeholder_color: #d1d1d1;
+  --error: #FF0000;
+  --lightblue_font: #29abe2;
+  --main_font: "Inter", sans-serif;
+  --backup_font: system-ui, sans-serif;
+}
+
 /********** ANIMATION **********/
 
 .modal {
@@ -116,8 +130,10 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: auto;
+  max-width: 550px;
+  width: 100%;
   height: auto;
+  margin-inline: 1rem;
   padding: 40px;
   border-radius: 30px;
   background-color: var(--card_color);
@@ -160,12 +176,20 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 422px;
+  width: 400px;
   height: 48px;
   padding: 0px 21px;
   border-radius: 10px;
   border: 1px solid var(--Style, #d1d1d1);
   background: #fff;
+}
+
+.outline_blue {
+  border-color: var(--lightblue_font);
+}
+
+.outline_red {
+  border-color: var(--error);
 }
 
 .login_input input {
@@ -203,7 +227,7 @@
   width: auto;
   height: auto;
   margin-top: -16px;
-  color: red;
+  color: var(--error);
   font-size: 12px;
   opacity: 50%;
 }
@@ -248,6 +272,7 @@
   font-size: 21px;
   font-weight: 700;
   box-sizing: border-box;
+  border: none;
   background-color: var(--main_color);
   color: var(--card_color);
 }
@@ -310,6 +335,9 @@
 /********** MEDIA QUERY **********/
 
 @media (max-width: 600px) {
+  .login_card {
+    width: 500px;
+  }
   .login_page_main {
     margin: 0;
   }

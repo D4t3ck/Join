@@ -16,14 +16,14 @@
     <script src="./js/login.js"></script>
   </head>
   <body>
-    <section id="landing_page" class="landing_page modal">
+    <!-- <section id="landing_page" class="landing_page modal">
       <div class="landing_page_desktop">
         <img src="./assets/img/logoStartseite.png" alt="Logo Desktop" />
       </div>
       <div class="landing_page_mobile">
         <img src="./assets/img/landing_page/logo_hell.png" alt="Logo Mobile" />
       </div>
-    </section>
+    </section> -->
 
     <!-- --- HEAD --- -->
     <section class="login_page_container">
@@ -41,7 +41,7 @@
 
       <!-- --- LOG IN --- -->
       <main id="loginCard" class="login_page_main">
-        <form onsubmit="checkUser(); return false" class="login_card">
+        <form onsubmit="loginCheck(); return false" class="login_card">
           <div class="login_card_head">
             <h1>Log in</h1>
             <img src="./assets/img/logIn/seperator.png" alt="Seperation line" />
@@ -50,29 +50,34 @@
           <!-- --- Input Felder --- -->
           <div class="login_card_center">
             <div class="login_input_container">
-              <div class="login_input">
-                <input type="email" id="email" placeholder="E-Mail" required />
-                <div>
-                  <img src="./assets/img/logIn/mail.png" alt="E-mail Button" />
-                </div>
-              </div>
-
-              <div class="login_input">
+              <div id="emailContainer" class="login_input">
                 <input
-                  type="password"
-                  id="password"
-                  placeholder="Password"
+                  type="email"
+                  name="email_login"
+                  id="email"
+                  placeholder="E-Mail"
+                  minlength="4"
                   required
                 />
-                <div>
-                  <img src="./assets/img/logIn/lock.png" alt="E-mail Button" />
-                </div>
+
+                <img src="./assets/img/logIn/mail.png" alt="E-mail Button" />
+              </div>
+
+              <div id="passwordContainer" class="login_input">
+                <input
+                  type="password"
+                  name="password_login"
+                  id="password"
+                  placeholder="Password"
+                  minlength="4"
+                  required
+                />
+
+                <img src="./assets/img/logIn/lock.png" alt="E-mail Button" />
               </div>
             </div>
 
-            <div class="false_password">
-              <p>Wrong password Ups! Try again.</p>
-            </div>
+            <div id="errorTxt" class="false_password"></div>
 
             <div class="login_check">
               <img
@@ -80,7 +85,6 @@
                 onclick="toggleCheckboxLogin()"
                 src="./assets/img/logIn/unchecked.png"
                 alt="Checkbox"
-                
               />
               Remember me
             </div>
@@ -88,7 +92,7 @@
 
           <!-- ----- Login Button ----- -->
           <div class="login_card_foot">
-            <button class="foot_login_btn">Log in</button>
+            <button id="logInBtn" class="foot_login_btn">Log in</button>
             <a href="./summary.html" class="foot_guestlog_btn">Guest Log in</a>
           </div>
         </form>
