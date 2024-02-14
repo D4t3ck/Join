@@ -320,7 +320,7 @@ function generatePopUpCardEdit(task) {
 
 function generateSubTaskEditForEditPopUp(task, index) {
   return /*html*/ `
-        <span id="subtask_information_span${index}">
+        <span id="subtask_information_span${index}_edit">
             <span id="subtask_title${index}">${task.title}</span>
         </span>
         <span class="subtask_hover_icons" id="subtask_icon_container${index}_edit">
@@ -348,6 +348,6 @@ function generateSubTaskForEditPopUp(task, index, id) {
 function generateSubTaskIconEditForEditPopUp(index, task) {
   return /*html*/ `
         <img src="./assets/img/add_task/trash.png" alt="delete subtask" class="edit_icon icon" id="edit_subtask_img${index}_edit" onclick="deleteSubTaskForEdit(${index}, ${task.id})">
-        <img src="./assets/img/add_task/done.png" alt="delete icon" class="edit_icon icon" id="delete_subtask_img${index}_edit" onclick="saveSubTask(${index})">
+        <img src="./assets/img/add_task/done.png" alt="delete icon" class="edit_icon icon" id="delete_subtask_img${index}_edit" onclick="saveSubTaskForEdit(${index})">
     `;
 }

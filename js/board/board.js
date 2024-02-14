@@ -4,6 +4,7 @@ let tasks = [];
 let currentDraggedId;
 let currentIndex;
 let currentEditTask;
+let currentSubtasks;
 
 function initBoard() {
   getBoardData();
@@ -164,7 +165,8 @@ function setActivePrioEdit(index, prio) {
 function renderSubtasksEdit(task) {
   const subTaskContent = document.getElementById('subtask_content_edit');
   subTaskContent.innerHTML = '';
-  task.subtasks.forEach((subTask, index) => {
+  currentSubtasks = task.subtasks;
+  currentSubtasks.forEach((subTask, index) => {
     subTaskContent.innerHTML += generateSubTaskForEditPopUp(subTask, index, task.id);
   });
 }
@@ -302,3 +304,18 @@ function searchTask() {
   } else renderTasks(tasks);
 }
 
+function saveSubTaskForEdit(index) {
+  currentSubtasks[index].title = document.getElementById(`subtask_information_span${index}_edit`).innerText;
+  printSubTaskForEdit();
+}
+
+function printSubTaskForEdit() {
+  document.getElementById("subtask_content_edit").innerHTML = "";
+  currentSubtasks.forEach((task, index) => {
+    renderSubTaskContentForEdit(task, index);
+  });
+}
+
+function renderSubTaskContentForEdit(task, index) {
+  document.getElementById("subtask_content_edit").innerHTML += generateSubTaskForEditPopUp(task, index, currentEditTask.id);
+}
