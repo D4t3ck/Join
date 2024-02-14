@@ -1,4 +1,5 @@
 let boardData;
+let boardPrioSpans;
 let tasks = [];
 
 let currentDraggedId;
@@ -146,20 +147,48 @@ function renderPopUpCard(taskId) {
 function renderPopUpCardEdit(taskId) {
   const currentTask = tasks.find(task => task.id == taskId);
   document.getElementById("card_popup_content").innerHTML = generatePopUpCardEdit(currentTask);
-  getPrioSpans();
-  // setActivePrioEdit(1, "medium");
+  getPrioSpansEdit();
+  checkPrio(currentTask.prio);
   addDateMin('date_input_edit');
   setCategoryEdit(currentTask);
   setDescriptionEditValue(currentTask);
   renderSubtasksEdit(currentTask);
 }
 
+function checkPrio(prio) {
+  if(prio == 'urgent') {
+    setActivePrioEdit(0, "urgent");
+  } else if(prio == "medium") {
+    setActivePrioEdit(1, "medium");
+  } else if(prio == 'low') {
+    setActivePrioEdit(2, 'low');
+  }
+}
+
+function getPrioSpansEdit() {
+  boardPrioSpans = document.querySelectorAll(".edit_category");
+}
+
 function setActivePrioEdit(index, prio) {
-  removeActiveClass();
-  prioSpans[index].classList.add(prio);
+  removeActiveClassEdit();
+  boardPrioSpans[index].classList.add(prio);
   document.getElementById(
     `prio_category_img${index}_edit`
   ).src = `./assets/img/add_task/${prio}_white.png`;
+}
+
+function removeActiveClassEdit() {
+  boardPrioSpans.forEach((prioSpan) => {
+    prioSpan.classList.remove("urgent");
+    prioSpan.classList.remove("medium");
+    prioSpan.classList.remove("low");
+  });
+  document.getElementById("prio_category_img0_edit").src =
+    "./assets/img/add_task/urgent_color.png";
+  document.getElementById("prio_category_img1_edit").src =
+    "./assets/img/add_task/medium_color.png";
+  document.getElementById("prio_category_img2_edit").src =
+    "./assets/img/add_task/low_color.png";
 }
 
 function renderSubtasksEdit(task) {
@@ -318,4 +347,13 @@ function printSubTaskForEdit() {
 
 function renderSubTaskContentForEdit(task, index) {
   document.getElementById("subtask_content_edit").innerHTML += generateSubTaskForEditPopUp(task, index, currentEditTask.id);
+}
+
+function editPopUpSave(id) {
+  const task = tasks.find(task => task.id == id);
+  task.title = document.getElementById('title_input_edit').value;
+  task.description = document.getElementById('description_textarea_edit').value;
+  task.dueDate = document.getElementById('date_input_edit').value;
+
+  renderPopUpCard(id);
 }
