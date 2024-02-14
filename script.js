@@ -108,3 +108,9 @@ function highlightCurrentPage() {
     document.getElementById("sidebar_5").style.backgroundColor = "#091931";
   }
 }
+
+function changeCurrentPage(url) {
+    const urlParams = new URLSearchParams(window.location.search);
+    let userMail = urlParams.get('mail');
+    window.location.href = `./${url}.html?mail=${userMail}`;
+}
