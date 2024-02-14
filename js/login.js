@@ -1,6 +1,5 @@
 let isImageLog = true;
 
-
 /**
  * Executes code when the DOM content is fully loaded.
  * Initiates a fade-out animation on the landing page modal after 1 second,
@@ -10,7 +9,6 @@ document.addEventListener("DOMContentLoaded", function () {
   setTimeout(function () {
     fadeOutModal();
   }, 1000);
-
 
   /**
    * Initiates a fade-out animation on the landing page modal
@@ -26,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 /**
- * Toggles the visibility of the password input field between hidden and visible, 
+ * Toggles the visibility of the password input field between hidden and visible,
  * and changes the password visibility icon accordingly.
  */
 function togglePwIcon() {
@@ -45,7 +43,7 @@ function togglePwIcon() {
 
 /**
  * Toggles the state of the login checkbox between checked and unchecked.
- * If checked, saves input values to localStorage; if unchecked, 
+ * If checked, saves input values to localStorage; if unchecked,
  * clears saved input values from localStorage.
  */
 function toggleCheckboxLogin() {
@@ -59,9 +57,8 @@ function toggleCheckboxLogin() {
   } else if (checkedBox) {
     checkedBox.src = "assets/img/signUp/unchecked.png";
     checkedBox.id = "unchecked";
+    clearStorageInput();
     clearInput();
-    document.getElementById("email").value = "";
-    document.getElementById("password").value = "";
   }
 }
 
@@ -77,16 +74,23 @@ function rememberInput() {
 }
 
 /**
+ * Clears values from input fields.
+ */
+function clearInput() {
+  document.getElementById("email").value = "";
+  document.getElementById("password").value = "";
+}
+
+/**
  * Clears saved email and password from localStorage.
  */
-
-function clearInput() {
+function clearStorageInput() {
   localStorage.removeItem("email");
   localStorage.removeItem("password");
 }
 
 /**
- * Loads input values from localStorage, if available, and updates 
+ * Loads input values from localStorage, if available, and updates
  * corresponding input fields.
  */
 function loadInput() {
@@ -107,7 +111,6 @@ function loadInput() {
 }
 
 window.onload = loadInput;
-
 
 /**
  * Performs login authentication.

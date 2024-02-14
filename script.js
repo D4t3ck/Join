@@ -7,6 +7,7 @@
 async function init() {
   await includeHTML();
   highlightCurrentPage();
+  getUserAccount();
 }
 
 const USER = [];

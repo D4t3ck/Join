@@ -25,3 +25,31 @@ function toggleSubMenu() {
       }
     }
   });
+
+  async function getUserAccount() {
+    let response = await getItem('users');
+    let responseAsJson = JSON.parse(response);
+    let users = responseAsJson.users;
+  
+    const urlParams = new URLSearchParams(window.location.search);
+  
+    let userMail = urlParams.get('mail');
+    let user = users.find(task => task.userMail == userMail); 
+    /* console.log(user); */
+    let userName = user.userName;
+    document.getElementById('userInitials').innerHTML = getFirstChars(userName);
+    
+  }
+
+  function getFirstChars(name) {
+    const names = name.split(' ');
+  
+    const first1letter = names[0].charAt(0).toUpperCase();
+    const lastIndex = names.length - 1 
+    const secondLetter = names[lastIndex].charAt(0).toUpperCase();
+    const profilLetter = first1letter +secondLetter;
+  
+    return profilLetter;
+    // console.log(profilLetter)
+    
+  }
