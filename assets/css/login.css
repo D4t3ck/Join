@@ -217,13 +217,11 @@
   color: transparent;
 }
 
-.login_input div {
-  height: 24px;
-  background-color: var(--card_color);
-  border: none;
+#passwordImg {
+  cursor: pointer;
 }
 
-.false_password {
+.error_txt {
   width: auto;
   height: auto;
   margin-top: -16px;
@@ -232,7 +230,7 @@
   opacity: 50%;
 }
 
-.false_password p {
+.error_txt p {
   margin: 0;
 }
 
@@ -242,7 +240,7 @@
   align-items: center;
   gap: 8px;
   margin-top: 12px;
-  margin-left: 60px; /* links oder rechtsbündig? */
+  margin-left: 60px;
 }
 
 .login_check img {

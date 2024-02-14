@@ -69,15 +69,20 @@
                   name="password_login"
                   id="password"
                   placeholder="Password"
-                  minlength="4"
+                  minlength="3"
                   required
                 />
 
-                <img src="./assets/img/logIn/lock.png" alt="E-mail Button" />
+                <img
+                  id="passwordImg"
+                  onclick="togglePwIcon()"
+                  src="./assets/img/logIn/visibility_off.png"
+                  alt="E-mail Button"
+                />
               </div>
             </div>
 
-            <div id="errorTxt" class="false_password"></div>
+            <div id="errorTxt" class="error_txt"></div>
 
             <div class="login_check">
               <img

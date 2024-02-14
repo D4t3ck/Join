@@ -15,6 +15,41 @@ function toggleCheckboxSignup() {
 }
 
 /**
+ * Toggles img and password visibility
+ */
+function togglePwIconSignup() {
+  let passwordInput = document.getElementById("passwordSignup");
+  let passwordImg = document.getElementById("SignupPwImg");
+  let currentSrc = passwordImg.src;
+  
+  if (currentSrc.includes("visibility_off.png")) {
+      passwordImg.src = "./assets/img/logIn/visibility.png";
+      passwordInput.type = "text"; 
+  } else {
+      passwordImg.src = "./assets/img/logIn/visibility_off.png";
+      passwordInput.type = "password"; 
+  }
+}
+
+/**
+ * Toggles img and password visibility
+ */
+function togglePwIconConfirm() {
+  let passwordInput = document.getElementById("passwordConfirm");
+  let passwordImg = document.getElementById("SignupPwImgConfirm");
+  let currentSrc = passwordImg.src;
+  
+  if (currentSrc.includes("visibility_off.png")) {
+      passwordImg.src = "./assets/img/logIn/visibility.png";
+      passwordInput.type = "text"; 
+  } else {
+      passwordImg.src = "./assets/img/logIn/visibility_off.png";
+      passwordInput.type = "password"; 
+  }
+}
+
+
+/**
  * This asynchronous function captures input values from a signup form and, based on checkbox
  * state, either displays an alert message or adds user data to a list,
  * though currently not storing it persistently.
@@ -72,11 +107,18 @@ function checkPasswords() {
   }
 }
 
+/**
+ * 
+ * @param {*} message 
+ */
 function displayErrorMessage(message) {
   let errorMessage = document.getElementById('errorTxt');
   errorMessage.textContent = message;
 }
 
+/**
+ * 
+ */
 function errorRedOutline() {
   let password1Outline = document.getElementById('passwordContainer');
   let password2Outline = document.getElementById('passwordConfirmContainer');
@@ -84,6 +126,9 @@ function errorRedOutline() {
   password2Outline.classList.add('outline_red');
 }
 
+/**
+ * 
+ */
 function removeRedOutline() {
   let password1Outline = document.getElementById('passwordContainer');
   let password2Outline = document.getElementById('passwordConfirmContainer');

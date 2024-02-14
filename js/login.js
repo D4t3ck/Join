@@ -15,6 +15,24 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 /**
+ * toggles the img and visibility of the password
+ */
+function togglePwIcon() {
+  let passwordInput = document.getElementById("password");
+  let passwordImg = document.getElementById("passwordImg");
+  let currentSrc = passwordImg.src;
+  
+  if (currentSrc.includes("visibility_off.png")) {
+      passwordImg.src = "./assets/img/logIn/visibility.png";
+      passwordInput.type = "text"; 
+  } else {
+      passwordImg.src = "./assets/img/logIn/visibility_off.png";
+      passwordInput.type = "password"; 
+  }
+}
+
+
+/**
  * function toggles remember me checkbox
  */
 function toggleCheckboxLogin() {
