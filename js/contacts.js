@@ -289,21 +289,31 @@ async function getUserAccount() {
   if (user == null) {
     document.getElementById('userAccount').innerHTML = '';
   } else {
-  // let userName = user.userName;
-  // console.log(response);
+  let userName = user.userName;
+  
+  let contact = {
+    "name": userName,
+    "mail": userMail,
+    "phone": '',
+    "color": null,
+}
+backendData.contacts.push(contact);
 
-  // document.getElementById('userAccount').innerHTML =
-  // /*html*/`
-  // <div class="contact_scrolls_card_small" onclick="showContactInformation('${name}', '${mail}', '${phone}','${j}','${profil}')" id="contact_card${j}">
-  //   <div class="profil_ellipse" style="background-color: ${element.color};">${profil}</div>
-  //   <div class="contact_scrolls_card_small_contact">
-  //       <span id="contact_card_name${j}" class="contact_scrolls_card_small_name">${name}</span>
-  //       <span class="contact_scrolls_card_small_email">${mail}</span>
-  //   </div>
-  // </div>`;
+
+  console.log(userName);
+  const profil = getFirstChars(userName);
+  document.getElementById('userAccount').innerHTML =
+  /*html*/`
+  <div class="contact_scrolls_card_small" onclick="showContactInformation('${userName}', '${userMail}')">
+    <div class="profil_ellipse" style="background-color: #c0c0c0;">${profil}</div>
+    <div class="contact_scrolls_card_small_contact">
+        <span class="contact_scrolls_card_small_name">${userName} (ME)</span>
+        <span class="contact_scrolls_card_small_email">${userMail}</span>
+    </div>
+  </div>`;
 
   }
-
+renderletters();
   // console.log(users);
 }
 

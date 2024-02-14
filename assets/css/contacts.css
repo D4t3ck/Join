@@ -25,7 +25,7 @@
 
 .add_new_contact_btn_caontainer {
     display: flex;
-    /* position: fixed; */
+    position: fixed;
     height: 101px;
     background-color: #FFFFFF;
     display: flex;

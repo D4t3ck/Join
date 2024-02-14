@@ -128,7 +128,7 @@ async function getUserName() {
 
     greetingText.innerHTML = greetingMessage;
 
-    if(userMail == null ) {
+    if(userMail == null || userMail == 'null' ) {
         userName = '';
        
         let formatedGreeting = greetingText.innerText.replace(',','');
