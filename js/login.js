@@ -183,6 +183,10 @@ function displayErrorMessage(message) {
   errorMessage.textContent = message;
 }
 
+/**
+ * Toggles the blue outline for input containers based on whether the corresponding input fields have values or not.
+ * Adds a blue outline to the container if the input field has a value, otherwise removes it.
+ */
 function toggleBlueOutline() {
   let emailContainer = document.getElementById("emailContainer");
   let passwordContainer = document.getElementById("passwordContainer");
