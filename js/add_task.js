@@ -228,9 +228,20 @@ function renderAssignedContent() {
       generateContact(contact.name, index);
     setContactValue(contact.name, index);
   });
+  checkContactChecked();
   setTimeout(() => {
     assignRdy = true;
   }, 500);
+}
+
+function checkContactChecked() {
+  let filteredContacts;
+  data.contacts.forEach((contact, index) => {
+    filteredContacts = checkedContacts.find(checkContact => checkContact == contact.name);
+    if(filteredContacts) {
+      document.getElementById(`contact${index}`).checked = true;  
+    }
+  });
 }
 
 function setContactValue(contact, index) {
@@ -248,6 +259,7 @@ function closeDropdown() {
 
 function getCheckedContacts() {
   const contactList = document.querySelectorAll(".contact");
+  checkedContacts = [];
   for (let i = 0; i < contactList.length; i++) {
     if (contactList[i].checked) checkedContacts.push(contactList[i].value);
   }
