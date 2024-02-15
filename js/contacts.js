@@ -427,5 +427,5 @@ function submitForm(event) {
   document.getElementById("succesfully_created").classList.add("hidden");
   setTimeout(function() {
     document.getElementById("succesfully_created").classList.remove("hidden");
-  }, 1000);
+  }, 5000);
 }

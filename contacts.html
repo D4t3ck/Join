@@ -146,7 +146,7 @@
                 </div>
                 <div class="contact_overlay_add_contact_card_right_center">
                   <img src="./assets/img/contacts/personEllipse.png" alt="" />
-                  <form onsubmit="addContact(); return false"
+                  <form onsubmit="addContact(); submitForm(event) ;return false"
                     class="contact_overlay_add_contact_card_right_input_area"
                   >
                     <input
@@ -211,6 +211,7 @@
     </div>
     <div class="add_contact_animation">
       <img id="succesfully_created" src="./assets/img/contacts/ContactSuccesfullyCreated.png" alt="">
+      
     </div>
   </body>
 </html>
