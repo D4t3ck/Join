@@ -71,6 +71,8 @@ function clear() {
   document.getElementById("input_subtask").value = "";
   document.getElementById("subtask_content").innerHTML = "";
   subTasks = [];
+  checkedContacts = [];
+  renderCheckedContacts();
 }
 
 function stopEvent(event) {
@@ -253,8 +255,25 @@ function closeDropdown() {
     getCheckedContacts();
     document.getElementById("assigned_container").innerHTML =
       generateAssignSelection();
+      renderCheckedContacts();
     assignRdy = false;
   }
+}
+
+function renderCheckedContacts() {
+  document.getElementById('assigned_contact_profiles').innerHTML = '';
+  checkedContacts.forEach((checkedContact, index) => {
+    const findContact = data.contacts.find(contact => contact.name == checkedContact);
+    const profileName = getProfileChar(checkedContact);
+    document.getElementById('assigned_contact_profiles').innerHTML += generateContactProfile(profileName, index);
+    document.getElementById(`profile_span${index}`).style.backgroundColor = findContact.color;
+  });
+}
+
+function getProfileChar(checkedContact) {
+  const names = checkedContact.split(' ');
+  const profileName = names[0].charAt(0) + names[names.length - 1].charAt(0)
+  return profileName;
 }
 
 function getCheckedContacts() {
@@ -349,4 +368,10 @@ function generateSubTaskIconEdit(index) {
         <img src="./assets/img/add_task/trash.png" alt="delete subtask" class="edit_icon icon" id="edit_subtask_img${index}" onclick="deleteSubTask(${index})">
         <img src="./assets/img/add_task/done.png" alt="delete icon" class="edit_icon icon" id="delete_subtask_img${index}" onclick="saveSubTask(${index})">
     `;
+}
+
+function generateContactProfile(profileName, index) {
+  return /*html*/`
+    <span id="profile_span${index}">${profileName}</span>
+  `;
 }

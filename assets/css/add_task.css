@@ -376,6 +376,23 @@ h1 {
     scale: 1.1;
 }
 
+#assigned_contact_profiles {
+    display: flex;
+    width: 100%;
+    padding-top: 8px;
+    overflow-x: auto;
+    max-width: 480px;
+    gap: 8px;
+}
+
+#assigned_contact_profiles span {
+    background-color: yellow;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 40px;
+    font-size: 14px;
+}
+
 @media(max-width: 1350px) {
     .form_content {
         flex-direction: column;
