@@ -155,6 +155,10 @@ h1 {
     margin-bottom: 16px;
 }
 
+.category_headline img {
+    cursor: pointer;
+}
+
 .category_content {
     display: flex;
     flex-direction: column;

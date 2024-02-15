@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="./assets/css/overlay.css" />
   </head>
 
-  <body onload="init(); initBoard(); initAddTask()">
+  <body onload="init(); initBoard();">
     <div class="container">
       <div class="side_bar_position_container">
         <div w3-include-html="./assets/templates/sidebar/sidebar.html"></div>
@@ -37,7 +37,7 @@
                   id="search_task_input"
                   type="text"
                   placeholder="Find Task"
-                  onkeydown="searchTask()"
+                  onkeyup="searchTask()"
                 />
                 <div class="br"></div>
                 <img

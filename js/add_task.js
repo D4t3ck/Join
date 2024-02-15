@@ -77,9 +77,9 @@ function stopEvent(event) {
   event.stopPropagation();
 }
 
-function checkForm(event) {
+function checkForm(event, renderFunctionPara) {
   event.preventDefault();
-  getTaskData();
+  getTaskData(renderFunctionPara);
   showCreateTaskPopup();
   setTimeout(() => {
     closeCreateTaskPopup();
@@ -88,7 +88,7 @@ function checkForm(event) {
 
 function checkFormFullPage(event) {
   event.preventDefault();
-  getTaskData();
+  getTaskData('toDo');
   showCreateTaskPopup();
   setTimeout(() => {
     closeCreateTaskPopup();
@@ -96,7 +96,7 @@ function checkFormFullPage(event) {
   }, 1250);
 }
 
-function getTaskData() {
+function getTaskData(categoryBoard) {
   const title = document.getElementById("title_input").value;
   const description = document.getElementById("description_textarea").value;
   const assignedTo = checkedContacts;
@@ -111,7 +111,7 @@ function getTaskData() {
     prio,
     category,
     subTasks,
-    "toDo",
+    categoryBoard,
     null
   );
   tasksInAddTask.push(task);

@@ -13,11 +13,23 @@ function initBoard() {
 
 async function getBoardData() {
   const response = await getItem("users");
+  await getData();
   boardData = JSON.parse(response);
   tasks = boardData.tasks;
   setId();
   renderTasks(tasks);
-  renderAddTask();
+  renderAddTask('toDo');
+  getPrioSpans();
+  setActivePrio(1, 'medium');
+}
+
+function renderTaskInBoardCategory(functionPara) {
+  renderAddTask(functionPara);
+  getPrioSpans();
+  setActivePrio(1, "medium");
+  addClearFunction();
+  addDateMin("date_input");
+  showAddTask();
 }
 
 function renderTasks(taskList) {
@@ -112,9 +124,9 @@ function closeAddTask() {
   document.getElementById("add_task_popup").style.display = "none";
 }
 
-function renderAddTask() {
+function renderAddTask(functionPara) {
   document.getElementById("add_task_popup_content").innerHTML =
-    generateAddTask();
+    generateAddTask(functionPara);
 }
 
 function setAddTasksInTasks() {
@@ -261,11 +273,9 @@ function setPopUpCheck(id, index, title) {
     (task) => task.title == title
   );
   if (checkBox.checked == true) {
-    checkBox.checked = false;
-    currentSubtask[0].check = false;
-  } else {
-    checkBox.checked = true;
     currentSubtask[0].check = true;
+  } else {
+    currentSubtask[0].check = false;
   }
   setItem("users", boardData);
 }
@@ -327,6 +337,7 @@ function printBackgroundCategory(category) {
 
 function deleteTask(id) {
   tasks.splice(id, 1);
+  setId();
   setItem("users", boardData);
   closePopUpCard();
 }
