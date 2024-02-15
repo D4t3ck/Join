@@ -4,6 +4,10 @@
     background-color: black;
 }
 
+textarea {
+    resize: vertical;
+}
+
 #create_popup {
     position: fixed;
     right: 0;
@@ -404,7 +408,7 @@ form label {
 }
 
 .sub_container {
-    flex: 1 1 0px;
+
 }
 
 @media(max-width: 1350px) {
