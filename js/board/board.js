@@ -273,11 +273,9 @@ function setPopUpCheck(id, index, title) {
     (task) => task.title == title
   );
   if (checkBox.checked == true) {
-    checkBox.checked = false;
-    currentSubtask[0].check = false;
-  } else {
-    checkBox.checked = true;
     currentSubtask[0].check = true;
+  } else {
+    currentSubtask[0].check = false;
   }
   setItem("users", boardData);
 }

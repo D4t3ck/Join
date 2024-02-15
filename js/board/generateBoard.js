@@ -219,8 +219,8 @@ function generatePopUpCard(task, date, prio) {
 
 function generatePopUpSubtasks(subTask, index, task) {
   return /*html*/ `
-        <div class="assigned_to_container" onclick="setPopUpCheck(${task.id}, ${index}, '${subTask.title}')">
-            <input type="checkbox" id="popup_checkbox${index}">
+        <div class="assigned_to_container">
+            <input type="checkbox" id="popup_checkbox${index}" onchange="setPopUpCheck(${task.id}, ${index}, '${subTask.title}')">
             <label for="popup_checkbox${index}">${subTask.title}</label>
         </div>
     `;
