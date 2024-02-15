@@ -46,24 +46,28 @@
           <!-- -- Input Felder--- -->
           <div class="signup_card_center">
             <div class="signup_input_container">
-              <div class="signup_input">
+              <!-- NAME -->
+              <div id="nameContainer" class="signup_input">
                 <input
                   type="text"
                   id="nameSignup"
                   placeholder="Name"
                   required
+                  oninput="toggleBlueOutline()"
                 />
                 <div>
                   <img src="./assets/img/logIn/person.png" alt="Name" />
                 </div>
               </div>
 
-              <div class="signup_input">
+              <!-- E-MAIL -->
+              <div id="emailContainer" class="signup_input">
                 <input
                   type="email"
                   id="emailSignup"
                   placeholder="Email"
                   required
+                  oninput="toggleBlueOutline()"
                 />
                 <div>
                   <img src="./assets/img/logIn/mail.png" alt="E-mail" />
@@ -75,9 +79,9 @@
                 <input
                   type="password"
                   id="passwordSignup"
-                  oninput="togglePwIcon()"
                   placeholder="Password"
                   required
+                  oninput="toggleBlueOutline(), togglePwIcon()"
                 />
 
                 <img
@@ -94,9 +98,9 @@
                   onchange="checkPasswords()"
                   type="password"
                   id="passwordConfirm"
-                  oninput="toggleConfirmIcon()"
                   placeholder="Confirm Password"
                   required
+                  oninput="toggleBlueOutline(), togglePwIcon()"
                 />
 
                 <img

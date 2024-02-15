@@ -13,7 +13,7 @@ function toggleCheckboxSignup() {
     checkedBox.id = "unchecked";
   }
 }
-
+///// PASSWORD //////
 /**
  * Toggles the visibility icon of the password input field based on its current type and value.
  */
@@ -27,8 +27,8 @@ function togglePwIcon() {
     } else {
       passwordImg.src = "./assets/img/logIn/lock.png";
     }
-  } else if (passwordInput.type === 'text') {
-    passwordImg.src = './assets/img/logIn/visibility_on.png';
+  } else if (passwordInput.type === "text") {
+    passwordImg.src = "./assets/img/logIn/visibility_on.png";
   }
 }
 
@@ -49,6 +49,7 @@ function togglePwVisibility() {
     }
   }
 }
+////// PASSWORD CONFIRM ///////
 
 /**
  * Toggles the visibility icon of the password input confirm field based on its current type and value.
@@ -63,8 +64,8 @@ function toggleConfirmIcon() {
     } else {
       pwdConfirmImg.src = "./assets/img/logIn/lock.png";
     }
-  } else if (pwdConfirmInput.type === 'text') {
-    pwdConfirmImg.src = './assets/img/logIn/visibility_on.png';
+  } else if (pwdConfirmInput.type === "text") {
+    pwdConfirmImg.src = "./assets/img/logIn/visibility_on.png";
   }
 }
 
@@ -86,22 +87,7 @@ function toggleConfirmVisibility() {
   }
 }
 
-/**
- * Toggles img and password visibility
- */
-function togglePwIconConfirm() {
-  let passwordInput = document.getElementById("passwordConfirm");
-  let passwordImg = document.getElementById("signupPwImgConfirm");
-  let currentSrc = passwordImg.src;
-
-  if (currentSrc.includes("visibility_off.png")) {
-    passwordImg.src = "./assets/img/logIn/visibility_on.png";
-    passwordInput.type = "text";
-  } else {
-    passwordImg.src = "./assets/img/logIn/visibility_off.png";
-    passwordInput.type = "password";
-  }
-}
+////////////////
 
 /**
  * This asynchronous function captures input values from a signup form and, based on checkbox
@@ -167,6 +153,45 @@ function checkPasswords() {
 function displayErrorMessage(message) {
   let errorMessage = document.getElementById("errorTxt");
   errorMessage.textContent = message;
+}
+
+/**
+ * Toggles the blue outline for input containers based on whether the corresponding input fields have values or not.
+ * Adds a blue outline to the container if the input field has a value, otherwise removes it.
+ */
+function toggleBlueOutline() {
+  let nameContainer = document.getElementById("nameContainer");
+  let nameInput = document.getElementById("nameSignup");
+  let emailContainer = document.getElementById("emailContainer");
+  let emailInput = document.getElementById("emailSignup");
+  let pwdContainer = document.getElementById("passwordContainer");
+  let pwdInput = document.getElementById("passwordSignup");
+  let pwdConfirmContainer = document.getElementById("passwordConfirmContainer");
+  let pwdConfirmInput = document.getElementById("passwordConfirm");
+
+  if (nameInput.value !== "") {
+    nameContainer.classList.add("outline_blue");
+  } else {
+    nameContainer.classList.remove("outline_blue");
+  }
+
+  if (emailInput.value !== "") {
+    emailContainer.classList.add("outline_blue");
+  } else {
+    emailContainer.classList.remove("outline_blue");
+  }
+
+  if (pwdInput.value !== "") {
+    pwdContainer.classList.add("outline_blue");
+  } else {
+    pwdContainer.classList.remove("outline_blue");
+  }
+
+  if (pwdConfirmInput.value !== "") {
+    pwdConfirmContainer.classList.add("outline_blue");
+  } else {
+    pwdConfirmContainer.classList.remove("outline_blue");
+  }
 }
 
 /**
