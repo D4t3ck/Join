@@ -9,6 +9,24 @@
     --backup_font: system-ui, sans-serif;
 }
 
+.add_contact_animation {
+    position: relative;
+    width: 0;
+    overflow: hidden;
+}
+
+#succesfully_created {
+    position: absolute;
+    right: 0;
+    opacity: 1;
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.hidden {
+    opacity: 0;
+    transform: translateX(100%);
+}
+
 .contacts_body {
     display: flex;
     margin-left: 202px;
@@ -21,17 +39,17 @@
     align-items: center;
     background-color: #FFFFFF;
     width: 456px;
+    box-shadow: 0px 0 4px 0px rgba(0, 0, 0, 0.1);
 }
 
 .add_new_contact_btn_caontainer {
     display: flex;
     position: fixed;
     height: 101px;
-    background-color: #FFFFFF;
     display: flex;
     justify-content: center;
     align-items: center;
-    top: 96px;
+    top: 110px;
 
 }
 
@@ -46,6 +64,7 @@
     /* padding: 12px 0px 12px 0px; */
     gap: 16px;
     cursor: pointer;
+    margin-right: 8px;
 }
 
 .add_new_contact_btn:hover {
@@ -599,6 +618,10 @@ background-repeat: no-repeat;
     .contacts_body {
         margin: 0;
      }
+
+     .contact_scrolls_div {
+        height: calc(100vh - 196px);
+     }
 }
 
 @media(max-width: 800px) {
@@ -622,3 +645,49 @@ background-repeat: no-repeat;
     
 }
 
+@media(max-width: 420px) {
+
+
+.add_contact_scroll_container {
+    width: auto;
+}
+
+.add_new_contact_btn {
+    width: 300;
+}
+
+.contact_scrolls_div {
+    width: 319px;
+    height: calc(100vh - 206px);
+}
+
+.contact_scrolls_card_small {
+    width: 280px;
+}
+
+.contact_scrolls_card_small_onclick {
+    width: 280px;
+    margin-left: 10px;
+}
+
+.contact_scrolls_stroke {
+    width: 280px;
+    margin-left: 10px;
+}
+
+.letter_stroke {
+    width: 280px;
+}
+
+
+.contacts_scroll_abc {
+    width: 300px;
+    justify-content: center;
+}
+
+.contacts_scroll_abc_text {
+    margin-left: 30px;
+}
+
+
+}
