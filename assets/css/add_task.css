@@ -34,7 +34,6 @@ main {
 }
 
 .header {
-    background-color: grey;
     width: 100%;
     height: 96px;
 }
@@ -190,30 +189,38 @@ h1 {
     padding: 16px;
     justify-content: center;
     align-items: center;
-    gap: 4px;
-}
-
-.form_button_container button {
-    cursor: pointer;
+    gap: 12px;
 }
 
 .form_button_clear {
     border-radius: 10px;
     border: 1px solid #2A3647;
     background: #F6F7F8;
+    /* Version 2/t6 */
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
-    line-height: 120%; 
+    line-height: 120%; /* 24px */
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 4px;
+}
+
+.form_button_clear:hover {
+    cursor: pointer;
+    color: var(--lightblue_font);
+  border-color: var(--lightblue_font);
+  box-shadow: none;
+  box-shadow: -1px 5px 5px 0px #c2c2c2;
 }
 
 .form_button_create {
     border-radius: 10px;
     background: #2A3647;
     color: #FFF;
+    width: 177px;
+    height: 48px;
     font-size: 21px;
     font-style: normal;
     font-weight: 700;
@@ -221,6 +228,15 @@ h1 {
     display: flex;
     align-items: center;
     gap: 8px;
+    border: none;
+}
+
+.form_button_create:hover {
+    cursor: pointer;
+    background-color: var(--lightblue_font);
+  border-color: var(--lightblue_font);
+  box-shadow: none;
+  box-shadow: -1px 5px 5px 0px #c2c2c2;
 }
 
 .subtask_input {
