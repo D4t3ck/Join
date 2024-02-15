@@ -423,9 +423,9 @@ form label {
     flex-direction: column;
 }
 
-.sub_container {
+/* .sub_container {
 
-}
+} */
 
 @media(max-width: 1350px) {
     .form_content {
