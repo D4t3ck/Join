@@ -11,7 +11,6 @@
       type="image/x-icon"
     />
     <script src="./script.js"></script>
-    <script src="./js/signup.js"></script>
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="./assets/css/sign_up.css" />
   </head>
@@ -71,35 +70,39 @@
                 </div>
               </div>
 
+              <!-- SIGNUUP PASSWORD -->
               <div id="passwordContainer" class="signup_input">
                 <input
                   type="password"
                   id="passwordSignup"
+                  oninput="togglePwIcon()"
                   placeholder="Password"
                   required
                 />
 
                 <img
                   id="signupPwImg"
-                  onclick="togglePwIconSignup()"
-                  src="./assets/img/logIn/visibility_off.png"
+                  onclick="togglePwVisibility()"
+                  src="./assets/img/logIn/lock.png"
                   alt="Passwort"
                 />
               </div>
 
+              <!-- SIGNUP CONFIRM PASSWORD -->
               <div id="passwordConfirmContainer" class="signup_input">
                 <input
                   onchange="checkPasswords()"
                   type="password"
                   id="passwordConfirm"
+                  oninput="toggleConfirmIcon()"
                   placeholder="Confirm Password"
                   required
                 />
 
                 <img
                   id="signupPwImgConfirm"
-                  onclick="togglePwIconConfirm()"
-                  src="./assets/img/logIn/visibility_off.png"
+                  onclick="toggleConfirmVisibility()"
+                  src="./assets/img/logIn/lock.png"
                   alt="Confirm Button"
                 />
               </div>
@@ -132,5 +135,6 @@
         <a href="./legal_notice.html">Legal notice</a>
       </footer>
     </section>
+    <script src="./js/signup.js"></script>
   </body>
 </html>

@@ -15,19 +15,74 @@ function toggleCheckboxSignup() {
 }
 
 /**
- * Toggles img and password visibility
+ * Toggles the visibility icon of the password input field based on its current type and value.
  */
-function togglePwIconSignup() {
-  let passwordInput = document.getElementById("passwordSignup");
-  let passwordImg = document.getElementById("signupPwImg");
-  let currentSrc = passwordImg.src;
+let passwordInput = document.getElementById("passwordSignup");
+let passwordImg = document.getElementById("signupPwImg");
 
-  if (currentSrc.includes("visibility_off.png")) {
-    passwordImg.src = "./assets/img/logIn/visibility_on.png";
-    passwordInput.type = "text";
-  } else {
-    passwordImg.src = "./assets/img/logIn/visibility_off.png";
-    passwordInput.type = "password";
+function togglePwIcon() {
+  if (passwordInput.type === "password") {
+    if (passwordInput.value !== "") {
+      passwordImg.src = "./assets/img/logIn/visibility_off.png";
+    } else {
+      passwordImg.src = "./assets/img/logIn/lock.png";
+    }
+  } else if (passwordInput.type === 'text') {
+    passwordImg.src = './assets/img/logIn/visibility_on.png';
+  }
+}
+
+/**
+ * Toggles the visibility of the password input field and updates the visibility icon accordingly.
+ * Only works if there is text present in the input field.
+ */
+function togglePwVisibility() {
+  if (passwordInput.value !== "") {
+    let currentSrc = passwordImg.src;
+
+    if (currentSrc.includes("visibility_off.png")) {
+      passwordImg.src = "./assets/img/logIn/visibility_on.png";
+      passwordInput.type = "text";
+    } else {
+      passwordImg.src = "./assets/img/logIn/visibility_off.png";
+      passwordInput.type = "password";
+    }
+  }
+}
+
+/**
+ * Toggles the visibility icon of the password input confirm field based on its current type and value.
+ */
+let pwdConfirmInput = document.getElementById("passwordConfirm");
+let pwdConfirmImg = document.getElementById("signupPwImgConfirm");
+
+function toggleConfirmIcon() {
+  if (pwdConfirmInput.type === "password") {
+    if (pwdConfirmInput.value !== "") {
+      pwdConfirmImg.src = "./assets/img/logIn/visibility_off.png";
+    } else {
+      pwdConfirmImg.src = "./assets/img/logIn/lock.png";
+    }
+  } else if (pwdConfirmInput.type === 'text') {
+    pwdConfirmImg.src = './assets/img/logIn/visibility_on.png';
+  }
+}
+
+/**
+ * Toggles the visibility of the password input confirm field and updates the visibility icon accordingly.
+ * Only works if there is text present in the input field.
+ */
+function toggleConfirmVisibility() {
+  if (pwdConfirmInput.value !== "") {
+    let currentSrc = pwdConfirmImg.src;
+
+    if (currentSrc.includes("visibility_off.png")) {
+      pwdConfirmImg.src = "./assets/img/logIn/visibility_on.png";
+      pwdConfirmInput.type = "text";
+    } else {
+      pwdConfirmImg.src = "./assets/img/logIn/visibility_off.png";
+      pwdConfirmInput.type = "password";
+    }
   }
 }
 
