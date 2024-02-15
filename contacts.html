@@ -167,8 +167,10 @@
                       id="inputPhone"
                       required
                       class="contact_overlay_add_contact_card_right_inputfield phone_img"
-                      type="text"
+                      type="tel" pattern="\+49[0-9]{5,20}"
                       placeholder="Phone"
+                      oninvalid="this.setCustomValidity('Please enter a phone number in the format +49XXXXXXXXXXX')"
+                      oninput="this.setCustomValidity('')"
                     />
                     <div
                       class="contact_overlay_add_contact_card_right_btn_area"
@@ -183,7 +185,7 @@
                         >
                       </button>
                       <button
-                      type="submit"
+                    
                         
                         class="contact_overlay_add_contact_card_right_btn_create"
                       >
