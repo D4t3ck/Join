@@ -27,7 +27,7 @@ function generateCategorys() {
   return /*html*/ `
         <div class="category">
           <div class="category_headline">
-            <b>To do</b> <img src="./assets/img/board/plus.png" alt="create Task">
+            <b>To do</b> <img src="./assets/img/board/plus.png" alt="create Task" onclick="renderTaskInBoardCategory('toDo')">
           </div>
           <div class="category_content" id="toDo" ondragleave="removeHighlight('toDo')" ondrop="moveTo('toDo')" ondragover="allowDrop(event); highlight('toDo')">
             
@@ -35,7 +35,7 @@ function generateCategorys() {
         </div>
         <div class="category">
           <div class="category_headline">
-            <b>In progress</b><img src="./assets/img/board/plus.png" alt="create Task">
+            <b>In progress</b><img src="./assets/img/board/plus.png" alt="create Task" onclick="renderTaskInBoardCategory('inProgress')">
           </div>
           <div class="category_content" id="inProgress" ondragleave="removeHighlight('inProgress')" ondrop="moveTo('inProgress')" ondragover="allowDrop(event); highlight('inProgress')">
             
@@ -43,14 +43,14 @@ function generateCategorys() {
         </div>
         <div class="category">
           <div class="category_headline">
-            <b>Await feedback</b> <img src="./assets/img/board/plus.png" alt="create Task">
+            <b>Await feedback</b> <img src="./assets/img/board/plus.png" alt="create Task" onclick="renderTaskInBoardCategory('awaitFeedback')">
           </div>
           <div class="category_content" id="awaitFeedback" ondragleave="removeHighlight('awaitFeedback')" ondrop="moveTo('awaitFeedback')" ondragover="allowDrop(event); highlight('awaitFeedback')">
           </div>
         </div>
         <div class="category">
           <div class="category_headline">
-            <b>Done</b> <img src="./assets/img/board/plus.png" alt="create Task">
+            <b>Done</b> <img src="./assets/img/board/plus.png" alt="create Task" onclick="renderTaskInBoardCategory('done')">
           </div>
           <div class="category_content" id="done" ondragleave="removeHighlight('done')" ondrop="moveTo('done')" ondragover="allowDrop(event); highlight('done')">
           </div>
@@ -58,12 +58,12 @@ function generateCategorys() {
     `;
 }
 
-function generateAddTask() {
+function generateAddTask(renderFuctionPara) {
   return /*html*/ `
     <section class="header template" onclick="stopEvent(event)">
     <section class="add_task_content" onclick="closeDropdown()">
 
-        <form onsubmit="checkForm(event); setAddTasksInTasks()">
+        <form onsubmit="checkForm(event, '${renderFuctionPara}'); setAddTasksInTasks()">
             <div class="main_content">
                 <h1 class="add_task_headline">Add Task</h1>
                 <div class="form_content">
