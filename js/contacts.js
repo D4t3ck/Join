@@ -422,10 +422,18 @@ function showMeInformation(userName, userMail, profil) {
 `;
 }
 
-function submitForm(event) {
-  event.preventDefault();
-  document.getElementById("succesfully_created").classList.add("hidden");
-  setTimeout(function() {
-    document.getElementById("succesfully_created").classList.remove("hidden");
-  }, 5000);
+function successContact() {
+  let successContainer = document.getElementById("success_contact");
+  let successMessage = document.getElementById("success_contact_animation");
+
+  successContainer.classList.add("visible");
+  successMessage.classList.add("translate_0");
+
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      successMessage.classList.remove("translate_0");
+      successContainer.classList.remove("visible");
+      resolve();
+    }, 1500);
+  });
 }
