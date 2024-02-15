@@ -24,22 +24,54 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 /**
- * Toggles the visibility of the password input field between hidden and visible,
- * and changes the password visibility icon accordingly.
+ * Toggles the visibility icon of the password input field based on its current type and value.
  */
-function togglePwIcon() {
-  let passwordInput = document.getElementById("password");
-  let passwordImg = document.getElementById("passwordImg");
-  let currentSrc = passwordImg.src;
+let passwordInput = document.getElementById("password");
+let passwordImg = document.getElementById("passwordImg");
 
-  if (currentSrc.includes("visibility_off.png")) {
-    passwordImg.src = "./assets/img/logIn/visibility.png";
-    passwordInput.type = "text";
-  } else {
-    passwordImg.src = "./assets/img/logIn/visibility_off.png";
-    passwordInput.type = "password";
+function togglePwIcon() {
+  if (passwordInput.type === "password") {
+    if (passwordInput.value !== "") {
+      passwordImg.src = "./assets/img/logIn/visibility_off.png";
+    } else {
+      passwordImg.src = "./assets/img/logIn/lock.png";
+    }
+  } else if (passwordInput.type === "text") {
+    passwordImg.src = "./assets/img/logIn/visibility_on.png";
   }
 }
+
+/**
+ * Toggles the visibility of the password input field and updates the visibility icon accordingly.
+ * Only works if there is text present in the input field.
+ */
+function togglePwVisibility() {
+  if (passwordInput.value !== "") {
+    let currentSrc = passwordImg.src;
+
+    if (currentSrc.includes("visibility_off.png")) {
+      passwordImg.src = "./assets/img/logIn/visibility_on.png";
+      passwordInput.type = "text";
+    } else {
+      passwordImg.src = "./assets/img/logIn/visibility_off.png";
+      passwordInput.type = "password";
+    }
+  }
+}
+
+/**
+ * Handles the blur event on the password input field.
+ * Updates the visibility icon to the lock icon if the input field is empty when it loses focus.
+ */
+passwordInput.addEventListener("blur", function () {
+  if (passwordInput.value === "") {
+    passwordImg.src = "./assets/img/logIn/lock.png";
+  }
+});
+
+//////////////////////////////////////////////////////////////////////
+
+
 
 /**
  * Toggles the state of the login checkbox between checked and unchecked.
@@ -127,7 +159,6 @@ async function loginCheck() {
     );
 
     if (filteredUser) {
-      alert("Eingabe sind ="); // Kann final weg
       displayErrorMessage("");
       window.location.href = `./summary.html?mail=${filteredUser.userMail}`;
       document.getElementById("email").value = "";
@@ -150,6 +181,25 @@ async function loginCheck() {
 function displayErrorMessage(message) {
   let errorMessage = document.getElementById("errorTxt");
   errorMessage.textContent = message;
+}
+
+function toggleBlueOutline() {
+  let emailContainer = document.getElementById("emailContainer");
+  let passwordContainer = document.getElementById("passwordContainer");
+  let emailInput = document.getElementById("email");
+  let passwordInput = document.getElementById("password");
+
+  if (emailInput.value !== "") {
+    emailContainer.classList.add("outline_blue");
+  } else {
+    emailContainer.classList.remove("outline_blue");
+  }
+
+  if (passwordInput.value !== "") {
+    passwordContainer.classList.add("outline_blue");
+  } else {
+    passwordContainer.classList.remove("outline_blue");
+  }
 }
 
 /**

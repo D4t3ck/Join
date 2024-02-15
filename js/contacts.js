@@ -96,6 +96,9 @@ function closeOverlayAddContact() {
 
 function showContactInformation(name, mail, phone, j, profil) {
   renderletters();
+  document.getElementById(`me_contact_card`).classList.add('contact_scrolls_card_small');
+  document.getElementById(`me_contact_name`).classList.add('contact_scrolls_card_small_name');
+
   document.getElementById(`contact_card${j}`).classList.remove('contact_scrolls_card_small');
   document.getElementById(`contact_card${j}`).classList.add('contact_scrolls_card_small_onclick');
   document.getElementById(`contact_card_name${j}`).classList.remove('contact_scrolls_card_small_name');
@@ -181,7 +184,7 @@ function editContact(name, mail, phone, j, profil) {
                 </div>
                 <div class="contact_overlay_add_contact_card_right_center">
                   <div class="profil_ellipse_info" style="background-color: ${colors[j % colors.length]};">${profil}</div>
-                  <div
+                  <form return false;
                     class="contact_overlay_add_contact_card_right_input_area"
                   >
                     <input
@@ -202,6 +205,7 @@ function editContact(name, mail, phone, j, profil) {
                       id="inputEditPhone"
                       required
                       class="contact_overlay_add_contact_card_right_inputfield phone_img"
+                      type="tel"
                       value="${phone}"
                     />
                     <div
@@ -225,7 +229,7 @@ function editContact(name, mail, phone, j, profil) {
                         />
                       </button>
                     </div>
-                  </div>
+                  </form>
                 </div>
               </div>
             </section>
@@ -280,13 +284,30 @@ async function logUserAccount() {
   let users = responseAsJson.users;
 
   const urlParams = new URLSearchParams(window.location.search);
-
+  let userInContacts;
+  let userName;
   let userMail = urlParams.get('mail');
   let user = users.find(task => task.userMail == userMail); 
-  let userInContacts = backendData.contacts.find(contact => contact.mail == user.userMail)
   console.log(user)
 
-  let userName = user.userName;
+
+  if (user == null || user == 'null') {
+    document.getElementById('userAccount').innerHTML = '';
+  } else {
+  userInContacts = backendData.contacts.find(contact => contact.mail == user.userMail)
+  userName = user.userName;
+
+  console.log(userName);
+  const profil = getFirstChars(userName);
+  document.getElementById('userAccount').innerHTML =
+  /*html*/`
+  <div class="contact_scrolls_card_small" onclick="showMeInformation('${userName}', '${userMail}','${profil}')" id="me_contact_card">
+    <div class="profil_ellipse" style="background-color: #c0c0c0;">${profil}</div>
+    <div class="contact_scrolls_card_small_contact">
+        <span class="contact_scrolls_card_small_name" id="me_contact_name">${userName} (ME)</span>
+        <span class="contact_scrolls_card_small_email">${userMail}</span>
+    </div>
+  </div>`;
 
   if (!userInContacts){
     
@@ -299,24 +320,43 @@ async function logUserAccount() {
   }
   backendData.contacts.push(contact);
   }
-  
-  if (user == null || user == 'null') {
-    document.getElementById('userAccount').innerHTML = '';
-  } else {
-
-  console.log(userName);
-  const profil = getFirstChars(userName);
-  document.getElementById('userAccount').innerHTML =
-  /*html*/`
-  <div class="contact_scrolls_card_small" onclick="showContactInformation('${userName}', '${userMail}')">
-    <div class="profil_ellipse" style="background-color: #c0c0c0;">${profil}</div>
-    <div class="contact_scrolls_card_small_contact">
-        <span class="contact_scrolls_card_small_name">${userName} (ME)</span>
-        <span class="contact_scrolls_card_small_email">${userMail}</span>
-    </div>
-  </div>`;
 
   }
 renderletters();
   // console.log(users);
+}
+
+function showMeInformation(userName, userMail, profil) {
+  renderletters();
+  document.getElementById(`me_contact_card`).classList.remove('contact_scrolls_card_small');
+  document.getElementById(`me_contact_card`).classList.add('contact_scrolls_card_small_onclick');
+  document.getElementById(`me_contact_name`).classList.remove('contact_scrolls_card_small_name');
+  document.getElementById(`me_contact_name`).classList.add('contact_scrolls_card_small_onclick_name');
+    document.getElementById('contactInformation').classList.remove('d_none');
+    let contactInformation = document.getElementById('contactInformation');
+    contactInformation.innerHTML = '';
+    contactInformation.innerHTML = 
+   /*html*/` 
+   <section class="contacts_bigcard_container">
+    <div class="contacts_bigcard_contact_area">
+      <div class="profil_ellipse_info" style="background-color: #c0c0c0;"> <span class="profil_ellipse_info_text">${profil}</span> </div>
+      <div class="contacts_bigcard_name_area">
+        <span class="contacts_bigcard_name">${userName} (ME)</span>
+        </div>
+      </div>
+    </div>
+    <span class="contacts_bigcard_Information_text"
+      >User Information</span
+    >
+    <div class="contacts_bigcard_Information_email_phone">
+      <span class="contacts_bigcard_Information_email_phone_span"
+        >Email</span
+      >
+      <a href="mailto:${userMail}" class="contacts_bigcard_Information_email"
+        >${userMail}</a
+      >
+  
+    </div>
+  </section>
+`;
 }

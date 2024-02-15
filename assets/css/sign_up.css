@@ -123,6 +123,10 @@
   background: #fff;
 }
 
+#signupPwImg:hover, #signupPwImgConfirm:hover {
+  cursor: pointer;
+}
+
 .signup_input input {
   flex: 1;
   height: 24px;

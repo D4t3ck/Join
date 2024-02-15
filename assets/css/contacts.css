@@ -116,6 +116,7 @@ background-repeat: no-repeat;
     align-items: center;
     width: 352px;
     gap: 8px;
+    margin-top: 16px;
 }
 
 .contacts_scroll_abc_text {
@@ -126,7 +127,7 @@ background-repeat: no-repeat;
 
 .contact_scrolls_stroke {
     width: 352px;
-    margin-top: 7px;
+    margin-bottom: 10px;
 }
 
 .contact_scrolls_card_small_onclick {

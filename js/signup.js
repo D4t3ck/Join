@@ -19,11 +19,11 @@ function toggleCheckboxSignup() {
  */
 function togglePwIconSignup() {
   let passwordInput = document.getElementById("passwordSignup");
-  let passwordImg = document.getElementById("SignupPwImg");
+  let passwordImg = document.getElementById("signupPwImg");
   let currentSrc = passwordImg.src;
 
   if (currentSrc.includes("visibility_off.png")) {
-    passwordImg.src = "./assets/img/logIn/visibility.png";
+    passwordImg.src = "./assets/img/logIn/visibility_on.png";
     passwordInput.type = "text";
   } else {
     passwordImg.src = "./assets/img/logIn/visibility_off.png";
@@ -36,11 +36,11 @@ function togglePwIconSignup() {
  */
 function togglePwIconConfirm() {
   let passwordInput = document.getElementById("passwordConfirm");
-  let passwordImg = document.getElementById("SignupPwImgConfirm");
+  let passwordImg = document.getElementById("signupPwImgConfirm");
   let currentSrc = passwordImg.src;
 
   if (currentSrc.includes("visibility_off.png")) {
-    passwordImg.src = "./assets/img/logIn/visibility.png";
+    passwordImg.src = "./assets/img/logIn/visibility_on.png";
     passwordInput.type = "text";
   } else {
     passwordImg.src = "./assets/img/logIn/visibility_off.png";
