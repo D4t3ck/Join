@@ -134,7 +134,6 @@ h1 {
 }
 
 .input {
-    width: 440px;
     display: flex;
     padding: 12px 21px;
     align-items: center;
@@ -143,23 +142,20 @@ h1 {
     border-radius: 10px;
     border: 1px solid #D1D1D1;
     background: #FFF;
-
-    /* Version 2/t6 */
     font-family: Inter;
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
-    line-height: 120%; /* 24px */
+    line-height: 120%; 
 }
 
 .select {
     color: #000;
-    /* Version 2/t6 */
     font-family: Inter;
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
-    line-height: 120%; /* 24px */
+    line-height: 120%;
     width: 100%;
     border-radius: 10px;
     border: 1px solid #D1D1D1;
@@ -181,6 +177,10 @@ h1 {
     gap: 32px;
 }
 
+.form_content h2 {
+    margin: 16px;
+}
+
 .form_button_container {
     display: flex;
     padding: 16px;
@@ -197,11 +197,10 @@ h1 {
     border-radius: 10px;
     border: 1px solid #2A3647;
     background: #F6F7F8;
-    /* Version 2/t6 */
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
-    line-height: 120%; /* 24px */
+    line-height: 120%; 
     display: flex;
     align-items: center;
     gap: 4px;
@@ -214,7 +213,7 @@ h1 {
     font-size: 21px;
     font-style: normal;
     font-weight: 700;
-    line-height: 120%; /* 25.2px */
+    line-height: 120%; 
     display: flex;
     align-items: center;
     gap: 8px;
@@ -387,10 +386,25 @@ h1 {
 
 #assigned_contact_profiles span {
     background-color: yellow;
-    padding: 10px;
-    border: 1px solid black;
+    padding: 10px 8px;
+    border: 1px solid white;
     border-radius: 40px;
     font-size: 14px;
+    color: white;
+    min-width: 24px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+form label {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.sub_container {
+    flex: 1 1 0px;
 }
 
 @media(max-width: 1350px) {

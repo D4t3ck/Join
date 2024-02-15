@@ -272,7 +272,12 @@ function renderCheckedContacts() {
 
 function getProfileChar(checkedContact) {
   const names = checkedContact.split(' ');
-  const profileName = names[0].charAt(0) + names[names.length - 1].charAt(0)
+  let profileName;
+  if(names.length == 1) {
+    profileName = profileName = names[0].charAt(0);
+  } else {
+    profileName = names[0].charAt(0) + names[names.length - 1].charAt(0)
+  }
   return profileName;
 }
 
@@ -290,9 +295,9 @@ function searchContact() {
     .getElementById("assigned_input")
     .value.toLocaleLowerCase();
   document.getElementById("input_assigned_content").innerHTML = "";
-  contacts.forEach((contact) => {
-    if (contact.toLocaleLowerCase().includes(inputValue))
-      filteredContacts.push(contact);
+  data.contacts.forEach((contact) => {
+    if (contact.name.toLocaleLowerCase().includes(inputValue))
+      filteredContacts.push(contact.name);
   });
   filteredContacts.forEach((contact, index) => {
     document.getElementById("input_assigned_content").innerHTML +=
