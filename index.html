@@ -13,17 +13,16 @@
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="./assets/css/landing_page.css" />
     <script src="./script.js"></script>
-    <script src="./js/login.js"></script>
   </head>
   <body>
-    <section id="landing_page" class="landing_page modal">
+    <!-- <section id="landing_page" class="landing_page modal">
       <div class="landing_page_desktop">
         <img src="./assets/img/logoStartseite.png" alt="Logo Desktop" />
       </div>
       <div class="landing_page_mobile">
         <img src="./assets/img/landing_page/logo_hell.png" alt="Logo Mobile" />
       </div>
-    </section>
+    </section> -->
 
     <!-- --- HEAD --- -->
     <section class="login_page_container">
@@ -55,10 +54,11 @@
                   type="email"
                   name="email_login"
                   id="email"
+                  oninput="toggleBlueOutline()"
                   placeholder="E-Mail"
                   minlength="4"
                   required
-                />
+                /> 
 
                 <img src="./assets/img/logIn/mail.png" alt="E-mail Button" />
               </div>
@@ -68,6 +68,8 @@
                   type="password"
                   name="password_login"
                   id="password"
+                  oninput="togglePwIcon(); toggleBlueOutline()"
+                  onfocus="togglePwIcon()"
                   placeholder="Password"
                   minlength="3"
                   required
@@ -75,8 +77,8 @@
 
                 <img
                   id="passwordImg"
-                  onclick="togglePwIcon()"
-                  src="./assets/img/logIn/visibility_off.png"
+                  onclick="togglePwVisibility()"
+                  src="./assets/img/logIn/lock.png"
                   alt="E-mail Button"
                 />
               </div>
@@ -119,5 +121,6 @@
         <a href="./legal_notice_logout.html">Legal notice</a>
       </footer>
     </section>
+    <script src="./js/login.js"></script>
   </body>
 </html>
