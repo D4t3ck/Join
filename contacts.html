@@ -19,9 +19,11 @@
     <script src="./js/contacts.js"></script>
   </head>
   <body onload="initContact()">
-    <div w3-include-html="./assets/templates/header/header.html"></div>
+    
     <div w3-include-html="./assets/templates/sidebar/sidebar.html"></div>
+    
     <div class="contacts_body">
+      <div w3-include-html="./assets/templates/header/header.html"></div>
       <section class="add_contact_scroll_container">
         <div class="add_new_contact_btn_caontainer">
           <div class="add_new_contact_btn" onclick="openOverlayAddContact()">
@@ -204,9 +206,9 @@
             </section>
           </div>
         </div>
-        <div class="add_contact_overlay_bg">
+          <div class="add_contact_overlay_bg">
           <div id="editContactOverlay" class="add_contact_overlay d_none"></div>
-        </div>
+          </div>
       </div>
     </div>
     <div class="contact_success" id="success_contact">

@@ -9,6 +9,11 @@
   --backup_font: system-ui, sans-serif;
 }
 
+.contacts_body {
+  display: flex;
+  flex-direction: column;
+}
+
 .contact_success {
   position: absolute;
   display: flex;

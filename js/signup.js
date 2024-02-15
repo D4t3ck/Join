@@ -90,9 +90,8 @@ function toggleConfirmVisibility() {
 ////////////////
 
 /**
- * This asynchronous function captures input values from a signup form and, based on checkbox
- * state, either displays an alert message or adds user data to a list,
- * though currently not storing it persistently.
+ * Process the input values for sign-up.
+ * @returns {Promise<void>} A Promise that resolves after the sign-up process is completed.
  */
 async function inputValue() {
   let signupName = document.getElementById("nameSignup").value;
@@ -113,10 +112,16 @@ async function inputValue() {
       userMail: signupMail,
       userPwd: signupPwd,
     };
-
+    
     userList.push(user);
     console.log(dataAsJson);
     /* setItem("users", dataAsJson);*/
+
+    // Call successSignup() function and redirect to index page after sign-up success
+    successSignup().then(() => {
+  
+      window.location.href = "./index.html";
+    });
   }
 }
 
@@ -212,6 +217,30 @@ function removeRedOutline() {
   let password2Outline = document.getElementById("passwordConfirmContainer");
   password1Outline.classList.remove("outline_red");
   password2Outline.classList.remove("outline_red");
+}
+
+/**
+ * Displays a success message for sign-up.
+ * @returns {Promise} A Promise that resolves after the success message animation is completed.
+ */
+function successSignup() {
+  let successContainer = document.getElementById("signup_success");
+  let successMessage = document.getElementById("signup_container");
+
+  successContainer.classList.add("visible");
+  successMessage.classList.add("translate_0");
+
+   /**
+   * Promise that resolves after a delay, removing the success message animation.
+   * @type {Promise}
+   */
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      successMessage.classList.remove("translate_0");
+      successContainer.classList.remove("visible");
+      resolve();
+    }, 1500);
+  });
 }
 
 //////////  //////////
