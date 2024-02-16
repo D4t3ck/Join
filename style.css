@@ -12,10 +12,10 @@
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    font-family: var(--main_font);
-    background-color: var(--background_main);
+  margin: 0;
+  padding: 0;
+  font-family: var(--main_font);
+  background-color: var(--background_main);
 }
 
 .profil_ellipse {
@@ -24,10 +24,10 @@ body {
   align-items: center;
   width: 42px;
   height: 42px;
-  background-color: #FF7A00;
+  background-color: #ff7a00;
   border: 2px solid #f0efef;
   border-radius: 45px;
   gap: 10px;
-  color: #FFFFFF;
+  color: #ffffff;
   margin-left: 20px;
 }

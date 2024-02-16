@@ -428,6 +428,7 @@ form label {
 @media (max-width: 1350px) {
   .form_content {
     flex-direction: column;
+    margin-bottom: 3rem;
   }
 }
 
@@ -443,6 +444,27 @@ form label {
 
   #clear_button {
     display: none;
+  }
+
+  .add_task_footer_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .add_task_footer {
+    position: fixed;
+    justify-content: space-around;
+    width: 100%;
+    bottom: 0;
+    margin-bottom: 3.5rem;
+    padding-bottom: 1rem;
+    background-color: var(--background_main);
+    border: 1px solid #d1d1d1;
+  }
+
+  .required_char_container {
+    margin-left: 2rem;
   }
 }
 
