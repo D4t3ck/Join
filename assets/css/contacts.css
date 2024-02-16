@@ -609,6 +609,7 @@
   height: 24px;
 }
 
+
 @media(max-width: 1270px) {
     .contacts_headline_text {
         display: none;
@@ -708,11 +709,19 @@
   .contact_scrolls_div {
     height: calc(100vh - 196px);
   }
+
+  .add_new_contact_btn_caontainer {
+    top: 55px;
+  }
 }
 
 @media (max-width: 800px) {
   .contacts_right_side_flex {
-    display: none;
+    position: absolute;
+    width: 100vh;
+    height: 100vh;
+    background-color: #c0c0c0;
+    align-items: center;
   }
 
   .add_new_contact_btn_caontainer {
@@ -727,11 +736,25 @@
     margin-top: 20px;
     height: calc(100vh - 150px);
   }
+
+  .add_contact_mobile {
+    background-image: url(../img/contacts/addContactMobile.png);
+    position: absolute;
+    bottom: 10vh;
+    right: 3vh;
+    height: 64px;
+    width: 64px;
+    cursor: pointer;
+  }
+
+  .add_contact_mobile:hover {
+    background-image: url(../img/contacts/addContactMobileHover.png);
+  }
 }
 
 @media (max-width: 420px) {
   .add_contact_scroll_container {
-    width: auto;
+    width: 100vh;
   }
 
   .add_new_contact_btn {

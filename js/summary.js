@@ -30,11 +30,17 @@ async function initSummary() {
   let urgentNumber = document.getElementById("summary_urgent_number");
   urgentNumber.innerHTML = `${urgent.length}`;
 
-  greetingAnimation();
-  getUserName();
-  getCurrentUser();
-  // Rufe die Funktion `updateUpcomingDeadline` auf und übergebe das `tasks` Array.
-  updateUpcomingDeadline(tasks);
+    console.log(tasks)
+
+
+   
+
+
+    getUserName();
+    getCurrentUser();
+// Rufe die Funktion `updateUpcomingDeadline` auf und übergebe das `tasks` Array.
+updateUpcomingDeadline(tasks);
+   
 }
 
 /**
