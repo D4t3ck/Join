@@ -53,7 +53,7 @@
   max-width: 550px;
   width: 100%;
   height: auto;
-  margin-inline: 1rem;
+  margin-inline: 1.5rem;
   padding: 40px;
   border-radius: 30px;
   background-color: var(--card_color);
@@ -243,7 +243,7 @@
 
 /********** FOOTER **********/
 
-.login_page_bottom {
+.signup_page_bottom {
   display: flex;
   justify-content: center;
   margin: 60px 0px;
@@ -251,7 +251,7 @@
   box-sizing: border-box;
 }
 
-.login_page_bottom a {
+.signup_page_bottom a {
   text-align: center;
   text-decoration: none;
   color: var(--lightgray_font);
@@ -259,10 +259,50 @@
   width: 120px;
 }
 
-.login_page_bottom a:hover {
+.signup_page_bottom a:hover {
   color: var(--lightblue_font);
   font-weight: bold;
 }
+
+.signup_success {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 270px;
+  height: 100vh;
+  z-index: 99;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  visibility: hidden;
+  overflow: hidden;
+}
+
+.signup_container {
+  background-color: var(--main_color);
+  border-radius: 8px;
+  padding: 16px 30px;
+  opacity: 0;
+  transform: translateY(800%);
+  transition: all 0.25s ease-in-out;
+}
+
+.translate_0 {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.visible {
+  visibility: visible;
+}
+
+.signup_message {
+    color: white;
+    font-size: 20px;
+    text-align: center;
+  }
 
 /********** MEDIA QUERY **********/
 
@@ -287,7 +327,6 @@
   }
   .signup_input {
     padding-inline: 12px;
-    /* margin-inline: 48px; */
     width: 260px;
   }
   .signup_card_foot {
@@ -295,5 +334,11 @@
   }
   .login_page_bottom {
     margin: 0;
+  }
+  .signup_container{
+    padding: 14px 24px;
+  }
+  .signup_message {
+    font-size: 16px;
   }
 }
