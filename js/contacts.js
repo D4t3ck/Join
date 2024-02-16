@@ -138,7 +138,7 @@ function closeOverlayAddContact() {
 
 function showContactInformation(name, mail, phone, j, profil) {
   renderletters();
-  document
+  // document
   //   .getElementById(`me_contact_card`)
   //   .classList.add("contact_scrolls_card_small");
   // document
