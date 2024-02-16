@@ -259,7 +259,7 @@ function generateAssignContact(contact, index) {
 
 function generatePopUpCardEdit(task) {
   return /*html*/`
-    <div class="edit_content">
+    <div class="edit_content" onclick="closeDropdownForEdit()">
       <div class="button_container_edit">
         <button onclick="renderPopUpCard('${task.id}')">X</button>
       </div>
@@ -366,5 +366,16 @@ function generateAssignSelectionForEdit() {
       <select name="" id="select_contact" placeholder="test" class="select" onclick="renderInputAssignedForEdit()">
           <option value="" disabled selected>Select contacts to assign</option>
       </select>
+  `;
+}
+
+function generateInputAssignedForEdit() {
+  return /*html*/ `
+    <div class="assign_input_container" onclick="stopEvent(event)">
+      <input type="text" class="input" id="assigned_input_edit" onkeyup="searchContact()">
+      <span><img src="./assets/img/add_task/arrow_drop_up.png" alt="close dropdown"></span>
+    </div>
+    <div id="input_assigned_content_edit">
+    </div>
   `;
 }

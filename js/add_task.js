@@ -224,9 +224,10 @@ function renderInputAssigned() {
 }
 
 function renderAssignedContent() {
-  document.getElementById("input_assigned_content").innerHTML = "";
+  const content = document.getElementById("input_assigned_content");
+  content.innerHTML = "";
   data.contacts.forEach((contact, index) => {
-    document.getElementById("input_assigned_content").innerHTML +=
+    content.innerHTML +=
       generateContact(contact.name, index);
     setContactValue(contact.name, index);
   });

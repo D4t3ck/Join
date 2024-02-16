@@ -435,17 +435,17 @@ function getPrioEdit() {
 
 function renderInputAssignedForEdit() {
   document.getElementById("assigned_container_edit").innerHTML =
-    generateInputAssigned();
-  renderAssignedContent();
-  document.getElementById("assigned_input").focus();
+    generateInputAssignedForEdit();
+    renderAssignedContentForEdit();
+    document.getElementById("assigned_input_edit").focus();
 }
 
 function closeDropdownForEdit() {
   if (assignRdy) {
     getCheckedContacts();
-    document.getElementById("assigned_container_edit").innerHTML =
-      generateAssignSelectionForEdit();
-      renderCheckedContacts();
+    const content = document.getElementById('assigned_container_edit');
+    content.innerHTML = '';
+    content.innerHTML = generateAssignSelectionForEdit();
     assignRdy = false;
   }
 }
@@ -458,4 +458,18 @@ function setSubTaskForEdit() {
     currentSubtasks.push(task);
     printSubTaskForEdit();
   }
+}
+
+function renderAssignedContentForEdit() {
+  const content = document.getElementById("input_assigned_content_edit");
+  content.innerHTML = "";
+  data.contacts.forEach((contact, index) => {
+    content.innerHTML +=
+      generateContact(contact.name, index);
+    setContactValue(contact.name, index);
+  });
+  checkContactChecked();
+  setTimeout(() => {
+    assignRdy = true;
+  }, 500);
 }
