@@ -24,7 +24,6 @@ async function getCurrentUser() {
   const users = responseAsJson.users;
   const usersFiltered = users.filter((user) => user.userMail == userMail);
   currentUser = usersFiltered;
-  console.log(currentUser);
 }
 
 /**
@@ -94,7 +93,6 @@ async function includeHTML() {
  */
 function highlightCurrentPage() {
   let currentPage = window.location.pathname;
-  console.log(currentPage);
   if (currentPage === "/summary.html") {
     document.getElementById("sidebar_0").style.backgroundColor = "#091931";
   } else if (currentPage === "/add_task.html") {
