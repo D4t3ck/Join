@@ -324,7 +324,7 @@ function generateAssignSelection() {
 
 function generateInputAssigned() {
   return /*html*/ `
-    <div class="assign_input_container">
+    <div class="assign_input_container" onclick="stopEvent(event)">
       <input type="text" class="input" id="assigned_input" onkeyup="searchContact()">
       <span><img src="./assets/img/add_task/arrow_drop_up.png" alt="close dropdown"></span>
     </div>

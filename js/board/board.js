@@ -431,3 +431,21 @@ function getPrioEdit() {
   }
   return value;
 }
+
+
+function renderInputAssignedForEdit() {
+  document.getElementById("assigned_container_edit").innerHTML =
+    generateInputAssigned();
+  renderAssignedContent();
+  document.getElementById("assigned_input").focus();
+}
+
+function closeDropdownForEdit() {
+  if (assignRdy) {
+    getCheckedContacts();
+    document.getElementById("assigned_container_edit").innerHTML =
+      generateAssignSelectionForEdit();
+      renderCheckedContacts();
+    assignRdy = false;
+  }
+}

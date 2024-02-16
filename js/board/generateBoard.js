@@ -274,8 +274,8 @@ function generatePopUpCardEdit(task) {
           </label>
           <label for="select_contact">
               <h2>Assigned to</h2>
-              <div id="assigned_container">
-                  <select name="" id="select_contact" placeholder="test" class="select" onclick="renderInputAssigned()">
+              <div id="assigned_container_edit">
+                  <select name="" id="select_contact" placeholder="test" class="select" onclick="renderInputAssignedForEdit()">
                       <option value="" disabled selected>Select contacts to assign</option>
                   </select>
               </div>
@@ -359,4 +359,12 @@ function generateSubTaskIconEditForEditPopUp(index, task) {
         <img src="./assets/img/add_task/trash.png" alt="delete subtask" class="edit_icon icon" id="edit_subtask_img${index}_edit" onclick="deleteSubTaskForEdit(${index}, ${task.id})">
         <img src="./assets/img/add_task/done.png" alt="delete icon" class="edit_icon icon" id="delete_subtask_img${index}_edit" onclick="saveSubTaskForEdit(${index})">
     `;
+}
+
+function generateAssignSelectionForEdit() {
+  return /*html*/ `
+      <select name="" id="select_contact" placeholder="test" class="select" onclick="renderInputAssignedForEdit()">
+          <option value="" disabled selected>Select contacts to assign</option>
+      </select>
+  `;
 }
