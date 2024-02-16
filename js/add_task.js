@@ -302,6 +302,7 @@ function searchContact() {
   filteredContacts.forEach((contact, index) => {
     document.getElementById("input_assigned_content").innerHTML +=
       generateContact(contact, index);
+      setContactValue(contact, index);
   });
 }
 
