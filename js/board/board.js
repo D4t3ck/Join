@@ -6,6 +6,7 @@ let currentDraggedId;
 let currentIndex;
 let currentEditTask;
 let currentSubtasks;
+let currentTask;
 
 function initBoard() {
   getBoardData();
@@ -166,7 +167,7 @@ function setAddTasksInTasks() {
 }
 
 function renderPopUpCard(taskId) {
-  const currentTask = tasks.find((todo) => todo.id == `${taskId}`);
+  currentTask = tasks.find((todo) => todo.id == `${taskId}`);
   const currentFormatDate = formatDate(currentTask.dueDate);
   const prio =
     currentTask.prio.charAt(0).toUpperCase() + currentTask.prio.slice(1);
@@ -182,8 +183,7 @@ function renderPopUpCard(taskId) {
   renderAssignedContacts(currentTask);
 }
 
-function renderPopUpCardEdit(taskId) {
-  const currentTask = tasks.find((task) => task.id == taskId);
+function renderPopUpCardEdit() {
   document.getElementById("card_popup_content").innerHTML =
     generatePopUpCardEdit(currentTask);
   getPrioSpansEdit();
@@ -400,7 +400,7 @@ function printSubTaskForEdit() {
 
 function renderSubTaskContentForEdit(task, index) {
   document.getElementById("subtask_content_edit").innerHTML +=
-    generateSubTaskForEditPopUp(task, index, currentEditTask.id);
+    generateSubTaskForEditPopUp(task, index, currentTask.id);
 }
 
 function editPopUpSave(id) {
@@ -447,5 +447,15 @@ function closeDropdownForEdit() {
       generateAssignSelectionForEdit();
       renderCheckedContacts();
     assignRdy = false;
+  }
+}
+
+function setSubTaskForEdit() {
+  const inputValue = document.getElementById('input_subtask_edit').value;
+  document.getElementById('input_subtask_edit').value = '';
+  if(inputValue.length != 0) {
+    const task = new subTask(inputValue, false);
+    currentSubtasks.push(task);
+    printSubTaskForEdit();
   }
 }

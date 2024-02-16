@@ -312,8 +312,8 @@ function generatePopUpCardEdit(task) {
           <label for="input_subtask">
               <h2>Subtasks</h2>
               <div class="subtask_input">
-                  <input type="text" id="input_subtask" placeholder="Add new subtask" class="input_edit">
-                  <span onclick="setSubTask()"><button type="button">+</button></span>
+                  <input type="text" id="input_subtask_edit" placeholder="Add new subtask" class="input_edit">
+                  <span onclick="setSubTaskForEdit()"><button type="button">+</button></span>
               </div>
           </label>
           <div id="subtask_content_edit">
