@@ -12,8 +12,8 @@ function generateCard(task, index, subTaskCheckLength) {
             <progress id="subtask_progress" value="${subTaskCheckLength}" max="${task.subtasks.length}"></progress>
             <label for="subtask_progress">${subTaskCheckLength}/${task.subtasks.length} Subtasks</label>
           </section>
-          <section>
-            <div>
+          <section class="card_footer">
+            <div id="card_profile_img_container_${task.categoryBoard}${index}" class="profiles">
             </div>
             <div>
               <img id="card_prio_${task.categoryBoard}${index}" src="./assets/img/add_task/medium_color.png">
@@ -21,6 +21,12 @@ function generateCard(task, index, subTaskCheckLength) {
           </section>
         </div>
     `;
+}
+
+function generateCardContactProfile(profileName, i, categoryBoard, index) {
+  return /*html*/`
+    <span class="profile_span" id="card_profile_span_${categoryBoard}${index}${i}">${profileName}</span>
+  `;
 }
 
 function generateCategorys() {
@@ -84,6 +90,9 @@ function generateAddTask(renderFuctionPara) {
                                     onclick="renderInputAssigned()">
                                     <option value="" disabled selected>Select contacts to assign</option>
                                 </select>
+                            </div>
+                            <div id="assigned_contact_profiles">
+
                             </div>
                         </label>
                     </div>
@@ -234,11 +243,11 @@ function generateEmpyCard() {
   `;
 }
 
-function generateAssignContact(contact) {
+function generateAssignContact(contact, index) {
   return /*html*/ `
       <div class="assigned_to_container">
           <div class="assigned_to_field">
-            <div class="user_img">
+            <div id="card_profile_fullpopup_container${index}">
               <img src="./assets/img/img_summary/profilImg.png" alt="" />
             </div>
             <div class="user_name">${contact}</div>
@@ -265,8 +274,8 @@ function generatePopUpCardEdit(task) {
           </label>
           <label for="select_contact">
               <h2>Assigned to</h2>
-              <div id="assigned_container">
-                  <select name="" id="select_contact" placeholder="test" class="select" onclick="renderInputAssigned()">
+              <div id="assigned_container_edit">
+                  <select name="" id="select_contact" placeholder="test" class="select" onclick="renderInputAssignedForEdit()">
                       <option value="" disabled selected>Select contacts to assign</option>
                   </select>
               </div>
@@ -350,4 +359,12 @@ function generateSubTaskIconEditForEditPopUp(index, task) {
         <img src="./assets/img/add_task/trash.png" alt="delete subtask" class="edit_icon icon" id="edit_subtask_img${index}_edit" onclick="deleteSubTaskForEdit(${index}, ${task.id})">
         <img src="./assets/img/add_task/done.png" alt="delete icon" class="edit_icon icon" id="delete_subtask_img${index}_edit" onclick="saveSubTaskForEdit(${index})">
     `;
+}
+
+function generateAssignSelectionForEdit() {
+  return /*html*/ `
+      <select name="" id="select_contact" placeholder="test" class="select" onclick="renderInputAssignedForEdit()">
+          <option value="" disabled selected>Select contacts to assign</option>
+      </select>
+  `;
 }

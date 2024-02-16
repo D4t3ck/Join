@@ -302,6 +302,7 @@ function searchContact() {
   filteredContacts.forEach((contact, index) => {
     document.getElementById("input_assigned_content").innerHTML +=
       generateContact(contact, index);
+      setContactValue(contact, index);
   });
 }
 
@@ -323,7 +324,7 @@ function generateAssignSelection() {
 
 function generateInputAssigned() {
   return /*html*/ `
-    <div class="assign_input_container">
+    <div class="assign_input_container" onclick="stopEvent(event)">
       <input type="text" class="input" id="assigned_input" onkeyup="searchContact()">
       <span><img src="./assets/img/add_task/arrow_drop_up.png" alt="close dropdown"></span>
     </div>
@@ -377,6 +378,6 @@ function generateSubTaskIconEdit(index) {
 
 function generateContactProfile(profileName, index) {
   return /*html*/`
-    <span id="profile_span${index}">${profileName}</span>
+    <span class="profile_span" id="profile_span${index}">${profileName}</span>
   `;
 }
