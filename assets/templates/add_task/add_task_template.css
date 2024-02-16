@@ -330,11 +330,22 @@ h1 {
     outline: none;
 }
 
-#input_assigned_content div {
-    width: 16%;
+#assigned_contact_profiles {
     display: flex;
-    justify-content: space-between;
+    width: 100%;
+    padding-top: 8px;
+    overflow-x: auto;
+    max-width: 380px;
+    gap: 8px;
+  }
+
+#input_assigned_content div {
+    width: 100px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
     margin-left: 16px;
+    font-size: 12px;
 }
 
 .assign_input_container {

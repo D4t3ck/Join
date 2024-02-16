@@ -23,9 +23,9 @@ function generateCard(task, index, subTaskCheckLength) {
     `;
 }
 
-function generateCardContactProfile(profileName, index, categoryBoard) {
+function generateCardContactProfile(profileName, i, categoryBoard, index) {
   return /*html*/`
-    <span class="profile_span" id="card_profile_span_${categoryBoard}${index}">${profileName}</span>
+    <span class="profile_span" id="card_profile_span_${categoryBoard}${index}${i}">${profileName}</span>
   `;
 }
 
@@ -90,6 +90,9 @@ function generateAddTask(renderFuctionPara) {
                                     onclick="renderInputAssigned()">
                                     <option value="" disabled selected>Select contacts to assign</option>
                                 </select>
+                            </div>
+                            <div id="assigned_contact_profiles">
+
                             </div>
                         </label>
                     </div>

@@ -80,8 +80,8 @@ function printProfiles(task, index) {
     const name = getProfileName(contact);
     document.getElementById(
       `card_profile_img_container_${task.categoryBoard}${index}`
-    ).innerHTML += generateCardContactProfile(name, i, task.categoryBoard);
-    setCardProfileBg(contact, i, task.categoryBoard, 'card_profile_span_');
+    ).innerHTML += generateCardContactProfile(name, i, task.categoryBoard, index);
+    setCardProfileBg(contact, i, task.categoryBoard, 'card_profile_span_', index);
   });
   console.log(task);
 }
@@ -95,9 +95,9 @@ function getProfileName(contact) {
   return name;
 }
 
-function setCardProfileBg(contact, index, categoryBoard, id) {
+function setCardProfileBg(contact, i, categoryBoard, id, index) {
   const currentContact = boardData.contacts.find(boardContact => boardContact.name == contact);
-  document.getElementById(`${id}${categoryBoard}${index}`).style.backgroundColor = currentContact.color;
+  document.getElementById(`${id}${categoryBoard}${index}${i}`).style.backgroundColor = currentContact.color;
 }
 
 function printCardPrio(task, index) {

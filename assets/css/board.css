@@ -66,8 +66,8 @@
 
 .profiles {
     display: flex;
-    max-width: 125px;
-    overflow-x: auto;
+    max-width: 150px;
+    overflow-x: hidden;
 }
 
 main {
