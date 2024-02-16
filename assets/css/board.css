@@ -58,6 +58,18 @@
 
 }
 
+.card_footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profiles {
+    display: flex;
+    max-width: 125px;
+    overflow-x: auto;
+}
+
 main {
     flex: 1;
     display: flex;

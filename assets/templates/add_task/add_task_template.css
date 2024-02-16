@@ -368,6 +368,19 @@ h1 {
     scale: 1.1;
 }
 
+.profile_span {
+    background-color: yellow;
+    padding: 10px 8px;
+    border: 1px solid white;
+    border-radius: 40px;
+    font-size: 14px;
+    color: white;
+    min-width: 24px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  }
+
 @media(max-width: 1350px) {
     .form_content {
         flex-direction: column;

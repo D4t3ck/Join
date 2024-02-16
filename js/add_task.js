@@ -378,6 +378,6 @@ function generateSubTaskIconEdit(index) {
 
 function generateContactProfile(profileName, index) {
   return /*html*/`
-    <span id="profile_span${index}">${profileName}</span>
+    <span class="profile_span" id="profile_span${index}">${profileName}</span>
   `;
 }

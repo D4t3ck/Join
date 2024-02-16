@@ -18,9 +18,9 @@ async function getBoardData() {
   tasks = boardData.tasks;
   setId();
   renderTasks(tasks);
-  renderAddTask('toDo');
+  renderAddTask("toDo");
   getPrioSpans();
-  setActivePrio(1, 'medium');
+  setActivePrio(1, "medium");
 }
 
 function renderTaskInBoardCategory(functionPara) {
@@ -71,7 +71,33 @@ function renderList(list, id) {
     );
     printCardBackgroundCategory(task, index);
     printCardPrio(task, index);
+    printProfiles(task, index);
   });
+}
+
+function printProfiles(task, index) {
+  task.assignedTo.forEach((contact, i) => {
+    const name = getProfileName(contact);
+    document.getElementById(
+      `card_profile_img_container_${task.categoryBoard}${index}`
+    ).innerHTML += generateCardContactProfile(name, i, task.categoryBoard);
+    setCardProfileBg(contact, i, task.categoryBoard, 'card_profile_span_');
+  });
+  console.log(task);
+}
+
+function getProfileName(contact) {
+  const names = contact.split(" ");
+  let name;
+  if (names.length == 1) {
+    name = names[0].charAt(0);
+  } else name = names[0].charAt(0) + names[names.length - 1].charAt(0);
+  return name;
+}
+
+function setCardProfileBg(contact, index, categoryBoard, id) {
+  const currentContact = boardData.contacts.find(boardContact => boardContact.name == contact);
+  document.getElementById(`${id}${categoryBoard}${index}`).style.backgroundColor = currentContact.color;
 }
 
 function printCardPrio(task, index) {
@@ -252,9 +278,13 @@ function setCategoryEdit(task) {
 }
 
 function renderAssignedContacts(task) {
-  task.assignedTo.forEach((contact) => {
+  task.assignedTo.forEach((contact, index) => {
     document.getElementById("popup_assigned_to").innerHTML +=
-      generateAssignContact(contact);
+      generateAssignContact(contact, index);
+      const name = getProfileName(contact);
+      document.getElementById(`card_profile_fullpopup_container${index}`).innerHTML =
+      generateCardContactProfile(name, index, 'popup');
+      setCardProfileBg(contact, index, 'popup', 'card_profile_span_');
   });
 }
 

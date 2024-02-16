@@ -112,13 +112,13 @@
 .overlay_assigned_to {
     align-self: stretch;
     color: var(--Version-2-main-color, #2A3647);
-
-    /* Version 2/t6 */
     font-family: Inter;
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
-    line-height: 120%; /* 24px */
+    line-height: 120%; 
+    max-height: 200px;
+    overflow-y: auto;
 }
 
 .assigned_to_container {

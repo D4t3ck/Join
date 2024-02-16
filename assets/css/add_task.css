@@ -406,7 +406,7 @@ h1 {
   gap: 8px;
 }
 
-#assigned_contact_profiles span {
+.profile_span {
   background-color: yellow;
   padding: 10px 8px;
   border: 1px solid white;
@@ -424,10 +424,6 @@ form label {
   display: flex;
   flex-direction: column;
 }
-
-/* .sub_container {
-
-} */
 
 @media (max-width: 1350px) {
   .form_content {

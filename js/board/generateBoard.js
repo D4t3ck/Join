@@ -12,8 +12,8 @@ function generateCard(task, index, subTaskCheckLength) {
             <progress id="subtask_progress" value="${subTaskCheckLength}" max="${task.subtasks.length}"></progress>
             <label for="subtask_progress">${subTaskCheckLength}/${task.subtasks.length} Subtasks</label>
           </section>
-          <section>
-            <div>
+          <section class="card_footer">
+            <div id="card_profile_img_container_${task.categoryBoard}${index}" class="profiles">
             </div>
             <div>
               <img id="card_prio_${task.categoryBoard}${index}" src="./assets/img/add_task/medium_color.png">
@@ -21,6 +21,12 @@ function generateCard(task, index, subTaskCheckLength) {
           </section>
         </div>
     `;
+}
+
+function generateCardContactProfile(profileName, index, categoryBoard) {
+  return /*html*/`
+    <span class="profile_span" id="card_profile_span_${categoryBoard}${index}">${profileName}</span>
+  `;
 }
 
 function generateCategorys() {
@@ -234,11 +240,11 @@ function generateEmpyCard() {
   `;
 }
 
-function generateAssignContact(contact) {
+function generateAssignContact(contact, index) {
   return /*html*/ `
       <div class="assigned_to_container">
           <div class="assigned_to_field">
-            <div class="user_img">
+            <div id="card_profile_fullpopup_container${index}">
               <img src="./assets/img/img_summary/profilImg.png" alt="" />
             </div>
             <div class="user_name">${contact}</div>
