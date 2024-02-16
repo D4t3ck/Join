@@ -9,11 +9,6 @@
   --backup_font: system-ui, sans-serif;
 }
 
-.contacts_body {
-  display: flex;
-  flex-direction: column;
-}
-
 .contact_success {
   position: absolute;
   display: flex;
@@ -744,8 +739,8 @@
   }
 
   .contact_scrolls_div {
-    width: 319px;
-    height: calc(100vh - 206px);
+    width: fit-content;
+    height: calc(100vh - 150px);
   }
 
   .contact_scrolls_card_small {

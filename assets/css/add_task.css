@@ -229,7 +229,6 @@ h1 {
   line-height: 120%;
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 8px;
   border: none;
 }
@@ -468,12 +467,17 @@ form label {
   .main_content {
     padding: 0px 8px;
   }
-}
 
-@media (max-width: 490px) {
   .prio_category_span h2 {
     font-size: 16px;
   }
+}
+
+@media (max-width: 490px) {
+  .prio_category_span {
+    padding: 0;
+  }
+  
 }
 
 @media (max-width: 400px) {
