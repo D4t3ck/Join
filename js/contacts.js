@@ -139,11 +139,11 @@ function closeOverlayAddContact() {
 function showContactInformation(name, mail, phone, j, profil) {
   renderletters();
   document
-    .getElementById(`me_contact_card`)
-    .classList.add("contact_scrolls_card_small");
-  document
-    .getElementById(`me_contact_name`)
-    .classList.add("contact_scrolls_card_small_name");
+  //   .getElementById(`me_contact_card`)
+  //   .classList.add("contact_scrolls_card_small");
+  // document
+  //   .getElementById(`me_contact_name`)
+  //   .classList.add("contact_scrolls_card_small_name");
 
   document
     .getElementById(`contact_card${j}`)
@@ -382,10 +382,10 @@ async function logUserAccount() {
 
 function showMeInformation(userName, userMail, profil) {
   renderletters();
-  document.getElementById(`me_contact_card`).classList.remove("contact_scrolls_card_small");
-  document.getElementById(`me_contact_card`).classList.add("contact_scrolls_card_small_onclick");
-  document.getElementById(`me_contact_name`).classList.remove("contact_scrolls_card_small_name");
-  document.getElementById(`me_contact_name`).classList.add("contact_scrolls_card_small_onclick_name");
+  // document.getElementById(`me_contact_card`).classList.remove("contact_scrolls_card_small");
+  // document.getElementById(`me_contact_card`).classList.add("contact_scrolls_card_small_onclick");
+  // document.getElementById(`me_contact_name`).classList.remove("contact_scrolls_card_small_name");
+  // document.getElementById(`me_contact_name`).classList.add("contact_scrolls_card_small_onclick_name");
   document.getElementById("contactInformation").classList.remove("d_none");
   let contactInformation = document.getElementById("contactInformation");
   contactInformation.innerHTML = "";

@@ -26,7 +26,6 @@ async function initSummary() {
     let urgentNumber = document.getElementById('summary_urgent_number');
     urgentNumber.innerHTML = `${urgent.length}`;
 
-    console.log(tasks)
 
 
    
