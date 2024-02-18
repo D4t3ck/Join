@@ -63,6 +63,13 @@
   box-shadow: 0px 0 4px 0px rgba(0, 0, 0, 0.1);
 }
 
+/* .add_contact_overlay_bg {
+  background-color: #D1D1D1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+} */
+
 .add_new_contact_btn_caontainer {
   display: flex;
   position: fixed;
@@ -392,6 +399,7 @@
   font-size: 16px;
   font-weight: 400;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .contacts_bigcard_Information_phone {
@@ -399,6 +407,7 @@
   font-size: 16px;
   font-weight: 400;
   cursor: pointer;
+  text-decoration: none;
 }
 
 /* Contact Overlay add contact*/
@@ -408,17 +417,19 @@
 }
 
 /* .add_contact_overlay_bg {
-    display: flex;
-    background-color: gray;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
     width: 100%;
     height: 100%;
+    pointer-events: none;
+    z-index: 9998;
+
 } */
 
 .add_contact_overlay {
   display: flex;
   position: absolute;
   justify-content: center;
-  align-items: center;
   top: 0;
   left: 0;
   right: 0;
@@ -609,6 +620,10 @@
   height: 24px;
 }
 
+.stroke_blue_horizontal {
+  display: none;
+}
+
 
 @media(max-width: 1270px) {
     .contacts_headline_text {
@@ -699,6 +714,10 @@
     .phone_img {
         background-position: 300px 9px;
     }
+
+    .stroke_blue_horizontal {
+      display: none;
+    }
 }
 
 @media (max-width: 1000px) {
@@ -716,12 +735,34 @@
 }
 
 @media (max-width: 800px) {
+  .close_contact_mobile{
+    position: absolute;
+    right: 0;
+    width: 32px;
+    height: 32px;
+    margin: 10px;
+    cursor: pointer;
+  }
+
+  .stroke_blue_vertikal {
+    display: none;
+  }
+
+  .stroke_blue_horizontal {
+    display: flex;
+  }
+
+  .contacts_headline_text {
+    display: flex;
+    font-size: 20px;
+  }
+
   .contacts_right_side_flex {
     position: absolute;
-    width: 100vh;
+    width: auto;
     height: 100vh;
-    background-color: #c0c0c0;
-    align-items: center;
+    background-color: #f6f7f8;
+    min-width: 309px;
   }
 
   .add_new_contact_btn_caontainer {
@@ -739,16 +780,82 @@
 
   .add_contact_mobile {
     background-image: url(../img/contacts/addContactMobile.png);
+    background-size: cover;
     position: absolute;
     bottom: 10vh;
     right: 3vh;
-    height: 64px;
-    width: 64px;
+    height: 56px;
+    width: 56px;
     cursor: pointer;
   }
 
   .add_contact_mobile:hover {
     background-image: url(../img/contacts/addContactMobileHover.png);
+  }
+
+  .edit_contact_mobile {
+    background-image: url(../img/contacts/editMobile.png);
+    background-size: cover;
+    position: absolute;
+    bottom: 10vh;
+    right: 3vh;
+    height: 56px;
+    width: 56px;
+    cursor: pointer;
+  }
+
+  .edit_contact_mobile:hover {
+    background-image: url(../img/contacts/editMobilehover.png);
+  }
+
+
+  .contacts_headline {
+    margin-top: 28px;
+    margin-left: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .contacts_headline_h1 {
+    font-size: 47px;
+    margin: 0;
+  }
+
+  .contacts_bigcard_container {
+    margin-left: 16px;
+    gap: 21px;
+  }
+
+  .contacts_bigcard_contact_area {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .profil_ellipse_info {
+    width: 80px;
+    height: 80px;
+    margin: 0;
+  }
+
+  .profil_ellipse_info_text {
+    font-size: 27px;
+    font-weight: 400;
+  }
+
+  .contacts_bigcard_name {
+    font-size: 32px;
+    font-weight: 600;
+  }
+
+  .contacts_bigcard_edit {
+    display: none;
+  }
+
+  .contacts_bigcard_Information_text {
+    margin: 0;
   }
 }
 
@@ -791,5 +898,68 @@
 
   .contacts_scroll_abc_text {
     margin-left: 30px;
+  }
+
+  .contacts_headline {
+    margin-left: 16px;
+  }
+
+  .contacts_bigcard_name {
+    font-size: 28px;
+    font-weight: 600;
+    max-width: 20vh;
+  }
+
+  .contact_overlay_add_contact_card_left {
+    width: 280px;
+    height: 250px;
+    align-items: flex-start;
+  }
+
+  .contact_overlay_add_contact_card_right_close_x {
+    margin-top: -280px;
+    margin-left: 220px;
+    color: #ffffff;
+    font-size: 16px;
+    font-size: 100;
+  }
+
+  .contact_overlay_add_contact_card_right_close_x:hover {
+    width: 32px;
+    height: 32px;
+    border-radius: 56px;
+    background-color: #29abe2;
+  }
+
+  .contact_overlay_add_contact_card_left_text_area{
+    gap: 16px;
+    margin-left: 16px;
+  }
+
+  .contact_overlay_add_contact_card_left_text_area_heandline {
+    font-size: 36px;
+  }
+
+  .contact_overlay_add_contact_card_left_text {
+    font-size: 16px;
+  }
+
+  .contact_overlay_add_contact_card_right_center {
+    margin-top: -133px;
+    width: 280px;
+  }
+
+  .contact_overlay_add_contact_card_right {
+    width: 280px;
+  }
+
+  .contact_overlay_add_contact_card_right_inputfield {
+    width: 220px;
+    height: 36px;
+    background-position: 216px 9px;
+    opacity: 0.6;
+    border: solid 1px #D1D1D1;
+    font-weight: 100;
+    font-size: 16px;
   }
 }

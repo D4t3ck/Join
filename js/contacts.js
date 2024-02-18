@@ -137,6 +137,9 @@ function closeOverlayAddContact() {
 }
 
 function showContactInformation(name, mail, phone, j, profil) {
+  
+  if (window.innerWidth >= 801) {
+
   renderletters();
   // document
   //   .getElementById(`me_contact_card`)
@@ -144,6 +147,9 @@ function showContactInformation(name, mail, phone, j, profil) {
   // document
   //   .getElementById(`me_contact_name`)
   //   .classList.add("contact_scrolls_card_small_name");
+  document.getElementById('contactInformationMobile')
+  .classList.remove("d_none");
+
 
   document
     .getElementById(`contact_card${j}`)
@@ -159,47 +165,73 @@ function showContactInformation(name, mail, phone, j, profil) {
     .classList.add("contact_scrolls_card_small_onclick_name");
   document.getElementById("contactInformation").classList.remove("d_none");
   let contactInformation = document.getElementById("contactInformation");
+
+
   contactInformation.innerHTML = "";
-  contactInformation.innerHTML = /*html*/ ` 
-   <section class="contacts_bigcard_container">
-    <div class="contacts_bigcard_contact_area">
-      <div class="profil_ellipse_info" style="background-color: ${
-        colors[j % colors.length]
-      };"> <span class="profil_ellipse_info_text">${profil}</span> </div>
-      <div class="contacts_bigcard_name_area">
-        <span class="contacts_bigcard_name">${name}</span>
-        <div class="contacts_bigcard_edit">
-          <div class="edit_area" onclick="editContact('${name}', '${mail}', '${phone}', '${j}','${profil}')">
-            <div class="edit_area_img"></div>
-            <span class="edit_text">Edit</span>
-          </div>
-          <div class="edit_area">
-            <div class="edit_area_delete_img"></div>
-              
-            
-            <span class="edit_text" onclick="deleteContact(${j})">Delete</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <span class="contacts_bigcard_Information_text"
-      >Contact Information</span
-    >
-    <div class="contacts_bigcard_Information_email_phone">
-      <span class="contacts_bigcard_Information_email_phone_span"
-        >Email</span
-      >
-      <a href="mailto:${mail}" class="contacts_bigcard_Information_email"
-        >${mail}</a
-      >
-      <span class="contacts_bigcard_Information_email_phone_span"
-        >Phone</span
-      >
-      <a href="tel:${phone}" class="contacts_bigcard_Information_phone"
-        >${phone}</a
-      >
-    </div>
-  </section>
+  contactInformation.innerHTML = generateContactHTML(name, mail, phone, j, profil);
+  }
+
+  if (window.innerWidth < 801) {
+    renderletters();
+
+    document
+    .getElementById('contactInformationMobile')
+    .classList.remove("d_none");
+    document.getElementById("contactInformation").classList.remove("d_none");
+
+    let contactInformation = document.getElementById("contactInformation");
+    document.getElementById("addContactMobile").classList.add("d_none");
+    contactInformation.innerHTML = "";
+    contactInformation.innerHTML = generateContactHTML(name, mail, phone, j, profil);
+    document.getElementById("editContactMobile").classList.remove("d_none");
+
+  
+  }
+
+
+}
+
+function generateContactHTML(name, mail, phone, j, profil) {
+  return /*html*/ ` 
+  <section class="contacts_bigcard_container">
+   <div class="contacts_bigcard_contact_area">
+     <div class="profil_ellipse_info" style="background-color: ${
+       colors[j % colors.length]
+     };"> <span class="profil_ellipse_info_text">${profil}</span> </div>
+     <div class="contacts_bigcard_name_area">
+       <span class="contacts_bigcard_name">${name}</span>
+       <div class="contacts_bigcard_edit">
+         <div class="edit_area" onclick="editContact('${name}', '${mail}', '${phone}', '${j}','${profil}')">
+           <div class="edit_area_img"></div>
+           <span class="edit_text">Edit</span>
+         </div>
+         <div class="edit_area">
+           <div class="edit_area_delete_img"></div>
+             
+           
+           <span class="edit_text" onclick="deleteContact(${j})">Delete</span>
+         </div>
+       </div>
+     </div>
+   </div>
+   <span class="contacts_bigcard_Information_text"
+     >Contact Information</span
+   >
+   <div class="contacts_bigcard_Information_email_phone">
+     <span class="contacts_bigcard_Information_email_phone_span"
+       >Email</span
+     >
+     <a href="mailto:${mail}" class="contacts_bigcard_Information_email"
+       >${mail}</a
+     >
+     <span class="contacts_bigcard_Information_email_phone_span"
+       >Phone</span
+     >
+     <a href="tel:${phone}" class="contacts_bigcard_Information_phone"
+       >${phone}</a
+     >
+   </div>
+ </section>
 `;
 }
 
@@ -428,4 +460,10 @@ function successContact() {
       resolve();
     }, 1500);
   });
+}
+
+function closeContactInfoMobile() {
+  document.getElementById('contactInformationMobile').classList.add('d_none')
+  document.getElementById('editContactMobile').classList.add('d_none')
+  document.getElementById('addContactMobile').classList.remove('d_none')
 }
