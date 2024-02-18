@@ -99,9 +99,10 @@
 
 .header_submenu_container a {
   padding: 8px 16px;
+  color: var(--lightgray_font);
   font-family: var(--main_font);
   text-decoration: none;
-  color: var(--lightgray_font);
+  border-radius: 10px;
 }
 
 .header_submenu_container a:hover {
