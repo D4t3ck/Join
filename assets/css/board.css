@@ -236,6 +236,8 @@ h1 {
 
 .card_description {
   color: rgb(168, 168, 168);
+  overflow: hidden;
+  max-height: 50px;
 }
 
 .card_subtasks progress {

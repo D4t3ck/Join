@@ -10,6 +10,7 @@ let currentTask;
 
 function initBoard() {
   getBoardData();
+  changeAddTaskButton();
 }
 
 window.addEventListener('resize', changeAddTaskButton);
