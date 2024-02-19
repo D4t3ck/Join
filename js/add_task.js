@@ -90,7 +90,7 @@ function checkForm(event, renderFunctionPara) {
 
 function checkFormFullPage(event) {
   event.preventDefault();
-  getTaskData('toDo');
+  getTaskData("toDo");
   showCreateTaskPopup();
   setTimeout(() => {
     closeCreateTaskPopup();
@@ -227,8 +227,7 @@ function renderAssignedContent() {
   const content = document.getElementById("input_assigned_content");
   content.innerHTML = "";
   data.contacts.forEach((contact, index) => {
-    content.innerHTML +=
-      generateContact(contact.name, index);
+    content.innerHTML += generateContact(contact.name, index);
     setContactValue(contact.name, index);
   });
   checkContactChecked();
@@ -240,9 +239,11 @@ function renderAssignedContent() {
 function checkContactChecked() {
   let filteredContacts;
   data.contacts.forEach((contact, index) => {
-    filteredContacts = checkedContacts.find(checkContact => checkContact == contact.name);
-    if(filteredContacts) {
-      document.getElementById(`contact${index}`).checked = true;  
+    filteredContacts = checkedContacts.find(
+      (checkContact) => checkContact == contact.name
+    );
+    if (filteredContacts) {
+      document.getElementById(`contact${index}`).checked = true;
     }
   });
 }
@@ -256,28 +257,32 @@ function closeDropdown() {
     getCheckedContacts();
     document.getElementById("assigned_container").innerHTML =
       generateAssignSelection();
-      renderCheckedContacts();
+    renderCheckedContacts();
     assignRdy = false;
   }
 }
 
 function renderCheckedContacts() {
-  document.getElementById('assigned_contact_profiles').innerHTML = '';
+  document.getElementById("assigned_contact_profiles").innerHTML = "";
   checkedContacts.forEach((checkedContact, index) => {
-    const findContact = data.contacts.find(contact => contact.name == checkedContact);
+    const findContact = data.contacts.find(
+      (contact) => contact.name == checkedContact
+    );
     const profileName = getProfileChar(checkedContact);
-    document.getElementById('assigned_contact_profiles').innerHTML += generateContactProfile(profileName, index);
-    document.getElementById(`profile_span${index}`).style.backgroundColor = findContact.color;
+    document.getElementById("assigned_contact_profiles").innerHTML +=
+      generateContactProfile(profileName, index);
+    document.getElementById(`profile_span${index}`).style.backgroundColor =
+      findContact.color;
   });
 }
 
 function getProfileChar(checkedContact) {
-  const names = checkedContact.split(' ');
+  const names = checkedContact.split(" ");
   let profileName;
-  if(names.length == 1) {
+  if (names.length == 1) {
     profileName = profileName = names[0].charAt(0);
   } else {
-    profileName = names[0].charAt(0) + names[names.length - 1].charAt(0)
+    profileName = names[0].charAt(0) + names[names.length - 1].charAt(0);
   }
   return profileName;
 }
@@ -303,7 +308,7 @@ function searchContact() {
   filteredContacts.forEach((contact, index) => {
     document.getElementById("input_assigned_content").innerHTML +=
       generateContact(contact, index);
-      setContactValue(contact, index);
+    setContactValue(contact, index);
   });
 }
 
@@ -378,7 +383,7 @@ function generateSubTaskIconEdit(index) {
 }
 
 function generateContactProfile(profileName, index) {
-  return /*html*/`
+  return /*html*/ `
     <span class="profile_span" id="profile_span${index}">${profileName}</span>
   `;
 }
