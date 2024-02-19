@@ -615,10 +615,16 @@
     height: 408px;
   }
 
-    .contact_overlay_add_contact_card_right_close_x {
-        margin-top: -335px;
+  .contact_overlay_add_contact_card_right_close_x {
+        margin-top: -366px;
         margin-left: 320px;
-    }
+        color: #ffffff;
+  }
+
+  .contact_overlay_add_contact_card_right_close_x:hover {
+    background-color: #29abe2;
+  }
+
 
   .contact_overlay_add_contact_card_right_center {
     flex-direction: column;
@@ -777,6 +783,7 @@
     width: 80px;
     height: 80px;
     margin: 0;
+    font-size: 30px;
   }
 
   .profil_ellipse_info_text {
