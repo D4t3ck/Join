@@ -275,13 +275,13 @@
 }
 
 .modal_greeting_text {
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 500;
 }
 
 .modal_name {
   color: var(--lightblue_font);
-  font-size: 4rem;
+  font-size: 3rem;
   font-weight: 700;
 }
 

@@ -31,9 +31,8 @@ async function initSummary() {
   urgentNumber.innerHTML = `${urgent.length}`;
 
   getUserName();
-  getCurrentUser();
-  greetingAnimation()
-  // Rufe die Funktion `updateUpcomingDeadline` auf und übergebe das `tasks` Array.
+  getCurrentUser(); // Wozu da?
+  greetingAnimation();
   updateUpcomingDeadline(tasks);
 }
 
@@ -42,30 +41,20 @@ async function initSummary() {
  * @param {Array} tasks - An array containing task objects.
  */
 function updateUpcomingDeadline(tasks) {
-  // Initialize a variable to store the next upcoming task.
   let upcomingTask = null;
 
-  // Iterate through each task in the `tasks` array.
   for (let i = 0; i < tasks.length; i++) {
-    // Get the due date of the current task.
     let dueDate = new Date(tasks[i].dueDate);
 
-    // Compare the due date of the current task with the current date.
     if (dueDate > new Date()) {
-      // If the due date of the current task is later than the current date
-      // and `upcomingTask` has not been set yet, set the current task as the next upcoming task.
       if (!upcomingTask || dueDate < new Date(upcomingTask.dueDate)) {
         upcomingTask = tasks[i];
       }
     }
   }
 
-  // Check if an upcoming task has been found.
   if (upcomingTask) {
-    // If an upcoming task has been found, update the HTML element with ID 'upcoming_deadline'.
     let upcomingDeadlineElement = document.getElementById("upcoming_deadline");
-
-    // Extract the month name from the date.
     let monthNames = [
       "January",
       "February",
@@ -82,11 +71,8 @@ function updateUpcomingDeadline(tasks) {
     ];
     let monthIndex = parseInt(upcomingTask.dueDate.split("-")[1]) - 1; // Month index starts from 0
     let monthName = monthNames[monthIndex];
-
-    // Extract the day from the date.
     let day = upcomingTask.dueDate.split("-")[2];
 
-    // Set the formatted date as the content of the HTML element.
     upcomingDeadlineElement.innerHTML = `${monthName} ${day}, ${new Date(
       upcomingTask.dueDate
     ).getFullYear()}`;
@@ -146,48 +132,6 @@ function goToBoard() {
 }
 
 /**
- * Updates the greeting message on the page based on the time of day and the username.
- * @param {string} greetingTextSelector - The selector of the element displaying the greeting message.
- * @param {string} userNameSelector - The selector of the element displaying the username.
- */
-async function updateGreetings(greetingTextSelector, userNameSelector) {
-  const response = await getItem("users");
-  const responseAsJson = JSON.parse(response);
-  const users = responseAsJson.users;
-
-  const urlParams = new URLSearchParams(window.location.search);
-  const userMail = urlParams.get("mail");
-  const user = users.find((task) => task.userMail == userMail);
-
-  const currentTime = new Date();
-  const currentHour = currentTime.getHours();
-
-  const greetingText = document.getElementById(greetingTextSelector);
-  let greetingMessage = "";
-
-  if (currentHour < 12) {
-    greetingMessage = "Good morning,";
-  } else if (currentHour < 18) {
-    greetingMessage = "Hello,";
-  } else {
-    greetingMessage = "Good evening,";
-  }
-
-  greetingText.innerHTML = greetingMessage;
-
-  if (userMail == null || userMail == "null") {
-    userName = "";
-
-    const formatedGreeting = greetingText.innerText.replace(",", "");
-    greetingText.innerHTML = formatedGreeting;
-  } else {
-    const userName = user.userName;
-    const userNameDiv = document.getElementById(userNameSelector);
-    userNameDiv.innerHTML = `${userName}`;
-  }
-}
-
-/**
  * Calls the updateGreetings function to display the username in the greeting message on the page.
  */
 async function getUserName() {
@@ -202,35 +146,74 @@ async function greetingAnimation() {
 }
 
 /**
+ * Update the greetings displayed on the webpage based on user information.
+ * @async
+ * @param {string} greetingTextSelector - The CSS selector for the element containing the greeting text.
+ * @param {string} userNameSelector - The CSS selector for the element where the user's name will be displayed.
+ * @returns {Promise<void>} - A Promise that resolves once the greetings are updated.
+ */
+async function updateGreetings(greetingTextSelector, userNameSelector) {
+  const response = await getItem("users");
+  const responseAsJson = JSON.parse(response);
+  const users = responseAsJson.users;
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const userMail = urlParams.get("mail");
+  const user = users.find((task) => task.userMail == userMail);
+  const greetingText = document.getElementById(greetingTextSelector);
+
+  greetingText.innerHTML = await greetingMessage();
+
+  if (userMail == null || userMail == "null") {
+    userName = "";
+
+    const formatedGreeting = greetingText.innerText.replace(",", "");
+    greetingText.innerHTML = formatedGreeting;
+  } else {
+    const userName = user.userName;
+    const userNameDiv = document.getElementById(userNameSelector);
+    userNameDiv.innerHTML = `${userName}`;
+  }
+}
+
+/**
+ * Generates a greeting message based on the current time of day.
+ * @returns {string} - The generated greeting message.
+ */
+function greetingMessage() {
+  const currentTime = new Date();
+  const currentHour = currentTime.getHours();
+  let greetingMessage = "";
+
+  if (currentHour < 12) {
+    greetingMessage = "Good morning,";
+  } else if (currentHour < 18) {
+    greetingMessage = "Hello,";
+  } else {
+    greetingMessage = "Good evening,";
+  }
+  return greetingMessage;
+}
+
+/**
  * Executes when the DOM content is fully loaded. It initializes the animation modal based on certain conditions.
  */
 document.addEventListener("DOMContentLoaded", function () {
-  // Select the animation modal element
   const animationModal = document.querySelector(".animation_modal");
-
-  // Get the width of the screen
   const screenWidth = window.innerWidth;
-
-  // Get the referring page URL and convert it to lowercase
   const referringPage = document.referrer.toLowerCase();
 
-  // Check if the referring page is "index.html" and screen width is less than or equal to 1350px
   if (referringPage.includes("index.html") && screenWidth <= 1350) {
-    // Add the "show" class to display the animation modal
     animationModal.classList.add("show");
 
-    // Set a timeout to remove the "show" class after 2 seconds
     setTimeout(function () {
-      // Remove the "show" class to hide the animation modal
       animationModal.classList.remove("show");
 
-      // Set another timeout to change the display property to "none" after the animation duration
       setTimeout(function () {
         animationModal.style.display = "none";
-      }, 500); // Animation duration
-    }, 2000); // Delay before hiding the modal
+      }, 500);
+    }, 2000);
   } else {
-    // If conditions are not met, hide the animation modal
     animationModal.style.display = "none";
   }
 });

@@ -89,27 +89,50 @@ async function includeHTML() {
 }
 
 /**
- * This function highlights the current selected page in the sidebar menu
+ * Highlight the current page in the sidebar by changing its background color and border radius.
  */
 function highlightCurrentPage() {
   let currentPage = window.location.pathname;
-  if (currentPage === "/summary.html") {
-    document.getElementById("sidebar_0").style.backgroundColor = "#091931";
-  } else if (currentPage === "/add_task.html") {
-    document.getElementById("sidebar_1").style.backgroundColor = "#091931";
-  } else if (currentPage === "/board.html") {
-    document.getElementById("sidebar_2").style.backgroundColor = "#091931";
-  } else if (currentPage === "/contacts.html") {
-    document.getElementById("sidebar_3").style.backgroundColor = "#091931";
-  } else if (currentPage === "/privacy_policy.html") {
-    document.getElementById("sidebar_4").style.backgroundColor = "#091931";
-  } else if (currentPage === "/legal_notice.html") {
-    document.getElementById("sidebar_5").style.backgroundColor = "#091931";
-  }
+
+  const pages = [
+    "/summary.html",
+    "/add_task.html",
+    "/board.html",
+    "/contacts.html",
+    "/privacy_policy.html",
+    "/legal_notice.html",
+  ];
+
+  // Loop through each page URL
+  pages.forEach((page, index) => {
+    // If the current page matches the page URL, set the active style
+    if (currentPage === page) {
+      setActiveStyle(index);
+    }
+  });
 }
 
+/**
+ * Set the active style for a sidebar element.
+ * @param {number} index - The index of the sidebar element in the array.
+ */
+const setActiveStyle = (index) => {
+  const sidebarElements = [];
+
+  for (let i = 0; i < 6; i++) {
+    sidebarElements.push(document.getElementById(`sidebar_${i}`));
+  }
+
+  sidebarElements[index].style.backgroundColor = "#091931";
+  sidebarElements[index].style.borderRadius = "10px";
+};
+
+/**
+ * Change the current page to the specified URL.
+ * @param {string} url - The URL of the page to navigate to, excluding the file extension.
+ */
 function changeCurrentPage(url) {
-    const urlParams = new URLSearchParams(window.location.search);
-    let userMail = urlParams.get('mail');
-    window.location.href = `./${url}.html?mail=${userMail}`;
+  const urlParams = new URLSearchParams(window.location.search);
+  let userMail = urlParams.get("mail");
+  window.location.href = `./${url}.html?mail=${userMail}`;
 }

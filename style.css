@@ -1,14 +1,19 @@
 :root {
   --main_color: #2a3647;
-  --main_color_lighter: #354458;
+  --main_color_lighter: #2A3D59;
   --main_color_dark: #091931;
   --background_main: #f6f7f8;
   --card_color: #ffffff;
   --lightgray_font: #a8a8a8;
   --placeholder_color: #d1d1d1;
+  --error: #FF0000;
   --lightblue_font: #29abe2;
   --main_font: "Inter", sans-serif;
   --backup_font: system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
