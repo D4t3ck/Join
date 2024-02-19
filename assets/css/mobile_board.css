@@ -91,6 +91,12 @@
   }
 }
 
+@media (max-width: 800px) {
+    .category_content {
+      max-width: 500px;
+    }
+  }
+
 @media (max-width: 700px) {
   .category_content {
     max-width: 400px;
@@ -100,6 +106,12 @@
     margin: 0 24px;
   }
 }
+
+@media (max-width: 600px) {
+    .category_content {
+      max-width: 400px;
+    }
+  }
 
 @media(max-width: 550px) {
     #subtask_content_edit {
