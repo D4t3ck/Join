@@ -67,7 +67,16 @@
     display: flex;
   }
 
-  .headline_input_container {
+  .headline_section {
+    margin-top: 24px;
+    align-items: center;
+  }
+
+  .headline_section h1{
+    margin: 0;
+  }
+
+  .headline_input {
     display: none;
   }
 
@@ -101,6 +110,10 @@
 @media(max-width: 500px) {
     .category_content {
         max-width: 300px;
+    }
+
+    .add_task_button span {
+        display: none;
     }
 }
 
