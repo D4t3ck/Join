@@ -122,7 +122,9 @@ function getProfileName(contact) {
 
 function setCardProfileBg(contact, i, categoryBoard, id, index) {
   const currentContact = boardData.contacts.find(boardContact => boardContact.name == contact);
-  document.getElementById(`${id}${categoryBoard}${index}${i}`).style.backgroundColor = currentContact.color;
+  if(currentContact) {
+    document.getElementById(`${id}${categoryBoard}${index}${i}`).style.backgroundColor = currentContact.color;
+  }
 }
 
 function printCardPrio(task, index) {
@@ -348,9 +350,11 @@ function checkActiveContacts() {
 function renderCheckedContactsForEdit() {
   checkedContacts.forEach((checkedContact, index) => {
     const findContact = data.contacts.find(contact => contact.name == checkedContact);
-    const profileName = getProfileChar(checkedContact);
-    document.getElementById('assigned_contact_profiles_edit').innerHTML += generateContactProfile(profileName, index);
-    document.getElementById(`profile_span${index}`).style.backgroundColor = findContact.color;
+    if(findContact) {
+      const profileName = getProfileChar(checkedContact);
+      document.getElementById('assigned_contact_profiles_edit').innerHTML += generateContactProfile(profileName, index);
+      document.getElementById(`profile_span${index}`).style.backgroundColor = findContact.color;
+    }
   });
 }
 
