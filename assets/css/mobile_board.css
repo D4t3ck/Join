@@ -54,7 +54,8 @@
     align-items: flex-start;
   }
   .side_bar_position_container {
-    display: none;
+    width: 0;
+    min-width: 0;
   }
   .category_content {
     flex-direction: row;
@@ -105,7 +106,7 @@
 
 @media(max-width: 400px) {
     .category_content {
-        max-width: 276px;
+        max-width: 266px;
     }
 
     .overlay {
@@ -117,7 +118,7 @@
     }
 }
 
-@media(max-width: 370px) {
+@media(max-width: 380px) {
     .board_content {
         padding: 0px 16px;
     }
