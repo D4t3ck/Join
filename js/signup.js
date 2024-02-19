@@ -87,8 +87,6 @@ function toggleConfirmVisibility() {
   }
 }
 
-////////////////
-
 /**
  * Process the input values for sign-up.
  * @returns {Promise<void>} A Promise that resolves after the sign-up process is completed.
@@ -112,12 +110,10 @@ async function inputValue() {
       userMail: signupMail,
       userPwd: signupPwd,
     };
-    
+
     userList.push(user);
 
-    // Call successSignup() function and redirect to index page after sign-up success
     successSignup().then(() => {
-  
       window.location.href = "./index.html";
     });
   }
@@ -228,7 +224,7 @@ function successSignup() {
   successContainer.classList.add("visible");
   successMessage.classList.add("translate_0");
 
-   /**
+  /**
    * Promise that resolves after a delay, removing the success message animation.
    * @type {Promise}
    */
@@ -240,35 +236,3 @@ function successSignup() {
     }, 1500);
   });
 }
-
-//////////  //////////
-
-// noch nicht löschen oder bearbeiten!
-
-// let user = {
-//   users: [
-
-//   ],
-
-//   tasks: [
-//     {
-//       "assigned to": ["Florian", "Daniel", "Roman"],
-//       category: "User Story",
-//       desription: "Denk an die Milch",
-//       dueDate: "2024-02-08",
-//       prio: "urgent",
-//       subtasks: [
-//         {
-//           title: "Tanken fahren",
-//           check: false,
-//         },
-//         {
-//           title: "Kind abholen!",
-//           check: false,
-//         },
-//       ],
-//     }
-//   ],
-
-//   contacts: []
-// };

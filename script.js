@@ -1,5 +1,3 @@
-////////// ALLGEMEINE FUNKTIONEN //////////
-
 /**
  * Initializes the application by including HTML files
  * and highlighting the current page.
@@ -103,9 +101,7 @@ function highlightCurrentPage() {
     "/legal_notice.html",
   ];
 
-  // Loop through each page URL
   pages.forEach((page, index) => {
-    // If the current page matches the page URL, set the active style
     if (currentPage === page) {
       setActiveStyle(index);
     }

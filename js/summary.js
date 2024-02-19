@@ -3,7 +3,7 @@
  * The function also calls the `greetingAnimation`, `getUserName`, and `getCurrentUser` functions.
  */
 async function initSummary() {
-  let response = await getItem("users"); // pull data from server
+  let response = await getItem("users");
   let responseAsJson = JSON.parse(response);
   let tasks = responseAsJson.tasks;
 
@@ -31,7 +31,7 @@ async function initSummary() {
   urgentNumber.innerHTML = `${urgent.length}`;
 
   getUserName();
-  getCurrentUser(); // Wozu da?
+  getCurrentUser();
   greetingAnimation();
   updateUpcomingDeadline(tasks);
 }
@@ -162,7 +162,7 @@ async function updateGreetings(greetingTextSelector, userNameSelector) {
   const user = users.find((task) => task.userMail == userMail);
   const greetingText = document.getElementById(greetingTextSelector);
 
-  greetingText.innerHTML = await greetingMessage();
+  greetingText.innerHTML = greetingMessage();
 
   if (userMail == null || userMail == "null") {
     userName = "";
