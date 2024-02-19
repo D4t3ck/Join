@@ -38,28 +38,28 @@ function generateCategorys() {
   return /*html*/ `
         <div class="category">
           <div class="category_headline">
-            <b>To do</b> <img src="./assets/img/board/plus.png" alt="create Task" onclick="renderTaskInBoardCategory('toDo')">
+            <b>To do</b> <img id="category_headline_img0" src="./assets/img/board/plus.png" alt="create Task" onclick="renderTaskInBoardCategory('toDo')">
           </div>
           <div class="category_content" id="toDo" ondragleave="removeHighlight('toDo')" ondrop="moveTo('toDo')" ondragover="allowDrop(event); highlight('toDo')">       
           </div>
         </div>
         <div class="category">
           <div class="category_headline">
-            <b>In progress</b><img src="./assets/img/board/plus.png" alt="create Task" onclick="renderTaskInBoardCategory('inProgress')">
+            <b>In progress</b><img id="category_headline_img1" src="./assets/img/board/plus.png" alt="create Task" onclick="renderTaskInBoardCategory('inProgress')">
           </div>
           <div class="category_content" id="inProgress" ondragleave="removeHighlight('inProgress')" ondrop="moveTo('inProgress')" ondragover="allowDrop(event); highlight('inProgress')">    
           </div>
         </div>
         <div class="category">
           <div class="category_headline">
-            <b>Await feedback</b> <img src="./assets/img/board/plus.png" alt="create Task" onclick="renderTaskInBoardCategory('awaitFeedback')">
+            <b>Await feedback</b> <img id="category_headline_img2" src="./assets/img/board/plus.png" alt="create Task" onclick="renderTaskInBoardCategory('awaitFeedback')">
           </div>
           <div class="category_content" id="awaitFeedback" ondragleave="removeHighlight('awaitFeedback')" ondrop="moveTo('awaitFeedback')" ondragover="allowDrop(event); highlight('awaitFeedback')">
           </div>
         </div>
         <div class="category">
           <div class="category_headline">
-            <b>Done</b> <img src="./assets/img/board/plus.png" alt="create Task" onclick="renderTaskInBoardCategory('done')">
+            <b>Done</b> <img id="category_headline_img3" src="./assets/img/board/plus.png" alt="create Task" onclick="renderTaskInBoardCategory('done')">
           </div>
           <div class="category_content" id="done" ondragleave="removeHighlight('done')" ondrop="moveTo('done')" ondragover="allowDrop(event); highlight('done')">
           </div>

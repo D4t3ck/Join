@@ -10,16 +10,26 @@ let currentTask;
 
 function initBoard() {
   getBoardData();
-  changeAddTaskButton();
 }
 
 window.addEventListener('resize', changeAddTaskButton);
 
 function changeAddTaskButton() {
-  const addTaskButton = document.getElementById('board_add_task_button');
   if(window.innerWidth <= 1000) {
-    addTaskButton.addEventListener('click', changeButtonSite);
-  } else addTaskButton.addEventListener('click', showAddTask);
+    setChangeButtonSite();
+  } else setShowAddTask();
+}
+
+function setChangeButtonSite() {
+  document.getElementById('board_add_task_button').addEventListener('click', changeButtonSite);
+  document.getElementById('category_headline_img0').addEventListener('click', changeButtonSite);
+  document.getElementById('category_headline_img1').addEventListener('click', changeButtonSite);
+  document.getElementById('category_headline_img2').addEventListener('click', changeButtonSite);
+  document.getElementById('category_headline_img3').addEventListener('click', changeButtonSite);
+}
+
+function setShowAddTask() {
+  document.getElementById('board_add_task_button').addEventListener('click', showAddTask);
 }
 
 function changeButtonSite() {
@@ -36,6 +46,7 @@ async function getBoardData() {
   renderAddTask("toDo");
   getPrioSpans();
   setActivePrio(1, "medium");
+  changeAddTaskButton();
 }
 
 function renderTaskInBoardCategory(functionPara) {
