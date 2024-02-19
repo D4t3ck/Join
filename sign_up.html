@@ -16,15 +16,12 @@
   </head>
   <body>
     <section class="signup_page_container">
-      <!-- -- HEADER--- -->
       <header class="signup_page_head">
         <img src="./assets/img/logIn/logo_desktop.png" alt="Join Logo" />
       </header>
 
-      <!-- --- SIGN UP --- -->
       <main id="signupCard" class="signup_page_main">
         <form onsubmit="inputValue(); return false" class="signup_card">
-          <!-- -- signupHead--- -->
           <div class="signup_card_head">
             <a class="back_arrow" href="./index.html">
               <img
@@ -43,10 +40,8 @@
             </div>
           </div>
 
-          <!-- -- Input Felder--- -->
           <div class="signup_card_center">
             <div class="signup_input_container">
-              <!-- NAME -->
               <div id="nameContainer" class="signup_input">
                 <input
                   type="text"
@@ -60,7 +55,6 @@
                 </div>
               </div>
 
-              <!-- E-MAIL -->
               <div id="emailContainer" class="signup_input">
                 <input
                   type="email"
@@ -74,7 +68,6 @@
                 </div>
               </div>
 
-              <!-- SIGNUUP PASSWORD -->
               <div id="passwordContainer" class="signup_input">
                 <input
                   type="password"
@@ -92,7 +85,6 @@
                 />
               </div>
 
-              <!-- SIGNUP CONFIRM PASSWORD -->
               <div id="passwordConfirmContainer" class="signup_input">
                 <input
                   onchange="checkPasswords()"
@@ -126,7 +118,6 @@
             </div>
           </div>
 
-          <!-- --- Sign up Button --- -->
           <div class="signup_card_foot">
             <button id="signUpBtn" class="foot_signup_btn" disabled>
               Sign up

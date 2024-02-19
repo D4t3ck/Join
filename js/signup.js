@@ -13,7 +13,7 @@ function toggleCheckboxSignup() {
     checkedBox.id = "unchecked";
   }
 }
-///// PASSWORD //////
+
 /**
  * Toggles the visibility icon of the password input field based on its current type and value.
  */
@@ -49,7 +49,6 @@ function togglePwVisibility() {
     }
   }
 }
-////// PASSWORD CONFIRM ///////
 
 /**
  * Toggles the visibility icon of the password input confirm field based on its current type and value.
