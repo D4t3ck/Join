@@ -118,7 +118,6 @@ function addContact() {
   setItem("users", backendData);
   renderletters();
   closeOverlayAddContact();
-  // clearInputField();
 }
 
 function clearInputField() {
@@ -141,16 +140,8 @@ function showContactInformation(name, mail, phone, j, profil) {
   if (window.innerWidth >= 801) {
 
   renderletters();
-  // document
-  //   .getElementById(`me_contact_card`)
-  //   .classList.add("contact_scrolls_card_small");
-  // document
-  //   .getElementById(`me_contact_name`)
-  //   .classList.add("contact_scrolls_card_small_name");
   document.getElementById('contactInformationMobile')
   .classList.remove("d_none");
-
-
   document
     .getElementById(`contact_card${j}`)
     .classList.remove("contact_scrolls_card_small");
@@ -165,29 +156,23 @@ function showContactInformation(name, mail, phone, j, profil) {
     .classList.add("contact_scrolls_card_small_onclick_name");
   document.getElementById("contactInformation").classList.remove("d_none");
   let contactInformation = document.getElementById("contactInformation");
-  
-
-
   contactInformation.innerHTML = "";
   contactInformation.innerHTML = generateContactHTML(name, mail, phone, j, profil);
   document.getElementById('editMobileView').classList.remove('d_none')
-
   }
 
   if (window.innerWidth < 801) {
     renderletters();
-
     document
     .getElementById('contactInformationMobile')
     .classList.remove("d_none");
     document.getElementById("contactInformation").classList.remove("d_none");
-
     let contactInformation = document.getElementById("contactInformation");
     document.getElementById("addContactMobile").classList.add("d_none");
     contactInformation.innerHTML = "";
     contactInformation.innerHTML = generateContactHTML(name, mail, phone, j, profil);
     document.getElementById("editContactMobile").classList.remove("d_none");
-  
+    document.getElementById("closeArrow").classList.remove("d_none");
   }
 
 
@@ -340,6 +325,7 @@ function editContactTest(j) {
   renderletters();
   document.getElementById("contactInformation").classList.add("d_none");
   closeOverlayEditContact();
+  closeContactInfoMobile();
 }
 
 function deleteContact(j) {
@@ -347,6 +333,7 @@ function deleteContact(j) {
   setItem("users", backendData);
   closeOverlayEditContact();
   clearContactInformation();
+  closeContactInfoMobile();
   renderletters();
 }
 
@@ -364,7 +351,6 @@ function getFirstChars(name) {
   const profilLetter = first1letter + secondLetter;
 
   return profilLetter;
-  // console.log(profilLetter)
 }
 
 async function logUserAccount() {
@@ -409,7 +395,6 @@ async function logUserAccount() {
     }
   }
   renderletters();
-  // console.log(users);
 }
 
 function showMeInformation(userName, userMail, profil) {
@@ -419,6 +404,7 @@ function showMeInformation(userName, userMail, profil) {
   // document.getElementById(`me_contact_name`).classList.remove("contact_scrolls_card_small_name");
   // document.getElementById(`me_contact_name`).classList.add("contact_scrolls_card_small_onclick_name");
   document.getElementById("contactInformation").classList.remove("d_none");
+  document.getElementById("contactInformationMobile").classList.remove("d_none");
   let contactInformation = document.getElementById("contactInformation");
   contactInformation.innerHTML = "";
   contactInformation.innerHTML = /*html*/ ` 
@@ -444,6 +430,10 @@ function showMeInformation(userName, userMail, profil) {
     </div>
   </section>
 `;
+if (window.innerWidth < 801) {
+  document.getElementById("closeArrow").classList.remove("d_none");
+  document.getElementById('addContactMobile').classList.add('d_none')
+}
 }
 
 function successContact() {
