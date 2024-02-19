@@ -248,7 +248,7 @@ function renderSubtasksEdit(task) {
 function editSubTaskForEditPopUp(index, id) {
   currentEditTask = tasks.find((task) => task.id == id);
   document.getElementById(`subtask_paragraph${index}_edit`).innerHTML =
-    generateSubTaskEditForEditPopUp(currentEditTask, index);
+    generateSubTaskEditForEditPopUp(currentEditTask.subtasks[index], index);
   let paragraph = document.getElementById(`subtask_paragraph${index}_edit`);
   paragraph.contentEditable = true;
   paragraph.focus();

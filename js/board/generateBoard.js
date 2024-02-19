@@ -261,7 +261,7 @@ function generatePopUpCardEdit(task) {
   return /*html*/`
     <div class="edit_content" onclick="closeDropdownForEdit()">
       <div class="button_container_edit">
-        <button onclick="renderPopUpCard('${task.id}')">X</button>
+        <img onclick="renderPopUpCard('${task.id}')" class="closeIcon" src="./assets/img/img_summary/close.png" alt="close button">
       </div>
       <div>
           <label for="title_input_edit">
