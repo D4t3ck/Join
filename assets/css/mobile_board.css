@@ -35,6 +35,10 @@
         overflow-x: auto;
         max-width: 800px;
     }
+
+    .card_headline img {
+        display: flex;
+    }
 }
 
 @media(max-width: 900px) {

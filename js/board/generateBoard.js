@@ -320,7 +320,7 @@ function generatePopUpCardEdit(task) {
 
           </div>
           <div class="button_container_edit">
-            <button onclick="editPopUpSave(${task.id})">Save</button>
+            <button onclick="editPopUpSave(${task.id})">Ok <img src="./assets/img/board/check.png"></button>
           </div>
       </div>
     </div>
