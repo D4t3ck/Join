@@ -136,178 +136,60 @@ function closeOverlayAddContact() {
 }
 
 function showContactInformation(name, mail, phone, j, profil) {
-  
   if (window.innerWidth >= 801) {
-
-  renderletters();
-  document.getElementById('contactInformationMobile')
-  .classList.remove("d_none");
-  document
-    .getElementById(`contact_card${j}`)
-    .classList.remove("contact_scrolls_card_small");
-  document
-    .getElementById(`contact_card${j}`)
-    .classList.add("contact_scrolls_card_small_onclick");
-  document
-    .getElementById(`contact_card_name${j}`)
-    .classList.remove("contact_scrolls_card_small_name");
-  document
-    .getElementById(`contact_card_name${j}`)
-    .classList.add("contact_scrolls_card_small_onclick_name");
-  document.getElementById("contactInformation").classList.remove("d_none");
-  let contactInformation = document.getElementById("contactInformation");
-  contactInformation.innerHTML = "";
-  contactInformation.innerHTML = generateContactHTML(name, mail, phone, j, profil);
-  document.getElementById('editMobileView').classList.remove('d_none')
+    renderletters();
+    document
+      .getElementById("contactInformationMobile")
+      .classList.remove("d_none");
+    document
+      .getElementById(`contact_card${j}`)
+      .classList.remove("contact_scrolls_card_small");
+    document
+      .getElementById(`contact_card${j}`)
+      .classList.add("contact_scrolls_card_small_onclick");
+    document
+      .getElementById(`contact_card_name${j}`)
+      .classList.remove("contact_scrolls_card_small_name");
+    document
+      .getElementById(`contact_card_name${j}`)
+      .classList.add("contact_scrolls_card_small_onclick_name");
+    document.getElementById("contactInformation").classList.remove("d_none");
+    let contactInformation = document.getElementById("contactInformation");
+    contactInformation.innerHTML = "";
+    contactInformation.innerHTML = generateContactHTML(
+      name,
+      mail,
+      phone,
+      j,
+      profil
+    );
+    document.getElementById("editMobileView").classList.remove("d_none");
   }
-
   if (window.innerWidth < 801) {
     renderletters();
     document
-    .getElementById('contactInformationMobile')
-    .classList.remove("d_none");
+      .getElementById("contactInformationMobile")
+      .classList.remove("d_none");
     document.getElementById("contactInformation").classList.remove("d_none");
     let contactInformation = document.getElementById("contactInformation");
     document.getElementById("addContactMobile").classList.add("d_none");
     contactInformation.innerHTML = "";
-    contactInformation.innerHTML = generateContactHTML(name, mail, phone, j, profil);
+    contactInformation.innerHTML = generateContactHTML(
+      name,
+      mail,
+      phone,
+      j,
+      profil
+    );
     document.getElementById("editContactMobile").classList.remove("d_none");
     document.getElementById("closeArrow").classList.remove("d_none");
   }
-
-
-}
-
-function generateContactHTML(name, mail, phone, j, profil) {
-  return /*html*/ ` 
-  <section class="contacts_bigcard_container">
-   <div class="contacts_bigcard_contact_area">
-     <div class="profil_ellipse_info" style="background-color: ${
-       colors[j % colors.length]
-     };"> <span class="profil_ellipse_info_text">${profil}</span> </div>
-     <div class="contacts_bigcard_name_area">
-       <span class="contacts_bigcard_name">${name}</span>
-       <div class="contacts_bigcard_edit d_none" id="editMobileView">
-         <div class="edit_area" onclick="editContact('${name}', '${mail}', '${phone}', '${j}','${profil}')">
-           <div class="edit_area_img"></div>
-           <span class="edit_text">Edit</span>
-         </div>
-         <div class="edit_area">
-           <div class="edit_area_delete_img"></div>
-           <span class="edit_text" onclick="deleteContact(${j})">Delete</span>
-         </div>
-       </div>
-     </div>
-   </div>
-   <span class="contacts_bigcard_Information_text"
-     >Contact Information</span
-   >
-   <div class="contacts_bigcard_Information_email_phone">
-     <span class="contacts_bigcard_Information_email_phone_span"
-       >Email</span
-     >
-     <a href="mailto:${mail}" class="contacts_bigcard_Information_email"
-       >${mail}</a
-     >
-     <span class="contacts_bigcard_Information_email_phone_span"
-       >Phone</span
-     >
-     <a href="tel:${phone}" class="contacts_bigcard_Information_phone"
-       >${phone}</a
-     >
-   </div>
- </section>
-`;
 }
 
 function editContact(name, mail, phone, j, profil) {
   document.getElementById("editContactOverlay").classList.remove("d_none");
-
   let editContact = document.getElementById("editContactOverlay");
-
-  editContact.innerHTML = /*html*/ `
-  <section class="contact_overlay_add_contact_card">
-              <div class="contact_overlay_add_contact_card_left">
-                <img
-                  class="contact_overlay_add_contact_card_left_logo"
-                  src="./assets/img/contacts/joinLogo.png"
-                  alt=""
-                />
-                <div class="contact_overlay_add_contact_card_left_text_area">
-                  <span
-                    class="contact_overlay_add_contact_card_left_text_area_heandline"
-                    >Edit contact</span
-                  >
-                  <img
-                    class="contact_overlay_add_contact_card_left_stroke"
-                    src="./assets/img/contacts/strokeBlueAddOverlay.png"
-                    alt=""
-                  />
-                </div>
-              </div>
-              <div class="contact_overlay_add_contact_card_right">
-                <div
-                  onclick="closeOverlayEditContact()"
-                  class="contact_overlay_add_contact_card_right_close_div"
-                >
-                  <div class="contact_overlay_add_contact_card_right_close_x">
-                    X
-                  </div>
-                </div>
-                <div class="contact_overlay_add_contact_card_right_center">
-                  <div class="profil_ellipse_info" style="background-color: ${
-                    colors[j % colors.length]
-                  };">${profil}</div>
-                  <form return false;
-                    class="contact_overlay_add_contact_card_right_input_area"
-                  >
-                    <input
-                      id="inputEditName"
-                      required
-                      class="contact_overlay_add_contact_card_right_inputfield person_img"
-                      type="text"
-                      value="${name}"
-                    />
-                    <input
-                      id="inputEditEmail"
-                      required
-                      class="contact_overlay_add_contact_card_right_inputfield mail_img"
-                      type="email"
-                      value="${mail}"
-                    />
-                    <input
-                      id="inputEditPhone"
-                      required
-                      class="contact_overlay_add_contact_card_right_inputfield phone_img"
-                      type="tel"
-                      value="${phone}"
-                    />
-                    <div
-                      class="contact_overlay_add_contact_card_right_btn_area"
-                    >
-                      <button
-                        onclick="deleteContact(${j})"
-                        class="contact_overlay_add_contact_card_right_btn_cancel"
-                      >
-                        Delete
-                      </button>
-                      <button
-                        onclick="editContactTest(${j})"
-                        class="contact_overlay_add_contact_card_right_btn_create"
-                      >
-                        Save
-                        <img
-                          class="contact_overlay_add_contact_card_right_btn_check"
-                          src="./assets/img/contacts/check.png"
-                          alt=""
-                        />
-                      </button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </section>
-  `;
+  editContact.innerHTML = generateEditContactHTML(name, mail, phone, j, profil);
 }
 
 function closeOverlayEditContact() {
@@ -321,7 +203,6 @@ function editContactTest(j) {
   backendData.contacts[j].phone =
     document.getElementById("inputEditPhone").value;
   setItem("users", backendData);
-
   renderletters();
   document.getElementById("contactInformation").classList.add("d_none");
   closeOverlayEditContact();
@@ -344,12 +225,10 @@ function clearContactInformation() {
 
 function getFirstChars(name) {
   const names = name.split(" ");
-
   const first1letter = names[0].charAt(0).toUpperCase();
   const lastIndex = names.length - 1;
   const secondLetter = names[lastIndex].charAt(0).toUpperCase();
   const profilLetter = first1letter + secondLetter;
-
   return profilLetter;
 }
 
@@ -372,8 +251,6 @@ async function logUserAccount() {
       (contact) => contact.mail == user.userMail
     );
     userName = user.userName;
-
-    console.log(userName);
     const profil = getFirstChars(userName);
     document.getElementById("userAccount").innerHTML = /*html*/ `
   <div class="contact_scrolls_card_small" onclick="showMeInformation('${userName}', '${userMail}','${profil}')" id="me_contact_card">
@@ -399,12 +276,10 @@ async function logUserAccount() {
 
 function showMeInformation(userName, userMail, profil) {
   renderletters();
-  // document.getElementById(`me_contact_card`).classList.remove("contact_scrolls_card_small");
-  // document.getElementById(`me_contact_card`).classList.add("contact_scrolls_card_small_onclick");
-  // document.getElementById(`me_contact_name`).classList.remove("contact_scrolls_card_small_name");
-  // document.getElementById(`me_contact_name`).classList.add("contact_scrolls_card_small_onclick_name");
   document.getElementById("contactInformation").classList.remove("d_none");
-  document.getElementById("contactInformationMobile").classList.remove("d_none");
+  document
+    .getElementById("contactInformationMobile")
+    .classList.remove("d_none");
   let contactInformation = document.getElementById("contactInformation");
   contactInformation.innerHTML = "";
   contactInformation.innerHTML = /*html*/ ` 
@@ -426,14 +301,13 @@ function showMeInformation(userName, userMail, profil) {
       <a href="mailto:${userMail}" class="contacts_bigcard_Information_email"
         >${userMail}</a
       >
-  
     </div>
   </section>
 `;
-if (window.innerWidth < 801) {
-  document.getElementById("closeArrow").classList.remove("d_none");
-  document.getElementById('addContactMobile').classList.add('d_none')
-}
+  if (window.innerWidth < 801) {
+    document.getElementById("closeArrow").classList.remove("d_none");
+    document.getElementById("addContactMobile").classList.add("d_none");
+  }
 }
 
 function successContact() {
@@ -453,14 +327,12 @@ function successContact() {
 }
 
 function closeContactInfoMobile() {
-  document.getElementById('contactInformationMobile').classList.add('d_none')
-  document.getElementById('editContactMobile').classList.add('d_none')
-  document.getElementById('addContactMobile').classList.remove('d_none')
+  document.getElementById("contactInformationMobile").classList.add("d_none");
+  document.getElementById("editContactMobile").classList.add("d_none");
+  document.getElementById("addContactMobile").classList.remove("d_none");
 }
 
 function editFunctionMobile() {
-document.getElementById('editContactMobile').classList.add('d_none')
-document.getElementById('editMobileView').classList.remove('d_none')
-
- 
-} 
+  document.getElementById("editContactMobile").classList.add("d_none");
+  document.getElementById("editMobileView").classList.remove("d_none");
+}

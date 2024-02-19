@@ -254,7 +254,7 @@
   color: #ffffff;
   margin-left: 20px;
   font-size: 47px;
-  margin-bottom: 45px;
+  margin-bottom: 32px;
 }
 
 .profil_ellipse_info_text {
@@ -634,10 +634,10 @@
     height: 408px;
   }
 
-  .contact_overlay_add_contact_card_right_close_x {
-    margin-top: -335px;
-    margin-left: 320px;
-  }
+    .contact_overlay_add_contact_card_right_close_x {
+        margin-top: -335px;
+        margin-left: 320px;
+    }
 
   .contact_overlay_add_contact_card_right_center {
     flex-direction: column;
@@ -646,10 +646,10 @@
     gap: 24px;
   }
 
-  .contact_overlay_add_contact_card_right_inputfield {
-    width: 320px;
-    height: 40px;
-  }
+    .contact_overlay_add_contact_card_right_inputfield {
+        width: 320px;
+        height: 40px;
+    }
 
   .contact_overlay_add_contact_card_right_btn_cancel {
     display: none;
@@ -663,16 +663,16 @@
     gap: 24px;
   }
 
-  .person_img {
-    background-position: 300px 9px;
-  }
+    .person_img {
+        background-position: 300px 9px;
+    }
 
-  .mail_img {
-    background-position: 300px 9px;
-  }
-  .phone_img {
-    background-position: 300px 9px;
-  }
+    .mail_img {
+        background-position: 300px 9px;
+    }
+    .phone_img {
+        background-position: 300px 9px;
+    }
 
   .stroke_blue_horizontal {
     display: none;
@@ -934,10 +934,14 @@
   .contact_overlay_add_contact_card_right_inputfield {
     width: 220px;
     height: 36px;
-    background-position: 216px 9px;
+    background-position: 184px 4px;
     opacity: 0.6;
     border: solid 1px #d1d1d1;
     font-weight: 100;
     font-size: 16px;
   }
+}
+
+.contact_overlay_add_contact_card_right_btn_create {
+  margin-top: 14px;
 }
