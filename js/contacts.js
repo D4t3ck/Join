@@ -165,10 +165,13 @@ function showContactInformation(name, mail, phone, j, profil) {
     .classList.add("contact_scrolls_card_small_onclick_name");
   document.getElementById("contactInformation").classList.remove("d_none");
   let contactInformation = document.getElementById("contactInformation");
+  
 
 
   contactInformation.innerHTML = "";
   contactInformation.innerHTML = generateContactHTML(name, mail, phone, j, profil);
+  document.getElementById('editMobileView').classList.remove('d_none')
+
   }
 
   if (window.innerWidth < 801) {
@@ -184,7 +187,6 @@ function showContactInformation(name, mail, phone, j, profil) {
     contactInformation.innerHTML = "";
     contactInformation.innerHTML = generateContactHTML(name, mail, phone, j, profil);
     document.getElementById("editContactMobile").classList.remove("d_none");
-
   
   }
 
@@ -200,15 +202,13 @@ function generateContactHTML(name, mail, phone, j, profil) {
      };"> <span class="profil_ellipse_info_text">${profil}</span> </div>
      <div class="contacts_bigcard_name_area">
        <span class="contacts_bigcard_name">${name}</span>
-       <div class="contacts_bigcard_edit">
+       <div class="contacts_bigcard_edit d_none" id="editMobileView">
          <div class="edit_area" onclick="editContact('${name}', '${mail}', '${phone}', '${j}','${profil}')">
            <div class="edit_area_img"></div>
            <span class="edit_text">Edit</span>
          </div>
          <div class="edit_area">
            <div class="edit_area_delete_img"></div>
-             
-           
            <span class="edit_text" onclick="deleteContact(${j})">Delete</span>
          </div>
        </div>
@@ -467,3 +467,10 @@ function closeContactInfoMobile() {
   document.getElementById('editContactMobile').classList.add('d_none')
   document.getElementById('addContactMobile').classList.remove('d_none')
 }
+
+function editFunctionMobile() {
+document.getElementById('editContactMobile').classList.add('d_none')
+document.getElementById('editMobileView').classList.remove('d_none')
+
+ 
+} 
