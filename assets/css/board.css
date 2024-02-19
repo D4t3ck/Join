@@ -197,6 +197,9 @@ h1 {
 
 .card_headline {
   padding-top: 8px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
 }
 
 .card_headline span {
@@ -204,6 +207,30 @@ h1 {
   color: white;
   padding: 8px;
   border-radius: 8px;
+}
+
+.card_headline img {
+    width: 24px;
+    object-fit: contain;
+    cursor: pointer;
+}
+
+.card_setting_popup {
+    background-color: rgb(37, 37, 37);
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    border-radius: 8px;
+    padding: 4px 8px;
+    gap: 4px;
+    transition: color 80ms ease-in;
+}
+
+.card_setting_popup a:hover {
+    color: orange;
 }
 
 .card_description {

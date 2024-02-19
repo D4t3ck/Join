@@ -497,3 +497,16 @@ function renderCheckedContactsForEdit() {
     document.getElementById(`profile_span${index}`).style.backgroundColor = findContact.color;
   });
 }
+
+function showSettingPopUp(event, taskId, index) {
+  event.stopPropagation();
+  document.getElementById(`popup_container${index}`).innerHTML = generateSettingsPopUp(taskId, index);
+}
+
+function popUpMoveTo(id, category, index) {
+  document.getElementById(`card_settings_container${index}`).onclick = '';
+  const task = boardData.tasks.find(boardTask => boardTask.id == id);
+  task.categoryBoard = category;
+  setItem('users', boardData);
+  renderTasks(tasks);
+}

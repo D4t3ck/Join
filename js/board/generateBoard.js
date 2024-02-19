@@ -3,6 +3,11 @@ function generateCard(task, index, subTaskCheckLength) {
         <div class="card" draggable="true" ondragstart="startDragging('${task.id}', this)" onclick="renderPopUpCard('${task.id}')">
           <section class="card_headline">
             <span id="card_category_${task.categoryBoard}${index}">${task.category}</span>
+            <div onclick="showSettingPopUp(event, ${task.id}, ${index})" id="card_settings_container${index}">
+              <img src="./assets/img/board/setting.png" alt="change board category">
+              <div id="popup_container${index}" onclick="stopEvent(event)">
+              </div>
+            </div>
           </section>
           <section>
             <h2>${task.title}</h2>
@@ -35,16 +40,14 @@ function generateCategorys() {
           <div class="category_headline">
             <b>To do</b> <img src="./assets/img/board/plus.png" alt="create Task" onclick="renderTaskInBoardCategory('toDo')">
           </div>
-          <div class="category_content" id="toDo" ondragleave="removeHighlight('toDo')" ondrop="moveTo('toDo')" ondragover="allowDrop(event); highlight('toDo')">
-            
+          <div class="category_content" id="toDo" ondragleave="removeHighlight('toDo')" ondrop="moveTo('toDo')" ondragover="allowDrop(event); highlight('toDo')">       
           </div>
         </div>
         <div class="category">
           <div class="category_headline">
             <b>In progress</b><img src="./assets/img/board/plus.png" alt="create Task" onclick="renderTaskInBoardCategory('inProgress')">
           </div>
-          <div class="category_content" id="inProgress" ondragleave="removeHighlight('inProgress')" ondrop="moveTo('inProgress')" ondragover="allowDrop(event); highlight('inProgress')">
-            
+          <div class="category_content" id="inProgress" ondragleave="removeHighlight('inProgress')" ondrop="moveTo('inProgress')" ondragover="allowDrop(event); highlight('inProgress')">    
           </div>
         </div>
         <div class="category">
@@ -68,7 +71,6 @@ function generateAddTask(renderFuctionPara) {
   return /*html*/ `
     <section class="header template" onclick="stopEvent(event)">
     <section class="add_task_content" onclick="closeDropdown()">
-
         <form onsubmit="checkForm(event, '${renderFuctionPara}'); setAddTasksInTasks()">
             <div class="main_content">
                 <h1 class="add_task_headline">Add Task</h1>
@@ -92,7 +94,6 @@ function generateAddTask(renderFuctionPara) {
                                 </select>
                             </div>
                             <div id="assigned_contact_profiles">
-
                             </div>
                         </label>
                     </div>
@@ -136,7 +137,6 @@ function generateAddTask(renderFuctionPara) {
                             </div>
                         </label>
                         <div id="subtask_content">
-
                         </div>
                     </div>
                 </div>
@@ -193,14 +193,12 @@ function generatePopUpCard(task, date, prio) {
         </div>
       </div>
       <div class="stretch">
-        <div class="overlay_assigned_to" id="popup_assigned_to">Assigned To:</div>
-        
+        <div class="overlay_assigned_to" id="popup_assigned_to">Assigned To:</div>       
         </div>
       </div>
       <div class="stretch">
         <div class="overlay_subtasks">Subtasks</div>
         <div class="subtasks_check" id="popup_subtask_container">
-    
         </div>
       </div>
       <div class="overlay_edit">
@@ -279,7 +277,6 @@ function generatePopUpCardEdit(task) {
                       <option value="" disabled selected>Select contacts to assign</option>
                   </select>
                   <div id="assigned_contact_profiles_edit">
-
                   </div>
               </div>
           </label>
@@ -381,6 +378,17 @@ function generateInputAssignedForEdit() {
       <span><img src="./assets/img/add_task/arrow_drop_up.png" alt="close dropdown"></span>
     </div>
     <div id="input_assigned_content_edit" onclick="stopEvent(event)">
+    </div>
+  `;
+}
+
+function generateSettingsPopUp(taskId, index) {
+  return /*html*/`
+    <div class="card_setting_popup">
+        <a onclick="popUpMoveTo(${taskId}, 'toDo', ${index})">Todo</a>
+        <a onclick="popUpMoveTo(${taskId}, 'inProgress', ${index})">In progress</a>
+        <a onclick="popUpMoveTo(${taskId}, 'awaitFeedback', ${index})">Await Feedback</a>
+        <a onclick="popUpMoveTo(${taskId}, 'done', ${index})">Done</a>
     </div>
   `;
 }
