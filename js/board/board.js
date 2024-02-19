@@ -184,6 +184,7 @@ function renderPopUpCard(taskId) {
 }
 
 function renderPopUpCardEdit() {
+  checkedContacts = currentTask.assignedTo;
   document.getElementById("card_popup_content").innerHTML =
     generatePopUpCardEdit(currentTask);
   getPrioSpansEdit();
@@ -192,6 +193,7 @@ function renderPopUpCardEdit() {
   setCategoryEdit(currentTask);
   setDescriptionEditValue(currentTask);
   renderSubtasksEdit(currentTask);
+  renderCheckedContactsForEdit();
 }
 
 function checkPrio(prio) {
@@ -410,7 +412,6 @@ function editPopUpSave(id) {
   task.dueDate = document.getElementById("date_input_edit").value;
   task.prio = getPrioEdit();
   task.assignedTo = checkedContacts;
-
   setItem("users", boardData);
   renderPopUpCard(id);
 }
@@ -445,10 +446,12 @@ function renderInputAssignedForEdit() {
 function closeDropdownForEdit() {
   if (assignRdy) {
     getCheckedContacts();
+    currentTask.assignedTo = checkedContacts;
     const content = document.getElementById('assigned_container_edit');
     content.innerHTML = '';
     content.innerHTML = generateAssignSelectionForEdit();
     assignRdy = false;
+    renderCheckedContactsForEdit();
   }
 }
 
@@ -483,5 +486,14 @@ function checkActiveContacts() {
         document.getElementById(`contact${index}`).checked = true;
       }
     });
+  });
+}
+
+function renderCheckedContactsForEdit() {
+  checkedContacts.forEach((checkedContact, index) => {
+    const findContact = data.contacts.find(contact => contact.name == checkedContact);
+    const profileName = getProfileChar(checkedContact);
+    document.getElementById('assigned_contact_profiles_edit').innerHTML += generateContactProfile(profileName, index);
+    document.getElementById(`profile_span${index}`).style.backgroundColor = findContact.color;
   });
 }

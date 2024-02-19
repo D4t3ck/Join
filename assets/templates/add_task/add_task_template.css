@@ -379,6 +379,15 @@ h1 {
     scale: 1.1;
 }
 
+#assigned_contact_profiles_edit {
+  display: flex;
+  width: 100%;
+  padding-top: 8px;
+  overflow-x: auto;
+  max-width: 480px;
+  gap: 8px;
+}
+
 .profile_span {
     background-color: yellow;
     padding: 10px 8px;

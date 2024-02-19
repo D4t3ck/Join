@@ -278,6 +278,9 @@ function generatePopUpCardEdit(task) {
                   <select name="" id="select_contact" placeholder="test" class="select" onclick="renderInputAssignedForEdit()">
                       <option value="" disabled selected>Select contacts to assign</option>
                   </select>
+                  <div id="assigned_contact_profiles_edit">
+
+                  </div>
               </div>
           </label>
       </div>
@@ -366,6 +369,8 @@ function generateAssignSelectionForEdit() {
       <select name="" id="select_contact" placeholder="test" class="select" onclick="renderInputAssignedForEdit()">
           <option value="" disabled selected>Select contacts to assign</option>
       </select>
+      <div id="assigned_contact_profiles_edit">
+      </div>
   `;
 }
 
