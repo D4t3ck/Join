@@ -4,7 +4,7 @@ function generateCard(task, index, subTaskCheckLength) {
           <section class="card_headline">
             <span id="card_category_${task.categoryBoard}${index}">${task.category}</span>
             <div onclick="showSettingPopUp(event, ${task.id}, ${index})" id="card_settings_container${index}">
-              <img src="./assets/img/board/setting.png" alt="change board category">
+              <img src="./assets/img/board/switch.png" alt="change board category">
               <div id="popup_container${index}" onclick="stopEvent(event)">
               </div>
             </div>

@@ -114,8 +114,6 @@ async function inputValue() {
     };
     
     userList.push(user);
-    console.log(dataAsJson);
-    /* setItem("users", dataAsJson);*/
 
     // Call successSignup() function and redirect to index page after sign-up success
     successSignup().then(() => {

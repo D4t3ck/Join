@@ -52,5 +52,4 @@ function getFirstChars(name) {
   const profilLetter = first1letter + secondLetter;
 
   return profilLetter;
-  // console.log(profilLetter)
 }

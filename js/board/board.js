@@ -84,7 +84,6 @@ function printProfiles(task, index) {
     ).innerHTML += generateCardContactProfile(name, i, task.categoryBoard, index);
     setCardProfileBg(contact, i, task.categoryBoard, 'card_profile_span_', index);
   });
-  console.log(task);
 }
 
 function getProfileName(contact) {
