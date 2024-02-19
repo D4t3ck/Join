@@ -468,8 +468,18 @@ function renderAssignedContentForEdit() {
       generateContact(contact.name, index);
     setContactValue(contact.name, index);
   });
-  checkContactChecked();
+  checkActiveContacts();
   setTimeout(() => {
     assignRdy = true;
   }, 500);
+}
+
+function checkActiveContacts() {
+  data.contacts.forEach((contact, index) => {
+    currentTask.assignedTo.forEach(assignedContact => {
+      if(assignedContact == contact.name) {
+        document.getElementById(`contact${index}`).checked = true;
+      }
+    });
+  });
 }
