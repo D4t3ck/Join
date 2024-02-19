@@ -38,7 +38,7 @@
                   id="search_task_input"
                   type="text"
                   placeholder="Find Task"
-                  onkeyup="searchTask()"
+                  onkeyup="searchTask('search_task_input')"
                 />
                 <div class="br"></div>
                 <img
@@ -49,6 +49,21 @@
               <button onclick="showAddTask()" class="add_task_button">
                 Add task <img src="./assets/img/board/add.png" />
               </button>
+            </div>
+          </section>
+          <section class="mobile_headline_input_container">
+            <div class="mobile_headline_input">
+              <input
+                id="mobile_search_task_input"
+                type="text"
+                placeholder="Find Task"
+                onkeyup="searchTask('mobile_search_task_input')"
+              />
+              <div class="br"></div>
+              <img
+                src="./assets/img/board/magnifiying_glass.png"
+                alt="search task input"
+              />
             </div>
           </section>
           <section class="category_section" id="category_section"></section>

@@ -3,9 +3,9 @@ function generateCard(task, index, subTaskCheckLength) {
         <div class="card" draggable="true" ondragstart="startDragging('${task.id}', this)" onclick="renderPopUpCard('${task.id}')">
           <section class="card_headline">
             <span id="card_category_${task.categoryBoard}${index}">${task.category}</span>
-            <div onclick="showSettingPopUp(event, ${task.id}, ${index})" id="card_settings_container${index}">
+            <div onclick="showSettingPopUp(event, ${task.id}, ${index}, '${task.categoryBoard}')" id="card_settings_container${index}">
               <img src="./assets/img/board/switch.png" alt="change board category">
-              <div id="popup_container${index}" onclick="stopEvent(event)">
+              <div id="popup_container_${task.categoryBoard}${index}" onclick="stopEvent(event)">
               </div>
             </div>
           </section>

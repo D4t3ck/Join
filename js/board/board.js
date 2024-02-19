@@ -373,9 +373,9 @@ function deleteTask(id) {
   closePopUpCard();
 }
 
-function searchTask() {
+function searchTask(id) {
   const inputValue = document
-    .getElementById("search_task_input")
+    .getElementById(id)
     .value.toLowerCase();
   if (inputValue != "") {
     const filteredTasks = tasks.filter((task) =>
@@ -497,9 +497,9 @@ function renderCheckedContactsForEdit() {
   });
 }
 
-function showSettingPopUp(event, taskId, index) {
+function showSettingPopUp(event, taskId, index, categoryBoard) {
   event.stopPropagation();
-  document.getElementById(`popup_container${index}`).innerHTML = generateSettingsPopUp(taskId, index);
+  document.getElementById(`popup_container_${categoryBoard}${index}`).innerHTML = generateSettingsPopUp(taskId, index);
 }
 
 function popUpMoveTo(id, category, index) {
