@@ -242,7 +242,6 @@ async function logUserAccount() {
   let userName;
   let userMail = urlParams.get("mail");
   let user = users.find((task) => task.userMail == userMail);
-  console.log(user);
 
   if (user == null || user == "null") {
     document.getElementById("userAccount").innerHTML = "";
