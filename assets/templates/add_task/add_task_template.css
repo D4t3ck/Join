@@ -401,12 +401,6 @@ h1 {
     align-content: center;
   }
 
-@media(max-width: 1350px) {
-    .form_content {
-        flex-direction: column;
-    }
-}
-
 @media(max-width: 1000px) {
     .side_bar_container {
         min-width: 0;

@@ -85,6 +85,12 @@
   }
 }
 
+@media(max-width: 1000px) {
+    .form_content {
+      flex-direction: column;
+  }
+}
+
 @media (max-width: 900px) {
   .category_content {
     max-width: 600px;

@@ -12,6 +12,19 @@ function initBoard() {
   getBoardData();
 }
 
+window.addEventListener('resize', changeAddTaskButton);
+
+function changeAddTaskButton() {
+  const addTaskButton = document.getElementById('board_add_task_button');
+  if(window.innerWidth <= 1000) {
+    addTaskButton.addEventListener('click', changeButtonSite);
+  } else addTaskButton.addEventListener('click', showAddTask);
+}
+
+function changeButtonSite() {
+  changeCurrentPage('add_task')
+}
+
 async function getBoardData() {
   const response = await getItem("users");
   await getData();

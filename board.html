@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="./assets/css/overlay.css" />
   </head>
 
-  <body onload="init(); initBoard();">
+  <body onload="init(); initBoard();" onchange="changeAddTaskButton()">
     <div class="container">
       <div class="side_bar_position_container">
         <div w3-include-html="./assets/templates/sidebar/sidebar.html"></div>
@@ -46,7 +46,7 @@
                   alt="search task input"
                 />
               </div>
-              <button onclick="showAddTask()" class="add_task_button">
+              <button id="board_add_task_button" class="add_task_button">
                 <span>Add task</span> <img src="./assets/img/board/add.png" />
               </button>
             </div>
