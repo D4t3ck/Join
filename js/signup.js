@@ -111,6 +111,7 @@ async function inputValue() {
     };
 
     userList.push(user);
+    setItem("users", dataAsJson);
 
     successSignup().then(() => {
       window.location.href = "./index.html";
