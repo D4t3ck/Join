@@ -409,6 +409,7 @@ function editPopUpSave(id) {
   task.description = document.getElementById("description_textarea_edit").value;
   task.dueDate = document.getElementById("date_input_edit").value;
   task.prio = getPrioEdit();
+  task.assignedTo = checkedContacts;
 
   setItem("users", boardData);
   renderPopUpCard(id);
@@ -434,6 +435,7 @@ function getPrioEdit() {
 
 
 function renderInputAssignedForEdit() {
+  document.getElementById('select_contact').onclick = '';
   document.getElementById("assigned_container_edit").innerHTML =
     generateInputAssignedForEdit();
     renderAssignedContentForEdit();

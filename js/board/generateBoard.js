@@ -375,7 +375,7 @@ function generateInputAssignedForEdit() {
       <input type="text" class="input" id="assigned_input_edit" onkeyup="searchContact()">
       <span><img src="./assets/img/add_task/arrow_drop_up.png" alt="close dropdown"></span>
     </div>
-    <div id="input_assigned_content_edit">
+    <div id="input_assigned_content_edit" onclick="stopEvent(event)">
     </div>
   `;
 }
