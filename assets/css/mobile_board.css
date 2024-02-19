@@ -85,6 +85,10 @@
   .category_content {
     max-width: 400px;
   }
+
+  #card_popup_content {
+    margin: 0 24px;
+  }
 }
 
 @media(max-width: 500px) {
@@ -93,14 +97,32 @@
     }
 }
 
+@media(max-width: 480px) {
+    .overlay h1 {
+        font-size: 40px;
+    }
+}
+
 @media(max-width: 400px) {
     .category_content {
         max-width: 276px;
     }
+
+    .overlay {
+        padding: 16px 16px !important;
+    }
+
+    #card_popup_content {
+        margin: 0 24px;
+    }
 }
 
-@media(max-width: 350px) {
+@media(max-width: 370px) {
     .board_content {
         padding: 0px 16px;
+    }
+
+    .overlay h1 {
+        font-size: 32px;
     }
 }
