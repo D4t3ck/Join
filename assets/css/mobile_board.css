@@ -92,6 +92,12 @@
   }
 }
 
+@media(max-width: 550px) {
+    #subtask_content_edit {
+        font-size: 11px;
+    }
+}
+
 @media(max-width: 500px) {
     .category_content {
         max-width: 300px;
@@ -101,6 +107,25 @@
 @media(max-width: 480px) {
     .overlay h1 {
         font-size: 40px;
+    }
+}
+
+@media(max-width: 450px) {
+    .prio_category h2{
+        font-size: 10px;
+    }
+
+    .prio_category span {
+        display: flex;
+        align-items: center;
+    }
+
+    .prio_category img {
+        width: 16px;
+    }
+
+    .input_edit {
+        font-size: 14px;
     }
 }
 
@@ -125,5 +150,9 @@
 
     .overlay h1 {
         font-size: 32px;
+    }
+
+    .prio_category img {
+        width: 10px;
     }
 }
