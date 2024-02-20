@@ -83,7 +83,7 @@ h1 {
 
 .prio_category_span {
   display: flex;
-  padding: 4px 16px;
+  padding: 4px 0px;
   justify-content: center;
   align-items: center;
   gap: 8px;

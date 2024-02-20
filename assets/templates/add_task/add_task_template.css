@@ -131,18 +131,17 @@ h1 {
     display: flex;
     padding: 12px 21px;
     align-items: center;
+    width: 100%;
     gap: 10px;
     align-self: stretch;
     border-radius: 10px;
     border: 1px solid #D1D1D1;
     background: #FFF;
-
-    /* Version 2/t6 */
     font-family: Inter;
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
-    line-height: 120%; /* 24px */
+    line-height: 120%;
 }
 
 .select {

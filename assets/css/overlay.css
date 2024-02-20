@@ -104,6 +104,7 @@
   line-height: 120%;
   max-height: 200px;
   overflow-y: auto;
+  scrollbar-width: thin;
 }
 
 .assigned_to_container {
@@ -152,6 +153,9 @@
   align-items: flex-start;
   gap: 4px;
   align-self: stretch;
+  overflow-y: auto;
+  max-height: 125px;
+  scrollbar-width: thin;
 }
 
 .subtask {
