@@ -301,7 +301,7 @@ function generatePopUpCardEdit(task) {
                   </span>
               </div>
           </label>
-          <label for="select_category">
+          <label for="select_category" class="d-none">
               <h2>Category<span class="required_char">*</span></h2>
               <select name="" id="select_category_edit" class="select" required>
                   <option value="" disabled selected>Select task category</option>

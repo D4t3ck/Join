@@ -1,3 +1,7 @@
+.d-none {
+    display: none;
+}
+
 .template {
     display: flex;
     font-size: 8px;
@@ -30,11 +34,10 @@ h1 {
     margin: 0px;
     margin-top: 48px;
     margin-bottom: 8px;
-    /* Version 2/t1 */
     font-size: 61px;
     font-style: normal;
     font-weight: 700;
-    line-height: 120%; /* 73.2px */
+    line-height: 120%;
 }
 
 .add_task_headline {
