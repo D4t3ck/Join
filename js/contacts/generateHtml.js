@@ -12,9 +12,9 @@ function generateContactHTML(name, mail, phone, j, profil) {
              <div class="edit_area_img"></div>
              <span class="edit_text">Edit</span>
            </div>
-           <div class="edit_area">
+           <div class="edit_area" onclick="deleteContact(${j})">
              <div class="edit_area_delete_img"></div>
-             <span class="edit_text" onclick="deleteContact(${j})">Delete</span>
+             <span class="edit_text">Delete</span>
            </div>
          </div>
        </div>
@@ -124,4 +124,53 @@ function generateEditContactHTML(name, mail, phone, j, profil) {
                 </div>
               </section>
     `;
+}
+
+function renderContactCard(name, mail, phone, j, profil, color) {
+  return /*html*/`<div class="contact_scrolls_card_small" onclick="showContactInformation('${name}', '${mail}', '${phone}','${j}','${profil}')" id="contact_card${j}">
+            <div class="profil_ellipse" style="background-color: ${color};">${profil}</div>
+            <div class="contact_scrolls_card_small_contact">
+                <span id="contact_card_name${j}" class="contact_scrolls_card_small_name">${name}</span>
+                <span class="contact_scrolls_card_small_email">${mail}</span>
+            </div>
+        </div>`;
+}
+
+function renderContactInformationHtml(userName, userMail, profil) {
+  return /*html*/ `
+      <section class="contacts_bigcard_container">
+          <div class="contacts_bigcard_contact_area">
+              <div class="profil_ellipse_info" style="background-color: #c0c0c0;">
+                  <span class="profil_ellipse_info_text">${profil}</span>
+              </div>
+              <div class="contacts_bigcard_name_area">
+                  <span class="contacts_bigcard_name">${userName} (ME)</span>
+              </div>
+          </div>
+          <span class="contacts_bigcard_Information_text">User Information</span>
+          <div class="contacts_bigcard_Information_email_phone">
+              <span class="contacts_bigcard_Information_email_phone_span">Email</span>
+              <a href="mailto:${userMail}" class="contacts_bigcard_Information_email">${userMail}</a>
+          </div>
+      </section>`;
+}
+
+function renderLettersHtml(letter) {
+  return /*html*/`
+  <span class="contacts_scroll_abc_text">${letter}</span>
+  <div class="contact_scrolls_stroke">
+  <img class="letter_stroke" src="./assets/img/contacts/strokeGray.png" alt="" />
+  </div>
+  `;
+}
+
+function renderUserAccountHtml(userName, userMail, profil) {
+  return /*html*/ `
+      <div class="contact_scrolls_card_small" onclick="showMeInformation('${userName}', '${userMail}','${profil}')" id="me_contact_card">
+          <div class="profil_ellipse" style="background-color: #c0c0c0;">${profil}</div>
+          <div class="contact_scrolls_card_small_contact">
+              <span class="contact_scrolls_card_small_name" id="me_contact_name">${userName} (ME)</span>
+              <span class="contact_scrolls_card_small_email">${userMail}</span>
+          </div>
+      </div>`;
 }
