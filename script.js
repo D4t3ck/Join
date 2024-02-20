@@ -24,14 +24,8 @@ async function getCurrentUser() {
   currentUser = usersFiltered;
 }
 
-/**
- * Token used for authorization when interacting with the remote storage service.
- */
-const STORAGE_TOKEN = "V3GBL599LI0VXDK4HJXHD632WIB3WOBMWS6ENT06";
 
-/**
- * Base URL for the remote storage service.
- */
+const STORAGE_TOKEN = "V3GBL599LI0VXDK4HJXHD632WIB3WOBMWS6ENT06";
 const STORAGE_URL = "https://remote-storage.developerakademie.org/item";
 
 /**
@@ -61,7 +55,6 @@ async function getItem(key) {
   return fetch(url)
     .then((res) => res.json())
     .then((res) => {
-      // Verbesserter code
       if (res.data) {
         return res.data.value;
       }
@@ -93,12 +86,12 @@ function highlightCurrentPage() {
   let currentPage = window.location.pathname;
 
   const pages = [
-    "/summary.html",
-    "/add_task.html",
-    "/board.html",
-    "/contacts.html",
-    "/privacy_policy.html",
-    "/legal_notice.html",
+    "/Join/summary.html",
+    "/Join/add_task.html",
+    "/Join/board.html",
+    "/Join/contacts.html",
+    "/Join/privacy_policy.html",
+    "/Join/legal_notice.html",
   ];
 
   pages.forEach((page, index) => {
