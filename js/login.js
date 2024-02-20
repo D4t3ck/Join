@@ -184,26 +184,30 @@ function displayErrorMessage(message) {
 }
 
 /**
- * Toggles the blue outline for input containers based on whether the corresponding input fields have values or not.
- * Adds a blue outline to the container if the input field has a value, otherwise removes it.
+ * Toggles the blue outline class on the specified container based on the value of the input element.
+ * @param {HTMLInputElement} input - The input element to check its value.
+ * @param {HTMLElement} container - The container element to toggle the outline class on.
+ */
+function toggleOutline(input, container) {
+  if (input.value !== "") {
+    container.classList.add("outline_blue");
+  } else {
+    container.classList.remove("outline_blue");
+  }
+}
+
+/**
+ * Toggles the blue outline class on email and password input field containers based on their input values.
  */
 function toggleBlueOutline() {
+ 
   let emailContainer = document.getElementById("emailContainer");
   let passwordContainer = document.getElementById("passwordContainer");
   let emailInput = document.getElementById("email");
   let passwordInput = document.getElementById("password");
 
-  if (emailInput.value !== "") {
-    emailContainer.classList.add("outline_blue");
-  } else {
-    emailContainer.classList.remove("outline_blue");
-  }
-
-  if (passwordInput.value !== "") {
-    passwordContainer.classList.add("outline_blue");
-  } else {
-    passwordContainer.classList.remove("outline_blue");
-  }
+  toggleOutline(emailInput, emailContainer);
+  toggleOutline(passwordInput, passwordContainer);
 }
 
 /**
