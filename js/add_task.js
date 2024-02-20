@@ -238,13 +238,18 @@ function renderAssignedContent() {
 
 function checkContactChecked() {
   let filteredContacts;
+  const contactList = document.querySelectorAll(".contact");
   data.contacts.forEach((contact, index) => {
     filteredContacts = checkedContacts.find(
       (checkContact) => checkContact == contact.name
     );
     if (filteredContacts) {
-      let contact = document.getElementById(`contact${index}`);
-      if (contact) contact.checked = true;
+      for(let i = 0; i < contactList.length; i++) {
+        if(contactList[i].value == filteredContacts) {
+          let contact = document.getElementById(contactList[i].id);
+          if (contact) contact.checked = true;
+        }
+      }
     }
   });
 }
