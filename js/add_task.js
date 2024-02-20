@@ -117,7 +117,7 @@ function getTaskData(categoryBoard) {
     null
   );
   tasksInAddTask.push(task);
-  /* setItem("users", data); */
+  setItem("users", data);
   clear();
 }
 
