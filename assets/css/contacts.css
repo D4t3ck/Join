@@ -633,10 +633,10 @@
     gap: 24px;
   }
 
-    .contact_overlay_add_contact_card_right_inputfield {
-        width: 320px;
-        height: 40px;
-    }
+  .contact_overlay_add_contact_card_right_inputfield {
+    width: 320px;
+    height: 40px;
+  }
 
   .contact_overlay_add_contact_card_right_btn_cancel {
     display: none;
@@ -650,16 +650,16 @@
     gap: 24px;
   }
 
-    .person_img {
-      background-position: 280px 7px;
-    }
+  .person_img {
+    background-position: 280px 7px;
+  }
 
-    .mail_img {
-      background-position: 280px 7px;
-    }
-    .phone_img {
-      background-position: 280px 7px;
-    }
+  .mail_img {
+    background-position: 280px 7px;
+  }
+  .phone_img {
+    background-position: 280px 7px;
+  }
 
   .stroke_blue_horizontal {
     display: none;
