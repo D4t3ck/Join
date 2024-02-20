@@ -163,3 +163,21 @@ function renderAssignedContentForEdit() {
     assignRdy = true;
   }, 500);
 }
+
+function searchContactForEdit() {
+  const filteredContacts = [];
+  const inputValue = document
+    .getElementById("assigned_input_edit")
+    .value.toLocaleLowerCase();
+  document.getElementById("input_assigned_content_edit").innerHTML = "";
+  data.contacts.forEach((contact) => {
+    if (contact.name.toLocaleLowerCase().includes(inputValue))
+      filteredContacts.push(contact.name);
+  });
+  filteredContacts.forEach((contact, index) => {
+    document.getElementById("input_assigned_content_edit").innerHTML +=
+      generateContact(contact, index);
+    setContactValue(contact, index);
+    checkContactChecked();
+  });
+}
