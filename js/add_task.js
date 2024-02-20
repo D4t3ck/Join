@@ -243,7 +243,8 @@ function checkContactChecked() {
       (checkContact) => checkContact == contact.name
     );
     if (filteredContacts) {
-      document.getElementById(`contact${index}`).checked = true;
+      let contact = document.getElementById(`contact${index}`);
+      if(contact) contact.checked = true;
     }
   });
 }
@@ -289,10 +290,30 @@ function getProfileChar(checkedContact) {
 
 function getCheckedContacts() {
   const contactList = document.querySelectorAll(".contact");
-  checkedContacts = [];
-  for (let i = 0; i < contactList.length; i++) {
-    if (contactList[i].checked) checkedContacts.push(contactList[i].value);
+  if(!checkedContacts) {
+    checkedContacts = [];
   }
+  for (let i = 0; i < contactList.length; i++) {
+    if (contactList[i].checked) {
+      addSearchContact(contactList, i);
+    } else {
+      removeSearchContact(contactList, i);
+    }
+  }
+}
+
+function addSearchContact(contactList, i) {
+  const findContact = checkedContacts.find(contact => contact == contactList[i].value);
+  if(!findContact) {
+    checkedContacts.push(contactList[i].value);
+  }
+}
+
+function removeSearchContact(contactList, i) {
+  const index = checkedContacts.indexOf(contactList[i].value);
+      if(index > -1) {
+        checkedContacts.splice(index, 1);
+      }
 }
 
 function searchContact() {
@@ -309,6 +330,7 @@ function searchContact() {
     document.getElementById("input_assigned_content").innerHTML +=
       generateContact(contact, index);
     setContactValue(contact, index);
+    checkContactChecked();
   });
 }
 
