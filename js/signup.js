@@ -128,35 +128,20 @@ function errorSignUpCheckbox() {
 }
 
 /**
- * Checks if the passwords entered in the signup form match.
- * Enables the signup button if they match, otherwise displays an error message and disables the button.
+ * Toggles the blue outline class on the specified container based on the value of the input element.
+ * @param {HTMLInputElement} element - The input element to check its value.
+ * @param {HTMLElement} container - The container element to toggle the outline class on.
  */
-function checkPasswords() {
-  let password1 = document.getElementById("passwordSignup").value;
-  let password2 = document.getElementById("passwordConfirm").value;
-
-  if (password1 === password2) {
-    document.getElementById("signUpBtn").disabled = false;
-    removeRedOutline();
+function toggleOutline(element, container) {
+  if (element.value !== "") {
+    container.classList.add("outline_blue");
   } else {
-    displayErrorMessage("The passwords do not match!");
-    document.getElementById("signUpBtn").disabled = true;
-    errorRedOutline();
+    container.classList.remove("outline_blue");
   }
 }
 
 /**
- * Displays an error message on the web page.
- * @param {string} message - The error message to display.
- */
-function displayErrorMessage(message) {
-  let errorMessage = document.getElementById("errorTxt");
-  errorMessage.textContent = message;
-}
-
-/**
- * Toggles the blue outline for input containers based on whether the corresponding input fields have values or not.
- * Adds a blue outline to the container if the input field has a value, otherwise removes it.
+ * Toggles the blue outline class on input field containers based on their input values.
  */
 function toggleBlueOutline() {
   let nameContainer = document.getElementById("nameContainer");
@@ -168,29 +153,40 @@ function toggleBlueOutline() {
   let pwdConfirmContainer = document.getElementById("passwordConfirmContainer");
   let pwdConfirmInput = document.getElementById("passwordConfirm");
 
-  if (nameInput.value !== "") {
-    nameContainer.classList.add("outline_blue");
-  } else {
-    nameContainer.classList.remove("outline_blue");
-  }
+  toggleOutline(nameInput, nameContainer);
+  toggleOutline(emailInput, emailContainer);
+  toggleOutline(pwdInput, pwdContainer);
+  toggleOutline(pwdConfirmInput, pwdConfirmContainer);
+}
 
-  if (emailInput.value !== "") {
-    emailContainer.classList.add("outline_blue");
-  } else {
-    emailContainer.classList.remove("outline_blue");
-  }
+/**
+ * Checks if the passwords entered in the signup form match.
+ * Enables the signup button if they match, otherwise displays an error message and disables the button.
+ */
+function checkPasswords() {
+  let password1 = document.getElementById("passwordSignup").value;
+  let password2 = document.getElementById("passwordConfirm").value;
+  let btnFalse = document.getElementById("signUpBtn").disabled = false;
+  let btnTrue = document.getElementById("signUpBtn").disabled = true;
 
-  if (pwdInput.value !== "") {
-    pwdContainer.classList.add("outline_blue");
+  if (password1 === password2) {
+    displayErrorMessage('');
+    btnFalse;
+    removeRedOutline();
   } else {
-    pwdContainer.classList.remove("outline_blue");
+    displayErrorMessage("The passwords do not match!");
+    btnTrue;
+    errorRedOutline();
   }
+}
 
-  if (pwdConfirmInput.value !== "") {
-    pwdConfirmContainer.classList.add("outline_blue");
-  } else {
-    pwdConfirmContainer.classList.remove("outline_blue");
-  }
+/**
+ * Displays an error message on the web page.
+ * @param {string} message - The error message to display.
+ */
+function displayErrorMessage(message) {
+  let errorMessage = document.getElementById("errorTxt");
+  errorMessage.textContent = message;
 }
 
 /**

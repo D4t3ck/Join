@@ -113,6 +113,7 @@
   background-color: #ffffff;
   margin-top: 101px;
   overflow-y: auto;
+  scrollbar-width: thin;
 }
 
 .contacts_scroll_abc {
