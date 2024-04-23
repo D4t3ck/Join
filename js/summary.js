@@ -44,13 +44,14 @@ function updateUpcomingDeadline(tasks) {
   let upcomingTask = null;
 
   for (let i = 0; i < tasks.length; i++) {
-    let dueDate = new Date(tasks[i].dueDate);
+    let dueDate = new Date(tasks[i].dueDate).getTime();
+    const currentTask = new Date().getTime();
 
-    if (dueDate > new Date()) {
+    if (dueDate >= currentTask) {
       if (!upcomingTask || dueDate < new Date(upcomingTask.dueDate)) {
         upcomingTask = tasks[i];
-      }
-    }
+      } 
+    }  
   }
 
   if (upcomingTask) {
@@ -76,7 +77,7 @@ function updateUpcomingDeadline(tasks) {
     upcomingDeadlineElement.innerHTML = `${monthName} ${day}, ${new Date(
       upcomingTask.dueDate
     ).getFullYear()}`;
-  }
+  } 
 }
 
 /**
