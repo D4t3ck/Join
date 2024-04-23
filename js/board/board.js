@@ -12,28 +12,40 @@ function initBoard() {
   getBoardData();
 }
 
-window.addEventListener('resize', changeAddTaskButton);
+window.addEventListener("resize", changeAddTaskButton);
 
 function changeAddTaskButton() {
-  if(window.innerWidth <= 1000) {
+  if (window.innerWidth <= 1000) {
     setChangeButtonSite();
   } else setShowAddTask();
 }
 
 function setChangeButtonSite() {
-  document.getElementById('board_add_task_button').addEventListener('click', changeButtonSite);
-  document.getElementById('category_headline_img0').addEventListener('click', changeButtonSite);
-  document.getElementById('category_headline_img1').addEventListener('click', changeButtonSite);
-  document.getElementById('category_headline_img2').addEventListener('click', changeButtonSite);
-  document.getElementById('category_headline_img3').addEventListener('click', changeButtonSite);
+  document
+    .getElementById("board_add_task_button")
+    .addEventListener("click", changeButtonSite);
+  document
+    .getElementById("category_headline_img0")
+    .addEventListener("click", changeButtonSite);
+  document
+    .getElementById("category_headline_img1")
+    .addEventListener("click", changeButtonSite);
+  document
+    .getElementById("category_headline_img2")
+    .addEventListener("click", changeButtonSite);
+  document
+    .getElementById("category_headline_img3")
+    .addEventListener("click", changeButtonSite);
 }
 
 function setShowAddTask() {
-  document.getElementById('board_add_task_button').addEventListener('click', showAddTask);
+  document
+    .getElementById("board_add_task_button")
+    .addEventListener("click", showAddTask);
 }
 
 function changeButtonSite() {
-  changeCurrentPage('add_task')
+  changeCurrentPage("add_task");
 }
 
 async function getBoardData() {
@@ -106,8 +118,19 @@ function printProfiles(task, index) {
     const name = getProfileName(contact);
     document.getElementById(
       `card_profile_img_container_${task.categoryBoard}${index}`
-    ).innerHTML += generateCardContactProfile(name, i, task.categoryBoard, index);
-    setCardProfileBg(contact, i, task.categoryBoard, 'card_profile_span_', index);
+    ).innerHTML += generateCardContactProfile(
+      name,
+      i,
+      task.categoryBoard,
+      index
+    );
+    setCardProfileBg(
+      contact,
+      i,
+      task.categoryBoard,
+      "card_profile_span_",
+      index
+    );
   });
 }
 
@@ -121,9 +144,13 @@ function getProfileName(contact) {
 }
 
 function setCardProfileBg(contact, i, categoryBoard, id, index) {
-  const currentContact = boardData.contacts.find(boardContact => boardContact.name == contact);
-  if(currentContact) {
-    document.getElementById(`${id}${categoryBoard}${index}${i}`).style.backgroundColor = currentContact.color;
+  const currentContact = boardData.contacts.find(
+    (boardContact) => boardContact.name == contact
+  );
+  if (currentContact) {
+    document.getElementById(
+      `${id}${categoryBoard}${index}${i}`
+    ).style.backgroundColor = currentContact.color;
   }
 }
 
@@ -223,10 +250,11 @@ function renderAssignedContacts(task) {
   task.assignedTo.forEach((contact, index) => {
     document.getElementById("popup_assigned_to").innerHTML +=
       generateAssignContact(contact, index);
-      const name = getProfileName(contact);
-      document.getElementById(`card_profile_fullpopup_container${index}`).innerHTML =
-      generateCardContactProfile(name, index, 'popup');
-      setCardProfileBg(contact, index, 'popup', 'card_profile_span_');
+    const name = getProfileName(contact);
+    document.getElementById(
+      `card_profile_fullpopup_container${index}`
+    ).innerHTML = generateCardContactProfile(name, index, "popup");
+    setCardProfileBg(contact, index, "popup", "card_profile_span_");
   });
 }
 
@@ -315,12 +343,12 @@ function deleteTask(id) {
 }
 
 function searchTask(id) {
-  const inputValue = document
-    .getElementById(id)
-    .value.toLowerCase();
+  const inputValue = document.getElementById(id).value.toLowerCase();
   if (inputValue != "") {
-    const filteredTasks = tasks.filter((task) =>
-      task.title.toLowerCase().includes(inputValue)
+    const filteredTasks = tasks.filter(
+      (task) =>
+        task.title.toLowerCase().includes(inputValue) ||
+        task.category.toLowerCase().includes(inputValue)
     );
     renderTasks(filteredTasks);
   } else renderTasks(tasks);
@@ -339,8 +367,8 @@ function editPopUpSave(id) {
 
 function checkActiveContacts() {
   data.contacts.forEach((contact, index) => {
-    currentTask.assignedTo.forEach(assignedContact => {
-      if(assignedContact == contact.name) {
+    currentTask.assignedTo.forEach((assignedContact) => {
+      if (assignedContact == contact.name) {
         document.getElementById(`contact${index}`).checked = true;
       }
     });
@@ -349,24 +377,30 @@ function checkActiveContacts() {
 
 function renderCheckedContactsForEdit() {
   checkedContacts.forEach((checkedContact, index) => {
-    const findContact = data.contacts.find(contact => contact.name == checkedContact);
-    if(findContact) {
+    const findContact = data.contacts.find(
+      (contact) => contact.name == checkedContact
+    );
+    if (findContact) {
       const profileName = getProfileChar(checkedContact);
-      document.getElementById('assigned_contact_profiles_edit').innerHTML += generateContactProfile(profileName, index);
-      document.getElementById(`profile_span${index}`).style.backgroundColor = findContact.color;
+      document.getElementById("assigned_contact_profiles_edit").innerHTML +=
+        generateContactProfile(profileName, index);
+      document.getElementById(`profile_span${index}`).style.backgroundColor =
+        findContact.color;
     }
   });
 }
 
 function showSettingPopUp(event, taskId, index, categoryBoard) {
   event.stopPropagation();
-  document.getElementById(`popup_container_${categoryBoard}${index}`).innerHTML = generateSettingsPopUp(taskId, index);
+  document.getElementById(
+    `popup_container_${categoryBoard}${index}`
+  ).innerHTML = generateSettingsPopUp(taskId, index);
 }
 
 function popUpMoveTo(id, category, index) {
-  document.getElementById(`card_settings_container${index}`).onclick = '';
-  const task = boardData.tasks.find(boardTask => boardTask.id == id);
+  document.getElementById(`card_settings_container${index}`).onclick = "";
+  const task = boardData.tasks.find((boardTask) => boardTask.id == id);
   task.categoryBoard = category;
-  setItem('users', boardData);
+  setItem("users", boardData);
   renderTasks(tasks);
 }
