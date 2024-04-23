@@ -42,42 +42,46 @@ async function initSummary() {
  */
 function updateUpcomingDeadline(tasks) {
   let upcomingTask = null;
-
   for (let i = 0; i < tasks.length; i++) {
     let dueDate = new Date(tasks[i].dueDate).getTime();
-    const currentTask = new Date().getTime();
-
-    if (dueDate >= currentTask) {
+    const currentDate = new Date().getTime();
+    if (dueDate >= currentDate) {
       if (!upcomingTask || dueDate < new Date(upcomingTask.dueDate)) {
         upcomingTask = tasks[i];
-      } 
-    }  
+      }
+    }
   }
 
-  if (upcomingTask) {
-    let upcomingDeadlineElement = document.getElementById("upcoming_deadline");
-    let monthNames = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
-    ];
-    let monthIndex = parseInt(upcomingTask.dueDate.split("-")[1]) - 1; // Month index starts from 0
-    let monthName = monthNames[monthIndex];
-    let day = upcomingTask.dueDate.split("-")[2];
+  upcomingTask ? isUpComingTask(upcomingTask) : isNotUpComingTask();
+}
 
-    upcomingDeadlineElement.innerHTML = `${monthName} ${day}, ${new Date(
-      upcomingTask.dueDate
-    ).getFullYear()}`;
-  } 
+function isUpComingTask(upcomingTask) {
+  let upcomingDeadlineElement = document.getElementById("upcoming_deadline");
+  let monthNames = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  let monthIndex = parseInt(upcomingTask.dueDate.split("-")[1]) - 1; // Month index starts from 0
+  let monthName = monthNames[monthIndex];
+  let day = upcomingTask.dueDate.split("-")[2];
+
+  upcomingDeadlineElement.innerHTML = `<span>${monthName} ${day}, ${new Date(
+    upcomingTask.dueDate
+  ).getFullYear()}</span>`;
+}
+
+function isNotUpComingTask() {
+  document.getElementById("upcoming_deadline").innerHTML = "No current tasks";
 }
 
 /**
