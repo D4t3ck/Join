@@ -144,6 +144,7 @@ h1 {
   background: #fff;
   font-size: 20px;
   font-weight: 400;
+  font-family: var(--main_font);
 }
 
 .select {
@@ -155,6 +156,7 @@ h1 {
   border: 1px solid #d1d1d1;
   background: #fff;
   padding: 12px 21px;
+  font-family: var(--main_font);
 }
 
 .required_char {
