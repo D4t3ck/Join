@@ -1,3 +1,7 @@
+/**
+ * This function populates the popup card with editable fields for modifying a task's details.
+ * It retrieves the current task's assigned contacts, generates HTML content for the editable popup card, sets up priority spans for editing, checks the current priority, adds minimum date restrictions for editing due dates, sets the category for editing, populates the description field with the current task's description, displays subtasks for editing, and renders checked contacts for editing purposes.
+ */
 function renderPopUpCardEdit() {
   checkedContacts = currentTask.assignedTo;
   document.getElementById("card_popup_content").innerHTML =
@@ -50,6 +54,11 @@ function renderSubtasksEdit(task) {
   });
 }
 
+/**
+ * This function enables the editing of a subtask within an edit popup card by retrieving the current task based on its ID, generating HTML content for editing the subtask within the popup, setting the content as editable, focusing on it for user interaction, and displaying options for editing the subtask.
+ * @param {Number} index - Current Index from Subtask 
+ * @param {Number} id - Current Id from Task 
+ */
 function editSubTaskForEditPopUp(index, id) {
   currentEditTask = tasks.find((task) => task.id == id);
   document.getElementById(`subtask_paragraph${index}_edit`).innerHTML =
@@ -129,6 +138,9 @@ function renderInputAssignedForEdit() {
   document.getElementById("assigned_input_edit").focus();
 }
 
+/**
+ * This function closes the dropdown menu for editing assigned contacts by updating the list of checked contacts, setting the assigned contacts for the current task, clearing and updating the dropdown menu content, and rendering the checked contacts for editing purposes.
+ */
 function closeDropdownForEdit() {
   if (assignRdy) {
     getCheckedContacts();
@@ -164,6 +176,10 @@ function renderAssignedContentForEdit() {
   }, 500);
 }
 
+/**
+ * This function filters contacts for editing based on a user-inputted search term, updating the displayed contact list within the edit popup to show only the contacts whose names contain the search term in a case-insensitive manner.
+ * It then sets the contact values and checks whether any of the filtered contacts are already checked, ensuring smooth contact selection during editing.
+ */
 function searchContactForEdit() {
   const filteredContacts = [];
   const inputValue = document
@@ -180,4 +196,35 @@ function searchContactForEdit() {
     setContactValue(contact, index);
     checkContactChecked();
   });
+}
+
+function renderCheckedContactsForEdit() {
+  checkedContacts.forEach((checkedContact, index) => {
+    const findContact = data.contacts.find(
+      (contact) => contact.name == checkedContact
+    );
+    if (findContact) {
+      const profileName = getProfileChar(checkedContact);
+      document.getElementById("assigned_contact_profiles_edit").innerHTML +=
+        generateContactProfile(profileName, index);
+      document.getElementById(`profile_span${index}`).style.backgroundColor =
+        findContact.color;
+    }
+  });
+}
+
+/**
+ * This function saves the edits made to a task in a popup card by updating the task's title, description, due date, priority, and assigned contacts based on the input values provided by the user.
+ * It then saves the updated task data to storage and refreshes the popup card to display the edited information.
+ * @param {Number} id - Current Id from Task
+ */
+function editPopUpSave(id) {
+  const task = tasks.find((task) => task.id == id);
+  task.title = document.getElementById("title_input_edit").value;
+  task.description = document.getElementById("description_textarea_edit").value;
+  task.dueDate = document.getElementById("date_input_edit").value;
+  task.prio = getPrioEdit();
+  task.assignedTo = checkedContacts;
+  setItem("users", boardData);
+  renderPopUpCard(id);
 }

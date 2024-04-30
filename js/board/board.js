@@ -1,7 +1,6 @@
 let boardData;
 let boardPrioSpans;
 let tasks = [];
-
 let currentDraggedId;
 let currentIndex;
 let currentEditTask;
@@ -20,6 +19,9 @@ function changeAddTaskButton() {
   } else setShowAddTask();
 }
 
+/**
+ * This function sets event listeners on specific elements to trigger a function called "changeButtonSite" when those elements are clicked, allowing users to change the site according to the clicked element.
+ */
 function setChangeButtonSite() {
   document
     .getElementById("board_add_task_button")
@@ -48,6 +50,9 @@ function changeButtonSite() {
   changeCurrentPage("add_task");
 }
 
+/**
+ * This function asynchronously retrieves board data from storage, fetches additional data needed for rendering tasks, assigns tasks to a variable, sets IDs for elements, renders tasks on the board, sets priority spans, activates a medium priority, and updates the add task button, facilitating the display and management of tasks on the board.
+ */
 async function getBoardData() {
   const response = await getItem("users");
   await getData();
@@ -61,6 +66,10 @@ async function getBoardData() {
   changeAddTaskButton();
 }
 
+/**
+ * This function renders tasks within a specific board category by calling functions to display an add task form, set priority spans, activate a medium priority, add a function to clear inputs, set minimum dates for input fields, and show the add task form, ensuring smooth task management within the designated category.
+ * @param {boardCategory} functionPara - Parameter for Board Category
+ */
 function renderTaskInBoardCategory(functionPara) {
   renderAddTask(functionPara);
   getPrioSpans();
@@ -70,6 +79,10 @@ function renderTaskInBoardCategory(functionPara) {
   showAddTask();
 }
 
+/**
+ * This function renders tasks by first rendering the categories, then filtering and displaying tasks for each category ("toDo", "inProgress", "awaitFeedback", and "done") from the provided task list, organizing tasks based on their current status for better visual representation.
+ * @param {Array} taskList - List of Tasks
+ */
 function renderTasks(taskList) {
   renderCategory();
   filterTasks("toDo", taskList);
@@ -88,6 +101,12 @@ function renderCategory() {
   document.getElementById("category_section").innerHTML = generateCategorys();
 }
 
+/**
+ * This function filters tasks based on their category board ID and renders the filtered tasks within the corresponding section of the board.
+ * If there are no tasks in the filtered list, it displays an empty card for that section to maintain the layout consistency.
+ * @param {id} id - Id from task
+ * @param {Array} taskArr - Array of Tasks
+ */
 function filterTasks(id, taskArr) {
   const taskList = taskArr.filter((todo) => todo.categoryBoard == `${id}`);
   if (taskList.length != 0) {
@@ -97,6 +116,11 @@ function filterTasks(id, taskArr) {
   }
 }
 
+/**
+ *
+ * @param {Array} list - Array from Tasks
+ * @param {Number} id  - Id from current Task
+ */
 function renderList(list, id) {
   list.forEach((task, index) => {
     const checkSubTasks = task.subtasks.filter(
@@ -219,23 +243,6 @@ function setAddTasksInTasks() {
   }, 1250);
 }
 
-function renderPopUpCard(taskId) {
-  currentTask = tasks.find((todo) => todo.id == `${taskId}`);
-  const currentFormatDate = formatDate(currentTask.dueDate);
-  const prio =
-    currentTask.prio.charAt(0).toUpperCase() + currentTask.prio.slice(1);
-  document.getElementById("card_popup").style.display = "flex";
-  document.getElementById("card_popup_content").innerHTML = generatePopUpCard(
-    currentTask,
-    currentFormatDate,
-    prio
-  );
-  renderPrio(currentTask.prio);
-  printBackgroundCategory(currentTask.category);
-  renderPopUpSubtasks(currentTask);
-  renderAssignedContacts(currentTask);
-}
-
 function checkPrio(prio) {
   if (prio == "urgent") {
     setActivePrioEdit(0, "urgent");
@@ -316,18 +323,6 @@ function renderPrio(prio) {
   }
 }
 
-function printCardBackgroundCategory(task, index) {
-  if (task.category == "Technical Task") {
-    document.getElementById(
-      `card_category_${task.categoryBoard}${index}`
-    ).style.backgroundColor = "#1FD7C1";
-  } else {
-    document.getElementById(
-      `card_category_${task.categoryBoard}${index}`
-    ).style.backgroundColor = "#0038FF";
-  }
-}
-
 function printBackgroundCategory(category) {
   if (category == "Technical Task") {
     document.getElementById("popup_category_headline").style.backgroundColor =
@@ -335,68 +330,13 @@ function printBackgroundCategory(category) {
   }
 }
 
-function deleteTask(id) {
-  tasks.splice(id, 1);
-  setId();
-  setItem("users", boardData);
-  closePopUpCard();
-}
-
-function searchTask(id) {
-  const inputValue = document.getElementById(id).value.toLowerCase();
-  if (inputValue != "") {
-    const filteredTasks = tasks.filter(
-      (task) =>
-        task.title.toLowerCase().includes(inputValue) ||
-        task.category.toLowerCase().includes(inputValue)
-    );
-    renderTasks(filteredTasks);
-  } else renderTasks(tasks);
-}
-
-function editPopUpSave(id) {
-  const task = tasks.find((task) => task.id == id);
-  task.title = document.getElementById("title_input_edit").value;
-  task.description = document.getElementById("description_textarea_edit").value;
-  task.dueDate = document.getElementById("date_input_edit").value;
-  task.prio = getPrioEdit();
-  task.assignedTo = checkedContacts;
-  setItem("users", boardData);
-  renderPopUpCard(id);
-}
-
-function checkActiveContacts() {
-  data.contacts.forEach((contact, index) => {
-    currentTask.assignedTo.forEach((assignedContact) => {
-      if (assignedContact == contact.name) {
-        document.getElementById(`contact${index}`).checked = true;
-      }
-    });
-  });
-}
-
-function renderCheckedContactsForEdit() {
-  checkedContacts.forEach((checkedContact, index) => {
-    const findContact = data.contacts.find(
-      (contact) => contact.name == checkedContact
-    );
-    if (findContact) {
-      const profileName = getProfileChar(checkedContact);
-      document.getElementById("assigned_contact_profiles_edit").innerHTML +=
-        generateContactProfile(profileName, index);
-      document.getElementById(`profile_span${index}`).style.backgroundColor =
-        findContact.color;
-    }
-  });
-}
-
-function showSettingPopUp(event, taskId, index, categoryBoard) {
-  event.stopPropagation();
-  document.getElementById(
-    `popup_container_${categoryBoard}${index}`
-  ).innerHTML = generateSettingsPopUp(taskId, index);
-}
-
+/**
+ * This function moves a task to a different category within the board by updating its category board property based on the provided category.
+ * It then saves the updated task data to storage and refreshes the display to reflect the changes in the task's position on the board. Additionally, it disables the onclick event for the task's settings container to prevent multiple move actions.
+ * @param {Number} id - Current id from Task
+ * @param {String} category - Board Category
+ * @param {Number} index - Current index from card_settings_container
+ */
 function popUpMoveTo(id, category, index) {
   document.getElementById(`card_settings_container${index}`).onclick = "";
   const task = boardData.tasks.find((boardTask) => boardTask.id == id);
