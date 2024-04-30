@@ -36,6 +36,9 @@ class subTask {
   }
 }
 
+/**
+ * This function initializes the addition of a task by including HTML content, fetching data asynchronously, setting priority spans, activating a medium priority, and adding functions for clearing and setting minimum dates for input fields.
+ */
 async function initAddTask() {
   includeHTML();
   await getData();
@@ -45,6 +48,9 @@ async function initAddTask() {
   addDateMin("date_input");
 }
 
+/**
+ * This function gets user data from a storage source, converts the response to a usable format, and assigns the tasks associated with the users to a variable for further processing.
+ */
 async function getData() {
   const response = await getItem("users");
   data = JSON.parse(response);
@@ -63,6 +69,9 @@ function addDateMin(id) {
   document.getElementById(`${id}`).min = new Date().toISOString().split("T")[0];
 }
 
+/**
+ * This function clears input fields and resets arrays used for subtasks and checked contacts, ensuring a clean slate for adding new tasks.
+ */
 function clear() {
   document.getElementById("title_input").value = "";
   document.getElementById("description_textarea").value = "";
@@ -79,6 +88,11 @@ function stopEvent(event) {
   event.stopPropagation();
 }
 
+/**
+ * This function prevents the default form submission behavior, collects task data, displays a popup for creating tasks, and then automatically closes the popup after a short delay, contributing to a smoother user experience.
+ * @param {Event} event - Event handler
+ * @param {BoardCategory} renderFunctionPara - Parameter for getTaskData function
+ */
 function checkForm(event, renderFunctionPara) {
   event.preventDefault();
   getTaskData(renderFunctionPara);
@@ -88,6 +102,10 @@ function checkForm(event, renderFunctionPara) {
   }, 1250);
 }
 
+/**
+ * This function prevents the default form submission behavior, collects task data, displays a popup for creating tasks, then automatically closes the popup and changes the page after a short delay, facilitating a seamless transition for users.
+ * @param {Event} event - Event handler
+ */
 function checkFormFullPage(event) {
   event.preventDefault();
   getTaskData("toDo");
@@ -98,6 +116,10 @@ function checkFormFullPage(event) {
   }, 1250);
 }
 
+/**
+ * This function gathers task-related data from input fields, selected options, and arrays, creates a new Task object with the collected data, adds it to a list of tasks, saves the updated data to storage, and then clears the input fields for a fresh start.
+ * @param {categoryBoard} categoryBoard - render task in the correct category 
+ */
 function getTaskData(categoryBoard) {
   const title = document.getElementById("title_input").value;
   const description = document.getElementById("description_textarea").value;
@@ -121,10 +143,18 @@ function getTaskData(categoryBoard) {
   clear();
 }
 
+/**
+ * Change window location to board.html.
+ */
 function changePage() {
   window.location.href = "./board.html";
 }
 
+/**
+ * This function sets the priority level for a task by adding a specific class to the corresponding HTML element, updating the priority icon accordingly, and ensuring only one priority level is active at a time.
+ * @param {index} index - Index for the three prios 
+ * @param {*} prio - Parameter from current prio
+ */
 function setActivePrio(index, prio) {
   removeActiveClass();
   prioSpans[index].classList.add(prio);
@@ -147,6 +177,10 @@ function removeActiveClass() {
     "./assets/img/add_task/low_color.png";
 }
 
+/**
+ * This function iterates through priority elements, checking for specific classes representing priority levels, then retrieves the corresponding priority value from the associated headline, converting it to lowercase before returning it.
+ * @returns {value}
+ */
 function getPrio() {
   let value;
   for (let i = 0; i < prioSpans.length; i++) {
@@ -165,6 +199,9 @@ function getPrio() {
   return value;
 }
 
+/**
+ * This function creates a new subtask object using the input value from a form field, adds it to a list of subtasks, clears the input field, and then updates the display to show the newly added subtask.
+ */
 function setSubTask() {
   const title = document.getElementById("input_subtask").value;
   if (title != "") {
@@ -189,11 +226,19 @@ function renderSubTaskContent(task, index) {
   );
 }
 
+/**
+ * This function removes a subtask from the list based on its index, updates the display to reflect the changes, effectively deleting the selected subtask.
+ * @param {index} index - Current index from Subtask Array
+ */
 function deleteSubTask(index) {
   subTasks.splice(index, 1);
   printSubTask();
 }
 
+/**
+ * This function retrieves the subtask at a specific index, replaces its content with an editable form, sets the content as editable, focuses on it for user interaction, and displays options for editing the subtask.
+ * @param {index} index - Current index from Subtask Array 
+ */
 function editSubTask(index) {
   const task = subTasks[index];
   document.getElementById(`subtask_paragraph${index}`).innerHTML =
@@ -204,6 +249,10 @@ function editSubTask(index) {
   showSubTaskIcon(index);
 }
 
+/**
+ * This function updates the title of a subtask with the modified content entered by the user, then refreshes the display to reflect the changes made to the subtask list.
+ * @param {index} index - Current index from Subtask Array
+ */
 function saveSubTask(index) {
   subTasks[index].title = document.getElementById(
     `subtask_information_span${index}`
@@ -214,131 +263,6 @@ function saveSubTask(index) {
 function showSubTaskIcon(index) {
   document.getElementById(`subtask_icon_container${index}`).innerHTML =
     generateSubTaskIconEdit(index);
-}
-
-function renderInputAssigned() {
-  document.getElementById("assigned_container").innerHTML =
-    generateInputAssigned();
-  renderAssignedContent();
-  document.getElementById("assigned_input").focus();
-}
-
-function renderAssignedContent() {
-  const content = document.getElementById("input_assigned_content");
-  content.innerHTML = "";
-  data.contacts.forEach((contact, index) => {
-    content.innerHTML += generateContact(contact.name, index);
-    setContactValue(contact.name, index);
-  });
-  checkContactChecked();
-  setTimeout(() => {
-    assignRdy = true;
-  }, 500);
-}
-
-function checkContactChecked() {
-  let filteredContacts;
-  const contactList = document.querySelectorAll(".contact");
-  data.contacts.forEach((contact, index) => {
-    filteredContacts = checkedContacts.find(
-      (checkContact) => checkContact == contact.name
-    );
-    if (filteredContacts) {
-      for(let i = 0; i < contactList.length; i++) {
-        if(contactList[i].value == filteredContacts) {
-          let contact = document.getElementById(contactList[i].id);
-          if (contact) contact.checked = true;
-        }
-      }
-    }
-  });
-}
-
-function setContactValue(contact, index) {
-  document.getElementById(`contact${index}`).value = contact;
-}
-
-function closeDropdown() {
-  if (assignRdy) {
-    getCheckedContacts();
-    document.getElementById("assigned_container").innerHTML =
-      generateAssignSelection();
-    renderCheckedContacts();
-    assignRdy = false;
-  }
-}
-
-function renderCheckedContacts() {
-  document.getElementById("assigned_contact_profiles").innerHTML = "";
-  checkedContacts.forEach((checkedContact, index) => {
-    const findContact = data.contacts.find(
-      (contact) => contact.name == checkedContact
-    );
-    const profileName = getProfileChar(checkedContact);
-    document.getElementById("assigned_contact_profiles").innerHTML +=
-      generateContactProfile(profileName, index);
-    document.getElementById(`profile_span${index}`).style.backgroundColor =
-      findContact.color;
-  });
-}
-
-function getProfileChar(checkedContact) {
-  const names = checkedContact.split(" ");
-  let profileName;
-  if (names.length == 1) {
-    profileName = profileName = names[0].charAt(0);
-  } else {
-    profileName = names[0].charAt(0) + names[names.length - 1].charAt(0);
-  }
-  return profileName;
-}
-
-function getCheckedContacts() {
-  const contactList = document.querySelectorAll(".contact");
-  if (!checkedContacts) {
-    checkedContacts = [];
-  }
-  for (let i = 0; i < contactList.length; i++) {
-    if (contactList[i].checked) {
-      addSearchContact(contactList, i);
-    } else {
-      removeSearchContact(contactList, i);
-    }
-  }
-}
-
-function addSearchContact(contactList, i) {
-  const findContact = checkedContacts.find(
-    (contact) => contact == contactList[i].value
-  );
-  if (!findContact) {
-    checkedContacts.push(contactList[i].value);
-  }
-}
-
-function removeSearchContact(contactList, i) {
-  const index = checkedContacts.indexOf(contactList[i].value);
-  if (index > -1) {
-    checkedContacts.splice(index, 1);
-  }
-}
-
-function searchContact() {
-  const filteredContacts = [];
-  const inputValue = document
-    .getElementById("assigned_input")
-    .value.toLocaleLowerCase();
-  document.getElementById("input_assigned_content").innerHTML = "";
-  data.contacts.forEach((contact) => {
-    if (contact.name.toLocaleLowerCase().includes(inputValue))
-      filteredContacts.push(contact.name);
-  });
-  filteredContacts.forEach((contact, index) => {
-    document.getElementById("input_assigned_content").innerHTML +=
-      generateContact(contact, index);
-    setContactValue(contact, index);
-    checkContactChecked();
-  });
 }
 
 function showCreateTaskPopup() {
