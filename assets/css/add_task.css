@@ -147,6 +147,18 @@ h1 {
   font-family: var(--main_font);
 }
 
+.input[type="date"]  {
+  display: inline-table;
+  padding: 12px 21px;
+  align-self: stretch;
+  border-radius: 10px;
+  border: 1px solid #d1d1d1;
+  background: #fff;
+  font-size: 20px;
+  font-weight: 400;
+  font-family: var(--main_font);
+}
+
 .select {
   color: #000;
   font-size: 20px;

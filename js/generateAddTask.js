@@ -8,21 +8,23 @@ function generateAssignSelection() {
   
   function generateInputAssigned() {
     return /*html*/ `
-      <div class="assign_input_container" onclick="stopEvent(event)">
+      <div class="assign_input_container" >
         <input type="text" class="input" id="assigned_input" onkeyup="searchContact()">
-        <span><img src="./assets/img/add_task/arrow_drop_up.png" alt="close dropdown"></span>
+        <span><img src="./assets/img/add_task/arrow_drop_up.png" alt="close dropdown" onclick="closeDropdown()"></span>
       </div>
-      <div id="input_assigned_content">
+      <div class="contact_list">
+        <ul id="input_assigned_content">
+        </ul>
       </div>
     `;
   }
   
   function generateContact(contact, index) {
     return /*html*/ `
-      <div>
+      <li class="contact_item">
         <input type="checkbox" id="contact${index}" class="contact">
         <label for="contact${index}"> ${contact}</label>
-      </div>
+      </li>
     `;
   }
   
