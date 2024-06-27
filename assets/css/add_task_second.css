@@ -9,6 +9,7 @@
     scrollbar-width: thin;
     height: 100%;
     margin: 0;
+    scrollbar-color: hsl(0deg 1.17% 74.65%) #fff;
   }
   
   #assigned_input:focus {
