@@ -231,6 +231,7 @@ function closeAddTask() {
 function renderAddTask(functionPara) {
   document.getElementById("add_task_popup_content").innerHTML =
     generateAddTask(functionPara);
+    includeHTML();
 }
 
 function setAddTasksInTasks() {

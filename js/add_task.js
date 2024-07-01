@@ -40,12 +40,13 @@ class subTask {
  * This function initializes the addition of a task by including HTML content, fetching data asynchronously, setting priority spans, activating a medium priority, and adding functions for clearing and setting minimum dates for input fields.
  */
 async function initAddTask() {
-  includeHTML();
   await getData();
-  getPrioSpans();
-  setActivePrio(1, "medium");
-  addClearFunction();
-  addDateMin("date_input");
+  await includeHTML().then(() => {
+    getPrioSpans();
+    setActivePrio(1, "medium");
+    addClearFunction();
+    addDateMin("date_input");
+  });
 }
 
 /**
