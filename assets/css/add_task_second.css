@@ -17,10 +17,17 @@
   }
   
   .contact_item {
-    width: 250px;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     margin-left: 16px;
+    margin-right: 16px;
+    gap: 8px;
+  }
+
+  .contact_item > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 8px;
   }
   

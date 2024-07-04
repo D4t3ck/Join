@@ -22,8 +22,12 @@ function generateAssignSelection() {
   function generateContact(contact, index) {
     return /*html*/ `
       <li class="contact_item">
-        <input type="checkbox" id="contact${index}" class="contact">
-        <label for="contact${index}"> ${contact}</label>
+        <div>
+          <input type="checkbox" id="contact${index}" class="contact">
+          <label for="contact${index}"> ${contact}</label>
+        </div>
+        <div class="contact_list_img" id="contact_profile_image${index}">
+        </div>
       </li>
     `;
   }

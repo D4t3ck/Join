@@ -147,7 +147,7 @@ h1 {
   font-family: var(--main_font);
 }
 
-.input[type="date"]  {
+.input[type="date"] {
   display: inline-table;
   padding: 12px 21px;
   align-self: stretch;
@@ -356,4 +356,11 @@ h1 {
   list-style-type: none;
   scrollbar-width: thin;
   border-radius: 10px;
+}
+
+.contact_list_img {
+  padding: 8px;
+  border-radius: 100%;
+  font-size: 12px;
+  color: white;
 }

@@ -15,12 +15,20 @@ function renderInputAssigned() {
     content.innerHTML = "";
     data.contacts.forEach((contact, index) => {
       content.innerHTML += generateContact(contact.name, index);
+      setProfileImage(contact, index);
       setContactValue(contact.name, index);
     });
     checkContactChecked();
     setTimeout(() => {
       assignRdy = true;
     }, 500);
+  }
+
+  function setProfileImage(contact, index) {
+    let profileName = getProfileChar(contact.name);
+    let contactProfileImage = document.getElementById(`contact_profile_image${index}`);
+    contactProfileImage.innerHTML = profileName;
+    contactProfileImage.style.backgroundColor = contact.color;
   }
   
   /**
