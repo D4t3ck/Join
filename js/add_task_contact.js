@@ -24,6 +24,11 @@ function renderInputAssigned() {
     }, 500);
   }
 
+  /**
+   * Generate a profile image for the current contact.
+   * @param {Contact} contact - This is a Contact Object 
+   * @param {Number} index - This is the current Index for the id: contact_profile_image
+   */
   function setProfileImage(contact, index) {
     let profileName = getProfileChar(contact.name);
     let contactProfileImage = document.getElementById(`contact_profile_image${index}`);
