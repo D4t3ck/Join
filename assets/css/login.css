@@ -14,32 +14,32 @@
 }
 
 .modal.fade-out {
-  opacity: 0;
-}
-
-@keyframes moveDiagonal {
-  0% {
-    transform: translate(0, 0);
-  }
-  100% {
-    transform: translate(-40vw, -32vh);
-  }
-}
-
-@keyframes resizeImage {
-  0% {
-    width: 500px;
-    height: 520px;
-  }
-  100% {
-    width: 100px;
-    height: 120px;
-  }
+  opacity: 0.5;
 }
 
 .landing_page_desktop img {
-  animation: moveDiagonal 1s forwards, resizeImage 2s forwards;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  animation: moveTopLeft 1s ease-out forwards;
+  animation-delay: 0.4s;
+ 
 }
+
+@keyframes moveTopLeft {
+  0% {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    top: 1rem;
+    left: 1rem;
+    transform: translate(0, 0) scale(0.4);
+  }
+}
+
 
 /********** HEAD **********/
 
