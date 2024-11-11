@@ -24,7 +24,6 @@ async function getCurrentUser() {
   currentUser = usersFiltered;
 }
 
-
 const STORAGE_TOKEN = "V3GBL599LI0VXDK4HJXHD632WIB3WOBMWS6ENT06";
 const STORAGE_URL = "https://remote-storage.developerakademie.org/item";
 
@@ -83,20 +82,20 @@ async function includeHTML() {
  * Highlight the current page in the sidebar by changing its background color and border radius.
  */
 function highlightCurrentPage() {
-  let currentPage = window.location.pathname;
+  const currentPage = window.location.pathname.split("/").pop().toLowerCase();
 
   const pages = [
-    "/Join/summary.html",
-    "/Join/add_task.html",
-    "/Join/board.html",
-    "/Join/contacts.html",
-    "/Join/privacy_policy.html",
-    "/Join/legal_notice.html",
+    { name: "summary.html", index: 0 },
+    { name: "add_task.html", index: 1 },
+    { name: "board.html", index: 2 },
+    { name: "contacts.html", index: 3 },
+    { name: "privacy_policy.html", index: 4 },
+    { name: "legal_notice.html", index: 5 },
   ];
 
-  pages.forEach((page, index) => {
-    if (currentPage === page) {
-      setActiveStyle(index);
+  pages.forEach((page) => {
+    if (currentPage === page.name) {
+      setActiveStyle(page.index);
     }
   });
 }
@@ -106,14 +105,11 @@ function highlightCurrentPage() {
  * @param {number} index - The index of the sidebar element in the array.
  */
 const setActiveStyle = (index) => {
-  const sidebarElements = [];
-
-  for (let i = 0; i < 6; i++) {
-    sidebarElements.push(document.getElementById(`sidebar_${i}`));
+  const sidebarElement = document.getElementById(`sidebar_${index}`);
+  if (sidebarElement) {
+    sidebarElement.style.backgroundColor = "#091931";
+    sidebarElement.style.borderRadius = "10px";
   }
-
-  sidebarElements[index].style.backgroundColor = "#091931";
-  sidebarElements[index].style.borderRadius = "10px";
 };
 
 /**
