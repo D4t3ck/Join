@@ -8,7 +8,7 @@ let isImageLog = true;
 document.addEventListener("DOMContentLoaded", function () {
   setTimeout(function () {
     fadeOutModal();
-  }, 1000);
+  }, 2800);
 
   /**
    * Initiates a fade-out animation on the landing page modal
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
     modal.classList.add("fade-out");
     setTimeout(function () {
       modal.style.display = "none";
-    }, 200);
+    }, 250);
   }
 });
 
@@ -70,8 +70,6 @@ passwordInput.addEventListener("blur", function () {
 });
 
 //////////////////////////////////////////////////////////////////////
-
-
 
 /**
  * Toggles the state of the login checkbox between checked and unchecked.
@@ -200,7 +198,6 @@ function toggleOutline(input, container) {
  * Toggles the blue outline class on email and password input field containers based on their input values.
  */
 function toggleBlueOutline() {
- 
   let emailContainer = document.getElementById("emailContainer");
   let passwordContainer = document.getElementById("passwordContainer");
   let emailInput = document.getElementById("email");
