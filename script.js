@@ -4,7 +4,6 @@
  */
 async function init() {
   await includeHTML();
-  highlightCurrentPage();
   getUserAccount();
 }
 
@@ -76,6 +75,7 @@ async function includeHTML() {
       element.innerHTML = "Page not found";
     }
   }
+  highlightCurrentPage();
 }
 
 /**
