@@ -1,6 +1,7 @@
 # Join - Kanban Project Management Tool
 
-Welcome to the official repository for **Join**, your guide to using our kanban-based project management tool. This README provides an overview of what Join is, how it can benefit you, and how to use it effectively.
+Welcome to the repository for **Join**, your guide to using our kanban-based project management tool. This README provides an overview of what Join is, how it can benefit you, and how to use it effectively.
+This is a group work effort by a team of three.
 
 ---
 
